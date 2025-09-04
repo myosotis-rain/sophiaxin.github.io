@@ -131,7 +131,8 @@ main {
     position: relative;
     margin-bottom: 0;
     background: #ffffff;
-    padding: var(--spacing-md) 0;
+    padding-top: calc(80px + var(--spacing-lg));
+    padding-bottom: var(--spacing-lg);
 }
 
 .hero-content {
@@ -247,7 +248,7 @@ main {
     background: linear-gradient(135deg, #bfdbfe 0%, #93c5fd 100%);
     color: #1e40af;
     margin: 0 -50vw;
-    padding: var(--spacing-md) 50vw;
+    padding: var(--spacing-sm) 50vw;
 }
 
 .section#projects .section-title {
@@ -304,6 +305,12 @@ main {
     text-align: left;
     color: var(--color-text);
     letter-spacing: -0.015em;
+}
+
+.section#contact .section-title {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    text-align: center;
 }
 
 .section-content {
@@ -441,15 +448,15 @@ main {
 
 .contact-links {
     display: flex;
-    justify-content: flex-start;
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-lg);
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
 }
 
 .contact-link {
     display: inline-flex;
     align-items: center;
-    padding: 0.75rem 1.5rem;
+    padding: 0.5rem 1rem;
     color: var(--color-text);
     text-decoration: none;
     border: 1px solid var(--color-border);
@@ -457,7 +464,7 @@ main {
     transition: all 0.2s ease;
     font-weight: 500;
     background: var(--color-bg-secondary);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 .contact-link:hover {
@@ -621,7 +628,8 @@ main {
     
     .hero {
         min-height: 30vh;
-        padding: var(--spacing-sm) 0;
+        padding-top: calc(80px + var(--spacing-md));
+        padding-bottom: var(--spacing-md);
     }
     
     .hero-title.masquerade-text {
@@ -634,9 +642,9 @@ main {
     }
     
     .contact-links {
-        flex-direction: column;
-        align-items: center;
-        gap: var(--spacing-sm);
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--spacing-xs);
     }
     
     .projects-grid {
