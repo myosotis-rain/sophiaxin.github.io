@@ -125,7 +125,7 @@ main {
 }
 
 .hero {
-    min-height: 70vh;
+    min-height: 50vh;
     display: flex;
     align-items: center;
     position: relative;
@@ -147,10 +147,10 @@ main {
 }
 
 .hero-title.masquerade-text {
-    font-size: clamp(3rem, 8vw, 5rem);
+    font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 700;
     letter-spacing: -0.02em;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
     line-height: 1.1;
     position: relative;
     color: var(--color-text);
@@ -158,22 +158,22 @@ main {
 
 
 .hero-subtitle {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     color: var(--color-text-muted);
     font-weight: 400;
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
     line-height: 1.3;
 }
 
 .hero-description {
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
 }
 
 .hero-description p {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     color: var(--color-text-muted);
     line-height: 1.6;
-    max-width: 600px;
+    max-width: 500px;
     margin: 0 auto;
 }
 
@@ -235,7 +235,7 @@ main {
 }
 
 .section#projects {
-    background: linear-gradient(to bottom, #2d3748 0%, #1a202c 100%);
+    background: #1a202c;
     color: #ffffff;
     margin: 0 -50vw;
     padding: var(--spacing-2xl) 50vw;
@@ -243,7 +243,7 @@ main {
 }
 
 .section#contact {
-    background: linear-gradient(to bottom, #2d3748 0%, #1a202c 100%);
+    background: #1a202c;
     color: #ffffff;
     margin: 0 -50vw;
     padding: var(--spacing-2xl) 50vw;
@@ -616,12 +616,12 @@ main {
     }
     
     .hero {
-        min-height: 100vh;
+        min-height: 60vh;
         padding: var(--spacing-lg) 0;
     }
     
     .hero-title.masquerade-text {
-        font-size: clamp(2.5rem, 10vw, 4rem);
+        font-size: clamp(2rem, 8vw, 3rem);
     }
     
     
