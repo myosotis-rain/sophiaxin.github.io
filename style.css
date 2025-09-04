@@ -125,7 +125,7 @@ main {
 }
 
 .hero {
-    min-height: 50vh;
+    min-height: 30vh;
     display: flex;
     align-items: center;
     position: relative;
@@ -147,10 +147,10 @@ main {
 }
 
 .hero-title.masquerade-text {
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
     font-weight: 700;
     letter-spacing: -0.02em;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
     line-height: 1.1;
     position: relative;
     color: var(--color-text);
@@ -166,14 +166,14 @@ main {
 }
 
 .hero-description {
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
 }
 
 .hero-description p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--color-text-muted);
-    line-height: 1.6;
-    max-width: 500px;
+    line-height: 1.5;
+    max-width: 450px;
     margin: 0 auto;
 }
 
@@ -616,12 +616,12 @@ main {
     }
     
     .hero {
-        min-height: 60vh;
-        padding: var(--spacing-lg) 0;
+        min-height: 40vh;
+        padding: var(--spacing-md) 0;
     }
     
     .hero-title.masquerade-text {
-        font-size: clamp(2rem, 8vw, 3rem);
+        font-size: clamp(1.5rem, 6vw, 2rem);
     }
     
     
