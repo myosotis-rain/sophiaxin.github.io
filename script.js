@@ -1,49 +1,26 @@
 // Custom cursor functionality
 document.addEventListener('DOMContentLoaded', function() {
     const cursorDot = document.querySelector('[data-cursor-dot]');
-    const cursorOutline = document.querySelector('[data-cursor-outline]');
     
-    if (cursorDot && cursorOutline) {
-        let mouseX = 0;
-        let mouseY = 0;
-        let outlineX = 0;
-        let outlineY = 0;
-        
+    if (cursorDot) {
         // Track mouse movement
         document.addEventListener('mousemove', function(e) {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            
-            // Update cursor dot position immediately
-            cursorDot.style.left = mouseX + 'px';
-            cursorDot.style.top = mouseY + 'px';
+            cursorDot.style.left = e.clientX + 'px';
+            cursorDot.style.top = e.clientY + 'px';
         });
         
-        // Animate cursor outline with delay
-        function animateOutline() {
-            const delay = 0.1;
-            outlineX += (mouseX - outlineX) * delay;
-            outlineY += (mouseY - outlineY) * delay;
-            
-            cursorOutline.style.left = outlineX + 'px';
-            cursorOutline.style.top = outlineY + 'px';
-            
-            requestAnimationFrame(animateOutline);
-        }
-        animateOutline();
-        
         // Hover effects
-        const hoverElements = document.querySelectorAll('a, button, .project-card');
+        const hoverElements = document.querySelectorAll('a, button, .project-card, .preview-card');
         
         hoverElements.forEach(el => {
             el.addEventListener('mouseenter', function() {
-                cursorDot.style.transform = 'translate(-50%, -50%) scale(1.5)';
-                cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                cursorDot.style.transform = 'translate(-50%, -50%) scale(2)';
+                cursorDot.style.background = 'var(--color-accent-secondary)';
             });
             
             el.addEventListener('mouseleave', function() {
                 cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
-                cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursorDot.style.background = 'var(--color-accent)';
             });
         });
     }
@@ -62,24 +39,39 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Add parallax effect to floating elements
-    const floatingElements = document.querySelectorAll('.floating-element');
-    
-    if (floatingElements.length > 0) {
-        document.addEventListener('mousemove', function(e) {
-            const { clientX, clientY } = e;
-            const centerX = window.innerWidth / 2;
-            const centerY = window.innerHeight / 2;
-            
-            floatingElements.forEach((element, index) => {
-                const speed = element.dataset.speed || 1;
-                const x = (clientX - centerX) * speed * 0.01;
-                const y = (clientY - centerY) * speed * 0.01;
+    // Add click functionality to preview cards
+    const previewCards = document.querySelectorAll('.preview-card');
+    previewCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const projectsSection = document.querySelector('#projects');
+            if (projectsSection) {
+                projectsSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
                 
-                element.style.transform = `translate(${x}px, ${y}px)`;
-            });
+                // Add a little celebration animation
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+            }
         });
-    }
+    });
+    
+    // Add subtle parallax effect to background gradients
+    document.addEventListener('mousemove', function(e) {
+        const { clientX, clientY } = e;
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+        
+        const hero = document.querySelector('.hero');
+        if (hero) {
+            const x = (clientX - centerX) * 0.01;
+            const y = (clientY - centerY) * 0.01;
+            hero.style.backgroundPosition = `${50 + x}% ${50 + y}%`;
+        }
+    });
     
     // Add scroll-triggered animations
     const observerOptions = {
