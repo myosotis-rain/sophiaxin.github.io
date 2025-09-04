@@ -125,12 +125,13 @@ main {
 }
 
 .hero {
-    min-height: 30vh;
+    min-height: 25vh;
     display: flex;
     align-items: center;
     position: relative;
     margin-bottom: 0;
     background: #ffffff;
+    padding: var(--spacing-md) 0;
 }
 
 .hero-content {
@@ -147,10 +148,10 @@ main {
 }
 
 .hero-title.masquerade-text {
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
     font-weight: 700;
     letter-spacing: -0.02em;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
     line-height: 1.1;
     position: relative;
     color: var(--color-text);
@@ -166,7 +167,7 @@ main {
 }
 
 .hero-description {
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
 }
 
 .hero-description p {
@@ -235,7 +236,7 @@ main {
 }
 
 .section#projects {
-    background: linear-gradient(135deg, #f8fafc 0%, #dbeafe 50%, #3b82f6 100%);
+    background: linear-gradient(135deg, #f8fafc 0%, #dbeafe 50%, #bfdbfe 100%);
     color: #1a202c;
     margin: 0 -50vw;
     padding: var(--spacing-xl) 50vw;
@@ -243,10 +244,10 @@ main {
 }
 
 .section#contact {
-    background: #1a202c;
-    color: #ffffff;
+    background: linear-gradient(135deg, #bfdbfe 0%, #93c5fd 100%);
+    color: #1e40af;
     margin: 0 -50vw;
-    padding: var(--spacing-lg) 50vw;
+    padding: var(--spacing-md) 50vw;
 }
 
 .section#projects .section-title {
@@ -254,7 +255,7 @@ main {
 }
 
 .section#contact .section-title {
-    color: #ffffff;
+    color: #1e40af;
 }
 
 .section#projects .project-card {
@@ -283,16 +284,16 @@ main {
 }
 
 .section#contact .contact-link {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(30, 64, 175, 0.3);
+    color: #1e40af;
     backdrop-filter: blur(10px);
 }
 
 .section#contact .contact-link:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.4);
-    color: #ffffff;
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(30, 64, 175, 0.5);
+    color: #1e40af;
     transform: translateY(-2px);
 }
 
@@ -619,12 +620,12 @@ main {
     }
     
     .hero {
-        min-height: 40vh;
-        padding: var(--spacing-md) 0;
+        min-height: 30vh;
+        padding: var(--spacing-sm) 0;
     }
     
     .hero-title.masquerade-text {
-        font-size: clamp(1.5rem, 6vw, 2rem);
+        font-size: clamp(1.2rem, 5vw, 1.8rem);
     }
     
     
