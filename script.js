@@ -41,6 +41,57 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Enhanced horizontal scrolling for slides
+    const slidesContainer = document.querySelector('.slides-container');
+    if (slidesContainer) {
+        // Enable horizontal scrolling with mouse wheel
+        slidesContainer.addEventListener('wheel', function(e) {
+            if (e.deltaY !== 0) {
+                e.preventDefault();
+                this.scrollLeft += e.deltaY;
+            }
+        });
+        
+        // Smooth scroll to slides with arrow keys
+        document.addEventListener('keydown', function(e) {
+            if (!slidesContainer.matches(':hover')) return;
+            
+            const slideWidth = slidesContainer.querySelector('.slide-item').offsetWidth;
+            const gap = 48; // 3rem gap
+            const scrollDistance = slideWidth + gap;
+            
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                slidesContainer.scrollBy({ left: -scrollDistance, behavior: 'smooth' });
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                slidesContainer.scrollBy({ left: scrollDistance, behavior: 'smooth' });
+            }
+        });
+        
+        // Add momentum scrolling for touch devices
+        let isScrolling = false;
+        let startX = 0;
+        let scrollLeft = 0;
+        
+        slidesContainer.addEventListener('touchstart', function(e) {
+            isScrolling = true;
+            startX = e.touches[0].pageX - this.offsetLeft;
+            scrollLeft = this.scrollLeft;
+        });
+        
+        slidesContainer.addEventListener('touchmove', function(e) {
+            if (!isScrolling) return;
+            e.preventDefault();
+            const x = e.touches[0].pageX - this.offsetLeft;
+            const walk = (x - startX) * 2;
+            this.scrollLeft = scrollLeft - walk;
+        });
+        
+        slidesContainer.addEventListener('touchend', function() {
+            isScrolling = false;
+        });
+    }
     
     // Animated name reveal
     const animatedText = document.querySelector('.animated-text');
