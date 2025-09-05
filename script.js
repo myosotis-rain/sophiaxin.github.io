@@ -353,9 +353,203 @@ document.addEventListener('DOMContentLoaded', function() {
             
             setTimeout(() => {
                 uploadBtn.textContent = originalText;
-                uploadBtn.style.background = '#3b82f6';
+                uploadBtn.style.background = 'linear-gradient(135deg, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0.02) 100%)';
             }, 2000);
         }
+    }
+    
+    // Project page navigation
+    const projectCards = document.querySelectorAll('.project-card[data-project]');
+    projectCards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            // Don't trigger if clicking on the "View Case Study" link
+            if (e.target.classList.contains('project-link')) {
+                e.preventDefault();
+            }
+            
+            const projectId = this.dataset.project;
+            
+            // Create project pages with detailed content
+            const projectData = {
+                ecommerce: {
+                    title: 'E-Commerce Platform',
+                    subtitle: 'Full-Stack Web Application',
+                    description: 'A comprehensive e-commerce solution built with modern technologies, featuring real-time inventory management, secure payment processing, and an intuitive admin dashboard.',
+                    tech: ['React', 'Node.js', 'PostgreSQL', 'Stripe API', 'AWS'],
+                    features: ['Real-time inventory updates', 'Secure payment integration', 'Admin dashboard', 'Mobile-responsive design', 'SEO optimization'],
+                    challenges: 'Implementing real-time inventory synchronization across multiple sales channels while maintaining data consistency.',
+                    outcome: 'Increased client sales by 40% and reduced cart abandonment by 25%.'
+                },
+                taskmanagement: {
+                    title: 'Task Management',
+                    subtitle: 'Cross-Platform Mobile App',
+                    description: 'A productivity-focused task management application with offline capabilities, team collaboration features, and advanced analytics.',
+                    tech: ['React Native', 'TypeScript', 'Firebase', 'Redux', 'AsyncStorage'],
+                    features: ['Offline synchronization', 'Team collaboration', 'Advanced analytics', 'Push notifications', 'Dark mode'],
+                    challenges: 'Creating seamless offline-to-online sync while handling conflicts and ensuring data integrity.',
+                    outcome: 'Downloaded by 50K+ users with 4.8-star rating on app stores.'
+                },
+                analytics: {
+                    title: 'Analytics Dashboard',
+                    subtitle: 'Business Intelligence Platform',
+                    description: 'Interactive data visualization platform processing millions of data points with real-time updates and custom reporting capabilities.',
+                    tech: ['D3.js', 'Python', 'Apache Spark', 'PostgreSQL', 'Docker'],
+                    features: ['Real-time data processing', 'Interactive visualizations', 'Custom report generation', 'Data export capabilities', 'Multi-tenant architecture'],
+                    challenges: 'Optimizing query performance for large datasets while maintaining real-time visualization updates.',
+                    outcome: 'Reduced data analysis time by 70% for enterprise clients.'
+                },
+                aicontentgen: {
+                    title: 'Smart Content Generator',
+                    subtitle: 'AI-Powered Content Platform',
+                    description: 'Advanced AI content creation platform utilizing natural language processing for automated content generation and optimization.',
+                    tech: ['Python', 'TensorFlow', 'OpenAI API', 'React', 'FastAPI'],
+                    features: ['AI content generation', 'Multi-language support', 'Content optimization', 'Plagiarism detection', 'Brand voice adaptation'],
+                    challenges: 'Fine-tuning AI models to generate contextually relevant and brand-consistent content.',
+                    outcome: 'Helped content creators increase productivity by 60% while maintaining quality.'
+                },
+                defitrading: {
+                    title: 'DeFi Trading Platform',
+                    subtitle: 'Decentralized Finance Solution',
+                    description: 'Cutting-edge decentralized trading platform with automated market making, yield farming, and advanced DeFi protocols.',
+                    tech: ['Solidity', 'Web3.js', 'Ethereum', 'React', 'Hardhat'],
+                    features: ['Automated market making', 'Yield farming protocols', 'Multi-token swaps', 'Liquidity mining', 'Governance voting'],
+                    challenges: 'Ensuring smart contract security while optimizing gas efficiency and user experience.',
+                    outcome: 'Facilitated $10M+ in trading volume with zero security incidents.'
+                },
+                componentlibrary: {
+                    title: 'Component Library',
+                    subtitle: 'Design System & UI Kit',
+                    description: 'Comprehensive design system with 50+ reusable components, complete documentation, and seamless Figma integration.',
+                    tech: ['React', 'Storybook', 'Figma', 'TypeScript', 'Styled Components'],
+                    features: ['50+ components', 'Figma integration', 'Interactive documentation', 'Theme customization', 'Accessibility compliance'],
+                    challenges: 'Creating flexible, accessible components that work across different design requirements.',
+                    outcome: 'Reduced development time by 50% across multiple product teams.'
+                }
+            };
+            
+            const project = projectData[projectId];
+            if (project) {
+                openProjectModal(project);
+            }
+        });
+    });
+    
+    function openProjectModal(project) {
+        // Create modal overlay
+        const modal = document.createElement('div');
+        modal.className = 'project-modal';
+        modal.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(10px);
+        `;
+        
+        // Create modal content
+        const modalContent = document.createElement('div');
+        modalContent.style.cssText = `
+            background: white;
+            border-radius: 16px;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            margin: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        `;
+        
+        modalContent.innerHTML = `
+            <div style="padding: 2rem;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div>
+                        <h2 style="font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">${project.title}</h2>
+                        <p style="color: #64748b; font-size: 1.1rem;">${project.subtitle}</p>
+                    </div>
+                    <button class="close-modal" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #64748b; padding: 0.5rem;">×</button>
+                </div>
+                
+                <div style="margin-bottom: 2rem;">
+                    <p style="font-size: 1.1rem; line-height: 1.6; color: #374151;">${project.description}</p>
+                </div>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.2rem; font-weight: 600; color: #0f172a; margin-bottom: 1rem;">Technologies Used</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                        ${project.tech.map(tech => `<span style="background: #f1f5f9; color: #475569; padding: 0.25rem 0.75rem; border-radius: 6px; font-size: 0.85rem; font-weight: 500;">${tech}</span>`).join('')}
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.2rem; font-weight: 600; color: #0f172a; margin-bottom: 1rem;">Key Features</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        ${project.features.map(feature => `<li style="padding: 0.5rem 0; border-bottom: 1px solid #f1f5f9; color: #374151;">• ${feature}</li>`).join('')}
+                    </ul>
+                </div>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.2rem; font-weight: 600; color: #0f172a; margin-bottom: 1rem;">Challenge</h3>
+                    <p style="color: #374151; line-height: 1.6;">${project.challenges}</p>
+                </div>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.2rem; font-weight: 600; color: #0f172a; margin-bottom: 1rem;">Outcome</h3>
+                    <p style="color: #059669; line-height: 1.6; font-weight: 500;">${project.outcome}</p>
+                </div>
+                
+                <div style="display: flex; gap: 1rem; justify-content: center;">
+                    <button class="close-modal" style="background: linear-gradient(135deg, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0.02) 100%); color: #374151; border: 1px solid rgba(0, 0, 0, 0.08); padding: 0.75rem 1.5rem; border-radius: 8px; cursor: pointer; font-weight: 500;">Close</button>
+                </div>
+            </div>
+        `;
+        
+        modal.appendChild(modalContent);
+        document.body.appendChild(modal);
+        
+        // Show modal with animation
+        setTimeout(() => {
+            modal.style.opacity = '1';
+            modalContent.style.transform = 'scale(1)';
+        }, 10);
+        
+        // Close modal functionality
+        const closeButtons = modal.querySelectorAll('.close-modal');
+        closeButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                modal.style.opacity = '0';
+                modalContent.style.transform = 'scale(0.9)';
+                setTimeout(() => modal.remove(), 300);
+            });
+        });
+        
+        // Close on overlay click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.opacity = '0';
+                modalContent.style.transform = 'scale(0.9)';
+                setTimeout(() => modal.remove(), 300);
+            }
+        });
+        
+        // Close on Escape key
+        const handleEscape = (e) => {
+            if (e.key === 'Escape') {
+                modal.style.opacity = '0';
+                modalContent.style.transform = 'scale(0.9)';
+                setTimeout(() => modal.remove(), 300);
+                document.removeEventListener('keydown', handleEscape);
+            }
+        };
+        document.addEventListener('keydown', handleEscape);
     }
     
     // Konami code easter egg with more personality

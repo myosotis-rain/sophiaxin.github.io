@@ -6,18 +6,18 @@
     --color-bg-secondary: #ffffff;
     --color-text: #1a1a1a;
     --color-text-muted: #6b7280;
-    --color-accent: #bfdbfe;
-    --color-accent-secondary: #93c5fd;
-    --color-tertiary: #dbeafe;
-    --color-border: rgba(191, 219, 254, 0.3);
+    --color-accent: #e0f2fe;
+    --color-accent-secondary: #bae6fd;
+    --color-tertiary: #f0f9ff;
+    --color-border: rgba(224, 242, 254, 0.4);
     --color-card: rgba(255, 255, 255, 0.95);
     
     --gradient-primary: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-    --gradient-secondary: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
-    --gradient-tertiary: linear-gradient(135deg, #bfdbfe 0%, #93c5fd 100%);
-    --gradient-text: linear-gradient(135deg, #3b82f6, #60a5fa, #93c5fd);
+    --gradient-secondary: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+    --gradient-tertiary: linear-gradient(135deg, #bae6fd 0%, #7dd3fc 100%);
+    --gradient-text: linear-gradient(135deg, #38bdf8, #0ea5e9, #0284c7);
     --gradient-bg: #ffffff;
-    --gradient-subtle: linear-gradient(135deg, rgba(191, 219, 254, 0.1) 0%, rgba(219, 234, 254, 0.05) 100%);
+    --gradient-subtle: linear-gradient(135deg, rgba(224, 242, 254, 0.1) 0%, rgba(240, 249, 255, 0.05) 100%);
     
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-mono: 'SF Mono', Consolas, 'Liberation Mono', monospace;
@@ -125,14 +125,14 @@ main {
 }
 
 .hero {
-    min-height: 40vh;
+    min-height: 50vh;
     display: flex;
     align-items: center;
     position: relative;
     margin-bottom: 0;
     background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
-    padding-top: calc(60px + var(--spacing-xl));
-    padding-bottom: var(--spacing-xl);
+    padding-top: calc(60px + var(--spacing-2xl));
+    padding-bottom: var(--spacing-2xl);
 }
 
 .hero-content {
@@ -299,7 +299,7 @@ main {
 }
 
 .section#projects {
-    background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 50%, #e0f2fe 100%);
+    background: linear-gradient(135deg, #fdfdfd 0%, #f9fafb 30%, #f0f9ff 70%, #e0f2fe 100%);
     color: #1a202c;
     margin: 0 -50vw;
     padding: var(--spacing-xl) 50vw;
@@ -335,8 +335,9 @@ main {
 }
 
 .section#projects .section-title {
-    color: #3b82f6;
+    color: #374151;
     margin-bottom: 0;
+    opacity: 0.9;
 }
 
 .upload-controls {
@@ -432,7 +433,7 @@ main {
 }
 
 .section#projects .project-type {
-    color: #60a5fa;
+    color: #0ea5e9;
 }
 
 .section#projects .project-year {
@@ -475,6 +476,7 @@ main {
     flex-direction: column;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     backdrop-filter: blur(10px);
+    cursor: pointer;
 }
 
 .project-card:hover {
@@ -509,23 +511,23 @@ main {
 }
 
 .project-placeholder[data-type="mobile"] {
-    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
-}
-
-.project-placeholder[data-type="data"] {
-    background: linear-gradient(135deg, #bfdbfe 0%, #93c5fd 100%);
-}
-
-.project-placeholder[data-type="ai"] {
     background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
 }
 
+.project-placeholder[data-type="data"] {
+    background: linear-gradient(135deg, #bae6fd 0%, #7dd3fc 100%);
+}
+
+.project-placeholder[data-type="ai"] {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+}
+
 .project-placeholder[data-type="blockchain"] {
-    background: linear-gradient(135deg, #f0f9ff 0%, #dbeafe 100%);
+    background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
 }
 
 .project-placeholder[data-type="design"] {
-    background: linear-gradient(135deg, #dbeafe 0%, #c7d2fe 100%);
+    background: linear-gradient(135deg, #f0f9ff 0%, #dbeafe 100%);
 }
 
 .project-content {
@@ -769,9 +771,9 @@ main {
     }
     
     .hero {
-        min-height: 45vh;
-        padding-top: calc(60px + var(--spacing-lg));
-        padding-bottom: var(--spacing-lg);
+        min-height: 55vh;
+        padding-top: calc(60px + var(--spacing-xl));
+        padding-bottom: var(--spacing-xl);
     }
     
     .hero-content {
