@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         function animateCursor() {
-            cursorX += (mouseX - cursorX) * 0.1;
-            cursorY += (mouseY - cursorY) * 0.1;
+            cursorX += (mouseX - cursorX) * 0.25;
+            cursorY += (mouseY - cursorY) * 0.25;
             cursorDot.style.left = cursorX + 'px';
             cursorDot.style.top = cursorY + 'px';
             requestAnimationFrame(animateCursor);
@@ -22,19 +22,21 @@ document.addEventListener('DOMContentLoaded', function() {
         animateCursor();
         
         // Enhanced hover effects
-        const hoverElements = document.querySelectorAll('a, button, .project-card');
+        const hoverElements = document.querySelectorAll('a, button, .project-card, .project-card-link');
         
         hoverElements.forEach(el => {
             el.addEventListener('mouseenter', function() {
                 cursorDot.style.transform = 'translate(-50%, -50%) scale(3)';
                 cursorDot.style.background = 'rgba(147, 197, 253, 0.6)';
                 cursorDot.style.backdropFilter = 'blur(5px)';
+                cursorDot.style.boxShadow = '0 0 20px rgba(147, 197, 253, 0.4)';
             });
             
             el.addEventListener('mouseleave', function() {
                 cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
                 cursorDot.style.background = '#93c5fd';
                 cursorDot.style.backdropFilter = 'none';
+                cursorDot.style.boxShadow = 'none';
             });
         });
     }
@@ -165,21 +167,110 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     
-    // Project page navigation
-    const projectCards = document.querySelectorAll('.project-card[data-project]');
-    projectCards.forEach(card => {
-        card.addEventListener('click', function(e) {
-            // Don't trigger if clicking on the "View Case Study" link
-            if (e.target.classList.contains('project-link')) {
-                e.preventDefault();
-            }
+    // Magnetic buttons effect
+    const magneticElements = document.querySelectorAll('.project-card, .nav-link, .about-button');
+    magneticElements.forEach(el => {
+        el.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
             
-            const projectId = this.dataset.project;
+            const moveX = x * 0.1;
+            const moveY = y * 0.1;
             
-            // Navigate to individual project page
-            window.location.href = `${projectId}.html`;
+            this.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+        
+        el.addEventListener('mouseleave', function() {
+            this.style.transform = 'translate(0, 0)';
         });
     });
+    
+    // Floating particles background effect
+    function createFloatingParticles() {
+        const particlesContainer = document.createElement('div');
+        particlesContainer.className = 'particles-container';
+        particlesContainer.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        `;
+        document.body.appendChild(particlesContainer);
+        
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'floating-particle';
+            particle.style.cssText = `
+                position: absolute;
+                width: 2px;
+                height: 2px;
+                background: rgba(147, 197, 253, 0.3);
+                border-radius: 50%;
+                animation: float-${i % 3} ${10 + Math.random() * 20}s infinite linear;
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+            `;
+            particlesContainer.appendChild(particle);
+        }
+    }
+    
+    // Scroll progress indicator
+    function createScrollProgress() {
+        const progressBar = document.createElement('div');
+        progressBar.className = 'scroll-progress';
+        progressBar.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: linear-gradient(90deg, #93c5fd, #0ea5e9);
+            z-index: 10000;
+            transition: width 0.1s ease;
+        `;
+        document.body.appendChild(progressBar);
+        
+        window.addEventListener('scroll', () => {
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            progressBar.style.width = scrollPercent + '%';
+        });
+    }
+    
+    // Text reveal on scroll
+    function setupTextReveal() {
+        const textElements = document.querySelectorAll('h1, h2, h3, p');
+        textElements.forEach(el => {
+            const text = el.textContent;
+            el.innerHTML = text.split(' ').map(word => 
+                `<span class="word-reveal" style="opacity: 0; transform: translateY(20px); transition: all 0.6s ease;">${word}</span>`
+            ).join(' ');
+        });
+        
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const words = entry.target.querySelectorAll('.word-reveal');
+                    words.forEach((word, index) => {
+                        setTimeout(() => {
+                            word.style.opacity = '1';
+                            word.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        textElements.forEach(el => revealObserver.observe(el));
+    }
+    
+    // Initialize new components
+    createFloatingParticles();
+    createScrollProgress();
+    setupTextReveal();
     
     // Keep project data for potential future modal use
     const projectData = {
@@ -220,14 +311,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     challenges: 'Fine-tuning AI models to generate contextually relevant and brand-consistent content.',
                     outcome: 'Helped content creators increase productivity by 60% while maintaining quality.'
                 },
-                defitrading: {
-                    title: 'DeFi Trading Platform',
-                    subtitle: 'Decentralized Finance Solution',
-                    description: 'Cutting-edge decentralized trading platform with automated market making, yield farming, and advanced DeFi protocols.',
-                    tech: ['Solidity', 'Web3.js', 'Ethereum', 'React', 'Hardhat'],
-                    features: ['Automated market making', 'Yield farming protocols', 'Multi-token swaps', 'Liquidity mining', 'Governance voting'],
-                    challenges: 'Ensuring smart contract security while optimizing gas efficiency and user experience.',
-                    outcome: 'Facilitated $10M+ in trading volume with zero security incidents.'
+                artwork: {
+                    title: 'Creative Works & Visual Exploration',
+                    subtitle: 'Illustrations, Collages & Digital Art',
+                    description: 'A curated collection of visual works including digital illustrations, experimental collages, and artistic explorations that blend traditional art techniques with digital innovation.',
+                    tech: ['Digital Illustration', 'Collage', 'Mixed Media', 'Adobe Creative Suite', 'Procreate'],
+                    features: ['Character illustrations', 'Abstract compositions', 'Digital collages', 'Experimental typography', 'Visual storytelling'],
+                    challenges: 'Developing a unique visual language that bridges traditional artistic methods with contemporary digital tools and themes.',
+                    outcome: 'Created a diverse portfolio showcasing artistic versatility and creative problem-solving across multiple visual mediums.'
                 },
                 componentlibrary: {
                     title: 'Component Library',
@@ -237,6 +328,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     features: ['50+ components', 'Figma integration', 'Interactive documentation', 'Theme customization', 'Accessibility compliance'],
                     challenges: 'Creating flexible, accessible components that work across different design requirements.',
                     outcome: 'Reduced development time by 50% across multiple product teams.'
+                },
+                wellesleyweb: {
+                    title: 'The Wellesley Web: TechConnect',
+                    subtitle: 'Wellesley College • CS304 - Databases with Web Interfaces',
+                    description: 'Pre-professional networking platform specifically designed for Wellesley College students and alumni in tech and tech-adjacent fields. Built front-end and back-end entirely from scratch as a team project.',
+                    tech: ['Python', 'HTML', 'CSS', 'JavaScript', 'SQL'],
+                    features: ['User authentication', 'Professional networking', 'Database integration', 'Responsive design', 'Full-stack architecture'],
+                    challenges: 'Learning HTML and CSS from scratch while implementing complex database interactions and creating an intuitive user interface for professional networking.',
+                    outcome: 'Successfully delivered a fully functional networking platform, gaining comprehensive full-stack development experience from zero prior knowledge in frontend technologies.'
                 }
             };
     
@@ -304,6 +404,35 @@ style.textContent = `
             filter: hue-rotate(270deg) saturate(1.5) brightness(1.2); 
             transform: scale(1.01);
         }
+    }
+    
+    @keyframes float-0 {
+        0%, 100% { transform: translateY(0px) translateX(0px); }
+        25% { transform: translateY(-20px) translateX(10px); }
+        50% { transform: translateY(-10px) translateX(-5px); }
+        75% { transform: translateY(-30px) translateX(15px); }
+    }
+    
+    @keyframes float-1 {
+        0%, 100% { transform: translateY(0px) translateX(0px); }
+        33% { transform: translateY(-15px) translateX(-10px); }
+        66% { transform: translateY(-25px) translateX(8px); }
+    }
+    
+    @keyframes float-2 {
+        0%, 100% { transform: translateY(0px) translateX(0px); }
+        20% { transform: translateY(-18px) translateX(12px); }
+        40% { transform: translateY(-8px) translateX(-8px); }
+        60% { transform: translateY(-22px) translateX(5px); }
+        80% { transform: translateY(-12px) translateX(-12px); }
+    }
+    
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        25% { background-position: 100% 50%; }
+        50% { background-position: 100% 100%; }
+        75% { background-position: 0% 100%; }
+        100% { background-position: 0% 50%; }
     }
 `;
 document.head.appendChild(style);
