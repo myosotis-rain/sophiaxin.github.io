@@ -164,148 +164,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Image upload functionality
-    const imageUpload = document.getElementById('imageUpload');
-    let uploadedImages = [];
-    
-    if (imageUpload) {
-        imageUpload.addEventListener('change', function(e) {
-            const files = Array.from(e.target.files);
-            
-            files.forEach((file, index) => {
-                if (file.type.startsWith('image/')) {
-                    const reader = new FileReader();
-                    
-                    reader.onload = function(e) {
-                        const imageData = {
-                            src: e.target.result,
-                            name: file.name,
-                            id: Date.now() + index
-                        };
-                        
-                        uploadedImages.push(imageData);
-                        
-                        // Find project cards with placeholders and replace them
-                        const projectCards = document.querySelectorAll('.project-card');
-                        const availableCard = Array.from(projectCards).find(card => {
-                            const placeholder = card.querySelector('.project-placeholder');
-                            return placeholder && !card.querySelector('.uploaded-image');
-                        });
-                        
-                        if (availableCard) {
-                            replaceProjectImage(availableCard, imageData);
-                        }
-                        
-                        // Show upload success animation
-                        showUploadSuccess();
-                    };
-                    
-                    reader.readAsDataURL(file);
-                }
-            });
-        });
-    }
-    
-    function replaceProjectImage(projectCard, imageData) {
-        const projectImage = projectCard.querySelector('.project-image');
-        const placeholder = projectCard.querySelector('.project-placeholder');
-        
-        if (projectImage && placeholder) {
-            // Create uploaded image element
-            const img = document.createElement('img');
-            img.src = imageData.src;
-            img.alt = imageData.name;
-            img.className = 'uploaded-image';
-            img.style.cssText = `
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                opacity: 0;
-                transition: opacity 0.5s ease;
-            `;
-            
-            // Add click to remove functionality
-            const removeBtn = document.createElement('button');
-            removeBtn.innerHTML = '×';
-            removeBtn.className = 'remove-image';
-            removeBtn.style.cssText = `
-                position: absolute;
-                top: 8px;
-                right: 8px;
-                background: rgba(0, 0, 0, 0.7);
-                color: white;
-                border: none;
-                border-radius: 50%;
-                width: 24px;
-                height: 24px;
-                cursor: pointer;
-                font-size: 14px;
-                line-height: 1;
-                opacity: 0;
-                transition: opacity 0.3s ease;
-                z-index: 10;
-            `;
-            
-            removeBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                removeProjectImage(projectCard, imageData.id);
-            });
-            
-            // Show remove button on hover
-            projectImage.addEventListener('mouseenter', function() {
-                removeBtn.style.opacity = '1';
-            });
-            
-            projectImage.addEventListener('mouseleave', function() {
-                removeBtn.style.opacity = '0';
-            });
-            
-            // Replace placeholder with image
-            placeholder.style.opacity = '0';
-            setTimeout(() => {
-                projectImage.appendChild(img);
-                projectImage.appendChild(removeBtn);
-                placeholder.style.display = 'none';
-                img.style.opacity = '1';
-            }, 200);
-        }
-    }
-    
-    function removeProjectImage(projectCard, imageId) {
-        const projectImage = projectCard.querySelector('.project-image');
-        const uploadedImg = projectCard.querySelector('.uploaded-image');
-        const removeBtn = projectCard.querySelector('.remove-image');
-        const placeholder = projectCard.querySelector('.project-placeholder');
-        
-        if (uploadedImg) {
-            uploadedImg.style.opacity = '0';
-            setTimeout(() => {
-                uploadedImg.remove();
-                if (removeBtn) removeBtn.remove();
-                if (placeholder) {
-                    placeholder.style.display = 'flex';
-                    placeholder.style.opacity = '1';
-                }
-            }, 200);
-        }
-        
-        // Remove from uploaded images array
-        uploadedImages = uploadedImages.filter(img => img.id !== imageId);
-    }
-    
-    function showUploadSuccess() {
-        const uploadBtn = document.querySelector('.upload-btn');
-        if (uploadBtn) {
-            const originalText = uploadBtn.textContent;
-            uploadBtn.textContent = '✓ Uploaded!';
-            uploadBtn.style.background = '#10b981';
-            
-            setTimeout(() => {
-                uploadBtn.textContent = originalText;
-                uploadBtn.style.background = 'linear-gradient(135deg, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0.02) 100%)';
-            }, 2000);
-        }
-    }
     
     // Project page navigation
     const projectCards = document.querySelectorAll('.project-card[data-project]');
@@ -327,7 +185,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     tech: ['Interface Design', 'Live Coding', 'Open Source', 'Simulation', 'Collaboration'],
                     features: ['Open-source interface design', 'Live-code package integration', 'Molds simulation sketch', 'Collaborative development', 'User interaction design'],
                     challenges: 'Designing an intuitive interface for complex live-coding workflows while maintaining the flexibility needed for creative expression.',
-                    outcome: 'Successfully contributed to an open-source tool that enables creative live-coding experiences for artists and developers.'
+                    outcome: 'Successfully contributed to an open-source tool that enables creative live-coding experiences for artists and developers.',
+                    videoUrl: 'https://youtu.be/AaxXMroazQs'
                 },
                 etextiles: {
                     title: 'Electronic Textiles',
@@ -345,8 +204,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     tech: ['Animation', 'Interactive Design', 'Digital Art', 'Presentation Design', 'Visual Storytelling'],
                     features: ['Animated slideshow presentations', 'Interactive visual elements', 'Digital drawing integration', 'Creative storytelling', 'Academic portfolio format'],
                     challenges: 'Translating meditative drawing practices into engaging digital animations while maintaining the contemplative essence of the original work.',
-                    outcome: 'Successfully documented semester-long artistic journey with innovative presentation format that enhanced the viewing experience.',
-                    videoUrl: 'https://youtu.be/AaxXMroazQs'
+                    outcome: 'Successfully documented semester-long artistic journey with innovative presentation format that enhanced the viewing experience.'
                 },
                 aicontentgen: {
                     title: 'Smart Content Generator',
