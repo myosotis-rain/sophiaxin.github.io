@@ -296,7 +296,7 @@ main {
 }
 
 .section#contact {
-    background: linear-gradient(135deg, #dbeafe 0%, #bae6fd 50%, #e0f2fe 100%);
+    background: #ffffff;
     color: #1a202c;
     margin: 0 -50vw;
     padding: var(--spacing-lg) 50vw;
@@ -773,5 +773,37 @@ main {
     .experience-header {
         flex-direction: column;
         align-items: flex-start;
+    }
+}
+
+/* Project Page Styles */
+.project-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: var(--gradient-bg);
+}
+
+.project-page-content {
+    text-align: center;
+    max-width: 800px;
+}
+
+.project-page-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 2rem;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+@media (max-width: 768px) {
+    .project-page-title {
+        font-size: 2rem;
     }
 }

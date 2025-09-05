@@ -176,8 +176,13 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const projectId = this.dataset.project;
             
-            // Create project pages with detailed content
-            const projectData = {
+            // Navigate to individual project page
+            window.location.href = `${projectId}.html`;
+        });
+    });
+    
+    // Keep project data for potential future modal use
+    const projectData = {
                 dovekie: {
                     title: 'Dovekie Interface',
                     subtitle: 'MIT Media Lab • Future Sketches',
@@ -234,132 +239,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     outcome: 'Reduced development time by 50% across multiple product teams.'
                 }
             };
-            
-            const project = projectData[projectId];
-            if (project) {
-                openProjectModal(project);
-            }
-        });
-    });
-    
-    function openProjectModal(project) {
-        // Create modal overlay
-        const modal = document.createElement('div');
-        modal.className = 'project-modal';
-        modal.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            backdrop-filter: blur(10px);
-        `;
-        
-        // Create modal content
-        const modalContent = document.createElement('div');
-        modalContent.style.cssText = `
-            background: white;
-            border-radius: 16px;
-            max-width: 800px;
-            max-height: 90vh;
-            overflow-y: auto;
-            margin: 20px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            transform: scale(0.9);
-            transition: transform 0.3s ease;
-        `;
-        
-        modalContent.innerHTML = `
-            <div style="padding: 2rem;">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
-                    <div>
-                        <h2 style="font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">${project.title}</h2>
-                        <p style="color: #64748b; font-size: 1.1rem;">${project.subtitle}</p>
-                    </div>
-                    <button class="close-modal" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #64748b; padding: 0.5rem;">×</button>
-                </div>
-                
-                <div style="margin-bottom: 2rem;">
-                    <p style="font-size: 1.1rem; line-height: 1.6; color: #374151;">${project.description}</p>
-                </div>
-                
-                <div style="margin-bottom: 2rem;">
-                    <h3 style="font-size: 1.2rem; font-weight: 600; color: #0f172a; margin-bottom: 1rem;">Technologies Used</h3>
-                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-                        ${project.tech.map(tech => `<span style="background: #f1f5f9; color: #475569; padding: 0.25rem 0.75rem; border-radius: 6px; font-size: 0.85rem; font-weight: 500;">${tech}</span>`).join('')}
-                    </div>
-                </div>
-                
-                <div style="margin-bottom: 2rem;">
-                    <h3 style="font-size: 1.2rem; font-weight: 600; color: #0f172a; margin-bottom: 1rem;">Key Features</h3>
-                    <ul style="list-style: none; padding: 0;">
-                        ${project.features.map(feature => `<li style="padding: 0.5rem 0; border-bottom: 1px solid #f1f5f9; color: #374151;">• ${feature}</li>`).join('')}
-                    </ul>
-                </div>
-                
-                <div style="margin-bottom: 2rem;">
-                    <h3 style="font-size: 1.2rem; font-weight: 600; color: #0f172a; margin-bottom: 1rem;">Challenge</h3>
-                    <p style="color: #374151; line-height: 1.6;">${project.challenges}</p>
-                </div>
-                
-                <div style="margin-bottom: 2rem;">
-                    <h3 style="font-size: 1.2rem; font-weight: 600; color: #0f172a; margin-bottom: 1rem;">Outcome</h3>
-                    <p style="color: #059669; line-height: 1.6; font-weight: 500;">${project.outcome}</p>
-                </div>
-                
-                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    ${project.videoUrl ? `<a href="${project.videoUrl}" target="_blank" style="background: #3b82f6; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; cursor: pointer; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">📹 View Video</a>` : ''}
-                    <button class="close-modal" style="background: linear-gradient(135deg, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0.02) 100%); color: #374151; border: 1px solid rgba(0, 0, 0, 0.08); padding: 0.75rem 1.5rem; border-radius: 8px; cursor: pointer; font-weight: 500;">Close</button>
-                </div>
-            </div>
-        `;
-        
-        modal.appendChild(modalContent);
-        document.body.appendChild(modal);
-        
-        // Show modal with animation
-        setTimeout(() => {
-            modal.style.opacity = '1';
-            modalContent.style.transform = 'scale(1)';
-        }, 10);
-        
-        // Close modal functionality
-        const closeButtons = modal.querySelectorAll('.close-modal');
-        closeButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                modal.style.opacity = '0';
-                modalContent.style.transform = 'scale(0.9)';
-                setTimeout(() => modal.remove(), 300);
-            });
-        });
-        
-        // Close on overlay click
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.opacity = '0';
-                modalContent.style.transform = 'scale(0.9)';
-                setTimeout(() => modal.remove(), 300);
-            }
-        });
-        
-        // Close on Escape key
-        const handleEscape = (e) => {
-            if (e.key === 'Escape') {
-                modal.style.opacity = '0';
-                modalContent.style.transform = 'scale(0.9)';
-                setTimeout(() => modal.remove(), 300);
-                document.removeEventListener('keydown', handleEscape);
-            }
-        };
-        document.addEventListener('keydown', handleEscape);
-    }
     
     // Konami code easter egg with more personality
     let konamiCode = [];
