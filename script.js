@@ -96,8 +96,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const projectCards = document.querySelectorAll('.project-card');
     projectCards.forEach((card, index) => {
         card.style.opacity = '0';
-        card.style.transform = 'translateY(50px) scale(0.9)';
-        card.style.transition = `all 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.1}s`;
+        card.style.transform = 'translateY(30px) scale(0.95)';
+        card.style.transition = `all 0.5s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.05}s`;
         
         // Add hover personality
         card.addEventListener('mouseenter', function() {
