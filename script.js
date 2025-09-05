@@ -345,7 +345,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     tech: ['Animation', 'Interactive Design', 'Digital Art', 'Presentation Design', 'Visual Storytelling'],
                     features: ['Animated slideshow presentations', 'Interactive visual elements', 'Digital drawing integration', 'Creative storytelling', 'Academic portfolio format'],
                     challenges: 'Translating meditative drawing practices into engaging digital animations while maintaining the contemplative essence of the original work.',
-                    outcome: 'Successfully documented semester-long artistic journey with innovative presentation format that enhanced the viewing experience.'
+                    outcome: 'Successfully documented semester-long artistic journey with innovative presentation format that enhanced the viewing experience.',
+                    videoUrl: 'https://youtu.be/AaxXMroazQs'
                 },
                 aicontentgen: {
                     title: 'Smart Content Generator',
@@ -455,7 +456,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p style="color: #059669; line-height: 1.6; font-weight: 500;">${project.outcome}</p>
                 </div>
                 
-                <div style="display: flex; gap: 1rem; justify-content: center;">
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    ${project.videoUrl ? `<a href="${project.videoUrl}" target="_blank" style="background: #3b82f6; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; cursor: pointer; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">📹 View Video</a>` : ''}
                     <button class="close-modal" style="background: linear-gradient(135deg, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0.02) 100%); color: #374151; border: 1px solid rgba(0, 0, 0, 0.08); padding: 0.75rem 1.5rem; border-radius: 8px; cursor: pointer; font-weight: 500;">Close</button>
                 </div>
             </div>
