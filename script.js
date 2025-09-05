@@ -45,11 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (typingText) {
         const roles = [
-            'Full Stack Developer',
-            'UI/UX Designer', 
-            'Creative Coder',
-            'Problem Solver',
-            'Tech Enthusiast'
+            'Product/UX Designer'
         ];
         
         let roleIndex = 0;
@@ -57,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let isDeleting = false;
         
         function typeEffect() {
-            const currentRole = roles[roleIndex];
+            const currentRole = roles[0]; // Only one role now
             
             if (isDeleting) {
                 typingText.textContent = currentRole.substring(0, charIndex - 1);
@@ -70,11 +66,10 @@ document.addEventListener('DOMContentLoaded', function() {
             let typeSpeed = isDeleting ? 50 : 100;
             
             if (!isDeleting && charIndex === currentRole.length) {
-                typeSpeed = 2000;
-                isDeleting = true;
+                // Stay completed, don't start deleting
+                return;
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
-                roleIndex = (roleIndex + 1) % roles.length;
                 typeSpeed = 500;
             }
             
