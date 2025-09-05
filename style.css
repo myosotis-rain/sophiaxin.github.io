@@ -288,7 +288,7 @@ main {
 }
 
 .section#projects {
-    background: linear-gradient(135deg, #fdfdfd 0%, #f9fafb 30%, #f0f9ff 70%, #e0f2fe 100%);
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #dbeafe 100%);
     color: #1a202c;
     margin: 0 -50vw;
     padding: var(--spacing-xl) 50vw;
@@ -302,7 +302,7 @@ main {
     left: 0;
     right: 0;
     height: 40px;
-    background: linear-gradient(180deg, rgba(248, 250, 252, 0) 0%, rgba(248, 250, 252, 1) 100%);
+    background: linear-gradient(180deg, rgba(240, 249, 255, 0) 0%, rgba(240, 249, 255, 1) 100%);
     z-index: 1;
 }
 
