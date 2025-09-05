@@ -314,11 +314,14 @@ main {
 
 .projects-header {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     margin-bottom: var(--spacing-xl);
     position: relative;
     z-index: 2;
+    max-width: var(--max-width);
+    margin: 0 auto var(--spacing-xl) auto;
+    padding: 0 var(--spacing-lg);
 }
 
 .section#projects .section-title {
