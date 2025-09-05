@@ -300,9 +300,9 @@ main {
 .section#projects {
     background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(240, 249, 255, 0.2) 25%, rgba(224, 242, 254, 0.4) 50%, rgba(186, 230, 253, 0.6) 100%);
     color: #1a202c;
-    margin: 0 -50vw;
-    padding: var(--spacing-xl) 50vw;
     position: relative;
+    margin: 0 -50vw;
+    padding: var(--spacing-2xl) 50vw;
 }
 
 .section#contact {
@@ -313,15 +313,16 @@ main {
 }
 
 .projects-header {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
     margin-bottom: var(--spacing-xl);
-    position: relative;
-    z-index: 2;
-    max-width: var(--max-width);
-    margin: 0 auto var(--spacing-xl) auto;
-    padding: 0 var(--spacing-lg);
+}
+
+.projects-grid {
+    margin-top: var(--spacing-lg);
+}
+
+.projects-section .section-title {
+    text-align: left;
+    margin: 0;
 }
 
 .section#projects .section-title {
@@ -396,7 +397,7 @@ main {
 }
 
 .section#projects .project-type {
-    color: #0ea5e9;
+    color: #0369a1;
 }
 
 .section#projects .project-year {
@@ -596,6 +597,82 @@ main {
     padding: 0 var(--spacing-md);
 }
 
+.education-section, .experience-section {
+    margin-top: var(--spacing-2xl);
+}
+
+.education-item {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-subtle);
+}
+
+.education-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-sm);
+}
+
+.education-header h3 {
+    margin: 0;
+    color: var(--color-text);
+    font-size: 1.2rem;
+}
+
+.education-period {
+    color: var(--color-text-muted);
+    font-weight: 500;
+    background: var(--gradient-tertiary);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.education-degree {
+    color: var(--color-text);
+    margin: var(--spacing-xs) 0;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.education-fellowship {
+    color: #0369a1;
+    margin: var(--spacing-xs) 0;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.coursework-title {
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-text);
+    font-size: 1.1rem;
+}
+
+.coursework-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+.coursework-list {
+    margin-bottom: var(--spacing-xl);
+}
+
+.coursework-list span {
+    background: var(--color-card);
+    color: var(--color-text);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-subtle);
+}
+
 .about-hero {
     padding: calc(80px + var(--spacing-2xl)) 0 var(--spacing-2xl);
 }
@@ -646,7 +723,7 @@ main {
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: var(--spacing-sm);
-    color: var(--color-accent);
+    color: #0369a1;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
@@ -711,7 +788,7 @@ main {
 
 .experience-company {
     font-size: 1rem;
-    color: var(--color-accent);
+    color: #0369a1;
     font-weight: 500;
     margin-bottom: var(--spacing-sm);
 }

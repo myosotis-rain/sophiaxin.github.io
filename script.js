@@ -240,9 +240,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Text reveal on scroll
+    // Text reveal on scroll (only for hero and main sections, not about page)
     function setupTextReveal() {
-        const textElements = document.querySelectorAll('h1, h2, h3, p');
+        if (window.location.pathname.includes('about.html')) return; // Skip on about page
+        
+        const textElements = document.querySelectorAll('.hero h1, .hero p, .projects-section h2');
         textElements.forEach(el => {
             const text = el.textContent;
             el.innerHTML = text.split(' ').map(word => 
