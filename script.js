@@ -320,32 +320,32 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Create project pages with detailed content
             const projectData = {
-                ecommerce: {
-                    title: 'E-Commerce Platform',
-                    subtitle: 'Full-Stack Web Application',
-                    description: 'A comprehensive e-commerce solution built with modern technologies, featuring real-time inventory management, secure payment processing, and an intuitive admin dashboard.',
-                    tech: ['React', 'Node.js', 'PostgreSQL', 'Stripe API', 'AWS'],
-                    features: ['Real-time inventory updates', 'Secure payment integration', 'Admin dashboard', 'Mobile-responsive design', 'SEO optimization'],
-                    challenges: 'Implementing real-time inventory synchronization across multiple sales channels while maintaining data consistency.',
-                    outcome: 'Increased client sales by 40% and reduced cart abandonment by 25%.'
+                dovekie: {
+                    title: 'Dovekie Interface',
+                    subtitle: 'MIT Media Lab • Future Sketches',
+                    description: 'Interface design for the open-source live-code package Dovekie under the supervision of Jessica Stringham. Created molds simulation sketch based on work of Patt Vira and collaborated on interface development for the live-coding environment.',
+                    tech: ['Interface Design', 'Live Coding', 'Open Source', 'Simulation', 'Collaboration'],
+                    features: ['Open-source interface design', 'Live-code package integration', 'Molds simulation sketch', 'Collaborative development', 'User interaction design'],
+                    challenges: 'Designing an intuitive interface for complex live-coding workflows while maintaining the flexibility needed for creative expression.',
+                    outcome: 'Successfully contributed to an open-source tool that enables creative live-coding experiences for artists and developers.'
                 },
-                taskmanagement: {
-                    title: 'Task Management',
-                    subtitle: 'Cross-Platform Mobile App',
-                    description: 'A productivity-focused task management application with offline capabilities, team collaboration features, and advanced analytics.',
-                    tech: ['React Native', 'TypeScript', 'Firebase', 'Redux', 'AsyncStorage'],
-                    features: ['Offline synchronization', 'Team collaboration', 'Advanced analytics', 'Push notifications', 'Dark mode'],
-                    challenges: 'Creating seamless offline-to-online sync while handling conflicts and ensuring data integrity.',
-                    outcome: 'Downloaded by 50K+ users with 4.8-star rating on app stores.'
+                etextiles: {
+                    title: 'Electronic Textiles',
+                    subtitle: 'MIT Media Lab • Responsive Environments',
+                    description: 'Concept art and 3D visualization project for sensor network applications under the supervision of Irmandy Wicaksono. Focused on device designs and user interaction within electronic textile systems.',
+                    tech: ['3D Visualization', 'Concept Art', 'UX Design', 'Sensor Networks', 'Wearable Tech'],
+                    features: ['Sensor network visualization', '3D device mockups', 'User interaction concepts', 'Wearable integration design', 'Technical concept art'],
+                    challenges: 'Visualizing complex sensor network interactions in textile form while ensuring user-friendly interfaces and practical wearability.',
+                    outcome: 'Created comprehensive visual concepts that informed the development of next-generation electronic textile applications.'
                 },
-                analytics: {
-                    title: 'Analytics Dashboard',
-                    subtitle: 'Business Intelligence Platform',
-                    description: 'Interactive data visualization platform processing millions of data points with real-time updates and custom reporting capabilities.',
-                    tech: ['D3.js', 'Python', 'Apache Spark', 'PostgreSQL', 'Docker'],
-                    features: ['Real-time data processing', 'Interactive visualizations', 'Custom report generation', 'Data export capabilities', 'Multi-tenant architecture'],
-                    challenges: 'Optimizing query performance for large datasets while maintaining real-time visualization updates.',
-                    outcome: 'Reduced data analysis time by 70% for enterprise clients.'
+                portfolio: {
+                    title: 'Semester Portfolio',
+                    subtitle: 'Wellesley College • ARTS205 - Meditated Drawing',
+                    description: 'Animated portfolio created for meditated drawing course, featuring interactive presentations and dynamic visual elements. The project explores the intersection of traditional drawing techniques with digital animation.',
+                    tech: ['Animation', 'Interactive Design', 'Digital Art', 'Presentation Design', 'Visual Storytelling'],
+                    features: ['Animated slideshow presentations', 'Interactive visual elements', 'Digital drawing integration', 'Creative storytelling', 'Academic portfolio format'],
+                    challenges: 'Translating meditative drawing practices into engaging digital animations while maintaining the contemplative essence of the original work.',
+                    outcome: 'Successfully documented semester-long artistic journey with innovative presentation format that enhanced the viewing experience.'
                 },
                 aicontentgen: {
                     title: 'Smart Content Generator',
