@@ -208,17 +208,6 @@ main {
     display: inline;
 }
 
-.cursor {
-    display: inline;
-    color: #3b82f6;
-    font-weight: 300;
-    animation: blink 1s infinite;
-}
-
-@keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
-}
 
 
 .hero-subtitle {

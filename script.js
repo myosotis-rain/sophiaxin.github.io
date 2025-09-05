@@ -39,52 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Typing animation for hero subtitle
-    const typingText = document.querySelector('.typing-text');
-    const cursor = document.querySelector('.cursor');
-    
-    if (typingText) {
-        const roles = [
-            'Product/UX Designer'
-        ];
-        
-        let roleIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        
-        function typeEffect() {
-            const currentRole = roles[0]; // Only one role now
-            
-            if (isDeleting) {
-                typingText.textContent = currentRole.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typingText.textContent = currentRole.substring(0, charIndex + 1);
-                charIndex++;
-            }
-            
-            let typeSpeed = isDeleting ? 50 : 100;
-            
-            if (!isDeleting && charIndex === currentRole.length) {
-                // Stay completed, don't start deleting
-                return;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                typeSpeed = 500;
-            }
-            
-            setTimeout(typeEffect, typeSpeed);
-        }
-        
-        // Blinking cursor
-        setInterval(() => {
-            if (cursor) {
-                cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
-            }
-        }, 500);
-        
-        setTimeout(typeEffect, 1000);
-    }
     
     // Animated name reveal
     const animatedText = document.querySelector('.animated-text');
