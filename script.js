@@ -41,9 +41,62 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Enhanced horizontal scrolling for slides
+    // Image modal functionality
+    window.openImageModal = function(imageSrc) {
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        modalImage.src = imageSrc;
+        modal.classList.add('active');
+    };
+    
+    window.closeImageModal = function() {
+        const modal = document.getElementById('imageModal');
+        modal.classList.remove('active');
+    };
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeImageModal();
+        }
+    });
+
+    // Portfolio navigation functionality
+    const portfolioIframe = document.getElementById('portfolio-iframe');
+    const thumbnails = document.querySelectorAll('.thumbnail-item');
+    
+    if (portfolioIframe && thumbnails.length > 0) {
+        const slides = [4, 10, 16, 27, 33, 38, 50];
+        let currentIndex = 0;
+        
+        // Function to update the iframe src
+        function updateSlide(index) {
+            const slideNumber = slides[index];
+            const baseUrl = 'https://docs.google.com/presentation/d/1jslD6MsrWgA6xIfu7wktOjOvYFiQ4dAFNwh--_PbIpk/embed?start=false&loop=false&delayms=3000';
+            portfolioIframe.src = `${baseUrl}&slide=${slideNumber}`;
+            
+            // Update active thumbnail
+            thumbnails.forEach((thumb, i) => {
+                thumb.classList.toggle('active', i === index);
+            });
+            
+            currentIndex = index;
+        }
+        
+        // Thumbnail click handlers
+        thumbnails.forEach((thumbnail, index) => {
+            thumbnail.addEventListener('click', () => {
+                updateSlide(index);
+            });
+        });
+        
+        // Initialize with first slide
+        updateSlide(0);
+    }
+    
+    // Enhanced horizontal scrolling for legacy slides (if any)
     const slidesContainer = document.querySelector('.slides-container');
-    if (slidesContainer) {
+    if (slidesContainer && !portfolioIframe) {
         // Enable horizontal scrolling with mouse wheel
         slidesContainer.addEventListener('wheel', function(e) {
             if (e.deltaY !== 0) {
@@ -237,59 +290,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Floating particles background effect
-    function createFloatingParticles() {
-        const particlesContainer = document.createElement('div');
-        particlesContainer.className = 'particles-container';
-        particlesContainer.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        `;
-        document.body.appendChild(particlesContainer);
-        
-        for (let i = 0; i < 20; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'floating-particle';
-            particle.style.cssText = `
-                position: absolute;
-                width: 2px;
-                height: 2px;
-                background: rgba(147, 197, 253, 0.3);
-                border-radius: 50%;
-                animation: float-${i % 3} ${10 + Math.random() * 20}s infinite linear;
-                left: ${Math.random() * 100}%;
-                top: ${Math.random() * 100}%;
-            `;
-            particlesContainer.appendChild(particle);
-        }
-    }
     
-    // Scroll progress indicator
-    function createScrollProgress() {
-        const progressBar = document.createElement('div');
-        progressBar.className = 'scroll-progress';
-        progressBar.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 2px;
-            background: linear-gradient(90deg, #93c5fd, #0ea5e9);
-            z-index: 10000;
-            transition: width 0.1s ease;
-        `;
-        document.body.appendChild(progressBar);
-        
-        window.addEventListener('scroll', () => {
-            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            progressBar.style.width = scrollPercent + '%';
-        });
-    }
+    // Scroll progress indicator - removed
     
     // Text reveal on scroll (only for hero and main sections, not about page)
     function setupTextReveal() {
@@ -321,8 +323,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Initialize new components
-    createFloatingParticles();
-    createScrollProgress();
     setupTextReveal();
     
     // Keep project data for potential future modal use
@@ -459,26 +459,6 @@ style.textContent = `
         }
     }
     
-    @keyframes float-0 {
-        0%, 100% { transform: translateY(0px) translateX(0px); }
-        25% { transform: translateY(-20px) translateX(10px); }
-        50% { transform: translateY(-10px) translateX(-5px); }
-        75% { transform: translateY(-30px) translateX(15px); }
-    }
-    
-    @keyframes float-1 {
-        0%, 100% { transform: translateY(0px) translateX(0px); }
-        33% { transform: translateY(-15px) translateX(-10px); }
-        66% { transform: translateY(-25px) translateX(8px); }
-    }
-    
-    @keyframes float-2 {
-        0%, 100% { transform: translateY(0px) translateX(0px); }
-        20% { transform: translateY(-18px) translateX(12px); }
-        40% { transform: translateY(-8px) translateX(-8px); }
-        60% { transform: translateY(-22px) translateX(5px); }
-        80% { transform: translateY(-12px) translateX(-12px); }
-    }
     
     @keyframes gradientShift {
         0% { background-position: 0% 50%; }

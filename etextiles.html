@@ -19,9 +19,96 @@
     </header>
 
     <main>
-        <section class="project-page">
+        <section class="project-page etextiles-page">
             <div class="project-page-content">
-                <h1 class="project-page-title">Electronic Textiles</h1>
+                <div class="project-hero">
+                    <h1 class="project-page-title">Electronic Textiles</h1>
+                    <p class="project-subtitle">Concept Art & 3D Visualization at MIT Media Lab</p>
+                </div>
+                
+                <div class="project-overview">
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <strong>Role:</strong> Concept Artist & 3D Visualization Designer
+                        </div>
+                        <div class="meta-item">
+                            <strong>Organization:</strong> MIT Media Lab - Responsive Environments Group
+                        </div>
+                        <div class="meta-item">
+                            <strong>Supervisor:</strong> Irmandy Wicaksono
+                        </div>
+                        <div class="meta-item">
+                            <strong>Year:</strong> 2024
+                        </div>
+                    </div>
+                    
+                    <p class="project-description">Creating concept art and 3D visualization for sensor network applications within electronic textile systems. The work focused on device designs and user interaction concepts for next-generation wearable technology integration.</p>
+                </div>
+
+                <div class="concept-gallery">
+                    <h2>Concept Visualizations</h2>
+                    <div class="concept-grid">
+                        <div class="concept-item" onclick="openImageModal('images/etextiles_Portfolio0.jpg')">
+                            <img src="images/etextiles_Portfolio0.jpg" alt="Primary Concept Design" loading="lazy">
+                            <p class="concept-caption">Primary concept visualization</p>
+                        </div>
+                        <div class="concept-item" onclick="openImageModal('images/etextiles_Portfolio1.jpg')">
+                            <img src="images/etextiles_Portfolio1.jpg" alt="Sensor Integration Concept" loading="lazy">
+                            <p class="concept-caption">Sensor integration patterns</p>
+                        </div>
+                        <div class="concept-item" onclick="openImageModal('images/etextiles_Portfolio2.jpg')">
+                            <img src="images/etextiles_Portfolio2.jpg" alt="Wearable Interface Design" loading="lazy">
+                            <p class="concept-caption">Wearable interface exploration</p>
+                        </div>
+                        <div class="concept-item" onclick="openImageModal('images/etextiles_Portfolio3.jpg')">
+                            <img src="images/etextiles_Portfolio3.jpg" alt="Network Architecture" loading="lazy">
+                            <p class="concept-caption">Network architecture visualization</p>
+                        </div>
+                        <div class="concept-item" onclick="openImageModal('images/etextiles_Portfolio4.jpg')">
+                            <img src="images/etextiles_Portfolio4.jpg" alt="User Interaction Models" loading="lazy">
+                            <p class="concept-caption">User interaction models</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image Modal -->
+                <div class="image-modal" id="imageModal" onclick="closeImageModal()">
+                    <span class="modal-close" onclick="closeImageModal()">&times;</span>
+                    <img class="modal-image" id="modalImage" src="" alt="">
+                </div>
+
+                <div class="animation-showcase">
+                    <h2>Concept Animation</h2>
+                    <div class="animation-container">
+                        <video controls class="showcase-video">
+                            <source src="images/etextiles_Portfolio6.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="animation-caption">Animated visualization demonstrating sensor network integration concepts</p>
+                    </div>
+                </div>
+
+                <div class="technical-approach">
+                    <h2>Technical Approach</h2>
+                    <div class="approach-grid">
+                        <div class="approach-item">
+                            <h3>3D Visualization</h3>
+                            <p>Detailed mockups and visualizations of sensor network components integrated into textile substrates.</p>
+                        </div>
+                        <div class="approach-item">
+                            <h3>Concept Development</h3>
+                            <p>Visual concepts bridging technical feasibility with user-centered design principles.</p>
+                        </div>
+                        <div class="approach-item">
+                            <h3>Interaction Design</h3>
+                            <p>Intuitive interaction patterns for electronic textile applications in everyday use.</p>
+                        </div>
+                        <div class="approach-item">
+                            <h3>Network Architecture</h3>
+                            <p>Complex sensor network architectures and their integration with wearable technologies.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
