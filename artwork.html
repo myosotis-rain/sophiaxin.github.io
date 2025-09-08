@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creative Works & Visual Exploration - Sophia Xin</title>
+    <title>Visual Arts & Collage - Sophia Xin</title>
     <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
@@ -19,12 +19,84 @@
     </header>
 
     <main>
-        <section class="project-page">
+        <section class="project-page artwork-page">
             <div class="project-page-content">
-                <h1 class="project-page-title">Creative Works & Visual Exploration</h1>
+                <div class="project-hero">
+                    <h1 class="project-page-title">Visual Arts & Collage</h1>
+                    <p class="project-subtitle">Personal artistic explorations and mixed-media work</p>
+                </div>
+                
+                <div class="concept-gallery">
+                    <h2>Visual Art</h2>
+                    <div class="artwork-flex-grid">
+                        <div class="concept-item artwork-item" onclick="openImageModal('images/art_I have no preconceptions.jpg')">
+                            <img src="images/art_I have no preconceptions.jpg" alt="I have no preconceptions" loading="lazy">
+                            <p class="concept-caption">I have no preconceptions</p>
+                        </div>
+                        <div class="concept-item artwork-item" onclick="openImageModal('images/art_Now I am a lake.jpg')">
+                            <img src="images/art_Now I am a lake.jpg" alt="Now I am a lake" loading="lazy">
+                            <p class="concept-caption">Now I am a lake</p>
+                        </div>
+                        <div class="concept-item artwork-item" onclick="openImageModal('images/art_Searching my reaches.jpg')">
+                            <img src="images/art_Searching my reaches.jpg" alt="Searching my reaches" loading="lazy">
+                            <p class="concept-caption">Searching my reaches</p>
+                        </div>
+                        <div class="concept-item artwork-item" onclick="openImageModal('images/art_hand.jpg')">
+                            <img src="images/art_hand.jpg" alt="Agitation of the hands" loading="lazy">
+                            <p class="concept-caption">Agitation of hands</p>
+                        </div>
+                        <div class="concept-item artwork-item" onclick="openImageModal('images/art_unmisted by love.jpg')">
+                            <img src="images/art_unmisted by love.jpg" alt="Unmisted by love" loading="lazy">
+                            <p class="concept-caption">Unmisted by love</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concept-gallery">
+                    <h2>Collage Work</h2>
+                    <div class="artwork-flex-grid">
+                        <div class="concept-item artwork-item" onclick="openImageModal('images/collage_1.JPG')">
+                            <img src="images/collage_1.JPG" alt="Heart" loading="lazy">
+                            <p class="concept-caption">Heart</p>
+                        </div>
+                        <div class="concept-item artwork-item" onclick="openImageModal('images/collage_2.JPG')">
+                            <img src="images/collage_2.JPG" alt="In this world" loading="lazy">
+                            <p class="concept-caption">In this world</p>
+                        </div>
+                        <div class="concept-item artwork-item" onclick="openImageModal('images/collage_3.JPG')">
+                            <img src="images/collage_3.JPG" alt="What is gender" loading="lazy">
+                            <p class="concept-caption">What is gender</p>
+                        </div>
+                        <div class="concept-item artwork-item" onclick="openImageModal('images/collage_WGST120Cover.JPG')">
+                            <img src="images/collage_WGST120Cover.JPG" alt="WGST120" loading="lazy">
+                            <p class="concept-caption">WGST120</p>
+                        </div>
+                        <div class="concept-item artwork-item" onclick="openImageModal('images/collage_thstCover.JPG')">
+                            <img src="images/collage_thstCover.JPG" alt="THST207" loading="lazy">
+                            <p class="concept-caption">THST207</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concept-gallery">
+                    <h2>Computational Art</h2>
+                    <div class="concept-grid">
+                        <div class="concept-item" onclick="openImageModal('images/art_dying of the light cs111.jpg')">
+                            <img src="images/art_dying of the light cs111.jpg" alt="Dying of the light - CS111 Project" loading="lazy">
+                            <p class="concept-caption">Dying of the light - CS111 Project</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image Modal -->
+                <div class="image-modal" id="imageModal" onclick="closeImageModal()">
+                    <span class="modal-close" onclick="closeImageModal()">&times;</span>
+                    <img class="modal-image" id="modalImage" src="" alt="">
+                </div>
             </div>
         </section>
     </main>
+    
     
     <script src="script.js"></script>
 </body>
