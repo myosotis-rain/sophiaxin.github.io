@@ -1,0 +1,13 @@
+/* Modern Portfolio 2025 - Simplified Architecture */
+
+/* Core styles & variables */
+@import 'variables.css';
+
+/* Layout, navigation, hero & animations */
+@import 'layout.css';
+
+/* Buttons, cards & UI components */
+@import 'components.css';
+
+/* Page-specific styles & responsive */
+@import 'pages.css';
