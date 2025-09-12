@@ -232,9 +232,9 @@ class Particle {
     let secondaryNoise = noise(this.noiseOffsetY + noiseOffset * this.personalityFactor);
     let tertiaryNoise = noise(this.noiseOffsetX * 0.5 + noiseOffset * 2);
     
-    // Dynamic flow field with personality
-    let flowAngle = primaryNoise * TWO_PI + tertiaryNoise * PI * 0.5;
-    let flowMagnitude = (secondaryNoise - 0.5) * 0.08 * this.personalityFactor;
+    // Balanced flow field movement
+    let flowAngle = primaryNoise * TWO_PI + tertiaryNoise * PI * 0.6;
+    let flowMagnitude = (secondaryNoise - 0.5) * 0.1 * this.personalityFactor;
     
     // Enhanced orbital movement around center
     let orbitalForce = this.calculateOrbitalForce();
@@ -244,13 +244,17 @@ class Particle {
       sin(flowAngle) * flowMagnitude + orbitalForce.y
     );
     
-    // Much weaker center attraction to prevent collapse
+    // Minimal center attraction only at extreme edges
     let center = createVector(width/2, height/2);
-    let attraction = p5.Vector.sub(center, this.pos);
-    let energyPulse = sin(breathingOffset + this.pulseOffset) * 0.2 + 0.8;
-    let attractionStrength = (0.0001 + globalEnergy * 0.00005) * energyPulse;
-    attraction.mult(attractionStrength);
-    this.acc.add(attraction);
+    let distanceFromCenter = p5.Vector.dist(this.pos, center);
+    let maxRadius = min(width, height) * 0.48;
+    
+    if (distanceFromCenter > maxRadius) {
+      let attraction = p5.Vector.sub(center, this.pos);
+      let attractionStrength = 0.00001; // Extremely weak
+      attraction.mult(attractionStrength);
+      this.acc.add(attraction);
+    }
     
     // Enhanced particle-to-particle interactions
     this.calculateParticleInteractions();
@@ -270,12 +274,11 @@ class Particle {
   calculateOrbitalForce() {
     let centerX = width / 2;
     let centerY = height / 2;
-    let distanceToCenter = dist(this.pos.x, this.pos.y, centerX, centerY);
     let angle = atan2(this.pos.y - centerY, this.pos.x - centerX);
     
-    // Much weaker orbital force to prevent tight clustering
-    let orbitalSpeed = 0.008 * this.personalityFactor * globalEnergy;
-    let orbitalAngle = angle + PI/2;  // Perpendicular to radial direction
+    // Very weak, irregular orbital drift with noise variation
+    let orbitalSpeed = 0.003 * this.personalityFactor;
+    let orbitalAngle = angle + PI/2 + noise(this.noiseOffsetX * 0.1) * PI * 0.5; // Add noise to break circular motion
     
     return createVector(
       cos(orbitalAngle) * orbitalSpeed,
@@ -284,26 +287,25 @@ class Particle {
   }
   
   calculateParticleInteractions() {
-    // Stronger separation to prevent clustering
+    // Balanced separation with minimal cohesion for connection
     let separation = createVector(0, 0);
-    let alignment = createVector(0, 0);
     let cohesion = createVector(0, 0);
     let count = 0;
     
     for (let other of particles) {
       if (other !== this) {
         let distance = p5.Vector.dist(this.pos, other.pos);
-        if (distance < 80) {  // Larger interaction radius
-          // Much stronger separation to prevent clustering
-          let diff = p5.Vector.sub(this.pos, other.pos);
-          diff.normalize();
-          diff.div(distance * 0.5); // Stronger weight by distance
-          separation.add(diff);
+        if (distance < 90) {
+          // Strong separation when too close
+          if (distance < 50) {
+            let diff = p5.Vector.sub(this.pos, other.pos);
+            diff.normalize();
+            let separationStrength = map(distance, 0, 50, 1.5, 0.1);
+            diff.mult(separationStrength);
+            separation.add(diff);
+          }
           
-          // Weaker alignment to allow more individual movement
-          alignment.add(other.vel);
-          
-          // Much weaker cohesion to prevent collapse
+          // Very weak cohesion to maintain some connection
           cohesion.add(other.pos);
           count++;
         }
@@ -311,16 +313,14 @@ class Particle {
     }
     
     if (count > 0) {
-      // Stronger separation, weaker cohesion
-      separation.mult(0.08 * this.personalityFactor);  // Increased from 0.03
-      alignment.div(count);
-      alignment.mult(0.005);  // Reduced from 0.01
+      // Moderate separation
+      separation.mult(0.15 * this.personalityFactor);
+      this.acc.add(separation);
+      
+      // Minimal cohesion for gentle connection
       cohesion.div(count);
       cohesion.sub(this.pos);
-      cohesion.mult(0.001);  // Much weaker cohesion
-      
-      this.acc.add(separation);
-      this.acc.add(alignment);
+      cohesion.mult(0.0008); // Very weak
       this.acc.add(cohesion);
     }
   }
