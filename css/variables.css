@@ -14,78 +14,53 @@ html {
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.5;
     color: var(--gray-700);
-    background: linear-gradient(135deg, var(--white) 0%, var(--ethereal-lavender) 25%, var(--pale-lavender) 60%, var(--light-lavender) 100%);
-    background-attachment: fixed;
+    background: linear-gradient(135deg, var(--white) 0%, var(--gray-100) 100%);
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    transition: all 0.3s ease;
 }
 
 :root {
-    /* Colors - Cohesive Blueish Purple System */
-    --black: #2E2F35;
-    --gray-900: #3E3F45;
-    --gray-800: #4E4F55;
-    --gray-700: #5E5F65;
-    --gray-600: #7E7F85;
-    --gray-500: #9E9FA5;
-    --gray-400: #BEBFC5;
-    --gray-300: #DEDFE5;
-    --gray-200: #EEEEF4;
-    --gray-100: #F6F6FA;
-    --white: #FEFEFE;
-    --cream: #FCFCFE;
+    /* Enhanced Morandi Blueish-Purple System - More Blue-Purple */
+    --black: #2B2D3A;
+    --gray-900: #373A47;
+    --gray-800: #464952;
+    --gray-700: #565862;
+    --gray-600: #72747F;
+    --gray-500: #9295A2;
+    --gray-400: #B5B7C2;
+    --gray-300: #D5D7E2;
+    --gray-200: #E7E8F2;
+    --gray-100: #F2F3FB;
+    --white: #FDFEFE;
     
-    /* Primary Colors - Blueish Purple-Lavender System */
-    --primary-lavender: #A6AAD4;
-    --lavender-mist: #C3C7E3;
-    --accent: #9A9ED0;
-    --accent-dark: #878BC7;
-    --accent-light: #B5B9E0;
+    /* Enhanced Blue-Purple Accents */
+    --accent: #7C85BD;
+    --accent-dark: #6B74AD;
+    --accent-light: #8D96CD;
+    --accent-muted: #A8B0D8;
     
-    /* Soft Tones - Blueish Purple Focus */
-    --soft-lavender: #E8EAF4;
-    --soft-periwinkle: #E5E7F2;
-    --soft-purple: #EAEBF5;
-    --muted-lavender: #D3D6E8;
+    /* Very Compact Spacing System */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 12px;
+    --space-lg: 16px;
+    --space-xl: 24px;
+    --space-2xl: 32px;
+    --space-3xl: 48px;
+    --space-4xl: 64px;
     
-    /* Light Tones - Very Light Blueish Purple */
-    --light-lavender: #F1F3F8;
-    --light-purple: #F0F2F8;
-    --light-periwinkle: #F1F2FA;
-    --tender-lavender: #EFF0F8;
-    
-    /* Pale Tones - Barely-There Blueish Purple */
-    --pale-lavender: #F7F9FB;
-    --pale-purple: #F6F8FB;
-    --whisper-lavender: #F9FAFC;
-    --gentle-purple: #F8F9FC;
-    --ethereal-lavender: #F9FBFD;
-    
-    /* Spacing System */
-    --space-xs: 8px;
-    --space-sm: 16px;
-    --space-md: 24px;
-    --space-lg: 32px;
-    --space-xl: 48px;
-    --space-2xl: 64px;
-    --space-3xl: 96px;
-    --space-4xl: 128px;
-    
-    /* Typography */
+    /* Compact Typography Scale */
     --text-xs: 12px;
     --text-sm: 14px;
     --text-base: 16px;
     --text-lg: 18px;
-    --text-xl: 20px;
-    --text-2xl: 24px;
-    --text-3xl: 30px;
-    --text-4xl: 36px;
-    --text-5xl: 48px;
-    --text-6xl: 60px;
+    --text-xl: 22px;
+    --text-2xl: 28px;
+    --text-3xl: 36px;
+    --text-4xl: 48px;
     
     /* Layout */
     --max-width: 1200px;
@@ -104,15 +79,32 @@ body {
 
 /* ===== TYPOGRAPHY & UTILITIES ===== */
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
     line-height: 1.2;
     color: var(--gray-900);
-    letter-spacing: -0.025em;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: var(--text-4xl);
+    font-weight: 400;
+}
+
+h2 {
+    font-size: var(--text-3xl);
+    font-weight: 400;
+}
+
+h3 {
+    font-size: var(--text-xl);
+    font-weight: 400;
 }
 
 p {
     color: var(--gray-600);
     line-height: 1.6;
+    font-size: var(--text-base);
 }
 
 a {
@@ -124,4 +116,11 @@ a {
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 var(--space-md);
+}
+
+/* New hero styles */
+.hero-description {
+    font-size: var(--text-lg);
+    color: var(--gray-500);
+    margin-bottom: var(--space-xl);
 }
