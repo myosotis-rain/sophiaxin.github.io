@@ -3,71 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Wellesley Web: TechConnect - Sophia Xin</title>
-    <link rel="stylesheet" href="style.css?v=6">
+    <title>The Wellesley Web — Sophia Xin</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="cursor-dot" data-cursor-dot></div>
-    <div class="cursor-outline" data-cursor-outline></div>
-    
-    <header class="header">
-        <nav class="nav">
-            <a href="index.html" class="nav-link">Work</a>
-            <a href="about.html" class="nav-link">About</a>
-            <a href="index.html#contact" class="nav-link">Contact</a>
-        </nav>
-    </header>
+    <!-- Floating background elements -->
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
 
-    <main>
-        <section class="project-page">
-            <div class="project-page-content">
-                <h1 class="project-page-title">The Wellesley Web: TechConnect</h1>
-                
-                <div class="project-video-container">
-                    <iframe 
-                        src="https://www.youtube.com/embed/lxu5UYm1luk" 
-                        title="The Wellesley Web Demo" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen
-                        class="project-video">
-                    </iframe>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span>Sophia Xin</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Work</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="project-breadcrumb">
+                <a href="index.html">Work</a>
+                <span>/</span>
+                <span>The Wellesley Web</span>
+            </div>
+            <h1 class="project-title">The Wellesley Web: TechConnect</h1>
+            <p class="project-subtitle">Pre-professional Networking Platform for Tech Students & Alumni</p>
+            
+            <div class="project-meta-grid">
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Full-Stack Developer</span>
                 </div>
-
-                <div class="project-overview">
-                    <h2>About the Project</h2>
-                    <p>The Wellesley Web is a pre-professional networking platform specifically designed for Wellesley College students and alumni in tech and tech-adjacent fields. Our team developed the website's front-end and back-end entirely from scratch.</p>
-                    
-                    <div class="project-meta">
-                        <div class="meta-item">
-                            <strong>Technologies:</strong> Python, HTML, CSS, SQL, JavaScript
-                        </div>
-                        <div class="meta-item">
-                            <strong>Team (Alphabetical Order):</strong> Claire Cao, Diya Khanna, Chloe Shim, Sophia Xin
-                        </div>
-                    </div>
+                <div class="meta-item">
+                    <span class="meta-label">Course</span>
+                    <span class="meta-value">CS304 - Databases with Web Interfaces</span>
                 </div>
-
-                <div class="project-contribution">
-                    <h2>My Contribution</h2>
-                    <p>As the lead frontend designer, I implemented the majority of the visual designs and CSS styling while contributing to both backend and frontend core functionalities. This project marked my journey from having no prior knowledge in HTML and CSS to independently completing comprehensive front-end development through dedicated self-learning.</p>
+                <div class="meta-item">
+                    <span class="meta-label">Team</span>
+                    <span class="meta-value">3 Students</span>
                 </div>
-
-                <div class="project-gallery">
-                    <h2>Development Process</h2>
-                    <div class="project-video-container">
-                        <video controls class="project-video">
-                            <source src="images/CS304_TechConnect_BetaVersion_Edited.MOV" type="video/quicktime">
-                            <source src="images/CS304_TechConnect_BetaVersion_Edited.MOV" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    <p class="image-caption">Earlier draft version showing development iteration</p>
+                <div class="meta-item">
+                    <span class="meta-label">Year</span>
+                    <span class="meta-value">2024</span>
                 </div>
             </div>
-        </section>
-    </main>
-    
+        </div>
+    </section>
+
+    <!-- Project Media -->
+    <section class="project-media-section">
+        <div class="container">
+            <div class="project-video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/lxu5UYm1luk" 
+                    title="The Wellesley Web Demo" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    class="project-video">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="project-content">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-main">
+                    <div class="content-section">
+                        <h2>Project Overview</h2>
+                        <p>Pre-professional networking platform specifically designed for Wellesley College students and alumni in tech and tech-adjacent fields. Built front-end and back-end entirely from scratch as a team project.</p>
+                        
+                        <p>The platform addresses the unique networking challenges faced by students transitioning from academia to the technology industry, providing tailored features for pre-professional connections, mentorship opportunities, and career development within the Wellesley community.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>Technical Challenge</h2>
+                        <p>This project presented significant technical challenges as I had to learn HTML and CSS from scratch while simultaneously implementing complex database interactions and full-stack architecture. The learning curve involved mastering both frontend technologies and backend database design within a single semester.</p>
+                        
+                        <p>Despite starting with zero prior knowledge in frontend technologies, the team successfully delivered a fully functional networking platform with user authentication, database integration, and responsive design.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>Key Features</h2>
+                        <ul class="project-list">
+                            <li>User authentication and profile management system</li>
+                            <li>Professional networking capabilities with search and filtering</li>
+                            <li>Database integration for user data and connections</li>
+                            <li>Responsive design working across all device sizes</li>
+                            <li>Full-stack architecture built from the ground up</li>
+                            <li>Mentorship matching and communication features</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-sidebar">
+                    <div class="sidebar-section">
+                        <h3>Technologies</h3>
+                        <div class="tech-tags">
+                            <span>Python</span>
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>SQL</span>
+                            <span>Flask</span>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h3>Learning Outcomes</h3>
+                        <ul style="list-style: none; padding: 0; font-size: 14px; color: var(--gray-600);">
+                            <li>• Full-stack development</li>
+                            <li>• Database design & integration</li>
+                            <li>• Frontend development from scratch</li>
+                            <li>• Team collaboration & version control</li>
+                            <li>• User experience design</li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h3>Impact</h3>
+                        <p>Successfully delivered a fully functional networking platform, gaining comprehensive full-stack development experience from zero prior knowledge in frontend technologies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation to other projects -->
+    <section class="project-navigation">
+        <div class="container">
+            <div class="nav-projects">
+                <a href="etextiles.html" class="nav-project prev">
+                    <span class="nav-label">Previous Project</span>
+                    <span class="nav-title">Electronic Textiles</span>
+                </a>
+                <a href="index.html" class="nav-project home">
+                    <span class="nav-label">All Projects</span>
+                </a>
+                <a href="arts205.html" class="nav-project next">
+                    <span class="nav-label">Next Project</span>
+                    <span class="nav-title">ARTS205 Portfolio</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <script src="script.js"></script>
 </body>
 </html>

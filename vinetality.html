@@ -3,185 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vinetality - Sophia Xin</title>
-    <link rel="stylesheet" href="style.css?v=6">
+    <title>Vinetality — Sophia Xin</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="cursor-dot" data-cursor-dot></div>
-    <div class="cursor-outline" data-cursor-outline></div>
-    
-    <header class="header">
-        <nav class="nav">
-            <a href="index.html" class="nav-link">Work</a>
-            <a href="about.html" class="nav-link">About</a>
-            <a href="index.html#contact" class="nav-link">Contact</a>
-        </nav>
-    </header>
+    <!-- Floating background elements -->
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
 
-    <main>
-        <section class="project-page vinetality-page">
-            <div class="project-page-content">
-                <div class="project-hero">
-                    <h1 class="project-page-title">Vinetality</h1>
-                    <p class="project-subtitle">Tangible Interface for Productivity & Well-being</p>
-                    <div class="hero-concept">
-                        <p class="hero-tagline">A shape-changing plant keychain that grows with your productivity and lights up to build community connections.</p>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span>Sophia Xin</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Work</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="project-breadcrumb">
+                <a href="index.html">Work</a>
+                <span>/</span>
+                <span>Vinetality</span>
+            </div>
+            <h1 class="project-title">Vinetality</h1>
+            <p class="project-subtitle">Tangible Interface for Productivity & Well-being</p>
+            
+            <div class="project-meta-grid">
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Interface Designer & Developer</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Course</span>
+                    <span class="meta-value">Tangible User Interfaces (MIT)</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Technologies</span>
+                    <span class="meta-value">Arduino, 3D Printing, Sensors</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Year</span>
+                    <span class="meta-value">2025</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Media -->
+    <section class="project-media-section">
+        <div class="container">
+            <div class="project-video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/Wz0rExoqUfM" 
+                    title="Vinetality Demo" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    class="project-video">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="project-content">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-main">
+                    <div class="content-section">
+                        <h2>Project Overview</h2>
+                        <p>Vinetality is a small, portable keychain interface that provides tangible feedback to support productivity, well-being, and community building through a shape-changing plant representation.</p>
+                        
+                        <p>The device uses physical form changes to communicate states of wellness and productivity, creating an intimate and personal connection between the user and their digital habits. By representing growth and health through a familiar plant metaphor, Vinetality bridges the gap between abstract digital metrics and tangible, meaningful feedback.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>Design Concept</h2>
+                        <p>The core concept revolves around using a physical plant-like interface that responds to user behavior and environmental factors. As users engage in productive activities or maintain healthy habits, the "plant" grows and flourishes. Neglect or poor habits cause it to wilt or contract.</p>
+                        
+                        <p>This tangible representation creates emotional investment in personal growth while providing immediate, visceral feedback about lifestyle choices and productivity patterns.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>Technical Implementation</h2>
+                        <ul class="project-list">
+                            <li>Arduino-based microcontroller for sensor processing and actuator control</li>
+                            <li>Shape-memory alloys and servo motors for physical transformation</li>
+                            <li>Bluetooth connectivity for smartphone integration</li>
+                            <li>Custom 3D-printed enclosure designed for portability</li>
+                            <li>Mobile app for habit tracking and device configuration</li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="project-demo">
-                    <h2>Project Demonstration</h2>
-                    <div class="demo-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/Wz0rExoqUfM" 
-                            title="Vinetality Demo" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen
-                            class="demo-video">
-                        </iframe>
+                <div class="content-sidebar">
+                    <div class="sidebar-section">
+                        <h3>Technologies</h3>
+                        <div class="tech-tags">
+                            <span>Arduino</span>
+                            <span>3D Printing</span>
+                            <span>Interface Design</span>
+                            <span>IoT</span>
+                            <span>Tangible UI</span>
+                            <span>Sensors</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="project-website-preview">
-                    <h2>Project Documentation</h2>
-                    <div class="website-preview-frame">
-                        <div class="browser-header">
-                            <div class="browser-buttons">
-                                <span class="browser-dot"></span>
-                                <span class="browser-dot"></span>
-                                <span class="browser-dot"></span>
-                            </div>
-                            <div class="browser-url">sites.google.com/wellesley.edu/vinetality</div>
-                        </div>
-                        <a href="https://sites.google.com/wellesley.edu/vinetality/home" target="_blank" class="website-preview-content">
-                            <div class="preview-placeholder">
-                                <h3>Vinetality Project Documentation</h3>
-                                <p>Complete technical specifications, design process, user testing results, and implementation details</p>
-                                <div class="preview-sections">
-                                    <span class="preview-tag">• Design Process</span>
-                                    <span class="preview-tag">• Technical Implementation</span>
-                                    <span class="preview-tag">• User Testing</span>
-                                    <span class="preview-tag">• Results & Analysis</span>
-                                </div>
-                                <span class="link-indicator">Click to View Full Documentation →</span>
-                            </div>
-                        </a>
+                    <div class="sidebar-section">
+                        <h3>Key Features</h3>
+                        <ul style="list-style: none; padding: 0; font-size: 14px; color: var(--gray-600);">
+                            <li>• Shape-changing feedback</li>
+                            <li>• Portable keychain form factor</li>
+                            <li>• Productivity tracking</li>
+                            <li>• Well-being monitoring</li>
+                            <li>• Community features</li>
+                        </ul>
                     </div>
-                </div>
 
-                <div class="problem-solution">
-                    <div class="problem-section">
-                        <h2>The Challenge</h2>
-                        <p>Students and young professionals working independently in mobile environments struggle to balance productivity, stress, and community connection. Digital apps provide limited emotional engagement and fail to create meaningful social bonds.</p>
-                    </div>
-                    
-                    <div class="solution-section">
-                        <h2>Our Innovation</h2>
-                        <p>A portable keychain interface that provides tangible, physical feedback through a shape-changing plant representation. The device intelligently tracks well-being and creates community through proximity-based interactions and collectible decorations.</p>
-                    </div>
-                </div>
-
-                <div class="project-demo">
-                    <h2>How It Works</h2>
-                    <div class="demo-grid">
-                        <div class="demo-item">
-                            <h3>Grows & Wilts</h3>
-                            <p>Plant grows when you're productive, wilts when stressed - providing immediate visual feedback</p>
-                        </div>
-                        <div class="demo-item">
-                            <h3>Community Lights</h3>
-                            <p>Devices in vicinity light up, creating awareness of other TUI users nearby</p>
-                        </div>
-                        <div class="demo-item">
-                            <h3>Collectible Connection</h3>
-                            <p>Clip-on decorations help build community through shared collectibles</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-journey">
-                    <h2>Design Journey</h2>
-                    <div class="journey-timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-marker">1</div>
-                            <div class="timeline-content">
-                                <h3>Concept Sketch</h3>
-                                <p>Initial keychain design with translucent cube and growing vine</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-marker">2</div>
-                            <div class="timeline-content">
-                                <h3>Low-Fidelity Prototype</h3>
-                                <p>3D-printed box and fabric plant demonstrating size and form</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-marker">3</div>
-                            <div class="timeline-content">
-                                <h3>Mixed-Fidelity Testing</h3>
-                                <p>Gear system with horizontal rotation for flower blooming mechanism</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-marker">4</div>
-                            <div class="timeline-content">
-                                <h3>High-Fidelity Prototype</h3>
-                                <p>Portable frame with functional gear system and productivity tracking</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-marker">5</div>
-                            <div class="timeline-content">
-                                <h3>Final Iteration</h3>
-                                <p>30% size reduction with refined tangible interface design</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="collaborative-team">
-                    <h2>Collaborative Team</h2>
-                    <p class="team-intro">Built through interdisciplinary collaboration combining psychology, computer science, and design perspectives.</p>
-                    <div class="team-grid">
-                        <div class="team-member">
-                            <div class="member-info">
-                                <h3>Erika Saur '25</h3>
-                                <p class="member-field">CS & Psychology</p>
-                                <p class="member-school">Wellesley College</p>
-                            </div>
-                        </div>
-                        <div class="team-member">
-                            <div class="member-info">
-                                <h3>Malinda Lu '26</h3>
-                                <p class="member-field">CS & Math</p>
-                                <p class="member-school">Wellesley College</p>
-                            </div>
-                        </div>
-                        <div class="team-member">
-                            <div class="member-info">
-                                <h3>Sophia Xin '26</h3>
-                                <p class="member-field">Media Arts & Psychology</p>
-                                <p class="member-school">Wellesley College</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-resources">
-                    <h2>Additional Resources</h2>
-                    <div class="resources-grid">
-                        <a href="https://github.com/Erika-S/cs320" target="_blank" class="resource-card">
-                            <h3>GitHub Repository</h3>
-                            <p>Technical implementation, code, and development process</p>
-                        </a>
+                    <div class="sidebar-section">
+                        <h3>Impact</h3>
+                        <p>Created a novel approach to habit formation that combines emotional design with tangible interaction, demonstrating how physical interfaces can motivate behavioral change.</p>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
-    
+        </div>
+    </section>
+
+    <!-- Navigation to other projects -->
+    <section class="project-navigation">
+        <div class="container">
+            <div class="nav-projects">
+                <a href="dovekie.html" class="nav-project prev">
+                    <span class="nav-label">Previous Project</span>
+                    <span class="nav-title">Dovekie Interface</span>
+                </a>
+                <a href="index.html" class="nav-project home">
+                    <span class="nav-label">All Projects</span>
+                </a>
+                <a href="etextiles.html" class="nav-project next">
+                    <span class="nav-label">Next Project</span>
+                    <span class="nav-title">Electronic Textiles</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <script src="script.js"></script>
 </body>
 </html>

@@ -3,223 +3,243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sophia Xin - Portfolio</title>
-    <link rel="stylesheet" href="style.css?v=6">
+    <title>Sophia Xin — Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js" as="script">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
 </head>
 <body>
-    <div class="cursor-dot" data-cursor-dot></div>
-    <div class="cursor-outline" data-cursor-outline></div>
-    
-    <header class="header">
-        <nav class="nav">
-            <a href="index.html" class="nav-link active">Work</a>
-            <a href="about.html" class="nav-link">About</a>
-            <a href="#contact" class="nav-link">Contact</a>
-        </nav>
+    <!-- Floating background elements -->
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span>Sophia Xin</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#work" class="nav-link">Work</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="hero-title-line">Sophia Xin</span>
+                    <span class="hero-title-line hero-subtitle-line">Product Design • Product Management</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Crafting intuitive interfaces and meaningful experiences at the intersection of design and technology
+                </p>
+                <div class="hero-actions">
+                    <a href="#work" class="btn btn-primary">View Work</a>
+                    <a href="#contact" class="btn btn-secondary">Contact</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-graphic">
+                    <div id="hero-canvas"></div>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <div class="hero-left">
-                    <h1 class="hero-title animated-text">Sophia Xin</h1>
-                    <div class="hero-subtitle">
-                        <span>Product Design/Product Management</span>
+    <!-- Work Section -->
+    <section id="work" class="work">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Selected Work</h2>
+                <p class="section-subtitle">A collection of recent projects spanning interface design, creative technology, and visual arts</p>
+            </div>
+            
+            <div class="projects">
+                <article class="project">
+                    <div class="project-media">
+                        <iframe 
+                            src="https://www.youtube.com/embed/AaxXMroazQs" 
+                            title="Dovekie Interface Demo" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen
+                            class="project-video">
+                        </iframe>
                     </div>
-                </div>
-                <div class="hero-right">
-                    <a href="about.html" class="about-button">About Me</a>
-                </div>
-            </div>
-        </section>
+                    <div class="project-info">
+                        <div class="project-meta">
+                            <span class="project-type">Interface Design</span>
+                            <span class="project-year">2025</span>
+                        </div>
+                        <h3 class="project-title">Dovekie Interface</h3>
+                        <p class="project-description">Interface design for open-source live-code package at MIT Media Lab, including molds simulation sketch collaboration.</p>
+                        <div class="project-tags">
+                            <span>Interface Design</span>
+                            <span>Simulation</span>
+                            <span>Open Source</span>
+                        </div>
+                        <a href="dovekie.html" class="project-link">View Case Study</a>
+                    </div>
+                </article>
 
-        <section id="projects" class="section projects-section">
-            <div class="projects-header">
-                <h2 class="section-title section-title-left">Selected Work</h2>
-            </div>
-            <div class="projects-grid">
-                <a href="dovekie.html" class="project-card-link">
-                    <article class="project-card" data-project="dovekie">
-                        <div class="project-image">
-                            <iframe 
-                                src="https://www.youtube.com/embed/AaxXMroazQs" 
-                                title="Dovekie Interface Demo" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen
-                                class="project-video">
-                            </iframe>
+                <article class="project">
+                    <div class="project-media">
+                        <iframe 
+                            src="https://www.youtube.com/embed/Wz0rExoqUfM" 
+                            title="Vinetality Demo" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen
+                            class="project-video">
+                        </iframe>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-meta">
+                            <span class="project-type">Tangible Interface</span>
+                            <span class="project-year">2025</span>
                         </div>
-                        <div class="project-content">
-                            <div class="project-meta">
-                                <span class="project-type">Interface Design</span>
-                                <span class="project-year">2025</span>
-                            </div>
-                            <h3 class="project-title">Dovekie Interface</h3>
-                            <p class="project-description">Interface design for open-source live-code package at MIT Media Lab, including molds simulation sketch collaboration.</p>
-                            <div class="project-tech">
-                                <span>Interface Design</span>
-                                <span>Simulation</span>
-                                <span>Open Source</span>
-                            </div>
-                            <span class="project-link">View Case Study →</span>
+                        <h3 class="project-title">Vinetality</h3>
+                        <p class="project-description">Small, portable keychain interface providing tangible feedback to support productivity, well-being, and community building through shape-changing plant representation.</p>
+                        <div class="project-tags">
+                            <span>Interface Design</span>
+                            <span>Arduino</span>
+                            <span>3D Printing</span>
                         </div>
-                    </article>
-                </a>
-                <a href="vinetality.html" class="project-card-link">
-                    <article class="project-card" data-project="vinetality">
-                        <div class="project-image">
-                            <iframe 
-                                src="https://www.youtube.com/embed/Wz0rExoqUfM" 
-                                title="Vinetality Demo" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen
-                                class="project-video">
-                            </iframe>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-meta">
-                                <span class="project-type">Tangible Interface Design</span>
-                                <span class="project-year">2025</span>
-                            </div>
-                            <h3 class="project-title">Vinetality</h3>
-                            <p class="project-description">Small, portable keychain interface providing tangible feedback to support productivity, well-being, and community building through shape-changing plant representation.</p>
-                            <div class="project-tech">
-                                <span>Interface Design</span>
-                                <span>Arduino</span>
-                                <span>3D Printing</span>
-                            </div>
-                            <span class="project-link">View Case Study →</span>
-                        </div>
-                    </article>
-                </a>
-                <a href="etextiles.html" class="project-card-link">
-                    <article class="project-card" data-project="etextiles">
-                        <div class="project-image">
-                            <img src="images/etextiles_Portfolio0.jpg" alt="Electronic Textiles Preview" class="project-img">
-                        </div>
-                        <div class="project-content">
-                            <div class="project-meta">
-                                <span class="project-type">Concept Design</span>
-                                <span class="project-year">2024</span>
-                            </div>
-                            <h3 class="project-title">Electronic Textiles</h3>
-                            <p class="project-description">Concept art and 3D visualization for sensor network applications and user interaction at MIT Media Lab.</p>
-                            <div class="project-tech">
-                                <span>3D Visualization</span>
-                                <span>Concept Art</span>
-                                <span>UX Design</span>
-                            </div>
-                            <span class="project-link">View Case Study →</span>
-                        </div>
-                    </article>
-                </a>
-                <a href="portfolio.html" class="project-card-link">
-                    <article class="project-card" data-project="portfolio">
-                        <div class="project-image">
-                            <iframe 
-                                src="https://docs.google.com/presentation/d/1jslD6MsrWgA6xIfu7wktOjOvYFiQ4dAFNwh--_PbIpk/embed?start=true&loop=true&delayms=4000"
-                                frameborder="0" 
-                                class="project-video"
-                                allowfullscreen="true" 
-                                mozallowfullscreen="true" 
-                                webkitallowfullscreen="true">
-                            </iframe>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-meta">
-                                <span class="project-type">Creative Portfolio</span>
-                                <span class="project-year">2024</span>
-                            </div>
-                            <h3 class="project-title">ARTS205 Portfolio</h3>
-                            <p class="project-description">Animated portfolio for Wellesley College ARTS205 - Meditated Drawing course with interactive presentations.</p>
-                            <div class="project-tech">
-                                <span>Animation</span>
-                                <span>Interactive Design</span>
-                                <span>Presentation</span>
-                            </div>
-                            <span class="project-link">View Case Study →</span>
-                        </div>
-                    </article>
-                </a>
-                <a href="wellesleyweb.html" class="project-card-link">
-                    <article class="project-card" data-project="wellesleyweb">
-                        <div class="project-image">
-                            <iframe 
-                                src="https://www.youtube.com/embed/lxu5UYm1luk" 
-                                title="The Wellesley Web Demo" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen
-                                class="project-video">
-                            </iframe>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-meta">
-                                <span class="project-type">Web Development</span>
-                                <span class="project-year">2024</span>
-                            </div>
-                            <h3 class="project-title">The Wellesley Web: TechConnect</h3>
-                            <p class="project-description">Pre-professional networking platform for Wellesley College students and alumni in tech fields, built from scratch with full-stack development.</p>
-                            <div class="project-tech">
-                                <span>Python</span>
-                                <span>HTML/CSS</span>
-                                <span>JavaScript</span>
-                                <span>SQL</span>
-                            </div>
-                            <span class="project-link">View Case Study →</span>
-                        </div>
-                    </article>
-                </a>
-                <a href="artwork.html" class="project-card-link">
-                    <article class="project-card" data-project="artwork">
-                        <div class="project-image">
-                            <img src="images/art_cover.jpg" alt="Visual Arts Preview" class="project-img">
-                        </div>
-                        <div class="project-content">
-                            <div class="project-meta">
-                                <span class="project-type">Visual Arts</span>
-                                <span class="project-year">2020-2024</span>
-                            </div>
-                            <h3 class="project-title">Visual Arts & Collage</h3>
-                            <p class="project-description">Collection of visual art pieces and mixed-media collages exploring themes of identity, introspection, and creative expression.</p>
-                            <div class="project-tech">
-                                <span>Digital Art</span>
-                                <span>Illustration</span>
-                                <span>Collage</span>
-                            </div>
-                            <span class="project-link">View Gallery →</span>
-                        </div>
-                    </article>
-                </a>
-            </div>
-        </section>
+                        <a href="vinetality.html" class="project-link">View Case Study</a>
+                    </div>
+                </article>
 
-        <section id="contact" class="section">
+                <article class="project">
+                    <div class="project-media">
+                        <img src="images/etextiles_Portfolio0.jpg" alt="Electronic Textiles Preview" class="project-image">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-meta">
+                            <span class="project-type">Concept Design</span>
+                            <span class="project-year">2024</span>
+                        </div>
+                        <h3 class="project-title">Electronic Textiles</h3>
+                        <p class="project-description">Concept art and 3D visualization for sensor network applications and user interaction at MIT Media Lab.</p>
+                        <div class="project-tags">
+                            <span>3D Visualization</span>
+                            <span>Concept Art</span>
+                            <span>UX Design</span>
+                        </div>
+                        <a href="etextiles.html" class="project-link">View Case Study</a>
+                    </div>
+                </article>
+
+                <article class="project">
+                    <div class="project-media">
+                        <iframe 
+                            src="https://www.youtube.com/embed/lxu5UYm1luk" 
+                            title="The Wellesley Web Demo" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen
+                            class="project-video">
+                        </iframe>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-meta">
+                            <span class="project-type">Web Development</span>
+                            <span class="project-year">2024</span>
+                        </div>
+                        <h3 class="project-title">The Wellesley Web</h3>
+                        <p class="project-description">Pre-professional networking platform for Wellesley College students and alumni in tech fields, built from scratch with full-stack development.</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>HTML/CSS</span>
+                            <span>JavaScript</span>
+                            <span>SQL</span>
+                        </div>
+                        <a href="wellesleyweb.html" class="project-link">View Case Study</a>
+                    </div>
+                </article>
+
+                <article class="project">
+                    <div class="project-media">
+                        <iframe 
+                            src="https://docs.google.com/presentation/d/1jslD6MsrWgA6xIfu7wktOjOvYFiQ4dAFNwh--_PbIpk/embed?start=true&loop=true&delayms=4000"
+                            frameborder="0" 
+                            class="project-video"
+                            allowfullscreen="true" 
+                            mozallowfullscreen="true" 
+                            webkitallowfullscreen="true">
+                        </iframe>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-meta">
+                            <span class="project-type">Academic Portfolio</span>
+                            <span class="project-year">2024</span>
+                        </div>
+                        <h3 class="project-title">ARTS205 Portfolio</h3>
+                        <p class="project-description">Animated portfolio for Wellesley College ARTS205 - Meditated Drawing course with interactive presentations.</p>
+                        <div class="project-tags">
+                            <span>Animation</span>
+                            <span>Interactive Design</span>
+                            <span>Presentation</span>
+                        </div>
+                        <a href="arts205.html" class="project-link">View Case Study</a>
+                    </div>
+                </article>
+
+                <article class="project">
+                    <div class="project-media">
+                        <img src="images/art_cover.jpg" alt="Visual Arts Preview" class="project-image">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-meta">
+                            <span class="project-type">Visual Arts</span>
+                            <span class="project-year">2020-2024</span>
+                        </div>
+                        <h3 class="project-title">Visual Arts & Collage</h3>
+                        <p class="project-description">Collection of visual art pieces and mixed-media collages exploring themes of identity, introspection, and creative expression.</p>
+                        <div class="project-tags">
+                            <span>Digital Art</span>
+                            <span>Illustration</span>
+                            <span>Collage</span>
+                        </div>
+                        <a href="artwork.html" class="project-link">View Gallery</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
             <div class="contact-content">
                 <h2 class="contact-title">Contact</h2>
                 <p class="contact-subtitle">Available for new opportunities and collaborations</p>
-                <div class="contact-grid">
-                    <a href="mailto:sx103@wellesley.edu" class="contact-item">
-                        <span class="contact-icon">@</span>
-                        <span>Email</span>
+                <div class="contact-links">
+                    <a href="mailto:sx103@wellesley.edu" class="contact-link">
+                        <span class="contact-label">Email</span>
                     </a>
-                    <a href="https://www.linkedin.com/in/sophia-xin" class="contact-item">
-                        <span class="contact-icon">in</span>
-                        <span>LinkedIn</span>
+                    <a href="https://www.linkedin.com/in/sophia-xin" class="contact-link">
+                        <span class="contact-label">LinkedIn</span>
                     </a>
-                    <a href="https://docs.google.com/document/d/1VmzsV-sRt1MJc0Y6ywQl7R05WRMsTR86eigWNJyr8Hg/edit?usp=sharing" class="contact-item" target="_blank">
-                        <span class="contact-icon">rs</span>
-                        <span>Resume</span>
+                    <a href="https://docs.google.com/document/d/1VmzsV-sRt1MJc0Y6ywQl7R05WRMsTR86eigWNJyr8Hg/edit?usp=sharing" class="contact-link" target="_blank">
+                        <span class="contact-label">Resume</span>
                     </a>
                 </div>
-                <p class="development-note">I designed and developed this site from scratch with AI assistance</p>
             </div>
-        </section>
-    </main>
-    
-    
+        </div>
+    </section>
+
+    <script src="sketch.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

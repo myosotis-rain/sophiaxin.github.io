@@ -3,224 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Sophia Xin</title>
-    <link rel="stylesheet" href="style.css?v=6">
+    <title>About — Sophia Xin</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="cursor-dot" data-cursor-dot></div>
-    <div class="cursor-outline" data-cursor-outline></div>
-    
-    <header class="header">
-        <nav class="nav">
-            <a href="index.html" class="nav-link">Work</a>
-            <a href="about.html" class="nav-link active">About</a>
-            <a href="#contact" class="nav-link">Contact</a>
-        </nav>
-    </header>
+    <!-- Floating background elements -->
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
 
-    <main class="about-main">
-        <section class="about-hero">
-            <div class="about-content">
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span>Sophia Xin</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Work</a></li>
+                <li><a href="about.html" class="nav-link active">About</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="about-intro">
                 <h1 class="about-title">About Me</h1>
-                <div class="about-text-with-photo">
-                    <div class="about-photo-float">
+                <div class="about-content-grid">
+                    <div class="about-text">
+                        <p class="about-lead">
+                            Hi! I am Sophia Xin, a senior from Wellesley College Class of 2026, with a double major in Media Arts & Sciences and Psychology.
+                        </p>
+                        
+                        <p>
+                            In a world where technology and artistry converge, I find myself driven by creativity and innovation and fascinated by interdisciplinary learning. I am exploring careers in user experience/user interface (UX/UI) design, and product design/management.
+                        </p>
+                        
+                        <p>
+                            Captivated by the idea of fully exploring a world of possibilities within a project-driven space, I hope to pursue a career within the product-based technology sector, diving into the question: "How could we design accessible interfaces tailored specifically for users with special needs?"
+                        </p>
+                    </div>
+                    <div class="about-image">
                         <img src="images/sophia_photowbg.jpeg" alt="Sophia Xin" class="profile-photo">
                     </div>
-                    <p class="about-intro">
-                        Hi! I am Sophia Xin, a senior from Wellesley College Class of 2026, with a double major in Media Arts & Sciences and Psychology.
-                    </p>
-                    
-                    <p>
-                        In a world where technology and artistry converge, I find myself driven by creativity and innovation and fascinated by interdisciplinary learning. I am exploring careers in user experience/user interface (UX/UI) design, and product design/management.
-                    </p>
-                    
-                    <p>
-                        Captivated by the idea of fully exploring a world of possibilities within a project-driven space, I hope to pursue a career within the product-based technology sector, diving into the question: "How could we design accessible interfaces tailored specifically for users with special needs?"
-                    </p>
                 </div>
+            </div>
+        </div>
+    </section>
                 
-                <div class="education-section">
-                    <h2 class="education-title">Education</h2>
-                    <div class="education-item">
-                        <div class="education-header">
-                            <h3>Wellesley College, Wellesley, MA</h3>
-                            <span class="education-period">Expected May 2026</span>
-                        </div>
-                        <p class="education-degree">Bachelor of Arts in Media Arts and Sciences (Computer Science and Design), Psychology</p>
-                        <p class="education-fellowship">Bernard M. Gordon-MIT Engineering Leadership (GEL) Program, Gordan Engineering Leader</p>
-                    </div>
-                    
-                    <h3 class="coursework-title">Relevant Coursework</h3>
-                    <div class="coursework-list">
-                        <span>Databases with Web Interfaces</span>
-                        <span>Dynamic User Interfaces</span>
-                        <span>Tangible User Interfaces</span>
-                        <span>Virtual Forms</span>
-                        <span>Advanced Projects in Interactive Media (HCI)</span>
+    <!-- Education Section -->
+    <section class="about-section education-section">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-card">
+                <div class="education-header">
+                    <h3>Wellesley College, Wellesley, MA</h3>
+                    <span class="education-period">Expected May 2026</span>
+                </div>
+                <p class="education-degree">Bachelor of Arts in Media Arts and Sciences (Computer Science and Design), Psychology</p>
+                <p class="education-fellowship">Bernard M. Gordon-MIT Engineering Leadership (GEL) Program, Gordon Engineering Leader</p>
+            </div>
+            
+            <div class="coursework">
+                <h3 class="coursework-title">Relevant Coursework</h3>
+                <div class="coursework-grid">
+                    <span class="course-tag">Databases with Web Interfaces</span>
+                    <span class="course-tag">Dynamic User Interfaces</span>
+                    <span class="course-tag">Tangible User Interfaces</span>
+                    <span class="course-tag">Virtual Forms</span>
+                    <span class="course-tag">Advanced Projects in Interactive Media (HCI)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="about-section skills-section">
+        <div class="container">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming</h3>
+                    <div class="skill-tags">
+                        <span>Python</span>
+                        <span>Java</span>
+                        <span>SQL</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
                     </div>
                 </div>
-
-                <div class="skills-section">
-                    <h2 class="skills-title">Skills</h2>
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h3>Programming</h3>
-                            <div class="skill-tags">
-                                <span>Python</span>
-                                <span>Java</span>
-                                <span>SQL</span>
-                                <span>HTML</span>
-                                <span>CSS</span>
-                            </div>
-                        </div>
-                        <div class="skill-category">
-                            <h3>Design & Research</h3>
-                            <div class="skill-tags">
-                                <span>Figma</span>
-                                <span>Adobe Creative Cloud</span>
-                                <span>User Research</span>
-                                <span>A/B Testing</span>
-                                <span>3D Printing</span>
-                            </div>
-                        </div>
-                        <div class="skill-category">
-                            <h3>Tools & Languages</h3>
-                            <div class="skill-tags">
-                                <span>Arduino</span>
-                                <span>Unity</span>
-                                <span>Qualtrics</span>
-                                <span>SPSS</span>
-                                <span>English</span>
-                                <span>Mandarin Chinese</span>
-                            </div>
-                        </div>
+                <div class="skill-category">
+                    <h3>Design & Research</h3>
+                    <div class="skill-tags">
+                        <span>Figma</span>
+                        <span>Adobe Creative Cloud</span>
+                        <span>User Research</span>
+                        <span>A/B Testing</span>
+                        <span>3D Printing</span>
                     </div>
                 </div>
-
-                <div class="experience-section">
-                    <h2 class="experience-title">Research Experience</h2>
-                    <div class="experience-list">
-                        <div class="experience-item">
-                            <div class="experience-header">
-                                <h3>Research Assistant - MIT Media Lab</h3>
-                                <span class="experience-period">June 2025 - Present</span>
-                            </div>
-                            <p class="experience-company">Project "AI Art Critique & Live Coding App Interface Building"</p>
-                            <p class="experience-description">
-                                Developed Flask AI art critique app with RAG, CLIP ONNX, and API integration. Implemented Dovekie interface and created p5.js sketches for dynamic, parameter-driven generative workflows.
-                            </p>
-                        </div>
-                        <div class="experience-item">
-                            <div class="experience-header">
-                                <h3>Research Assistant - MIT Media Lab</h3>
-                                <span class="experience-period">September 2024 - May 2025</span>
-                            </div>
-                            <p class="experience-company">Project "WatchThis"</p>
-                            <p class="experience-description">
-                                Developed and optimized wearable AI device app interface. Supported user studies focusing on device comfort, privacy, and usability. Refined prototype interactions based on user feedback.
-                            </p>
-                        </div>
-                        <div class="experience-item">
-                            <div class="experience-header">
-                                <h3>Research Assistant - MIT Media Lab</h3>
-                                <span class="experience-period">May 2024 - July 2024</span>
-                            </div>
-                            <p class="experience-company">Project "Electronic Textiles"</p>
-                            <p class="experience-description">
-                                Visualized smart garment patterns through CLO 3D, Blender, and Photoshop. Created 20+ concept art pieces for sensor networks and optimized algorithms for accurate visualization.
-                            </p>
-                        </div>
-                        <div class="experience-item">
-                            <div class="experience-header">
-                                <h3>Research Assistant - MIT CSAIL</h3>
-                                <span class="experience-period">March 2024 - May 2024</span>
-                            </div>
-                            <p class="experience-company">Project "Generative AI and Fashion"</p>
-                            <p class="experience-description">
-                                Developed Python solutions for rescaling digital garments for metaverse avatars. Executed NeRF algorithm protocols for dynamic garment creation using machine learning pipelines.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience-section">
-                    <h2 class="experience-title">Professional Experience</h2>
-                    <div class="experience-list">
-                        <div class="experience-item">
-                            <div class="experience-header">
-                                <h3>Venture Capital Intern</h3>
-                                <span class="experience-period">July 2024 - August 2024</span>
-                            </div>
-                            <p class="experience-company">Robert Bosch Venture Capital GmBH, Shanghai, China</p>
-                            <p class="experience-description">
-                                Investigated government positions on foreign investment and technology sectors. Processed 40+ startup business plans and synthesized key insights for strategic planning.
-                            </p>
-                        </div>
-                        <div class="experience-item">
-                            <div class="experience-header">
-                                <h3>Marketing Intern</h3>
-                                <span class="experience-period">May 2023 - August 2023</span>
-                            </div>
-                            <p class="experience-company">Abbott Laboratories Trading (Shanghai) Co., Ltd.</p>
-                            <p class="experience-description">
-                                Researched global and competitor advertising strategies. Tracked A/B testing performance data and analyzed campaign effectiveness for optimization recommendations.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience-section">
-                    <h2 class="experience-title">Leadership & Community</h2>
-                    <div class="experience-list">
-                        <div class="experience-item">
-                            <div class="experience-header">
-                                <h3>Events Chair & Designathon Director</h3>
-                                <span class="experience-period">October 2023 - May 2025</span>
-                            </div>
-                            <p class="experience-company">Wellesley in Product, Wellesley College</p>
-                            <p class="experience-description">
-                                Directed annual designathon "EVOLVE" by leading a 20-member team, focusing on AI integration in accessible user-interface design. Managed cross-functional teams across marketing, logistics, and sponsorship.
-                            </p>
-                        </div>
-                        <div class="experience-item">
-                            <div class="experience-header">
-                                <h3>Student Consultant</h3>
-                                <span class="experience-period">October 2023 - Present</span>
-                            </div>
-                            <p class="experience-company">Computer Helpdesk, Wellesley College</p>
-                            <p class="experience-description">
-                                Troubleshoot technical issues via in-person assistance, phone calls, and Salesforce. Recalibrate and maintain circulating equipment to ensure operations and reduce downtime.
-                            </p>
-                        </div>
+                <div class="skill-category">
+                    <h3>Tools & Languages</h3>
+                    <div class="skill-tags">
+                        <span>Arduino</span>
+                        <span>Unity</span>
+                        <span>Qualtrics</span>
+                        <span>SPSS</span>
+                        <span>English</span>
+                        <span>Mandarin Chinese</span>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="contact" class="section">
+    <!-- Research Experience Section -->
+    <section class="about-section experience-section">
+        <div class="container">
+            <h2 class="section-title">Research Experience</h2>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Research Assistant - MIT Media Lab</h3>
+                        <span class="experience-period">June 2025 - Present</span>
+                    </div>
+                    <p class="experience-company">Project "AI Art Critique & Live Coding App Interface Building"</p>
+                    <p class="experience-description">
+                        Developed Flask AI art critique app with RAG, CLIP ONNX, and API integration. Implemented Dovekie interface and created p5.js sketches for dynamic, parameter-driven generative workflows.
+                    </p>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Research Assistant - MIT Media Lab</h3>
+                        <span class="experience-period">September 2024 - May 2025</span>
+                    </div>
+                    <p class="experience-company">Project "WatchThis"</p>
+                    <p class="experience-description">
+                        Developed and optimized wearable AI device app interface. Supported user studies focusing on device comfort, privacy, and usability. Refined prototype interactions based on user feedback.
+                    </p>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Research Assistant - MIT Media Lab</h3>
+                        <span class="experience-period">May 2024 - July 2024</span>
+                    </div>
+                    <p class="experience-company">Project "Electronic Textiles"</p>
+                    <p class="experience-description">
+                        Visualized smart garment patterns through CLO 3D, Blender, and Photoshop. Created 20+ concept art pieces for sensor networks and optimized algorithms for accurate visualization.
+                    </p>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Research Assistant - MIT CSAIL</h3>
+                        <span class="experience-period">March 2024 - May 2024</span>
+                    </div>
+                    <p class="experience-company">Project "Generative AI and Fashion"</p>
+                    <p class="experience-description">
+                        Developed Python solutions for rescaling digital garments for metaverse avatars. Executed NeRF algorithm protocols for dynamic garment creation using machine learning pipelines.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Experience Section -->
+    <section class="about-section experience-section">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Venture Capital Intern</h3>
+                        <span class="experience-period">July 2024 - August 2024</span>
+                    </div>
+                    <p class="experience-company">Robert Bosch Venture Capital GmBH, Shanghai, China</p>
+                    <p class="experience-description">
+                        Investigated government positions on foreign investment and technology sectors. Processed 40+ startup business plans and synthesized key insights for strategic planning.
+                    </p>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Marketing Intern</h3>
+                        <span class="experience-period">May 2023 - August 2023</span>
+                    </div>
+                    <p class="experience-company">Abbott Laboratories Trading (Shanghai) Co., Ltd.</p>
+                    <p class="experience-description">
+                        Researched global and competitor advertising strategies. Tracked A/B testing performance data and analyzed campaign effectiveness for optimization recommendations.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership & Community Section -->
+    <section class="about-section experience-section">
+        <div class="container">
+            <h2 class="section-title">Leadership & Community</h2>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Events Chair & Designathon Director</h3>
+                        <span class="experience-period">October 2023 - May 2025</span>
+                    </div>
+                    <p class="experience-company">Wellesley in Product, Wellesley College</p>
+                    <p class="experience-description">
+                        Directed annual designathon "EVOLVE" by leading a 20-member team, focusing on AI integration in accessible user-interface design. Managed cross-functional teams across marketing, logistics, and sponsorship.
+                    </p>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Student Consultant</h3>
+                        <span class="experience-period">October 2023 - Present</span>
+                    </div>
+                    <p class="experience-company">Computer Helpdesk, Wellesley College</p>
+                    <p class="experience-description">
+                        Troubleshoot technical issues via in-person assistance, phone calls, and Salesforce. Recalibrate and maintain circulating equipment to ensure operations and reduce downtime.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
             <div class="contact-content">
-                <h2 class="contact-title">Contact</h2>
+                <h2 class="contact-title">Let's work together</h2>
                 <p class="contact-subtitle">Available for new opportunities and collaborations</p>
-                <div class="contact-grid">
-                    <a href="mailto:sx103@wellesley.edu" class="contact-item">
-                        <span class="contact-icon">@</span>
-                        <span>Email</span>
+                <div class="contact-links">
+                    <a href="mailto:sx103@wellesley.edu" class="contact-link">
+                        <span class="contact-label">Email</span>
                     </a>
-                    <a href="https://www.linkedin.com/in/sophia-xin" class="contact-item">
-                        <span class="contact-icon">in</span>
-                        <span>LinkedIn</span>
+                    <a href="https://www.linkedin.com/in/sophia-xin" class="contact-link">
+                        <span class="contact-label">LinkedIn</span>
                     </a>
-                    <a href="https://docs.google.com/document/d/1VmzsV-sRt1MJc0Y6ywQl7R05WRMsTR86eigWNJyr8Hg/edit?usp=sharing" class="contact-item" target="_blank">
-                        <span class="contact-icon">rs</span>
-                        <span>Resume</span>
+                    <a href="https://docs.google.com/document/d/1VmzsV-sRt1MJc0Y6ywQl7R05WRMsTR86eigWNJyr8Hg/edit?usp=sharing" class="contact-link" target="_blank">
+                        <span class="contact-label">Resume</span>
                     </a>
                 </div>
-                <p class="development-note">I designed and developed this site from scratch with AI assistance</p>
             </div>
-        </section>
-    </main>
-    
-    
+        </div>
+    </section>
+
     <script src="script.js"></script>
 </body>
 </html>

@@ -3,87 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dovekie Interface - Sophia Xin</title>
-    <link rel="stylesheet" href="style.css?v=6">
+    <title>Dovekie Interface — Sophia Xin</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="cursor-dot" data-cursor-dot></div>
-    <div class="cursor-outline" data-cursor-outline></div>
-    
-    <header class="header">
-        <nav class="nav">
-            <a href="index.html" class="nav-link">Work</a>
-            <a href="about.html" class="nav-link">About</a>
-            <a href="index.html#contact" class="nav-link">Contact</a>
-        </nav>
-    </header>
+    <!-- Floating background elements -->
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
 
-    <main>
-        <section class="project-page">
-            <div class="project-page-content">
-                <div class="project-hero">
-                    <h1 class="project-page-title">Dovekie Interface</h1>
-                    <p class="project-subtitle">Open-Source Live Coding Interface at MIT Media Lab</p>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span>Sophia Xin</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Work</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="project-breadcrumb">
+                <a href="index.html">Work</a>
+                <span>/</span>
+                <span>Dovekie Interface</span>
+            </div>
+            <h1 class="project-title">Dovekie Interface</h1>
+            <p class="project-subtitle">Open-Source Live Coding Interface at MIT Media Lab</p>
+            
+            <div class="project-meta-grid">
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Interface Designer & Developer</span>
                 </div>
-                
-                <div class="project-overview">
-                    <div class="project-meta">
-                        <div class="meta-item">
-                            <strong>Role:</strong> Interface Designer & Developer
-                        </div>
-                        <div class="meta-item">
-                            <strong>Organization:</strong> MIT Media Lab - Future Sketches Group
-                        </div>
-                        <div class="meta-item">
-                            <strong>Supervisor & Creator:</strong> Jessica Stringham
-                        </div>
-                        <div class="meta-item">
-                            <strong>Year:</strong> 2024
+                <div class="meta-item">
+                    <span class="meta-label">Organization</span>
+                    <span class="meta-value">MIT Media Lab - Future Sketches Group</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Supervisor</span>
+                    <span class="meta-value">Jessica Stringham</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Year</span>
+                    <span class="meta-value">2024</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Media -->
+    <section class="project-media-section">
+        <div class="container">
+            <div class="project-video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/AaxXMroazQs" 
+                    title="Dovekie Interface Demo" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    class="project-video">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="project-content">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-main">
+                    <div class="content-section">
+                        <h2>Project Overview</h2>
+                        <p>Implemented the Dovekie (open-source live coding JS package) interface and designed key interactive components. Created p5.js sketches to experiment with dynamic, parameter-driven generative workflows.</p>
+                        
+                        <p>As part of the Future Sketches group at MIT Media Lab, I contributed to the development of an open-source live-coding environment that enables creative expression through code. The project focused on creating intuitive interfaces that bridge the gap between technical complexity and artistic creativity.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>Key Contributions</h2>
+                        <ul class="project-list">
+                            <li>Designed and implemented user interface components for the Dovekie live-coding environment</li>
+                            <li>Created p5.js sketches demonstrating dynamic, parameter-driven generative workflows</li>
+                            <li>Collaborated with the development team on interface usability and user experience improvements</li>
+                            <li>Contributed to open-source documentation and community resources</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>Technical Approach</h2>
+                        <p>The interface design process involved understanding the unique needs of live-coding practitioners and translating complex technical requirements into intuitive user interactions. Key considerations included real-time feedback, parameter manipulation, and seamless integration with existing creative workflows.</p>
+                    </div>
+                </div>
+
+                <div class="content-sidebar">
+                    <div class="sidebar-section">
+                        <h3>Technologies</h3>
+                        <div class="tech-tags">
+                            <span>JavaScript</span>
+                            <span>p5.js</span>
+                            <span>Interface Design</span>
+                            <span>Live Coding</span>
+                            <span>Open Source</span>
                         </div>
                     </div>
-                    
-                    <p class="project-description">Implemented the Dovekie (open-source live coding JS package) interface and designed key interactive components. Created p5.js sketches to experiment with dynamic, parameter-driven generative workflows.</p>
-                </div>
 
-                <div class="project-demo">
-                    <h2>Interface Demonstration</h2>
-                    <div class="demo-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/AaxXMroazQs" 
-                            title="Dovekie Interface Demo" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen
-                            class="demo-video">
-                        </iframe>
+                    <div class="sidebar-section">
+                        <h3>Impact</h3>
+                        <p>Contributed to an open-source tool that enables creative live-coding experiences for artists and developers worldwide.</p>
                     </div>
-                </div>
 
-                <div class="technical-approach">
-                    <h2>Technical Implementation</h2>
-                    <div class="approach-grid">
-                        <div class="approach-item">
-                            <h3>Interface Design</h3>
-                            <p>Designed and implemented key interactive components for the live coding environment, focusing on user experience and creative workflow optimization.</p>
-                        </div>
-                        <div class="approach-item">
-                            <h3>Generative Workflows</h3>
-                            <p>Created p5.js sketches that experiment with dynamic, parameter-driven generative systems for creative expression.</p>
-                        </div>
-                        <div class="approach-item">
-                            <h3>Open Source Interface</h3>
-                            <p>Contributed interface components to the open-source Dovekie JavaScript package, focusing on user experience and accessibility.</p>
-                        </div>
-                        <div class="approach-item">
-                            <h3>Interface Development</h3>
-                            <p>Developed interface tools that enable real-time creative coding experiences for artists and developers in collaborative settings.</p>
-                        </div>
+                    <div class="sidebar-section">
+                        <h3>Links</h3>
+                        <a href="https://github.com/jstringham/dovekie" class="external-link" target="_blank">
+                            View on GitHub
+                        </a>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
-    
+        </div>
+    </section>
+
+    <!-- Navigation to other projects -->
+    <section class="project-navigation">
+        <div class="container">
+            <div class="nav-projects">
+                <a href="artwork.html" class="nav-project prev">
+                    <span class="nav-label">Previous Project</span>
+                    <span class="nav-title">Visual Arts & Collage</span>
+                </a>
+                <a href="index.html" class="nav-project home">
+                    <span class="nav-label">All Projects</span>
+                </a>
+                <a href="vinetality.html" class="nav-project next">
+                    <span class="nav-label">Next Project</span>
+                    <span class="nav-title">Vinetality</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <script src="script.js"></script>
 </body>
 </html>

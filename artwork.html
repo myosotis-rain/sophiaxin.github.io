@@ -3,101 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visual Arts & Collage - Sophia Xin</title>
-    <link rel="stylesheet" href="style.css?v=6">
+    <title>Visual Arts & Collage — Sophia Xin</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="cursor-dot" data-cursor-dot></div>
-    <div class="cursor-outline" data-cursor-outline></div>
-    
-    <header class="header">
-        <nav class="nav">
-            <a href="index.html" class="nav-link">Work</a>
-            <a href="about.html" class="nav-link">About</a>
-            <a href="index.html#contact" class="nav-link">Contact</a>
-        </nav>
-    </header>
+    <!-- Floating background elements -->
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
 
-    <main>
-        <section class="project-page artwork-page">
-            <div class="project-page-content">
-                <div class="project-hero">
-                    <h1 class="project-page-title">Visual Arts & Collage</h1>
-                    <p class="project-subtitle">Personal artistic explorations and mixed-media work</p>
-                </div>
-                
-                <div class="concept-gallery">
-                    <h2>Visual Art</h2>
-                    <div class="artwork-flex-grid">
-                        <div class="concept-item artwork-item" onclick="openImageModal('images/art_I have no preconceptions.jpg')">
-                            <img src="images/art_I have no preconceptions.jpg" alt="I have no preconceptions" loading="lazy">
-                            <p class="concept-caption">I have no preconceptions</p>
-                        </div>
-                        <div class="concept-item artwork-item" onclick="openImageModal('images/art_Now I am a lake.jpg')">
-                            <img src="images/art_Now I am a lake.jpg" alt="Now I am a lake" loading="lazy">
-                            <p class="concept-caption">Now I am a lake</p>
-                        </div>
-                        <div class="concept-item artwork-item" onclick="openImageModal('images/art_Searching my reaches.jpg')">
-                            <img src="images/art_Searching my reaches.jpg" alt="Searching my reaches" loading="lazy">
-                            <p class="concept-caption">Searching my reaches</p>
-                        </div>
-                        <div class="concept-item artwork-item" onclick="openImageModal('images/art_hand.jpg')">
-                            <img src="images/art_hand.jpg" alt="Agitation of the hands" loading="lazy">
-                            <p class="concept-caption">Agitation of hands</p>
-                        </div>
-                        <div class="concept-item artwork-item" onclick="openImageModal('images/art_unmisted by love.jpg')">
-                            <img src="images/art_unmisted by love.jpg" alt="Unmisted by love" loading="lazy">
-                            <p class="concept-caption">Unmisted by love</p>
-                        </div>
-                    </div>
-                </div>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span>Sophia Xin</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Work</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-                <div class="concept-gallery">
-                    <h2>Collage Work</h2>
-                    <div class="artwork-flex-grid">
-                        <div class="concept-item artwork-item" onclick="openImageModal('images/collage_1.JPG')">
-                            <img src="images/collage_1.JPG" alt="Heart" loading="lazy">
-                            <p class="concept-caption">Heart</p>
-                        </div>
-                        <div class="concept-item artwork-item" onclick="openImageModal('images/collage_2.JPG')">
-                            <img src="images/collage_2.JPG" alt="In this world" loading="lazy">
-                            <p class="concept-caption">In this world</p>
-                        </div>
-                        <div class="concept-item artwork-item" onclick="openImageModal('images/collage_3.JPG')">
-                            <img src="images/collage_3.JPG" alt="What is gender" loading="lazy">
-                            <p class="concept-caption">What is gender</p>
-                        </div>
-                        <div class="concept-item artwork-item" onclick="openImageModal('images/collage_WGST120Cover.JPG')">
-                            <img src="images/collage_WGST120Cover.JPG" alt="WGST120" loading="lazy">
-                            <p class="concept-caption">WGST120</p>
-                        </div>
-                        <div class="concept-item artwork-item" onclick="openImageModal('images/collage_thstCover.JPG')">
-                            <img src="images/collage_thstCover.JPG" alt="THST207" loading="lazy">
-                            <p class="concept-caption">THST207</p>
-                        </div>
-                    </div>
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="project-breadcrumb">
+                <a href="index.html">Work</a>
+                <span>/</span>
+                <span>Visual Arts & Collage</span>
+            </div>
+            <h1 class="project-title">Visual Arts & Collage</h1>
+            <p class="project-subtitle">Creative Exploration Through Mixed Media & Digital Art</p>
+            
+            <div class="project-meta-grid">
+                <div class="meta-item">
+                    <span class="meta-label">Medium</span>
+                    <span class="meta-value">Digital Art, Collage, Mixed Media</span>
                 </div>
-
-                <div class="concept-gallery">
-                    <h2>Computational Art</h2>
-                    <div class="concept-grid">
-                        <div class="concept-item" onclick="openImageModal('images/art_dying of the light cs111.jpg')">
-                            <img src="images/art_dying of the light cs111.jpg" alt="Dying of the light - CS111 Project" loading="lazy">
-                            <p class="concept-caption">Dying of the light - CS111 Project</p>
-                        </div>
-                    </div>
+                <div class="meta-item">
+                    <span class="meta-label">Tools</span>
+                    <span class="meta-value">Adobe Creative Suite, Procreate</span>
                 </div>
-                
-                <!-- Image Modal -->
-                <div class="image-modal" id="imageModal" onclick="closeImageModal()">
-                    <span class="modal-close" onclick="closeImageModal()">&times;</span>
-                    <img class="modal-image" id="modalImage" src="" alt="">
+                <div class="meta-item">
+                    <span class="meta-label">Focus</span>
+                    <span class="meta-value">Identity, Introspection, Expression</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Period</span>
+                    <span class="meta-value">2020-2024</span>
                 </div>
             </div>
-        </section>
-    </main>
-    
-    
+        </div>
+    </section>
+
+    <!-- Project Media -->
+    <section class="project-media-section">
+        <div class="container">
+            <div class="project-image-container">
+                <img src="images/art_cover.jpg" alt="Visual Arts Preview" class="project-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="project-content">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-main">
+                    <div class="content-section">
+                        <h2>Creative Vision</h2>
+                        <p>A curated collection of visual works including digital illustrations, experimental collages, and artistic explorations that blend traditional art techniques with digital innovation.</p>
+                        
+                        <p>This body of work explores themes of identity, introspection, and creative expression through various visual mediums. Each piece represents a different aspect of personal and artistic growth, documenting my journey as both a technical creator and visual artist.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>Artistic Process</h2>
+                        <p>My artistic practice combines traditional composition principles with contemporary digital tools, creating a unique visual language that bridges analog and digital creation methods. The work spans from detailed character illustrations to abstract experimental compositions.</p>
+                        
+                        <p>Each piece begins with conceptual exploration, followed by iterative development using both digital and mixed-media techniques. The process emphasizes the relationship between technical skill and creative expression.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>Themes & Techniques</h2>
+                        <ul class="project-list">
+                            <li>Character design and illustration with focus on emotional expression</li>
+                            <li>Abstract digital compositions exploring color theory and form</li>
+                            <li>Mixed-media collages combining photography, illustration, and typography</li>
+                            <li>Experimental approaches to visual storytelling and narrative</li>
+                            <li>Integration of traditional artistic methods with modern digital workflows</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-sidebar">
+                    <div class="sidebar-section">
+                        <h3>Mediums</h3>
+                        <div class="tech-tags">
+                            <span>Digital Illustration</span>
+                            <span>Collage</span>
+                            <span>Mixed Media</span>
+                            <span>Character Design</span>
+                            <span>Typography</span>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h3>Creative Focus</h3>
+                        <ul style="list-style: none; padding: 0; font-size: 14px; color: var(--gray-600);">
+                            <li>• Identity exploration</li>
+                            <li>• Emotional expression</li>
+                            <li>• Visual storytelling</li>
+                            <li>• Color & composition</li>
+                            <li>• Technical experimentation</li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h3>Artistic Development</h3>
+                        <p>Developed a unique visual language that bridges traditional artistic methods with contemporary digital tools and themes, showcasing versatility across multiple creative mediums.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation to other projects -->
+    <section class="project-navigation">
+        <div class="container">
+            <div class="nav-projects">
+                <a href="arts205.html" class="nav-project prev">
+                    <span class="nav-label">Previous Project</span>
+                    <span class="nav-title">ARTS205 Portfolio</span>
+                </a>
+                <a href="index.html" class="nav-project home">
+                    <span class="nav-label">All Projects</span>
+                </a>
+                <a href="dovekie.html" class="nav-project next">
+                    <span class="nav-label">Next Project</span>
+                    <span class="nav-title">Dovekie Interface</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <script src="script.js"></script>
 </body>
 </html>
