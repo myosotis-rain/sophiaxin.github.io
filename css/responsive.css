@@ -18,8 +18,9 @@
     .hero {
         flex-direction: column;
         justify-content: center;
-        gap: var(--space-2xl);
-        padding: 0 var(--space-lg);
+        gap: var(--space-xl);
+        padding: 0 var(--space-md);
+        min-height: 80vh;
     }
     
     .hero-content {
@@ -35,15 +36,21 @@
     }
     
     .hero-title {
-        font-size: clamp(2.2rem, 8vw, 3.5rem);
+        font-size: clamp(2rem, 7vw, 3rem);
+        line-height: 1.15;
+        margin-bottom: var(--space-sm);
     }
     
     .hero-tagline {
-        font-size: clamp(1rem, 3vw, 1.2rem);
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+        margin-bottom: var(--space-md);
     }
     
     .hero-description {
-        font-size: var(--text-base);
+        font-size: var(--text-sm);
+        line-height: 1.6;
+        max-width: 90%;
+        margin: 0 auto;
     }
     
     .section-header,
@@ -80,47 +87,74 @@
     }
     
     .nav {
-        top: var(--space-lg);
-        right: var(--space-lg);
+        top: var(--space-md);
+        right: var(--space-md);
+        left: var(--space-md);
+        width: auto;
     }
     
     .nav-container {
-        padding: var(--space-sm) var(--space-md);
-        gap: 0;
+        padding: var(--space-sm) var(--space-sm);
+        justify-content: center;
     }
     
     .nav-link {
         padding: var(--space-sm) var(--space-md);
+        font-size: var(--text-sm);
     }
 }
 
 /* Mobile fine-tuning */
 @media (max-width: 480px) {
+    .hero {
+        min-height: 75vh;
+        gap: var(--space-lg);
+        padding: 0 var(--space-sm);
+    }
+    
     .hero-content {
-        padding: 0 var(--space-md);
+        padding: 0;
     }
     
     .work {
-        padding: 60px 0;
+        padding: var(--space-3xl) 0;
     }
     
     .contact {
-        padding: 60px 0;
-        margin-top: 40px;
+        padding: var(--space-3xl) 0;
+        margin-top: var(--space-2xl);
     }
     
     .section-header {
-        margin-bottom: 40px;
-        padding: 0 var(--space-md);
+        margin-bottom: var(--space-2xl);
+        padding: 0 var(--space-sm);
+    }
+    
+    .section-title {
+        font-size: clamp(1.8rem, 6vw, 2.2rem);
     }
     
     .projects {
-        gap: 40px;
-        padding: 0 var(--space-md);
+        gap: var(--space-2xl);
+        padding: 0 var(--space-sm);
     }
     
     .project-row {
-        gap: var(--space-2xl);
+        gap: var(--space-xl);
+    }
+    
+    .project-item {
+        margin-bottom: var(--space-md);
+    }
+    
+    .project-title {
+        font-size: var(--text-lg);
+        margin-bottom: var(--space-xs);
+    }
+    
+    .project-description {
+        font-size: var(--text-sm);
+        line-height: 1.5;
     }
     
     .contact-content {
@@ -128,17 +162,19 @@
     }
     
     .nav {
-        top: var(--space-md);
-        right: var(--space-md);
+        top: var(--space-sm);
+        right: var(--space-sm);
+        left: var(--space-sm);
     }
     
     .nav-container {
-        padding: var(--space-sm) var(--space-md);
-        gap: 0;
+        padding: var(--space-xs) var(--space-sm);
+        border-radius: 20px;
     }
     
     .nav-link {
-        padding: var(--space-sm) var(--space-md);
+        padding: var(--space-xs) var(--space-sm);
+        font-size: 12px;
     }
     
     .contact-links {
@@ -148,5 +184,80 @@
     
     .contact-link {
         width: fit-content;
+    }
+    
+    /* Project page mobile improvements */
+    .project-header {
+        padding: calc(var(--space-2xl) + 60px) 0 var(--space-xl);
+    }
+    
+    .project-title {
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
+        line-height: 1.2;
+    }
+    
+    .project-tagline {
+        font-size: var(--text-base);
+        margin-bottom: var(--space-lg);
+    }
+    
+    .meta-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-md);
+    }
+    
+    .meta-item label {
+        font-size: 11px;
+    }
+    
+    .meta-item span {
+        font-size: var(--text-sm);
+    }
+    
+    /* Content layout improvements */
+    .content-layout {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+    }
+    
+    .content-secondary {
+        order: -1;
+        margin-bottom: var(--space-lg);
+    }
+    
+    .block-title {
+        font-size: var(--text-lg);
+        margin-bottom: var(--space-md);
+    }
+    
+    .block-content p {
+        font-size: var(--text-sm);
+        line-height: 1.6;
+        margin-bottom: var(--space-sm);
+    }
+}
+
+/* Ultra-small mobile (iPhone SE, etc.) */
+@media (max-width: 375px) {
+    .hero-title {
+        font-size: clamp(1.6rem, 8vw, 2rem);
+    }
+    
+    .hero-tagline {
+        font-size: 0.85rem;
+    }
+    
+    .nav-link {
+        padding: var(--space-xs) var(--space-xs);
+        font-size: 11px;
+    }
+    
+    .project-row {
+        gap: var(--space-lg);
+    }
+    
+    .meta-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
     }
 }

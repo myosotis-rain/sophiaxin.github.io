@@ -609,6 +609,58 @@
     }
 }
 
+/* ===== MOBILE TYPOGRAPHY REFINEMENTS ===== */
+@media (max-width: 768px) {
+    /* Better text readability on mobile */
+    body {
+        line-height: 1.6;
+        -webkit-text-size-adjust: 100%;
+        -webkit-font-smoothing: antialiased;
+    }
+    
+    /* Improved touch targets */
+    a, button {
+        min-height: 44px;
+        min-width: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Better contrast for small screens */
+    .hero-title,
+    .section-title,
+    .project-title {
+        color: var(--gray-900);
+    }
+    
+    /* Optimized spacing for mobile screens */
+    .container {
+        padding: 0 var(--space-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 var(--space-sm);
+    }
+    
+    /* Tighter line heights for small screens */
+    .hero-title {
+        line-height: 1.1;
+    }
+    
+    .project-title {
+        line-height: 1.25;
+    }
+}
+
+@media (max-width: 375px) {
+    .container {
+        padding: 0 var(--space-xs);
+    }
+}
+
 /* ===== CONTACT SECTION ===== */
 .contact {
     padding: 120px 0;
