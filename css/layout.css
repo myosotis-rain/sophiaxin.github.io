@@ -636,28 +636,72 @@
     
     /* Optimized spacing for mobile screens */
     .container {
-        padding: 0 var(--space-md);
+        padding: 0 var(--space-lg);
+        margin-bottom: var(--space-md);
+    }
+    
+    /* Better section spacing */
+    section {
+        margin-bottom: var(--space-xl);
+    }
+    
+    /* Improved content flow */
+    main {
+        padding-bottom: var(--space-2xl);
     }
 }
 
 @media (max-width: 480px) {
     .container {
-        padding: 0 var(--space-sm);
+        padding: 0 var(--space-md);
+        margin-bottom: var(--space-sm);
     }
     
     /* Tighter line heights for small screens */
     .hero-title {
         line-height: 1.1;
+        margin-bottom: var(--space-md);
     }
     
     .project-title {
         line-height: 1.25;
+        margin-bottom: var(--space-sm);
+    }
+    
+    /* Better mobile section flow */
+    section {
+        margin-bottom: var(--space-lg);
+        padding: 0 var(--space-xs);
+    }
+    
+    main {
+        padding-bottom: var(--space-xl);
     }
 }
 
 @media (max-width: 375px) {
     .container {
+        padding: 0 var(--space-sm);
+        margin-bottom: var(--space-xs);
+    }
+    
+    /* Ultra-compact spacing for very small screens */
+    section {
+        margin-bottom: var(--space-md);
         padding: 0 var(--space-xs);
+    }
+    
+    main {
+        padding-bottom: var(--space-lg);
+    }
+    
+    /* Optimize text margins */
+    .hero-title {
+        margin-bottom: var(--space-sm);
+    }
+    
+    .project-title {
+        margin-bottom: var(--space-xs);
     }
 }
 

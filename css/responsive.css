@@ -21,7 +21,7 @@
         align-items: center;
         text-align: center;
         gap: 0;
-        padding: var(--space-2xl) var(--space-md);
+        padding: var(--space-3xl) var(--space-lg) var(--space-2xl);
         min-height: 100vh;
     }
     
@@ -66,6 +66,7 @@
     .projects,
     .contact-content {
         padding: 0 var(--space-lg);
+        margin-bottom: var(--space-xl);
     }
     
     .project-row {
@@ -74,7 +75,8 @@
     }
     
     .work {
-        padding: 80px 0;
+        padding: var(--space-4xl) 0;
+        margin-top: var(--space-lg);
     }
     
     .contact {
@@ -83,16 +85,18 @@
     }
     
     .section-header {
-        margin-bottom: 60px;
+        margin-bottom: var(--space-3xl);
+        padding-bottom: var(--space-md);
     }
     
     .projects {
-        gap: 60px;
+        gap: var(--space-3xl);
     }
     
     .project-row {
         grid-template-columns: 1fr;
-        gap: 48px;
+        gap: var(--space-2xl);
+        margin-bottom: var(--space-lg);
     }
     
     .nav {
@@ -117,7 +121,7 @@
 @media (max-width: 480px) {
     .hero {
         min-height: 100vh;
-        padding: var(--space-xl) var(--space-sm);
+        padding: var(--space-2xl) var(--space-md) var(--space-xl);
         justify-content: center;
     }
     
@@ -127,16 +131,17 @@
     
     .work {
         padding: var(--space-3xl) 0;
+        margin-top: var(--space-md);
     }
     
     .contact {
         padding: var(--space-3xl) 0;
-        margin-top: var(--space-2xl);
+        margin-top: var(--space-xl);
     }
     
     .section-header {
         margin-bottom: var(--space-2xl);
-        padding: 0 var(--space-sm);
+        padding: 0 var(--space-md) var(--space-sm);
     }
     
     .section-title {
@@ -145,15 +150,18 @@
     
     .projects {
         gap: var(--space-2xl);
-        padding: 0 var(--space-sm);
+        padding: 0 var(--space-md);
+        margin-bottom: var(--space-lg);
     }
     
     .project-row {
         gap: var(--space-xl);
+        margin-bottom: var(--space-md);
     }
     
     .project-item {
-        margin-bottom: var(--space-md);
+        margin-bottom: var(--space-lg);
+        padding: 0 var(--space-xs);
     }
     
     .project-title {
@@ -197,7 +205,8 @@
     
     /* Project page mobile improvements */
     .project-header {
-        padding: calc(var(--space-2xl) + 60px) 0 var(--space-xl);
+        padding: calc(var(--space-3xl) + 60px) var(--space-md) var(--space-xl);
+        margin-bottom: var(--space-lg);
     }
     
     .project-title {
@@ -227,11 +236,13 @@
     .content-layout {
         grid-template-columns: 1fr;
         gap: var(--space-xl);
+        padding: 0 var(--space-md);
     }
     
     .content-secondary {
         order: -1;
-        margin-bottom: var(--space-lg);
+        margin-bottom: var(--space-xl);
+        padding: var(--space-lg) 0;
     }
     
     .block-title {
@@ -242,14 +253,15 @@
     .block-content p {
         font-size: var(--text-sm);
         line-height: 1.6;
-        margin-bottom: var(--space-sm);
+        margin-bottom: var(--space-md);
+        padding: 0 var(--space-xs);
     }
 }
 
 /* Ultra-small mobile (iPhone SE, etc.) */
 @media (max-width: 375px) {
     .hero {
-        padding: var(--space-lg) var(--space-sm);
+        padding: var(--space-xl) var(--space-sm) var(--space-lg);
     }
     
     .hero-title {
@@ -266,6 +278,7 @@
         font-size: var(--text-sm);
         max-width: 95%;
         line-height: 1.6;
+        margin-top: var(--space-xs);
     }
     
     .hero-divider {

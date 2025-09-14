@@ -273,7 +273,8 @@
 @media (max-width: 768px) {
     .project-media {
         aspect-ratio: 16/10;
-        margin-bottom: var(--space-md);
+        margin-bottom: var(--space-lg);
+        border-radius: var(--border-radius-md);
     }
     
     .project-overlay {
@@ -285,49 +286,57 @@
     }
     
     .project-info {
-        padding: var(--space-md) 0 0;
+        padding: var(--space-lg) var(--space-sm) var(--space-md);
     }
     
     .project-title {
         font-size: var(--text-lg);
-        margin-bottom: var(--space-xs);
+        margin-bottom: var(--space-sm);
+        line-height: 1.3;
     }
     
     .project-description {
         font-size: var(--text-sm);
-        line-height: 1.5;
-        margin-bottom: var(--space-md);
+        line-height: 1.55;
+        margin-bottom: var(--space-lg);
+        padding: 0 var(--space-xs);
     }
     
     .project-link {
         font-size: var(--text-xs);
-        padding: var(--space-xs) 0;
+        padding: var(--space-sm) 0;
+        margin-top: var(--space-xs);
     }
 }
 
 @media (max-width: 480px) {
     .project-media {
         aspect-ratio: 4/3;
-        margin-bottom: var(--space-sm);
+        margin-bottom: var(--space-md);
+        border-radius: var(--border-radius-sm);
     }
     
     .project-info {
-        padding: var(--space-sm) 0 0;
+        padding: var(--space-md) var(--space-xs) var(--space-sm);
     }
     
     .project-title {
         font-size: var(--text-base);
         line-height: 1.3;
+        margin-bottom: var(--space-xs);
     }
     
     .project-description {
         font-size: 13px;
-        line-height: 1.4;
-        margin-bottom: var(--space-sm);
+        line-height: 1.5;
+        margin-bottom: var(--space-md);
+        padding: 0 var(--space-xs);
     }
     
     .project-link {
         font-size: 11px;
+        padding: var(--space-xs) 0;
+        margin-top: var(--space-xs);
     }
 }
 
