@@ -72,3 +72,40 @@
     opacity: 0;
     transition: opacity 0.3s ease-out;
 }
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .scroll-cue {
+        bottom: var(--space-xl);
+    }
+    
+    .scroll-indicator {
+        height: 35px;
+    }
+    
+    .scroll-text {
+        font-size: 10px;
+        margin-top: var(--space-xs);
+    }
+}
+
+@media (max-width: 480px) {
+    .scroll-cue {
+        bottom: var(--space-lg);
+    }
+    
+    .scroll-indicator {
+        height: 30px;
+        width: 1.5px;
+    }
+    
+    .scroll-text {
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 375px) {
+    .scroll-cue {
+        bottom: var(--space-md);
+    }
+}

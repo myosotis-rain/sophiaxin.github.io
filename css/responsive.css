@@ -18,39 +18,48 @@
     .hero {
         flex-direction: column;
         justify-content: center;
-        gap: var(--space-xl);
-        padding: 0 var(--space-md);
-        min-height: 80vh;
+        align-items: center;
+        text-align: center;
+        gap: 0;
+        padding: var(--space-2xl) var(--space-md);
+        min-height: 100vh;
     }
     
     .hero-content {
         flex: none;
         max-width: 100%;
         text-align: center;
+        width: 100%;
     }
     
     .hero-visual {
-        flex: none;
-        width: 100%;
-        height: 300px;
+        display: none;
     }
     
     .hero-title {
-        font-size: clamp(2rem, 7vw, 3rem);
-        line-height: 1.15;
-        margin-bottom: var(--space-sm);
+        font-size: clamp(2.2rem, 8vw, 3.2rem);
+        line-height: 1.1;
+        margin-bottom: var(--space-md);
+        letter-spacing: -0.02em;
     }
     
     .hero-tagline {
-        font-size: clamp(0.9rem, 3vw, 1.1rem);
-        margin-bottom: var(--space-md);
+        font-size: clamp(1rem, 3.5vw, 1.2rem);
+        margin-bottom: var(--space-lg);
+        opacity: 0.9;
     }
     
     .hero-description {
-        font-size: var(--text-sm);
-        line-height: 1.6;
-        max-width: 90%;
+        font-size: var(--text-base);
+        line-height: 1.65;
+        max-width: 85%;
         margin: 0 auto;
+        opacity: 0.85;
+    }
+    
+    .hero-divider {
+        width: 60px;
+        margin: var(--space-lg) auto;
     }
     
     .section-header,
@@ -107,9 +116,9 @@
 /* Mobile fine-tuning */
 @media (max-width: 480px) {
     .hero {
-        min-height: 75vh;
-        gap: var(--space-lg);
-        padding: 0 var(--space-sm);
+        min-height: 100vh;
+        padding: var(--space-xl) var(--space-sm);
+        justify-content: center;
     }
     
     .hero-content {
@@ -239,12 +248,29 @@
 
 /* Ultra-small mobile (iPhone SE, etc.) */
 @media (max-width: 375px) {
+    .hero {
+        padding: var(--space-lg) var(--space-sm);
+    }
+    
     .hero-title {
-        font-size: clamp(1.6rem, 8vw, 2rem);
+        font-size: clamp(1.8rem, 9vw, 2.2rem);
+        margin-bottom: var(--space-sm);
     }
     
     .hero-tagline {
-        font-size: 0.85rem;
+        font-size: clamp(0.9rem, 4vw, 1rem);
+        margin-bottom: var(--space-md);
+    }
+    
+    .hero-description {
+        font-size: var(--text-sm);
+        max-width: 95%;
+        line-height: 1.6;
+    }
+    
+    .hero-divider {
+        width: 50px;
+        margin: var(--space-md) auto;
     }
     
     .nav-link {
