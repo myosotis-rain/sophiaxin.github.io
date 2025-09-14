@@ -7,22 +7,17 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Recoleta:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Floating background elements -->
-    <div class="floating-shapes">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
-        <div class="shape shape-4"></div>
-    </div>
+    <!-- Subtle Morandi background element -->
+    <div class="morandi-bg"></div>
 
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
             <div class="nav-logo">
-                <span>Sophia Xin</span>
+                <a href="index.html">Sophia Xin</a>
             </div>
             <ul class="nav-links">
                 <li><a href="index.html" class="nav-link">Work</a></li>
@@ -32,129 +27,238 @@
         </div>
     </nav>
 
-    <!-- Project Hero -->
-    <section class="project-hero">
+    <!-- Project Header -->
+    <header class="project-header">
         <div class="container">
-            <div class="project-breadcrumb">
-                <a href="index.html">Work</a>
-                <span>/</span>
-                <span>Visual Arts & Collage</span>
-            </div>
-            <h1 class="project-title">Visual Arts & Collage</h1>
-            <p class="project-subtitle">Creative Exploration Through Mixed Media & Digital Art</p>
+            <nav class="breadcrumb">
+                <a href="index.html">Selected Work</a>
+                <span class="separator">→</span>
+                <span class="current">Visual Arts & Collage</span>
+            </nav>
             
-            <div class="project-meta-grid">
-                <div class="meta-item">
-                    <span class="meta-label">Medium</span>
-                    <span class="meta-value">Digital Art, Collage, Mixed Media</span>
+            <div class="project-intro">
+                <h1 class="project-title">Visual Arts & Collage</h1>
+                <p class="project-tagline">Creative Exploration Through Mixed Media & Digital Art</p>
+            </div>
+
+            <div class="project-meta">
+                <div class="meta-grid">
+                    <div class="meta-item">
+                        <label>Medium</label>
+                        <span>Digital Art, Collage, Mixed Media</span>
+                    </div>
+                    <div class="meta-item">
+                        <label>Tools</label>
+                        <span>Adobe Creative Suite, Procreate</span>
+                    </div>
+                    <div class="meta-item">
+                        <label>Focus</label>
+                        <span>Identity, Introspection, Expression</span>
+                    </div>
+                    <div class="meta-item">
+                        <label>Period</label>
+                        <span>2020-2024</span>
+                    </div>
                 </div>
-                <div class="meta-item">
-                    <span class="meta-label">Tools</span>
-                    <span class="meta-value">Adobe Creative Suite, Procreate</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Artworks Section -->
+    <section class="art-gallery-section">
+        <div class="container">
+            <h2 class="gallery-section-title">Artworks</h2>
+            <div class="art-gallery">
+                <div class="art-item" onclick="openLightbox('media/art_I have no preconceptions.jpg', 'I Have No Preconceptions')">
+                    <img src="media/art_I have no preconceptions.jpg" alt="I Have No Preconceptions" class="art-image">
                 </div>
-                <div class="meta-item">
-                    <span class="meta-label">Focus</span>
-                    <span class="meta-value">Identity, Introspection, Expression</span>
+                <div class="art-item" onclick="openLightbox('media/art_Now I am a lake.jpg', 'Now I Am a Lake')">
+                    <img src="media/art_Now I am a lake.jpg" alt="Now I Am a Lake" class="art-image">
                 </div>
-                <div class="meta-item">
-                    <span class="meta-label">Period</span>
-                    <span class="meta-value">2020-2024</span>
+                <div class="art-item" onclick="openLightbox('media/art_Searching my reaches.jpg', 'Searching My Reaches')">
+                    <img src="media/art_Searching my reaches.jpg" alt="Searching My Reaches" class="art-image">
+                </div>
+                <div class="art-item" onclick="openLightbox('media/art_hand.jpg', 'Hand Study')">
+                    <img src="media/art_hand.jpg" alt="Hand Study" class="art-image">
+                </div>
+                <div class="art-item" onclick="openLightbox('media/art_unmisted by love.jpg', 'Unmisted by Love')">
+                    <img src="media/art_unmisted by love.jpg" alt="Unmisted by Love" class="art-image">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Project Media -->
-    <section class="project-media-section">
+    <!-- Collages Section -->
+    <section class="collage-gallery-section">
         <div class="container">
-            <div class="project-image-container">
-                <img src="media/art_cover.jpg" alt="Visual Arts Preview" class="project-image">
+            <h2 class="gallery-section-title">Collages</h2>
+            <div class="collage-gallery">
+                <div class="collage-item" onclick="openLightbox('media/collage_1.JPG', 'Collage I')">
+                    <img src="media/collage_1.JPG" alt="Collage Work 1" class="collage-image">
+                </div>
+                <div class="collage-item" onclick="openLightbox('media/collage_2.JPG', 'Collage II')">
+                    <img src="media/collage_2.JPG" alt="Collage Work 2" class="collage-image">
+                </div>
+                <div class="collage-item" onclick="openLightbox('media/collage_3.JPG', 'Collage III')">
+                    <img src="media/collage_3.JPG" alt="Collage Work 3" class="collage-image">
+                </div>
+                <div class="collage-item" onclick="openLightbox('media/collage_WGST120Cover.JPG', 'WGST120 Cover Design')">
+                    <img src="media/collage_WGST120Cover.JPG" alt="WGST120 Cover" class="collage-image">
+                </div>
+                <div class="collage-item" onclick="openLightbox('media/collage_thstCover.JPG', 'Thesis Cover Design')">
+                    <img src="media/collage_thstCover.JPG" alt="Thesis Cover" class="collage-image">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Project Overview -->
-    <section class="project-content">
+    <!-- Other Work Section -->
+    <section class="other-work-section">
         <div class="container">
-            <div class="content-grid">
-                <div class="content-main">
-                    <div class="content-section">
-                        <h2>Creative Vision</h2>
-                        <p>A curated collection of visual works including digital illustrations, experimental collages, and artistic explorations that blend traditional art techniques with digital innovation.</p>
-                        
-                        <p>This body of work explores themes of identity, introspection, and creative expression through various visual mediums. Each piece represents a different aspect of personal and artistic growth, documenting my journey as both a technical creator and visual artist.</p>
-                    </div>
-
-                    <div class="content-section">
-                        <h2>Artistic Process</h2>
-                        <p>My artistic practice combines traditional composition principles with contemporary digital tools, creating a unique visual language that bridges analog and digital creation methods. The work spans from detailed character illustrations to abstract experimental compositions.</p>
-                        
-                        <p>Each piece begins with conceptual exploration, followed by iterative development using both digital and mixed-media techniques. The process emphasizes the relationship between technical skill and creative expression.</p>
-                    </div>
-
-                    <div class="content-section">
-                        <h2>Themes & Techniques</h2>
-                        <ul class="project-list">
-                            <li>Character design and illustration with focus on emotional expression</li>
-                            <li>Abstract digital compositions exploring color theory and form</li>
-                            <li>Mixed-media collages combining photography, illustration, and typography</li>
-                            <li>Experimental approaches to visual storytelling and narrative</li>
-                            <li>Integration of traditional artistic methods with modern digital workflows</li>
-                        </ul>
-                    </div>
+            <h2 class="gallery-section-title">Other Work</h2>
+            <div class="other-gallery">
+                <div class="art-item" onclick="openLightbox('media/art_dying of the light cs111.jpg', 'Dying of the Light')">
+                    <img src="media/art_dying of the light cs111.jpg" alt="Dying of the Light" class="art-image">
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="content-sidebar">
-                    <div class="sidebar-section">
-                        <h3>Mediums</h3>
-                        <div class="tech-tags">
-                            <span>Digital Illustration</span>
-                            <span>Collage</span>
-                            <span>Mixed Media</span>
-                            <span>Character Design</span>
-                            <span>Typography</span>
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content">
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <img id="lightbox-img" src="" alt="" class="lightbox-image">
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- Project Content -->
+    <main class="project-main">
+        <div class="container">
+            <div class="content-layout">
+                <!-- Main Content -->
+                <article class="content-primary">
+                    <section class="content-block">
+                        <h2 class="block-title">Creative Vision</h2>
+                        <div class="block-content">
+                            <p class="lead">A curated collection of visual works including digital illustrations, experimental collages, and artistic explorations that blend traditional art techniques with digital innovation.</p>
+                            
+                            <p>This body of work explores themes of identity, introspection, and creative expression through various visual mediums. Each piece represents a different aspect of personal and artistic growth, documenting my journey as both a technical creator and visual artist.</p>
+                        </div>
+                    </section>
+                </article>
+
+                <!-- Sidebar -->
+                <aside class="content-secondary">
+                    <div class="sidebar-block">
+                        <h3 class="sidebar-title">Mediums</h3>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Digital Illustration</span>
+                            <span class="tech-tag">Collage</span>
+                            <span class="tech-tag">Mixed Media</span>
+                            <span class="tech-tag">Woodcut</span>
+                            <span class="tech-tag">Color Pencils</span>
+                            <span class="tech-tag">Creative Coding</span>
                         </div>
                     </div>
-
-                    <div class="sidebar-section">
-                        <h3>Creative Focus</h3>
-                        <ul style="list-style: none; padding: 0; font-size: 14px; color: var(--gray-600);">
-                            <li>• Identity exploration</li>
-                            <li>• Emotional expression</li>
-                            <li>• Visual storytelling</li>
-                            <li>• Color & composition</li>
-                            <li>• Technical experimentation</li>
-                        </ul>
-                    </div>
-
-                    <div class="sidebar-section">
-                        <h3>Artistic Development</h3>
-                        <p>Developed a unique visual language that bridges traditional artistic methods with contemporary digital tools and themes, showcasing versatility across multiple creative mediums.</p>
-                    </div>
-                </div>
+                </aside>
             </div>
         </div>
-    </section>
+    </main>
 
-    <!-- Navigation to other projects -->
+    <!-- Project Navigation -->
     <section class="project-navigation">
         <div class="container">
-            <div class="nav-projects">
-                <a href="arts205.html" class="nav-project prev">
-                    <span class="nav-label">Previous Project</span>
+            <div class="nav-grid">
+                <a href="arts205.html" class="nav-project nav-prev">
+                    <span class="nav-direction">← Previous</span>
                     <span class="nav-title">ARTS205 Portfolio</span>
                 </a>
-                <a href="index.html" class="nav-project home">
+                <a href="index.html" class="nav-center">
                     <span class="nav-label">All Projects</span>
                 </a>
-                <a href="dovekie.html" class="nav-project next">
-                    <span class="nav-label">Next Project</span>
+                <a href="dovekie.html" class="nav-project nav-next">
+                    <span class="nav-direction">Next →</span>
                     <span class="nav-title">Dovekie Interface</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <script src="script.js"></script>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-contact">
+                    <h3 class="footer-title">Contact</h3>
+                    <p class="footer-subtitle">Available for new opportunities and collaborations</p>
+                    <div class="footer-links">
+                        <a href="mailto:sx103@wellesley.edu" class="footer-link">Email</a>
+                        <a href="https://www.linkedin.com/in/sophia-xin" class="footer-link">LinkedIn</a>
+                        <a href="https://docs.google.com/document/d/1VmzsV-sRt1MJc0Y6ywQl7R05WRMsTR86eigWNJyr8Hg/edit?usp=sharing" class="footer-link" target="_blank">Resume</a>
+                    </div>
+                </div>
+                <div class="footer-credit">
+                    I designed and developed<br>
+                    this site individually using<br>
+                    AI-assisted coding
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- Lightbox JavaScript -->
+    <script>
+    function openLightbox(src, caption) {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        
+        lightboxImg.src = src;
+        lightboxImg.alt = caption;
+        lightboxCaption.textContent = caption;
+        lightbox.style.display = 'block';
+        
+        // Prevent body scroll when lightbox is open
+        document.body.style.overflow = 'hidden';
+        
+        // Add keyboard support
+        document.addEventListener('keydown', handleLightboxKeydown);
+    }
+    
+    function closeLightbox() {
+        const lightbox = document.getElementById('lightbox');
+        lightbox.style.display = 'none';
+        
+        // Restore body scroll
+        document.body.style.overflow = 'auto';
+        
+        // Remove keyboard support
+        document.removeEventListener('keydown', handleLightboxKeydown);
+    }
+    
+    function handleLightboxKeydown(e) {
+        if (e.key === 'Escape') {
+            closeLightbox();
+        }
+    }
+    
+    // Prevent lightbox from closing when clicking on the image
+    document.addEventListener('DOMContentLoaded', function() {
+        const lightboxContent = document.querySelector('.lightbox-content');
+        if (lightboxContent) {
+            lightboxContent.addEventListener('click', function(e) {
+                if (e.target.classList.contains('lightbox-image') || 
+                    e.target.classList.contains('lightbox-caption')) {
+                    e.stopPropagation();
+                }
+            });
+        }
+    });
+    </script>
 </body>
 </html>

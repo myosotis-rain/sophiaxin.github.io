@@ -1,4 +1,4 @@
-/* Modern Portfolio 2025 - Simplified Architecture */
+/* Whisper Interface Portfolio 2025 */
 
 /* Core styles & variables */
 @import 'variables.css';
@@ -9,5 +9,11 @@
 /* Buttons, cards & UI components */
 @import 'components.css';
 
-/* Page-specific styles & responsive */
+/* Scroll indicator */
+@import 'scroll-cue.css';
+
+/* Responsive design */
+@import 'responsive.css';
+
+/* Page-specific styles */
 @import 'pages.css';

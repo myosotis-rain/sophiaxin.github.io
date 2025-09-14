@@ -14,43 +14,54 @@ html {
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 16px;
-    line-height: 1.5;
+    line-height: 1.6;
     color: var(--gray-700);
-    background: linear-gradient(135deg, var(--white) 0%, var(--gray-100) 100%);
+    background: 
+        radial-gradient(ellipse at 80% 20%, var(--pale-lilac) 0%, transparent 50%),
+        radial-gradient(ellipse at 20% 80%, var(--lavender-mist) 0%, transparent 40%),
+        var(--white);
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
 }
 
 :root {
-    /* Enhanced Morandi Blueish-Purple System - More Blue-Purple */
-    --black: #2B2D3A;
-    --gray-900: #373A47;
-    --gray-800: #464952;
-    --gray-700: #565862;
-    --gray-600: #72747F;
-    --gray-500: #9295A2;
-    --gray-400: #B5B7C2;
-    --gray-300: #D5D7E2;
-    --gray-200: #E7E8F2;
-    --gray-100: #F2F3FB;
-    --white: #FDFEFE;
+    /* Whisper Interface Color System - Muted Light Editorial */
+    --black: #2A2832;
+    --gray-900: #3A3545;
+    --gray-800: #4A4458;
+    --gray-700: #5A546B;
+    --gray-600: #6B657E;
+    --gray-500: #7C7691;
+    --gray-400: #8D87A4;
+    --gray-300: #A3A1B0;
+    --gray-200: #B9B7C6;
+    --gray-100: #CFCDD5;
+    --white: #FEFEFE;
     
-    /* Enhanced Blue-Purple Accents */
-    --accent: #7C85BD;
-    --accent-dark: #6B74AD;
-    --accent-light: #8D96CD;
-    --accent-muted: #A8B0D8;
+    /* Whisper Interface Primary Colors */
+    --lavender-mist: #ECEAF2;
+    --dusty-mauve: #C8BEDA;
+    --soft-indigo: #B3A7CF;
+    --pale-lilac: #F6F4FC;
+    --warm-gray: #A3A1B0;
     
-    /* Very Compact Spacing System */
-    --space-xs: 4px;
-    --space-sm: 8px;
-    --space-md: 12px;
-    --space-lg: 16px;
-    --space-xl: 24px;
-    --space-2xl: 32px;
-    --space-3xl: 48px;
-    --space-4xl: 64px;
+    /* Accent Colors - Soft Editorial Tones */
+    --accent: #B3A7CF;
+    --accent-hover: #C8BEDA;
+    --accent-soft: #ECEAF2;
+    --accent-warm: #A3A1B0;
+    
+    /* Editorial Spacing System */
+    --space-xs: 6px;
+    --space-sm: 12px;
+    --space-md: 18px;
+    --space-lg: 24px;
+    --space-xl: 36px;
+    --space-2xl: 48px;
+    --space-3xl: 72px;
+    --space-4xl: 96px;
     
     /* Compact Typography Scale */
     --text-xs: 12px;
@@ -79,16 +90,17 @@ body {
 
 /* ===== TYPOGRAPHY & UTILITIES ===== */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 400;
-    line-height: 1.2;
-    color: var(--gray-900);
-    letter-spacing: -0.02em;
+    font-family: 'Recoleta', serif;
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--gray-800);
+    letter-spacing: 0.02em;
 }
 
 h1 {
-    font-size: var(--text-4xl);
-    font-weight: 400;
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 300;
+    letter-spacing: 0.05em;
 }
 
 h2 {

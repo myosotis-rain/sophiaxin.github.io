@@ -1,0 +1,74 @@
+/* ===== SCROLL CUE ===== */
+.scroll-cue {
+    position: fixed;
+    bottom: var(--space-2xl);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    opacity: 0;
+    animation: fadeInCue 1s ease-out 2s forwards;
+}
+
+.scroll-indicator {
+    width: 2px;
+    height: 40px;
+    background: linear-gradient(to bottom, 
+        rgba(179, 167, 207, 0.6) 0%, 
+        rgba(179, 167, 207, 0.2) 100%);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.scroll-indicator::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: rgba(179, 167, 207, 0.8);
+    border-radius: 2px;
+    animation: scrollPulse 2s ease-in-out infinite;
+}
+
+.scroll-text {
+    font-size: var(--text-xs);
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: var(--space-xs);
+    text-align: center;
+    opacity: 0.7;
+}
+
+@keyframes fadeInCue {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes scrollPulse {
+    0% {
+        top: -20px;
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        top: 60px;
+        opacity: 0;
+    }
+}
+
+/* Hide scroll cue on scroll */
+.scroll-cue.hidden {
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+}

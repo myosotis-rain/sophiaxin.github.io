@@ -7,22 +7,17 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Recoleta:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Floating background elements -->
-    <div class="floating-shapes">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
-        <div class="shape shape-4"></div>
-    </div>
+    <!-- Subtle Morandi background element -->
+    <div class="morandi-bg"></div>
 
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
             <div class="nav-logo">
-                <span>Sophia Xin</span>
+                <a href="index.html">Sophia Xin</a>
             </div>
             <ul class="nav-links">
                 <li><a href="index.html" class="nav-link">Work</a></li>
@@ -32,136 +27,329 @@
         </div>
     </nav>
 
-    <!-- Project Hero -->
-    <section class="project-hero">
+    <!-- Project Header -->
+    <header class="project-header">
         <div class="container">
-            <div class="project-breadcrumb">
-                <a href="index.html">Work</a>
-                <span>/</span>
-                <span>ARTS205 Portfolio</span>
-            </div>
-            <h1 class="project-title">ARTS205 Portfolio</h1>
-            <p class="project-subtitle">Animated Academic Portfolio for Meditated Drawing Course</p>
+            <nav class="breadcrumb">
+                <a href="index.html">Selected Work</a>
+                <span class="separator">→</span>
+                <span class="current">ARTS205 Portfolio</span>
+            </nav>
             
-            <div class="project-meta-grid">
-                <div class="meta-item">
-                    <span class="meta-label">Course</span>
-                    <span class="meta-value">ARTS205 - Meditated Drawing</span>
+            <div class="project-intro">
+                <h1 class="project-title">ARTS205 Portfolio</h1>
+                <p class="project-tagline">Animated Academic Portfolio for Meditated Drawing Course</p>
+            </div>
+
+            <div class="project-meta">
+                <div class="meta-grid">
+                    <div class="meta-item">
+                        <label>Course</label>
+                        <span>ARTS205 - Meditated Drawing</span>
+                    </div>
+                    <div class="meta-item">
+                        <label>Institution</label>
+                        <span>Wellesley College</span>
+                    </div>
+                    <div class="meta-item">
+                        <label>Format</label>
+                        <span>Interactive Presentation</span>
+                    </div>
+                    <div class="meta-item">
+                        <label>Year</label>
+                        <span>2024</span>
+                    </div>
                 </div>
-                <div class="meta-item">
-                    <span class="meta-label">Institution</span>
-                    <span class="meta-value">Wellesley College</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Portfolio Viewer -->
+    <section class="hero-media">
+        <div class="container">
+            <div class="portfolio-viewer">
+                <div class="portfolio-thumbnails">
+                    <div class="thumbnail-item active" data-slide="4">
+                        <span class="thumbnail-label">01 Final Project</span>
+                    </div>
+                    <div class="thumbnail-item" data-slide="10">
+                        <span class="thumbnail-label">02 Text as Images</span>
+                    </div>
+                    <div class="thumbnail-item" data-slide="16">
+                        <span class="thumbnail-label">03 Traveller</span>
+                    </div>
+                    <div class="thumbnail-item" data-slide="27">
+                        <span class="thumbnail-label">04 Jigsaw</span>
+                    </div>
+                    <div class="thumbnail-item" data-slide="33">
+                        <span class="thumbnail-label">05 Inhabit/Transform</span>
+                    </div>
+                    <div class="thumbnail-item" data-slide="38">
+                        <span class="thumbnail-label">06 Nomadic Drawing</span>
+                    </div>
+                    <div class="thumbnail-item" data-slide="50">
+                        <span class="thumbnail-label">07 Sketchbook</span>
+                    </div>
                 </div>
-                <div class="meta-item">
-                    <span class="meta-label">Format</span>
-                    <span class="meta-value">Interactive Presentation</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Year</span>
-                    <span class="meta-value">2024</span>
+                
+                <div class="portfolio-content">
+                    <div class="portfolio-slides">
+                        <iframe 
+                            id="portfolio-iframe"
+                            src="https://docs.google.com/presentation/d/1jslD6MsrWgA6xIfu7wktOjOvYFiQ4dAFNwh--_PbIpk/embed?start=false&loop=false&delayms=3000&slide=4"
+                            frameborder="0" 
+                            class="portfolio-iframe"
+                            allowfullscreen="true" 
+                            mozallowfullscreen="true" 
+                            webkitallowfullscreen="true">
+                        </iframe>
+                    </div>
+                    
+                    <div class="portfolio-link">
+                        <p>View all slides in the complete presentation: <a href="https://docs.google.com/presentation/d/1jslD6MsrWgA6xIfu7wktOjOvYFiQ4dAFNwh--_PbIpk" target="_blank">Google Slides Portfolio</a></p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Project Media -->
-    <section class="project-media-section">
+    <!-- Project Content -->
+    <main class="project-main">
         <div class="container">
-            <div class="project-video-container">
-                <iframe 
-                    src="https://docs.google.com/presentation/d/1jslD6MsrWgA6xIfu7wktOjOvYFiQ4dAFNwh--_PbIpk/embed?start=true&loop=true&delayms=4000"
-                    frameborder="0" 
-                    class="project-video"
-                    allowfullscreen="true" 
-                    mozallowfullscreen="true" 
-                    webkitallowfullscreen="true">
-                </iframe>
-            </div>
-        </div>
-    </section>
+            <div class="content-layout">
+                <!-- Main Content -->
+                <article class="content-primary">
+                    <section class="content-block">
+                        <h2 class="block-title">Overview</h2>
+                        <div class="block-content">
+                            <p class="lead">Animated portfolio created for meditated drawing course, featuring interactive presentations and dynamic visual elements that explore the intersection of traditional drawing techniques with digital animation.</p>
+                            
+                            <p>This academic portfolio documents a semester-long journey through contemplative drawing practices, translating traditional meditative art forms into engaging digital presentations that maintain the reflective essence of the original coursework.</p>
+                        </div>
+                    </section>
 
-    <!-- Project Overview -->
-    <section class="project-content">
-        <div class="container">
-            <div class="content-grid">
-                <div class="content-main">
-                    <div class="content-section">
-                        <h2>Project Overview</h2>
-                        <p>Animated portfolio created for meditated drawing course, featuring interactive presentations and dynamic visual elements. The project explores the intersection of traditional drawing techniques with digital animation.</p>
-                        
-                        <p>This academic portfolio documents a semester-long journey through contemplative drawing practices, translating traditional meditative art forms into engaging digital presentations that maintain the reflective essence of the original coursework.</p>
-                    </div>
+                    <section class="content-block">
+                        <h2 class="block-title">Key Features</h2>
+                        <div class="block-content">
+                            <ul class="contribution-list">
+                                <li>
+                                    <h3>Animated Presentations</h3>
+                                    <p>Custom slideshow animations with contemplative transitions that guide viewers through the artistic journey at a meditative pace.</p>
+                                </li>
+                                <li>
+                                    <h3>Interactive Elements</h3>
+                                    <p>Visual elements that respond to user engagement while maintaining the contemplative nature of the original drawing practices.</p>
+                                </li>
+                                <li>
+                                    <h3>Digital-Traditional Integration</h3>
+                                    <p>Seamless blending of traditional drawing documentation with modern digital enhancement techniques.</p>
+                                </li>
+                                <li>
+                                    <h3>Narrative Structure</h3>
+                                    <p>Thoughtfully organized presentation flow that mirrors the reflective process of meditative drawing practice.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
 
-                    <div class="content-section">
-                        <h2>Creative Approach</h2>
-                        <p>The challenge was to translate meditative drawing practices into engaging digital animations while maintaining the contemplative essence of the original work. Each section of the portfolio was designed to guide viewers through the same reflective journey experienced during the creation process.</p>
-                        
-                        <p>By combining traditional artistic principles with modern presentation technology, the portfolio creates an immersive viewing experience that honors both the academic context and the spiritual aspects of meditative drawing.</p>
-                    </div>
+                    <section class="content-block">
+                        <h2 class="block-title">Creative Approach</h2>
+                        <div class="block-content">
+                            <p>The challenge was to translate meditative drawing practices into engaging digital animations while maintaining the contemplative essence:</p>
+                            
+                            <div class="approach-grid">
+                                <div class="approach-item">
+                                    <h4>Contemplative Pacing</h4>
+                                    <p>Animation timing designed to honor the slow, meditative process of the original art practice.</p>
+                                </div>
+                                <div class="approach-item">
+                                    <h4>Visual Continuity</h4>
+                                    <p>Seamless transitions that maintain the spiritual and artistic integrity of the drawing journey.</p>
+                                </div>
+                                <div class="approach-item">
+                                    <h4>Academic Integration</h4>
+                                    <p>Presentation format that serves both artistic expression and academic documentation requirements.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </article>
 
-                    <div class="content-section">
-                        <h2>Portfolio Features</h2>
-                        <ul class="project-list">
-                            <li>Animated slideshow presentations with custom transitions</li>
-                            <li>Interactive visual elements that respond to user engagement</li>
-                            <li>Integration of traditional drawing documentation with digital enhancement</li>
-                            <li>Narrative structure that guides viewers through the artistic journey</li>
-                            <li>Contemplative pacing that honors the meditative drawing process</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="content-sidebar">
-                    <div class="sidebar-section">
-                        <h3>Elements</h3>
-                        <div class="tech-tags">
-                            <span>Animation</span>
-                            <span>Interactive Design</span>
-                            <span>Digital Art</span>
-                            <span>Presentation Design</span>
-                            <span>Visual Storytelling</span>
+                <!-- Sidebar -->
+                <aside class="content-secondary">
+                    <div class="sidebar-block">
+                        <h3 class="sidebar-title">Elements</h3>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Animation</span>
+                            <span class="tech-tag">Interactive Design</span>
+                            <span class="tech-tag">Digital Art</span>
+                            <span class="tech-tag">Presentation Design</span>
+                            <span class="tech-tag">Visual Storytelling</span>
                         </div>
                     </div>
 
-                    <div class="sidebar-section">
-                        <h3>Academic Focus</h3>
-                        <ul style="list-style: none; padding: 0; font-size: 14px; color: var(--gray-600);">
-                            <li>• Meditative drawing practice</li>
-                            <li>• Traditional-digital integration</li>
-                            <li>• Contemplative presentation</li>
-                            <li>• Academic documentation</li>
-                            <li>• Reflective storytelling</li>
-                        </ul>
-                    </div>
-
-                    <div class="sidebar-section">
-                        <h3>Outcome</h3>
+                    <div class="sidebar-block">
+                        <h3 class="sidebar-title">Impact</h3>
                         <p>Successfully documented semester-long artistic journey with innovative presentation format that enhanced the viewing experience while preserving the meditative qualities of the original work.</p>
                     </div>
-                </div>
+                </aside>
             </div>
         </div>
-    </section>
+    </main>
 
-    <!-- Navigation to other projects -->
+    <!-- Project Navigation -->
     <section class="project-navigation">
         <div class="container">
-            <div class="nav-projects">
-                <a href="wellesleyweb.html" class="nav-project prev">
-                    <span class="nav-label">Previous Project</span>
+            <div class="nav-grid">
+                <a href="wellesleyweb.html" class="nav-project nav-prev">
+                    <span class="nav-direction">← Previous</span>
                     <span class="nav-title">The Wellesley Web</span>
                 </a>
-                <a href="index.html" class="nav-project home">
+                <a href="index.html" class="nav-center">
                     <span class="nav-label">All Projects</span>
                 </a>
-                <a href="artwork.html" class="nav-project next">
-                    <span class="nav-label">Next Project</span>
+                <a href="artwork.html" class="nav-project nav-next">
+                    <span class="nav-direction">Next →</span>
                     <span class="nav-title">Visual Arts & Collage</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <script src="script.js"></script>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-contact">
+                    <h3 class="footer-title">Contact</h3>
+                    <p class="footer-subtitle">Available for new opportunities and collaborations</p>
+                    <div class="footer-links">
+                        <a href="mailto:sx103@wellesley.edu" class="footer-link">Email</a>
+                        <a href="https://www.linkedin.com/in/sophia-xin" class="footer-link">LinkedIn</a>
+                        <a href="https://docs.google.com/document/d/1VmzsV-sRt1MJc0Y6ywQl7R05WRMsTR86eigWNJyr8Hg/edit?usp=sharing" class="footer-link" target="_blank">Resume</a>
+                    </div>
+                </div>
+                <div class="footer-credit">
+                    I designed and developed<br>
+                    this site individually using<br>
+                    AI-assisted coding
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- Arts205 Portfolio Viewer JavaScript -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Portfolio navigation functionality
+        const portfolioIframe = document.getElementById('portfolio-iframe');
+        const thumbnails = document.querySelectorAll('.thumbnail-item');
+        
+        if (portfolioIframe && thumbnails.length > 0) {
+            const slides = [4, 10, 16, 27, 33, 38, 50];
+            let currentIndex = 0;
+            
+            // Function to update the iframe src
+            function updateSlide(index) {
+                const slideNumber = slides[index];
+                const baseUrl = 'https://docs.google.com/presentation/d/1jslD6MsrWgA6xIfu7wktOjOvYFiQ4dAFNwh--_PbIpk/embed?start=false&loop=false&delayms=3000';
+                portfolioIframe.src = `${baseUrl}&slide=${slideNumber}`;
+                
+                // Update active thumbnail
+                thumbnails.forEach((thumb, i) => {
+                    thumb.classList.toggle('active', i === index);
+                });
+                
+                currentIndex = index;
+            }
+            
+            // Thumbnail click handlers
+            thumbnails.forEach((thumbnail, index) => {
+                thumbnail.addEventListener('click', () => {
+                    updateSlide(index);
+                });
+                
+                // Add keyboard accessibility
+                thumbnail.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        updateSlide(index);
+                    }
+                });
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (!portfolioIframe.matches(':focus') && document.activeElement.closest('.portfolio-viewer')) {
+                    if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                        e.preventDefault();
+                        updateSlide(currentIndex - 1);
+                    } else if (e.key === 'ArrowRight' && currentIndex < slides.length - 1) {
+                        e.preventDefault();
+                        updateSlide(currentIndex + 1);
+                    }
+                }
+            });
+            
+            // Initialize with first slide
+            updateSlide(0);
+        }
+        
+        // Enhanced horizontal scrolling for legacy slides (if any)
+        const slidesContainer = document.querySelector('.slides-container');
+        if (slidesContainer && !portfolioIframe) {
+            // Enable horizontal scrolling with mouse wheel
+            slidesContainer.addEventListener('wheel', function(e) {
+                if (e.deltaY !== 0) {
+                    e.preventDefault();
+                    this.scrollLeft += e.deltaY;
+                }
+            });
+            
+            // Smooth scroll to slides with arrow keys
+            document.addEventListener('keydown', function(e) {
+                if (!slidesContainer.matches(':hover')) return;
+                
+                const slideWidth = slidesContainer.querySelector('.slide-item').offsetWidth;
+                const gap = 48; // 3rem gap
+                const scrollDistance = slideWidth + gap;
+                
+                if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    slidesContainer.scrollBy({ left: -scrollDistance, behavior: 'smooth' });
+                } else if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    slidesContainer.scrollBy({ left: scrollDistance, behavior: 'smooth' });
+                }
+            });
+            
+            // Add momentum scrolling for touch devices
+            let isScrolling = false;
+            let startX = 0;
+            let scrollLeft = 0;
+            
+            slidesContainer.addEventListener('touchstart', function(e) {
+                isScrolling = true;
+                startX = e.touches[0].pageX - this.offsetLeft;
+                scrollLeft = this.scrollLeft;
+            });
+            
+            slidesContainer.addEventListener('touchmove', function(e) {
+                if (!isScrolling) return;
+                e.preventDefault();
+                const x = e.touches[0].pageX - this.offsetLeft;
+                const walk = (x - startX) * 2;
+                this.scrollLeft = scrollLeft - walk;
+            });
+            
+            slidesContainer.addEventListener('touchend', function() {
+                isScrolling = false;
+            });
+        }
+    });
+    </script>
 </body>
 </html>

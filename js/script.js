@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
 
     // Observe elements for scroll-triggered animations
-    const animatedElements = document.querySelectorAll('.hero-content, .hero-visual, .section-header, .project, .contact-content');
+    const animatedElements = document.querySelectorAll('.hero-content, .hero-visual, .section-header, .project-row, .contact-content');
     animatedElements.forEach(element => {
         observer.observe(element);
     });
@@ -87,6 +87,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
+
+        // ===== PROJECT PREVIEW CLICK HANDLERS =====
+        const projectPreviews = document.querySelectorAll('.project-media[data-href]');
+        projectPreviews.forEach(preview => {
+            preview.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('data-href');
+                if (href) {
+                    window.location.href = href;
+                }
+            });
+        });
     }
 
     // ===== BUTTON INTERACTIONS =====
@@ -147,22 +159,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ===== SCROLL-TRIGGERED PROJECT REVEALS =====
     function initScrollTriggeredReveals() {
-        const projects = document.querySelectorAll('.project');
+        const projectRows = document.querySelectorAll('.project-row');
         const revealObserver = new IntersectionObserver(function(entries) {
-            entries.forEach((entry, index) => {
+            entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('revealed');
-                    }, index * 200);
+                    entry.target.classList.add('in-view');
+                    
+                    // Animate individual project items within the row
+                    const projectItems = entry.target.querySelectorAll('.project-item');
+                    projectItems.forEach((item, index) => {
+                        setTimeout(() => {
+                            item.classList.add('revealed');
+                        }, index * 150);
+                    });
                 }
             });
         }, {
-            threshold: 0.2,
-            rootMargin: '0px 0px -100px 0px'
+            threshold: 0.15,
+            rootMargin: '0px 0px -80px 0px'
         });
 
-        projects.forEach(project => {
-            revealObserver.observe(project);
+        projectRows.forEach(row => {
+            revealObserver.observe(row);
         });
     }
 
