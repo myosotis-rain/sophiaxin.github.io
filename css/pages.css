@@ -1,13 +1,17 @@
 /* ===== ABOUT PAGE REDESIGN ===== */
 
-/* Hero Section */
+/* Hero Section - match cover page exactly */
 .about-hero {
-    padding: calc(var(--space-3xl) + 80px) 0 var(--space-xl);
-    background: linear-gradient(135deg, 
-        rgba(246, 244, 252, 0.15) 0%, 
-        rgba(255, 255, 255, 0.4) 50%,
-        rgba(246, 244, 252, 0.1) 100%);
+    min-height: 100vh;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-2xl);
+    background: transparent;
 }
 
 .about-title {
@@ -17,38 +21,86 @@
     color: var(--gray-900);
     margin-bottom: var(--space-xl);
     letter-spacing: -0.03em;
-    line-height: 1.15;
+    line-height: 1.0;
 }
 
-.about-content-grid {
-    display: grid;
-    grid-template-columns: 1.6fr 1fr;
-    gap: var(--space-3xl);
-    align-items: start;
-    margin-top: var(--space-lg);
+/* About page hero content styling - match cover page exactly */
+.about-hero .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    max-width: 580px;
+    flex: 0 0 50%;
+    opacity: 1; /* Override default hero opacity */
+    transition: opacity 1s ease-out;
+    width: 50%; /* Force exact same width as cover page */
+}
+
+.about-hero .hero-text {
+    transform: none; /* Override default hero transform */
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 0; /* Reset all margins to match cover page */
+    padding: 0; /* Reset all padding to match cover page */
+}
+
+.about-hero .hero-visual {
+    position: relative;
+    flex: 0 0 45%;
+    width: 45%; /* Force exact same width as cover page */
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Match cover page alignment */
+    z-index: 2;
+    opacity: 1;
 }
 
 .about-text {
-    max-width: 580px;
+    margin-top: var(--space-lg);
 }
 
-.about-lead {
+/* Enhanced typography for better readability */
+.about-hero .hero-description {
     font-family: 'Inter', sans-serif;
-    font-size: var(--text-lg);
-    font-weight: 500;
-    color: var(--gray-900);
-    margin-bottom: var(--space-lg);
-    line-height: 1.6;
-    letter-spacing: -0.01em;
-}
-
-.about-text p {
-    font-family: 'Inter', sans-serif;
-    font-size: var(--text-base);
-    color: var(--gray-700);
+    font-size: clamp(1rem, 1.5vw, 1.1rem);
+    color: var(--gray-600);
     line-height: 1.7;
     margin-bottom: var(--space-lg);
     font-weight: 400;
+    max-width: 550px;
+}
+
+.about-hero .hero-description:first-of-type {
+    font-weight: 500;
+    color: var(--gray-700);
+    font-size: clamp(1.05rem, 1.6vw, 1.15rem);
+}
+
+.about-hero .hero-description:last-of-type {
+    margin-bottom: 0;
+    font-style: italic;
+    color: var(--gray-500);
+}
+
+/* Improved photo styling for about page - match front page exactly */
+.about-hero .hero-image {
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    box-shadow: 0 16px 40px rgba(179, 167, 207, 0.18);
+    border: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 0; /* Remove auto margins that might cause positioning differences */
+}
+
+.about-hero .hero-image:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 25px 60px rgba(179, 167, 207, 0.2),
+        0 12px 35px rgba(179, 167, 207, 0.12);
 }
 
 .about-image {
@@ -283,12 +335,15 @@
     margin-bottom: var(--space-md);
 }
 
-.experience-header h3 {
+.experience-header h3,
+.experience-header h4 {
     font-family: 'Inter', sans-serif;
-    font-size: var(--text-xl);
+    font-size: var(--text-lg);
     font-weight: 600;
-    color: var(--gray-900);
+    color: var(--gray-800);
     letter-spacing: -0.01em;
+    margin: 0;
+    line-height: 1.3;
 }
 
 .experience-period {
@@ -348,8 +403,39 @@
 }
 
 @media (max-width: 640px) {
+    /* Mobile responsive design for About Me section - match cover page */
     .about-hero {
-        padding: calc(var(--space-2xl) + 80px) 0 var(--space-xl);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 0;
+        padding: var(--space-3xl) var(--space-lg) var(--space-2xl);
+        min-height: 100vh;
+    }
+    
+    .about-hero .hero-content {
+        max-width: 100%;
+        flex: 1;
+        margin-bottom: var(--space-lg);
+    }
+    
+    .about-hero .hero-visual {
+        flex: 0 0 auto;
+        height: auto;
+        order: -1;
+        margin-bottom: var(--space-lg);
+    }
+    
+    .about-hero .hero-image {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+    }
+    
+    .about-hero .hero-description {
+        max-width: 100%;
+        margin-bottom: var(--space-lg);
     }
     
     .about-title {
@@ -2010,5 +2096,17 @@
     
     .documentation-card {
         padding: var(--space-xl);
+    }
+}
+
+/* About page animations */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
