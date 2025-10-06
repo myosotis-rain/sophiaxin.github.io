@@ -1483,9 +1483,15 @@
 }
 
 .hero-image {
-    width: 100%;
-    height: auto;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
     display: block;
+    box-shadow: 0 16px 40px rgba(179, 167, 207, 0.18);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: auto;
 }
 
 /* Main Content Layout */
