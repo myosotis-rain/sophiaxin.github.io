@@ -1,67 +1,64 @@
 {
   "site_metadata": {
     "your_name": "Sophia Xin",
-    "portfolio_title": "Sophia Xin — Product Design Portfolio",
-    "portfolio_description": "Product design and management focused on accessible and impactful design."
+    "role": "Product Designer & PM",
+    "bio": "At the intersection of technology, artistry, and human behavior, I'm passionate about designing accessible and impactful digital experiences."
   },
-  "index_page": {
-    "hero_section": {
-      "headline": "Sophia Xin",
-      "eyebrow": "Product management · Product design",
-      "lede": "At the intersection of technology, artistry, and human behavior, I'm passionate about designing accessible and impactful digital experiences.",
-      "photo": {
-        "path": "/media/sophia_photowbg.jpeg",
-        "description": "Profile photo for hero section"
-      }
-    },
-    "footer": {
-      "links": [
-        {"label": "Email", "href": "mailto:sx103 @wellesley.edu"},
-        {"label": "LinkedIn", "href": "https://www.linkedin.com/in/sophia-xin"},
-        {"label": "Resume", "href": "https://docs.google.com/document/d/1VmzsV-sRt1MJc0Y6ywQl7R05WRMsTR86eigWNJyr8Hg/edit?usp=sharing"}
-      ]
-    }
-  },
-  "individual_projects": [
+  "hero_photo": "/media/sophia_photowbg.jpeg",
+  "contact_links": [
+    {"label": "Email", "href": "mailto:sx103 @wellesley.edu"},
+    {"label": "LinkedIn", "href": "https://www.linkedin.com/in/sophia-xin"},
+    {"label": "Resume", "href": "https://docs.google.com/document/d/1VmzsV-sRt1MJc0Y6ywQl7R05WRMsTR86eigWNJyr8Hg/edit?usp=sharing"}
+  ],
+  "projects": [
     {
       "slug": "ai-art-analysis",
       "title": "AI Art Analysis",
-      "tags": ["Flask", "RAG", "Python"],
-      "heroMedia": [
-        { "type": "video", "src": "https://www.youtube.com/embed/x-PvLC_VFeU", "alt": "AI Art Analysis Demo" }
-      ]
+      "description": "Flask AI art critique app with RAG, CLIP ONNX, and API integration. Bridges the gap between subjective art critique and objective data.",
+      "tags": ["PM", "Python", "RAG"],
+      "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop"
     },
     {
       "slug": "dovekie",
       "title": "Dovekie Interface",
+      "description": "Open-source live-coding interface design for creative expression. Focused on intuitive parameter manipulation and real-time feedback.",
       "tags": ["HCI", "Research", "p5.js"],
-      "heroMedia": [
-        { "type": "video", "src": "https://www.youtube.com/embed/AaxXMroazQs", "alt": "Dovekie Interface Demo" }
-      ]
+      "image": "https://images.unsplash.com/photo-1558655146-d09347e0b7a9?q=80&w=2670&auto=format&fit=crop"
+    },
+    {
+      "slug": "arts205",
+      "title": "ARTS205 Portfolio",
+      "description": "Animated portfolio for Meditated Drawing course. Explores the intersection of traditional drawing techniques with digital animation.",
+      "tags": ["Animation", "Digital Art"],
+      "image": "https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=2592&auto=format&fit=crop"
     },
     {
       "slug": "etextiles",
       "title": "Electronic Textiles",
+      "description": "Concept art and 3D visualization for sensor network applications. Demonstrates seamless integration of sensors into fabric interfaces.",
       "tags": ["3D Visuals", "Wearables", "CLO 3D"],
-      "heroMedia": [
-        { "type": "image", "src": "media/etextiles_Portfolio0.jpg", "alt": "Electronic Textiles Concept Art" }
-      ]
+      "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2864&auto=format&fit=crop"
     },
     {
       "slug": "vinetality",
       "title": "Vinetality",
+      "description": "Tangible keychain interface providing physical feedback for productivity and well-being. A shape-changing representation of habits.",
       "tags": ["IoT", "Tangible UI", "Arduino"],
-      "heroMedia": [
-        { "type": "video", "src": "https://www.youtube.com/embed/Wz0rExoqUfM", "alt": "Vinetality Demo" }
-      ]
+      "image": "https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=2670&auto=format&fit=crop"
     },
     {
       "slug": "wellesleyweb",
       "title": "The Wellesley Web",
-      "tags": ["Full-Stack", "Flask", "SQL"],
-      "heroMedia": [
-        { "type": "video", "src": "https://www.youtube.com/embed/lxu5UYm1luk", "alt": "The Wellesley Web Demo" }
-      ]
+      "description": "Full-stack networking platform for tech students and alumni. Features user auth, database integration, and mentorship matching.",
+      "tags": ["Full-Stack", "SQL", "Flask"],
+      "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2670&auto=format&fit=crop"
+    },
+    {
+      "slug": "artwork",
+      "title": "Visual Arts & Collage",
+      "description": "Curated collection of digital illustrations and experimental mixed media. Exploring themes of identity and introspection.",
+      "tags": ["Illustration", "Mixed Media"],
+      "image": "https://images.unsplash.com/photo-1579783902614-a3fb39279c23?q=80&w=2564&auto=format&fit=crop"
     }
   ]
 }

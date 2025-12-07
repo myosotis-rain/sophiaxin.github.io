@@ -1,38 +1,109 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Sidebar from '../components/Sidebar.astro';
-import ProjectList from '../components/ProjectList.astro';
+import data from '../data/portfolio.json';
 
-// Import Data
-import portfolioData from '../data/portfolio.json';
-
-const { site_metadata, index_page, individual_projects } = portfolioData;
-const { hero_section, footer } = index_page;
+const { site_metadata, hero_photo, contact_links, projects } = data;
 ---
 
-<Layout 
-  title={site_metadata.portfolio_title}
-  description={site_metadata.portfolio_description}
->
+<Layout title={site_metadata.your_name}>
+
+  <header class="fixed top-0 right-0 p-8 lg:p-12 z-50 flex gap-8 font-mono text-[10px] uppercase tracking-[0.2em] font-medium text-gray-400 mix-blend-difference">
+    <a href="/work" class="hover-trigger hover:text-white transition-colors">Work</a>
+    <a href="/about" class="hover-trigger hover:text-white transition-colors">About</a>
+    <a href="/contact" class="hover-trigger hover:text-white transition-colors">Contact</a>
+  </header>
+
+  <div class="flex flex-col lg:flex-row min-h-screen">
     
-    <header class="fixed top-0 right-0 p-8 lg:p-12 z-50 flex gap-8 font-mono text-[10px] uppercase tracking-[0.2em] font-medium text-gray-400 mix-blend-difference">
-        <a href="/work" class="hover-trigger hover:text-white transition-colors">Work</a>
-        <a href="/about" class="hover-trigger hover:text-white transition-colors">About</a>
-        <a href="mailto:sx103 @wellesley.edu" class="hover-trigger hover:text-white transition-colors">Contact</a>
-    </header>
+    <aside class="lg:w-[40%] lg:h-screen lg:fixed lg:top-0 lg:left-0 flex flex-col p-8 lg:p-16 border-r border-border/60 z-20 bg-bg overflow-y-auto">
+      
+      <div class="mt-12 lg:mt-0 space-y-6">
+        <div>
+          <div class="mask">
+            <h1 class="reveal font-serif text-6xl md:text-7xl mb-3 leading-[0.9] text-text">
+              {site_metadata.your_name}
+            </h1>
+          </div>
+          <div class="mask">
+            <p class="reveal font-mono text-[10px] uppercase tracking-[0.25em] text-gray-500 font-medium">
+              {site_metadata.role}
+            </p>
+          </div>
+        </div>
 
-    <div class="flex flex-col lg:flex-row min-h-screen">
+        <div class="mask max-w-sm pt-4">
+          <p class="reveal text-base font-normal text-gray-800 leading-relaxed font-sans">
+            {site_metadata.bio}
+          </p>
+        </div>
+      </div>
+
+      <div class="flex-grow min-h-[4rem]"></div>
+
+      <div class="flex items-end gap-6 pb-2">
+        <div class="mask w-[120px] aspect-[3/4] bg-gray-200 rounded-[2px] overflow-hidden border border-white shadow-sm flex-shrink-0">
+          <img 
+            src={hero_photo} 
+            alt="Profile"
+            class="reveal-img w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+          />
+        </div>
+
+        <div class="flex flex-col gap-2 pb-1 mask">
+          <span class="reveal font-mono text-[9px] uppercase tracking-widest text-gray-400 mb-1">Connect</span>
+          {contact_links.map(link => (
+            <a href={link.href} class="reveal hover-trigger font-mono text-[10px] font-medium text-gray-600 hover:text-black hover:translate-x-1 transition-all tracking-wide">
+              {link.label} ↗
+            </a>
+          ))}
+        </div>
+      </div>
+    </aside>
+
+    <main class="lg:w-[60%] lg:ml-[40%] min-h-screen relative z-10 bg-bg">
+      <div class="pt-32 lg:pt-40 pb-40">
         
-        <Sidebar 
-            name={hero_section.headline}
-            role={hero_section.eyebrow}
-            bio={hero_section.lede}
-            photo={hero_section.photo.path}
-            links={footer.links}
-        />
+        <div class="px-8 lg:px-16 border-b border-gray-300 pb-6 mb-16 flex justify-between items-end mask">
+          <h2 class="reveal font-sans text-sm font-bold uppercase tracking-widest text-text">Selected Work</h2>
+          <span class="reveal font-mono text-[10px] text-gray-400">2023 — 2025</span>
+        </div>
 
-        <ProjectList projects={individual_projects} />
+        <div class="flex flex-col gap-24">
+          {projects.map((project, i) => (
+            <a href={`/work/${project.slug}`} class="hover-trigger group flex flex-col gap-6 block px-8 lg:px-16">
+              
+              <div class="mask w-[90%] aspect-[16/9] bg-gray-200 overflow-hidden shadow-sm relative rounded-sm">
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  class="reveal-img w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 origin-left"
+                />
+              </div>
+              
+              <div class="flex justify-between items-start pt-2 border-t border-transparent group-hover:border-border transition-colors duration-500 w-[90%]">
+                <div class="space-y-3">
+                  <h3 class="font-serif text-3xl md:text-4xl font-normal text-text group-hover:text-blue-700 transition-colors">
+                    {project.title}
+                  </h3>
+                  
+                  <p class="text-sm text-gray-600 max-w-md leading-relaxed line-clamp-2 group-hover:text-gray-900 transition-colors">
+                    {project.description}
+                  </p>
 
-    </div>
-
+                  <div class="flex gap-2 pt-1">
+                    {project.tags.map(tag => (
+                      <span class="font-mono text-[10px] text-gray-500 uppercase tracking-wider border border-border px-2 py-0.5 rounded-full bg-white">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <span class="font-mono text-xs text-gray-400 pt-2">0{i+1}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </main>
+  </div>
 </Layout>
