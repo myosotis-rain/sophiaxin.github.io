@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Sidebar from '../components/Sidebar.astro';
+import ProjectList from '../components/ProjectList.astro';
+import Nav from '../components/Nav.astro';
+
+// Import Data
+import portfolioData from '../data/portfolio.json';
+
+const { site_metadata, index_page, individual_projects } = portfolioData;
+const { hero_section, footer } = index_page;
+---
+
+<Layout 
+  title={site_metadata.portfolio_title}
+  description={site_metadata.portfolio_description}
+>
+    
+    <Nav />
+
+    <div class="flex flex-col lg:flex-row min-h-screen">
+        
+        <Sidebar 
+            name={hero_section.headline}
+            role="Product Designer & PM" 
+            bio={hero_section.lede}
+            photo={hero_section.photo.path}
+            links={footer.links}
+        />
+
+        <ProjectList projects={individual_projects} />
+
+    </div>
+
+</Layout>
