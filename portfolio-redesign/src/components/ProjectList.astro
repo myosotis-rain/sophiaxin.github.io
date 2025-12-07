@@ -1,0 +1,87 @@
+---
+interface Props {
+  projects: any[];
+}
+
+const { projects } = Astro.props;
+
+// Helper: Extract usable thumbnail from your complex media object
+const getThumbnail = (mediaArray: any[]) => {
+    if (!mediaArray || mediaArray.length === 0) return '';
+    
+    const media = mediaArray[0];
+    
+    // 1. If it's a YouTube video, generate thumbnail
+    if (media.type === 'video' && media.src.includes('youtube')) {
+        // Extract ID (handles embed URLs)
+        const parts = media.src.split('/');
+        const videoId = parts[parts.length - 1].split('?')[0];
+        return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+    }
+    
+    // 2. If it's a Google Slide embed (ARTS205), use a fallback or specific image
+    if (media.src.includes('docs.google.com')) {
+        // You might want to manually set a cover for this in JSON, 
+        // but for now we fallback to a placeholder or specific image if defined
+        return 'https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=2592&auto=format&fit=crop';
+    }
+
+    // 3. If it's a local image (media/...), return path directly
+    return media.src;
+};
+
+// Helper: Get first paragraph of description
+const getDescription = (sections: any[]) => {
+    if (!sections || sections.length === 0) return "";
+    // Look for 'Overview' or just take first section
+    const overview = sections.find(s => s.title === "Overview") || sections[0];
+    if (overview && overview.body && overview.body.length > 0) {
+        return overview.body[0];
+    }
+    return "";
+};
+---
+
+<main class="lg:w-[60%] lg:ml-[40%] min-h-screen relative z-10 bg-bg">
+    <div class="pt-32 lg:pt-40 pb-40">
+        
+        <div class="px-8 lg:px-16 border-b border-gray-300 pb-6 mb-16 flex justify-between items-end mask">
+            <h2 class="reveal font-sans text-sm font-bold uppercase tracking-widest text-text">Selected Work</h2>
+            <span class="reveal font-mono text-[10px] text-gray-400">2023 — 2025</span>
+        </div>
+
+        <div class="flex flex-col gap-24">
+            {projects.map((project, index) => (
+                <a href={`/work/${project.slug}`} class="hover-trigger group flex flex-col gap-6 block px-8 lg:px-16">
+                    
+                    <div class="mask w-[90%] aspect-[16/9] bg-gray-200 overflow-hidden shadow-sm relative rounded-sm">
+                        <img 
+                            src={getThumbnail(project.heroMedia)} 
+                            alt={project.title}
+                            class="reveal-img w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 origin-left"
+                        />
+                    </div>
+                    
+                    <div class="flex justify-between items-start pt-2 border-t border-transparent group-hover:border-border transition-colors duration-500 w-[90%]">
+                        <div class="space-y-3">
+                            <h3 class="font-serif text-3xl md:text-4xl font-normal text-text group-hover:text-blue-700 transition-colors">
+                                {project.title}
+                            </h3>
+                            
+                            <p class="text-sm text-gray-600 max-w-md leading-relaxed line-clamp-2 group-hover:text-gray-900 transition-colors">
+                                {getDescription(project.sections)}
+                            </p>
+
+                            <div class="font-mono text-[10px] text-gray-400 uppercase tracking-wider">
+                                {project.tagline}
+                            </div>
+                        </div>
+                        <span class="font-mono text-xs text-gray-400 pt-2">
+                            0{index + 1}
+                        </span>
+                    </div>
+                </a>
+            ))}
+        </div>
+    </div>
+</main>
