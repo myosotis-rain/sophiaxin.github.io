@@ -4,30 +4,6 @@ interface Props {
 }
 
 const { projects } = Astro.props;
-
-// Helper to get thumbnail
-const getThumbnail = (mediaArray: any[]) => {
-    if (!mediaArray || mediaArray.length === 0) return '';
-    const media = mediaArray[0];
-    
-    if (media.type === 'video' && media.src.includes('youtube')) {
-        const parts = media.src.split('/');
-        const videoId = parts[parts.length - 1].split('?')[0];
-        return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
-    }
-    // Fallback for ARTS205 Google Slides or local images
-    if (media.src.includes('docs.google.com')) return 'https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=2592&auto=format&fit=crop';
-    
-    return media.src;
-};
-
-// Helper for description
-const getDescription = (sections: any[]) => {
-    if (!sections || sections.length === 0) return "";
-    const overview = sections.find(s => s.title === "Overview") || sections[0];
-    if (overview && overview.body && overview.body.length > 0) return overview.body[0];
-    return "";
-};
 ---
 
 <main class="lg:w-[60%] lg:ml-[40%] min-h-screen relative z-10 bg-bg">
@@ -38,32 +14,32 @@ const getDescription = (sections: any[]) => {
             <span class="reveal font-mono text-[10px] text-gray-400">2023 — 2025</span>
         </div>
 
-        <div class="flex flex-col gap-32">
+        <div class="flex flex-col gap-24">
             {projects.map((project, index) => (
-                <a href={`/work/${project.slug}`} class="hover-trigger group flex flex-col gap-6 block">
+                <a href={`/work/${project.slug}`} class="hover-trigger group flex flex-col gap-6 block px-8 lg:px-16">
                     
-                    <div class="mask w-full aspect-[16/9] bg-gray-200 overflow-hidden shadow-sm relative pl-8 lg:pl-16">
+                    <div class="mask w-[90%] aspect-[16/9] bg-gray-200 overflow-hidden shadow-sm relative rounded-sm">
                         <img 
-                            src={getThumbnail(project.heroMedia)} 
+                            src={project.image} 
                             alt={project.title}
                             class="reveal-img w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 origin-left"
                         />
                     </div>
                     
-                    <div class="px-8 lg:px-16 flex justify-between items-start pt-2">
-                        <div class="space-y-2">
-                            <h3 class="font-serif text-4xl font-normal group-hover:text-blue-700 transition-colors">
+                    <div class="flex justify-between items-start pt-2 border-t border-transparent group-hover:border-border transition-colors duration-500 w-[90%]">
+                        <div class="space-y-3">
+                            <h3 class="font-serif text-3xl md:text-4xl font-normal text-text group-hover:text-blue-700 transition-colors">
                                 {project.title}
                             </h3>
                             
-                            <p class="text-sm text-gray-600 max-w-md leading-relaxed line-clamp-2">
-                                {getDescription(project.sections)}
+                            <p class="text-sm text-gray-600 max-w-md leading-relaxed line-clamp-2 group-hover:text-gray-900 transition-colors">
+                                {project.description}
                             </p>
 
-                            <div class="flex gap-3 pt-2">
-                                {(project.meta || []).slice(0, 2).map((m: any) => (
-                                    <span class="font-mono text-[10px] text-gray-500 uppercase tracking-wider border border-gray-200 px-2 py-0.5 rounded-full bg-white">
-                                        {m.value}
+                            <div class="flex gap-2 pt-1">
+                                {project.tags.map((tag: string) => (
+                                    <span class="font-mono text-[10px] text-gray-500 uppercase tracking-wider border border-border px-2 py-0.5 rounded-full bg-white">
+                                        {tag}
                                     </span>
                                 ))}
                             </div>
