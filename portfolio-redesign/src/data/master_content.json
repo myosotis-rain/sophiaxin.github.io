@@ -7,8 +7,8 @@
   "index_page": {
     "hero_section": {
       "headline": "Sophia Xin",
-      "eyebrow": "Product Design · Accessibility · Systems",
-      "lede": "Product design and management focused on accessible and impactful design.",
+      "eyebrow": "Product management · Product design",
+      "lede": "At the intersection of technology, artistry, and human behavior, I'm passionate about designing accessible and impactful digital experiences.",
       "photo": {
         "path": "/media/sophia_photowbg.jpeg",
         "description": "Profile photo for hero section (full color, sharp corners)"
@@ -16,16 +16,14 @@
     },
     "projects_gallery": [],
     "footer": {
-      "call_to_action": "Let’s collaborate",
-      "contact_message": "Email is best, but I’m also on LinkedIn and GitHub. Happy to share a tailored resume on request.",
+      "call_to_action": "Contact",
+      "contact_message": "Available for new opportunities and collaborations",
       "links": [
         {"label": "Email", "href": "mailto:sx103@wellesley.edu"},
         {"label": "LinkedIn", "href": "https://www.linkedin.com/in/sophia-xin"},
-        {"label": "Resume", "href": "media/resume.pdf"},
-        {"label": "GitHub", "href": "https://github.com/sophiaxin"},
-        {"label": "Twitter", "href": "https://twitter.com/sophiaxin"}
+        {"label": "Resume", "href": "https://docs.google.com/document/d/1VmzsV-sRt1MJc0Y6ywQl7R05WRMsTR86eigWNJyr8Hg/edit?usp=sharing"}
       ],
-      "credit": "&copy; {currentYear} Sophia Xin. I designed and developed this site from scratch with AI-assisted coding."
+      "credit": "I designed and developed this site from scratch with AI-assisted coding"
     }
   },
   "about_page": {
@@ -171,7 +169,7 @@
     {
       "slug": "arts205",
       "title": "ARTS205 Portfolio",
-      "tagline": "Animated Academic Portfolio for Meditated Drawing Course",
+      "tagline": "Animated portfolio for Wellesley College ARTS205 - Meditated Drawing course with interactive presentations.",
       "meta": [
         { "label": "Course", "value": "ARTS205 - Meditated Drawing" },
         { "label": "Institution", "value": "Wellesley College" },
