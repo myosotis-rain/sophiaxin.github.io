@@ -40,24 +40,24 @@
         { "type": "video", "src": "https://www.youtube.com/embed/AaxXMroazQs", "alt": "Dovekie Interface Demo" }
       ],
       "sections": [
-        { "kind": "paragraphs", "title": "Overview", "body": ["Implemented the Dovekie interface and designed key interactive components."] }
+        { "kind": "paragraphs", "title": "Overview", "body": ["Implemented the Dovekie (open-source live coding JS package) interface and designed key interactive components."] }
       ]
     },
     {
       "slug": "arts205",
       "title": "ARTS205 Portfolio",
-      "description": "Animated portfolio for Meditated Drawing course. Explores the intersection of traditional drawing techniques with digital animation.",
+      "description": "Animated portfolio for Wellesley College ARTS205 - Meditated Drawing course. Explores the intersection of traditional drawing techniques with digital animation.",
       "tags": ["Animation", "Digital Art"],
       "image": "https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=2592&auto=format&fit=crop",
       "heroMedia": [
-        { "type": "video", "src": "https://docs.google.com/presentation/d/1jslD6MsrWgA6xIfu7wktOjOvYFiQ4dAFNwh--_PbIpk/embed", "alt": "ARTS205 Portfolio" }
+        { "type": "video", "src": "https://docs.google.com/presentation/d/1jslD6MsrWgA6xIfu7wktOjOvYFiQ4dAFNwh--_PbIpk/embed?start=false&loop=false&delayms=3000&slide=4", "alt": "ARTS205 Portfolio Viewer" }
       ],
       "sections": [
         {
           "kind": "paragraphs",
           "title": "Overview",
           "body": [
-            "Animated portfolio created for meditated drawing course, featuring interactive presentations and dynamic visual elements."
+            "Animated portfolio created for meditated drawing course, featuring interactive presentations and dynamic visual elements that explore the intersection of traditional drawing techniques with digital animation."
           ]
         }
       ]
@@ -69,7 +69,7 @@
       "tags": ["3D Visuals", "Wearables", "CLO 3D"],
       "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2864&auto=format&fit=crop",
       "heroMedia": [
-        { "type": "image", "src": "/media/etextiles_Portfolio0.jpg", "alt": "Electronic Textiles Concept Art" }
+        { "type": "image", "src": "media/etextiles_Portfolio0.jpg", "alt": "Electronic Textiles Concept Art" }
       ],
       "sections": [
         { "kind": "paragraphs", "title": "Overview", "body": ["Concept art and 3D visualization project for sensor network applications under the supervision of Irmandy Wicaksono."] }
@@ -108,7 +108,7 @@
       "tags": ["Illustration", "Mixed Media"],
       "image": "https://images.unsplash.com/photo-1579783902614-a3fb39279c23?q=80&w=2564&auto=format&fit=crop",
       "heroMedia": [
-        { "type": "image", "src": "/media/art_I have no preconceptions.jpg", "alt": "Art Work" }
+        { "type": "image", "src": "media/art_I have no preconceptions.jpg", "alt": "Art Work" }
       ],
       "sections": [
         { "kind": "paragraphs", "title": "Overview", "body": ["A curated collection of visual works including digital illustrations and experimental collages."] }
