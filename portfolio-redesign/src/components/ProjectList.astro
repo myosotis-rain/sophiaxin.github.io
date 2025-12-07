@@ -4,6 +4,39 @@ interface Props {
 }
 
 const { projects } = Astro.props;
+
+// Helper: Strict Media Extraction (No Unsplash Fallbacks)
+const getThumbnail = (mediaArray: any[]) => {
+    if (!mediaArray || mediaArray.length === 0) return '';
+    
+    // 1. Priority: Explicit Image
+    const imgItem = mediaArray.find((m: any) => m.type === 'image');
+    if (imgItem) return imgItem.src;
+
+    // 2. Secondary: Video Thumbnail
+    const vidItem = mediaArray.find((m: any) => m.type === 'video');
+    if (vidItem) {
+        if (vidItem.src.includes('youtube')) {
+            const parts = vidItem.src.split('/');
+            const videoId = parts[parts.length - 1].split('?')[0];
+            return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+        }
+        // Returns raw src if not youtube. 
+        // Note: Google Slides embeds will NOT render in an <img> tag.
+        // You must add an image entry to your JSON for these projects to work.
+        return vidItem.src; 
+    }
+    
+    return ''; // Returns empty if nothing found (No random fallback)
+};
+
+// Helper: Description Extraction
+const getDescription = (sections: any[]) => {
+    if (!sections || sections.length === 0) return "";
+    const overview = sections.find((s: any) => s.title === "Overview") || sections[0];
+    if (overview && overview.body && overview.body.length > 0) return overview.body[0];
+    return "";
+};
 ---
 
 <main class="lg:w-[60%] lg:ml-[40%] min-h-screen relative z-10 bg-bg">
@@ -14,32 +47,32 @@ const { projects } = Astro.props;
             <span class="reveal font-mono text-[10px] text-gray-400">2023 — 2025</span>
         </div>
 
-        <div class="flex flex-col gap-24">
+        <div class="flex flex-col gap-32">
             {projects.map((project, index) => (
-                <a href={`/work/${project.slug}`} class="hover-trigger group flex flex-col gap-6 block px-8 lg:px-16">
+                <a href={`/work/${project.slug}`} class="hover-trigger group flex flex-col gap-6 block">
                     
-                    <div class="mask w-[90%] aspect-[16/9] bg-gray-200 overflow-hidden shadow-sm relative rounded-sm">
+                    <div class="mask w-full aspect-[16/9] bg-gray-200 overflow-hidden shadow-sm relative pl-8 lg:pl-16">
                         <img 
-                            src={project.image} 
+                            src={getThumbnail(project.heroMedia)} 
                             alt={project.title}
                             class="reveal-img w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 origin-left"
                         />
                     </div>
                     
-                    <div class="flex justify-between items-start pt-2 border-t border-transparent group-hover:border-border transition-colors duration-500 w-[90%]">
-                        <div class="space-y-3">
-                            <h3 class="font-serif text-3xl md:text-4xl font-normal text-text group-hover:text-blue-700 transition-colors">
+                    <div class="px-8 lg:px-16 flex justify-between items-start pt-2">
+                        <div class="space-y-2">
+                            <h3 class="font-serif text-4xl font-normal group-hover:text-blue-700 transition-colors">
                                 {project.title}
                             </h3>
                             
-                            <p class="text-sm text-gray-600 max-w-md leading-relaxed line-clamp-2 group-hover:text-gray-900 transition-colors">
-                                {project.description}
+                            <p class="text-sm text-gray-600 max-w-md leading-relaxed line-clamp-2">
+                                {getDescription(project.sections)}
                             </p>
 
-                            <div class="flex gap-2 pt-1">
-                                {project.tags.map((tag: string) => (
-                                    <span class="font-mono text-[10px] text-gray-500 uppercase tracking-wider border border-border px-2 py-0.5 rounded-full bg-white">
-                                        {tag}
+                            <div class="flex gap-3 pt-2">
+                                {(project.meta || []).slice(0, 2).map((m: any) => (
+                                    <span class="font-mono text-[10px] text-gray-500 uppercase tracking-wider border border-gray-200 px-2 py-0.5 rounded-full bg-white">
+                                        {m.value}
                                     </span>
                                 ))}
                             </div>

@@ -6,7 +6,7 @@ import ProjectList from '../components/ProjectList.astro';
 // Import Data
 import portfolioData from '../data/portfolio.json';
 
-const { site_metadata, hero_photo, contact_links, projects } = portfolioData;
+const { site_metadata, index_page, individual_projects } = portfolioData;
 ---
 
 <Layout 
@@ -24,13 +24,13 @@ const { site_metadata, hero_photo, contact_links, projects } = portfolioData;
         
         <Sidebar 
             name={site_metadata.your_name}
-            role={site_metadata.role}
-            bio={site_metadata.bio}
-            photo={hero_photo}
-            links={contact_links}
+            role={index_page.hero_section.eyebrow}
+            bio={index_page.hero_section.lede}
+            photo={index_page.hero_section.photo.path}
+            links={index_page.footer.links}
         />
 
-        <ProjectList projects={projects} />
+        <ProjectList projects={individual_projects} />
 
     </div>
 
