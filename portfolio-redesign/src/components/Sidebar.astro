@@ -12,10 +12,10 @@ const { name, role, bio, photo, links } = Astro.props;
 
 <aside class="lg:w-[40%] lg:h-screen lg:fixed lg:top-0 lg:left-0 flex flex-col p-8 lg:p-16 border-r border-border/60 z-20 bg-bg overflow-y-auto">
     
-    <div class="mt-12 lg:mt-0 space-y-6">
+    <div class="mt-12 lg:mt-0 space-y-8">
         <div>
             <div class="mask">
-                <h1 class="reveal font-serif text-6xl md:text-7xl mb-3 leading-[0.9] text-text">
+                <h1 class="reveal font-serif text-6xl md:text-7xl mb-3 leading-none text-black">
                     {name}
                 </h1>
             </div>
@@ -26,36 +26,31 @@ const { name, role, bio, photo, links } = Astro.props;
             </div>
         </div>
 
-        <div class="mask max-w-sm pt-4">
+        <div class="mask max-w-sm">
             <p class="reveal text-base font-normal text-gray-800 leading-relaxed font-sans">
                 {bio}
             </p>
         </div>
     </div>
 
-    <div class="flex-grow min-h-[4rem]"></div>
+    <div class="mt-12 mask w-[240px] aspect-[3/4] bg-gray-200 rounded-sm overflow-hidden shadow-sm">
+        <img 
+            src={photo} 
+            alt={name}
+            class="reveal-img w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+        />
+    </div>
 
-    <div class="flex items-end gap-6 pb-2">
-        
-        <div class="mask w-[120px] aspect-[3/4] bg-gray-200 rounded-[2px] overflow-hidden border border-white shadow-sm flex-shrink-0">
-            <img 
-                src={photo} 
-                alt={name}
-                class="reveal-img w-full h-full object-cover hover:scale-110 transition-transform duration-700"
-            />
-        </div>
-
-        <div class="flex flex-col gap-2 pb-1 mask">
-            <span class="reveal font-mono text-[9px] uppercase tracking-widest text-gray-400 mb-1">Connect</span>
-            {links.map((link) => (
-                <a 
-                    href={link.href} 
-                    target="_blank"
-                    class="reveal hover-trigger font-mono text-[10px] font-medium text-gray-600 hover:text-black hover:translate-x-1 transition-all tracking-wide"
-                >
-                    {link.label} ↗
-                </a>
-            ))}
-        </div>
+    <div class="mt-8 flex flex-col gap-2 mask">
+        <span class="reveal font-mono text-[9px] uppercase tracking-widest text-gray-400 mb-1">Connect</span>
+        {links.map((link) => (
+            <a 
+                href={link.href} 
+                target="_blank"
+                class="reveal hover-trigger font-mono text-[10px] font-medium text-gray-600 hover:text-black hover:translate-x-1 transition-all tracking-wide"
+            >
+                {link.label} ↗
+            </a>
+        ))}
     </div>
 </aside>

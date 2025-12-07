@@ -9,9 +9,9 @@ export default {
 				mono: ['JetBrains Mono', 'monospace'],
 			},
 			colors: {
-				bg: '#F5F5F9',       // Ghost White
-				text: '#111116',     // Obsidian
-				border: '#E2E2EA',   // Platinum
+				bg: '#F5F5F9',
+				text: '#111116',
+				border: '#E2E2EA',
 			}
 		},
 	},
