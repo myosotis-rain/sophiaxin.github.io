@@ -1,14 +1,24 @@
 ---
 interface Props {
-  projects: {
-    slug: string;
-    title: string;
-    tags: string[];
-    image: string;
-  }[];
+  projects: any[];
 }
 
 const { projects } = Astro.props;
+
+// Helper to get a valid image source (Local Image OR YouTube Thumbnail)
+const getThumbnail = (mediaArray: any[]) => {
+    const media = mediaArray[0];
+    if (media.type === 'image') return media.src;
+    
+    // If video is YouTube, extract thumbnail
+    if (media.type === 'video' && media.src.includes('youtube')) {
+        const videoId = media.src.split('/').pop();
+        return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+    }
+    
+    // Fallback placeholder
+    return 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop';
+};
 ---
 
 <main class="lg:w-[60%] lg:ml-[40%] min-h-screen relative z-10 bg-bg">
@@ -24,7 +34,7 @@ const { projects } = Astro.props;
                 <a href={`/work/${project.slug}`} class="hover-trigger group flex flex-col gap-6 block">
                     <div class="mask w-full aspect-[16/9] bg-gray-200 overflow-hidden shadow-sm relative pl-8 lg:pl-16">
                         <img 
-                            src={project.image} 
+                            src={getThumbnail(project.heroMedia)} 
                             alt={project.title}
                             class="reveal-img w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 origin-left"
                         />
@@ -36,7 +46,7 @@ const { projects } = Astro.props;
                                 {project.title}
                             </h3>
                             <div class="flex gap-2">
-                                {project.tags.map((tag) => (
+                                {(project.tags || []).slice(0, 3).map((tag: string) => (
                                     <span class="font-mono text-[10px] text-gray-500 uppercase tracking-wider border border-border px-2 py-0.5 rounded-full bg-white">
                                         {tag}
                                     </span>

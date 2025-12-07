@@ -10,8 +10,8 @@
       "eyebrow": "Product management · Product design",
       "lede": "At the intersection of technology, artistry, and human behavior, I'm passionate about designing accessible and impactful digital experiences.",
       "photo": {
-        "path": "https://images.unsplash.com/photo-1616766098956-c81f12114571?q=80&w=2787&auto=format&fit=crop",
-        "description": "Profile photo"
+        "path": "/media/sophia_photowbg.jpeg",
+        "description": "Profile photo for hero section"
       }
     },
     "footer": {
@@ -26,37 +26,42 @@
     {
       "slug": "ai-art-analysis",
       "title": "AI Art Analysis",
-      "tagline": "Flask AI art critique app with RAG & CLIP",
-      "tags": ["PM", "Python", "RAG"],
-      "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop"
+      "tags": ["Flask", "RAG", "Python"],
+      "heroMedia": [
+        { "type": "video", "src": "https://www.youtube.com/embed/x-PvLC_VFeU", "alt": "AI Art Analysis Demo" }
+      ]
     },
     {
       "slug": "dovekie",
       "title": "Dovekie Interface",
-      "tagline": "Open-source live-coding interface",
       "tags": ["HCI", "Research", "p5.js"],
-      "image": "https://images.unsplash.com/photo-1558655146-d09347e0b7a9?q=80&w=2670&auto=format&fit=crop"
-    },
-    {
-      "slug": "vinetality",
-      "title": "Vinetality",
-      "tagline": "Tangible Interface for Well-being",
-      "tags": ["Physical Computing", "IoT"],
-      "image": "https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=2670&auto=format&fit=crop"
+      "heroMedia": [
+        { "type": "video", "src": "https://www.youtube.com/embed/AaxXMroazQs", "alt": "Dovekie Interface Demo" }
+      ]
     },
     {
       "slug": "etextiles",
       "title": "Electronic Textiles",
-      "tagline": "Concept Art & 3D Visualization",
-      "tags": ["3D Visuals", "Wearables"],
-      "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2864&auto=format&fit=crop"
+      "tags": ["3D Visuals", "Wearables", "CLO 3D"],
+      "heroMedia": [
+        { "type": "image", "src": "media/etextiles_Portfolio0.jpg", "alt": "Electronic Textiles Concept Art" }
+      ]
+    },
+    {
+      "slug": "vinetality",
+      "title": "Vinetality",
+      "tags": ["IoT", "Tangible UI", "Arduino"],
+      "heroMedia": [
+        { "type": "video", "src": "https://www.youtube.com/embed/Wz0rExoqUfM", "alt": "Vinetality Demo" }
+      ]
     },
     {
       "slug": "wellesleyweb",
       "title": "The Wellesley Web",
-      "tagline": "Tech Networking Platform",
-      "tags": ["Full-Stack", "SQL", "Flask"],
-      "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2670&auto=format&fit=crop"
+      "tags": ["Full-Stack", "Flask", "SQL"],
+      "heroMedia": [
+        { "type": "video", "src": "https://www.youtube.com/embed/lxu5UYm1luk", "alt": "The Wellesley Web Demo" }
+      ]
     }
   ]
 }
