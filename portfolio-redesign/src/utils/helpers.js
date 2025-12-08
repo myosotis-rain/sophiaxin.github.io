@@ -8,7 +8,11 @@ export const getThumbnail = (mediaArray) => {
     // 2. Try to find a Video
     const vidItem = mediaArray.find(m => m.type === 'video');
     if (vidItem) {
-        // Handle YouTube
+        // Use explicit thumbnail if available
+        if (vidItem.thumbnail) {
+            return vidItem.thumbnail;
+        }
+        // Fallback to constructing YouTube thumbnail if 'thumbnail' field is missing but it's a YouTube video
         if (vidItem.src.includes('youtube')) {
             const parts = vidItem.src.split('/');
             const videoId = parts[parts.length - 1].split('?')[0];
