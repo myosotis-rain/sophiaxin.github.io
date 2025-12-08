@@ -64,6 +64,40 @@ const { bio_section, education_section, experience_section, skills_section } = d
             </div>
         </div>
 
+        <div class="grid md:grid-cols-4 gap-8 mb-20">
+            <h3 class="text-xs uppercase tracking-widest text-gray-500 font-bold md:col-span-1 mt-1">Professional</h3>
+            <div class="md:col-span-3 space-y-12">
+                {experience_section.professional.map(job => (
+                    <div class="group relative pl-8 border-l border-gray-200 hover:border-black transition duration-300">
+                        <span class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-gray-200 rounded-full group-hover:bg-black transition duration-300"></span>
+                        <h4 class="font-serif text-xl mb-1">{job.company}</h4>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="font-bold text-sm">{job.title}</span>
+                            <span class="text-xs text-gray-400">{job.period}</span>
+                        </div>
+                        <p class="text-sm text-gray-600 leading-relaxed">{job.description}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-4 gap-8 mb-20">
+            <h3 class="text-xs uppercase tracking-widest text-gray-500 font-bold md:col-span-1 mt-1">Leadership</h3>
+            <div class="md:col-span-3 space-y-12">
+                {experience_section.leadership.map(job => (
+                    <div class="group relative pl-8 border-l border-gray-200 hover:border-black transition duration-300">
+                        <span class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-gray-200 rounded-full group-hover:bg-black transition duration-300"></span>
+                        <h4 class="font-serif text-xl mb-1">{job.company}</h4>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="font-bold text-sm">{job.title}</span>
+                            <span class="text-xs text-gray-400">{job.period}</span>
+                        </div>
+                        <p class="text-sm text-gray-600 leading-relaxed">{job.description}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+
         <div class="grid md:grid-cols-4 gap-8">
             <h3 class="text-xs uppercase tracking-widest text-gray-500 font-bold md:col-span-1 mt-1">Skills</h3>
             <div class="md:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-8">
