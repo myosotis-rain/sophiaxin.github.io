@@ -107,9 +107,9 @@ const pageTitle = title ? `${title} | ${your_name}` : portfolio_title;
     
                     <nav class="hidden lg:block">
                         <ul class="space-y-4 text-sm tracking-widest uppercase text-gray-600 font-bold">
-                            <li><a href="/" class={`hover:text-black transition-all flex items-center gap-2 group ${Astro.url.pathname === '/' ? 'text-black' : ''}`}><span class={`h-[1px] bg-black transition-all ${Astro.url.pathname === '/' ? 'w-12' : 'w-0'}`}></span> Work</a></li>
-                            <li><a href="/about" class={`hover:text-black transition-all flex items-center gap-2 group ${Astro.url.pathname.startsWith('/about') ? 'text-black' : ''}`}><span class={`h-[1px] bg-black transition-all ${Astro.url.pathname.startsWith('/about') ? 'w-12' : 'w-0'}`}></span> About</a></li>
-                            <li><a href="#contact" class="hover:text-black transition-all flex items-center gap-2 group"><span class="w-0 h-[1px] bg-black transition-all"></span> Contact</a></li>
+                            <li><a href="/" class={`hover:text-black transition-all flex items-center gap-2 group ${Astro.url.pathname === '/' ? 'text-black' : ''}`}><span class={`h-[1px] transition-all ${Astro.url.pathname === '/' ? 'w-12 bg-black' : 'w-0 bg-transparent group-hover:w-8 group-hover:bg-gray-300'}`}></span> Work</a></li>
+                            <li><a href="/about" class={`hover:text-black transition-all flex items-center gap-2 group ${Astro.url.pathname.startsWith('/about') ? 'text-black' : ''}`}><span class={`h-[1px] transition-all ${Astro.url.pathname.startsWith('/about') ? 'w-12 bg-black' : 'w-0 bg-transparent group-hover:w-8 group-hover:bg-gray-300'}`}></span> About</a></li>
+                            <li><a href="#contact" class="hover:text-black transition-all flex items-center gap-2 group"><span class="h-[1px] w-0 bg-transparent transition-all group-hover:w-8 group-hover:bg-gray-300"></span> Contact</a></li>
                         </ul>
                     </nav>
     
