@@ -8,32 +8,32 @@ const projects = sortProjects(data.individual_projects);
 ---
 
 <MainLayout>
-    <section class="max-w-5xl pt-12 lg:pt-0 mb-24">
+    <section class="max-w-6xl pt-12 lg:pt-0 mb-0">
         
-        <div class="flex flex-col-reverse md:flex-row gap-12 md:gap-16 items-start">
+        <div class="flex flex-col-reverse md:flex-row gap-12 md:gap-8 items-start">
             
-            <div class="flex-1 max-w-2xl">
-                <span class="text-xs uppercase tracking-widest text-gray-400 font-bold block mb-6 font-sans">
+            <div class="flex-1 mt-24">
+                <span class="text-xs uppercase tracking-widest text-gray-600 font-bold block mb-4 font-sans">
                     {hero_section.eyebrow}
                 </span>
                 
-                <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl leading-[1.35] text-ink font-normal text-balance">
-                    {hero_section.lede}
+                <h2 class="font-serif text-4xl leading-[1.15] text-ink font-normal text-balance" set:html={hero_section.lede}>
                 </h2>
+                
             </div>
 
-            <div class="shrink-0 w-32 h-32 md:w-40 md:h-40 relative md:mt-12">
+            <div class="shrink-0 w-[150px] h-[150px] md:w-[200px] md:h-[200px] relative rounded-full overflow-hidden mt-24">
                 <img 
                     src={hero_section.photo.path} 
                     alt={hero_section.photo.description} 
-                    class="w-full h-full object-cover rounded-lg shadow-sm grayscale-0" 
+                    class="w-full h-full object-cover shadow-sm grayscale-0" 
                 />
             </div>
 
         </div>
     </section>
 
-    <section id="work" class="flex flex-col gap-20">
+    <section id="work" class="flex flex-col gap-8">
         <div class="flex items-end justify-between border-b border-gray-300/60 pb-4">
             <h2 class="text-xs uppercase tracking-widest text-gray-500 font-bold">Selected Works</h2>
             <span class="text-xs text-gray-500 font-bold">01 / {projects.length.toString().padStart(2, '0')}</span>
