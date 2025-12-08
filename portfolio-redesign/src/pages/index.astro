@@ -67,12 +67,12 @@ const projects = sortProjects(data.individual_projects);
                 </a>
 
                 {/* TEXT CONTENT */}
-                <a href={`/projects/${project.slug}`} class="flex flex-col md:flex-row md:items-start gap-4 border-l-2 border-transparent group-hover:border-accent pl-0 group-hover:pl-4 transition-all duration-300">
+                <a href={`/projects/${project.slug}`} class="flex flex-col gap-4 border-l-2 border-transparent group-hover:border-accent pl-0 group-hover:pl-4 transition-all duration-300">
                     <div>
                         <h3 class="font-serif text-3xl mb-1 text-ink">{project.title}</h3>
                         <p class="text-gray-500 text-sm font-sans">{project.tagline}</p>
                     </div>
-                    <div class="hidden md:block pt-2 ml-auto">
+                    <div class="hidden md:block pt-2 mt-4">
                         <span class="font-sans border border-gray-300 rounded-full px-4 py-2 text-xs uppercase tracking-wider group-hover:bg-accent group-hover:text-white transition">View Project &nearr;</span>
                     </div>
                 </a>
