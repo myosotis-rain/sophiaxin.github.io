@@ -8,7 +8,7 @@
     "hero_section": {
       "headline": "Sophia Xin",
       "eyebrow": "Product management · Product design",
-      "lede": "Driven by the convergence of innovation and artistry, I build accessible digital experiences grounded in human behavior and equity.",
+      "lede": "Driven by the convergence of <br> innovation and artistry, I build <br> accessible digital experiences <br> grounded in human behavior and empathy.",
       "photo": {
         "path": "/media/sophia_photowbg.jpeg",
         "description": "Profile photo for hero section"
@@ -117,7 +117,65 @@
   },
   "individual_projects": [
     {
+      "slug": "dovekie",
+      "order": 1,
+      "title": "Dovekie Interface",
+      "tagline": "Open-source live-coding interface for creative expression",
+      "meta": [
+        { "label": "Role", "value": "Interface Designer & Developer" },
+        { "label": "Organization", "value": "MIT Media Lab" },
+        { "label": "Supervisor", "value": "Jessica Stringham" },
+        { "label": "Year", "value": "2025" }
+      ],
+      "heroMedia": [
+        { "type": "video", "src": "https://www.youtube.com/embed/AaxXMroazQs", "alt": "Dovekie Interface Demo" }
+      ],
+      "sections": [
+        {
+          "kind": "paragraphs",
+          "title": "Overview",
+          "body": [
+            "Implemented the Dovekie (open-source live coding JS package) interface and designed key interactive components. Created p5.js sketches to experiment with dynamic, parameter-driven generative workflows.",
+            "As part of the Future Sketches group at MIT Media Lab, I contributed to the development of an open-source live-coding environment that enables creative expression through code. The project focused on creating intuitive interfaces that bridge the gap between technical complexity and artistic creativity."
+          ]
+        },
+        {
+          "kind": "bullets",
+          "title": "Key Contributions",
+          "items": [
+            { "heading": "Interface Design & Implementation", "text": "Designed and implemented user interface components for the Dovekie live-coding environment, focusing on intuitive parameter manipulation and real-time feedback." },
+            { "heading": "Generative Workflows", "text": "Created p5.js sketches demonstrating dynamic, parameter-driven generative workflows that showcase the platform's creative potential." },
+            { "heading": "User Experience Enhancement", "text": "Collaborated with the development team on interface usability improvements and user experience optimization." },
+            { "heading": "Open Source Documentation", "text": "Contributed to open-source documentation and community resources to support developer adoption." }
+          ]
+        },
+        {
+          "kind": "paragraphs",
+          "title": "Technical Approach",
+          "body": [
+            "The interface design process involved understanding the unique needs of live-coding practitioners and translating complex technical requirements into intuitive user interactions. Key considerations included:"
+          ]
+        },
+        {
+          "kind": "approach-grid",
+          "items": [
+            { "heading": "Real-time Feedback", "text": "Ensuring immediate visual response to parameter changes for fluid creative workflow." },
+            { "heading": "Parameter Manipulation", "text": "Designing intuitive controls for complex parameter spaces and value ranges." },
+            { "heading": "Workflow Integration", "text": "Seamless integration with existing creative coding practices and tools." }
+          ]
+        }
+      ],
+      "sidebar": {
+        "technologies": ["JavaScript", "p5.js", "Interface Design", "Live Coding", "Open Source"],
+        "extra": [
+          { "title": "Impact", "text": "Contributed to an open-source tool that enables creative live-coding experiences for artists and developers worldwide, fostering innovation in the intersection of code and creativity." },
+          { "title": "External Links", "text": "<a href=\"https://github.com/jessstringham/dovekie\" class=\"external-link\" target=\"_blank\" rel=\"noopener\">View on GitHub</a>" }
+        ]
+      }
+    },
+    {
       "slug": "ai-art-analysis",
+      "order": 2,
       "title": "AI Art Analysis",
       "tagline": "Flask AI art critique app with RAG, CLIP ONNX, and API integration",
       "meta": [
@@ -155,6 +213,14 @@
           "body": [
             "The development process involved creating a sophisticated AI pipeline that processes visual art through multiple analytical layers. Key technical achievements included:"
           ]
+        },
+        {
+          "kind": "approach-grid",
+          "items": [
+            { "heading": "Flask Backend", "text": "Architected a scalable Flask application with efficient routing and data processing capabilities." },
+            { "heading": "AI Model Integration", "text": "Successfully integrated multiple AI models including CLIP for visual analysis and language models for critique generation." },
+            { "heading": "Frontend Development", "text": "Created an intuitive user interface that makes complex AI analysis accessible to users of all technical backgrounds." }
+          ]
         }
       ],
       "sidebar": {
@@ -166,123 +232,8 @@
       }
     },
     {
-      "slug": "arts205",
-      "title": "ARTS205 Portfolio",
-      "tagline": "Animated portfolio for Wellesley College ARTS205 - Meditated Drawing course with interactive presentations.",
-      "meta": [
-        { "label": "Course", "value": "ARTS205 - Meditated Drawing" },
-        { "label": "Institution", "value": "Wellesley College" },
-        { "label": "Format", "value": "Interactive Presentation" },
-        { "label": "Year", "value": "2024" }
-      ],
-      "heroMedia": [
-        { "type": "video", "src": "https://docs.google.com/presentation/d/1jslD6MsrWgA6xIfu7wktOjOvYFiQ4dAFNwh--_PbIpk/embed?start=false&loop=false&delayms=3000&slide=4", "alt": "ARTS205 Portfolio Viewer" }
-      ],
-      "sections": [
-        {
-          "kind": "paragraphs",
-          "title": "Overview",
-          "body": [
-            "Animated portfolio created for meditated drawing course, featuring interactive presentations and dynamic visual elements that explore the intersection of traditional drawing techniques with digital animation.",
-            "This academic portfolio documents a semester-long journey through contemplative drawing practices, translating traditional meditative art forms into engaging digital presentations that maintain the reflective essence of the original coursework."
-          ]
-        }
-      ],
-      "sidebar": {
-        "technologies": ["Animation", "Interactive Design", "Digital Art", "Presentation Design", "Visual Storytelling"],
-        "extra": [
-          { "title": "Impact", "text": "Successfully documented semester-long artistic journey with innovative presentation format that enhanced the viewing experience while preserving the meditative qualities of the original work." }
-        ]
-      }
-    },
-    {
-      "slug": "artwork",
-      "title": "Visual Arts & Collage",
-      "tagline": "Creative Exploration Through Mixed Media & Digital Art",
-      "meta": [
-        { "label": "Medium", "value": "Digital Art, Collage, Mixed Media" },
-        { "label": "Tools", "value": "Adobe Creative Suite, Procreate" },
-        { "label": "Focus", "value": "Identity, Introspection, Expression" },
-        { "label": "Period", "value": "2020-2024" }
-      ],
-      "heroMedia": [
-        { "type": "image", "src": "/media/art_I have no preconceptions.jpg", "alt": "I Have No Preconceptions" },
-        { "type": "image", "src": "/media/art_Now I am a lake.jpg", "alt": "Now I Am a Lake" },
-        { "type": "image", "src": "/media/art_Searching my reaches.jpg", "alt": "Searching My Reaches" },
-        { "type": "image", "src": "/media/art_hand.jpg", "alt": "Hand Study" },
-        { "type": "image", "src": "/media/art_unmisted by love.jpg", "alt": "Unmisted by Love" },
-        { "type": "image", "src": "/media/collage_1.JPG", "alt": "Collage Work 1" },
-        { "type": "image", "src": "/media/collage_2.JPG", "alt": "Collage Work 2" },
-        { "type": "image", "src": "/media/collage_3.JPG", "alt": "Collage Work 3" },
-        { "type": "image", "src": "/media/collage_WGST120Cover.JPG", "alt": "WGST120 Cover" },
-        { "type": "image", "src": "/media/collage_thstCover.JPG", "alt": "Thesis Cover" },
-        { "type": "image", "src": "/media/art_dying of the light cs111.jpg", "alt": "Dying of the Light" }
-      ],
-      "sections": [
-        {
-          "kind": "paragraphs",
-          "title": "Creative Vision",
-          "body": [
-            "A curated collection of visual works including digital illustrations, experimental collages, and artistic explorations that blend traditional art techniques with digital innovation.",
-            "This body of work explores themes of identity, introspection, and creative expression through various visual mediums. Each piece represents a different aspect of personal and artistic growth, documenting my journey as both a technical creator and visual artist."
-          ]
-        }
-      ],
-      "sidebar": {
-        "technologies": ["Digital Illustration", "Collage", "Mixed Media", "Woodcut", "Color Pencils", "Creative Coding"],
-        "extra": []
-      }
-    },
-    {
-      "slug": "dovekie",
-      "title": "Dovekie Interface",
-      "tagline": "Open-source live-coding interface for creative expression",
-      "meta": [
-        { "label": "Role", "value": "Interface Designer & Developer" },
-        { "label": "Organization", "value": "MIT Media Lab" },
-        { "label": "Supervisor", "value": "Jessica Stringham" },
-        { "label": "Year", "value": "2024" }
-      ],
-      "heroMedia": [
-        { "type": "video", "src": "https://www.youtube.com/embed/AaxXMroazQs", "alt": "Dovekie Interface Demo" }
-      ],
-      "sections": [
-        {
-          "kind": "paragraphs",
-          "title": "Overview",
-          "body": [
-            "Implemented the Dovekie (open-source live coding JS package) interface and designed key interactive components. Created p5.js sketches to experiment with dynamic, parameter-driven generative workflows.",
-            "As part of the Future Sketches group at MIT Media Lab, I contributed to the development of an open-source live-coding environment that enables creative expression through code. The project focused on creating intuitive interfaces that bridge the gap between technical complexity and artistic creativity."
-          ]
-        },
-        {
-          "kind": "bullets",
-          "title": "Key Contributions",
-          "items": [
-            { "heading": "Interface Design & Implementation", "text": "Designed and implemented user interface components for the Dovekie live-coding environment, focusing on intuitive parameter manipulation and real-time feedback." },
-            { "heading": "Generative Workflows", "text": "Created p5.js sketches demonstrating dynamic, parameter-driven generative workflows that showcase the platform's creative potential." },
-            { "heading": "User Experience Enhancement", "text": "Collaborated with the development team on interface usability improvements and user experience optimization." },
-            { "heading": "Open Source Documentation", "text": "Contributed to open-source documentation and community resources to support developer adoption." }
-          ]
-        },
-        {
-          "kind": "paragraphs",
-          "title": "Technical Approach",
-          "body": [
-            "The interface design process involved understanding the unique needs of live-coding practitioners and translating complex technical requirements into intuitive user interactions. Key considerations included:"
-          ]
-        }
-      ],
-      "sidebar": {
-        "technologies": ["JavaScript", "p5.js", "Interface Design", "Live Coding", "Open Source"],
-        "extra": [
-          { "title": "Impact", "text": "Contributed to an open-source tool that enables creative live-coding experiences for artists and developers worldwide, fostering innovation in the intersection of code and creativity." },
-          { "title": "External Links", "text": "<a href=\"https://github.com/jessstringham/dovekie\" class=\"external-link\" target=\"_blank\" rel=\"noopener\">View on GitHub</a>" }
-        ]
-      }
-    },
-    {
       "slug": "etextiles",
+      "order": 4,
       "title": "Electronic Textiles",
       "tagline": "Concept Art & 3D Visualization at MIT Media Lab",
       "meta": [
@@ -292,12 +243,7 @@
         { "label": "Year", "value": "2024" }
       ],
       "heroMedia": [
-        { "type": "image", "src": "/media/etextiles_Portfolio0.jpg", "alt": "Electronic Textiles Concept Art" },
-        { "type": "image", "src": "/media/etextiles_Portfolio1.jpg", "alt": "Electronic Textiles Concept 1" },
-        { "type": "image", "src": "/media/etextiles_Portfolio2.jpg", "alt": "Electronic Textiles Concept 2" },
-        { "type": "image", "src": "/media/etextiles_Portfolio3.jpg", "alt": "Electronic Textiles Concept 3" },
-        { "type": "image", "src": "/media/etextiles_Portfolio4.jpg", "alt": "Electronic Textiles Concept 4" },
-        { "type": "video", "src": "/media/etextiles_Portfolio6.mp4", "alt": "Electronic Textiles Concept Animation" }
+        { "type": "image", "src": "/media/etextiles_Portfolio0.jpg", "alt": "Electronic Textiles Concept Art" }
       ],
       "sections": [
         {
@@ -309,11 +255,20 @@
           ]
         },
         {
-          "kind": "paragraphs",
-          "title": "Concept Animation",
-          "body": [
-            "This animation demonstrates the dynamic behavior of sensor networks within electronic textile systems, showcasing how data flows and interactions occur in real-time applications."
+          "kind": "gallery",
+          "title": "Concept Gallery",
+          "items": [
+            { "src": "/media/etextiles_Portfolio0.jpg", "alt": "Electronic Textiles Concept Art" },
+            { "src": "/media/etextiles_Portfolio1.jpg", "alt": "Electronic Textiles Concept 1" },
+            { "src": "/media/etextiles_Portfolio2.jpg", "alt": "Electronic Textiles Concept 2" },
+            { "src": "/media/etextiles_Portfolio3.jpg", "alt": "Electronic Textiles Concept 3" },
+            { "src": "/media/etextiles_Portfolio4.jpg", "alt": "Electronic Textiles Concept 4" }
           ]
+        },
+        {
+          "kind": "video",
+          "title": "Concept Animation",
+          "src": "/media/etextiles_Portfolio6.mp4"
         },
         {
           "kind": "paragraphs",
@@ -344,7 +299,111 @@
       }
     },
     {
+      "slug": "arts205",
+      "order": 6,
+      "title": "ARTS205 Portfolio",
+      "tagline": "Animated portfolio for Wellesley College ARTS205 - Meditated Drawing course with interactive presentations.",
+      "meta": [
+        { "label": "Course", "value": "ARTS205 - Meditated Drawing" },
+        { "label": "Institution", "value": "Wellesley College" },
+        { "label": "Format", "value": "Interactive Presentation" },
+        { "label": "Year", "value": "2024" }
+      ],
+      "heroMedia": [
+        { 
+          "type": "interactive-slides", 
+          "baseUrl": "https://docs.google.com/presentation/d/1jslD6MsrWgA6xIfu7wktOjOvYFiQ4dAFNwh--_PbIpk/embed?start=false&loop=false&delayms=3000",
+          "thumbnail": "/media/ARTS205_TitleSlide.png",
+          "slides": [
+            { "number": 4, "label": "Final Project" },
+            { "number": 10, "label": "Text as Images" },
+            { "number": 16, "label": "Traveller" },
+            { "number": 27, "label": "Jigsaw" },
+            { "number": 33, "label": "Inhabit/Transform" },
+            { "number": 38, "label": "Nomadic Drawing" },
+            { "number": 50, "label": "Sketchbook" }
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "kind": "paragraphs",
+          "title": "Overview",
+          "body": [
+            "Animated portfolio created for meditated drawing course, featuring interactive presentations and dynamic visual elements that explore the intersection of traditional drawing techniques with digital animation.",
+            "This academic portfolio documents a semester-long journey through contemplative drawing practices, translating traditional meditative art forms into engaging digital presentations that maintain the reflective essence of the original coursework."
+          ]
+        }
+      ],
+      "sidebar": {
+        "technologies": ["Animation", "Interactive Design", "Digital Art", "Presentation Design", "Visual Storytelling"],
+        "extra": [
+          { "title": "Impact", "text": "Successfully documented semester-long artistic journey with innovative presentation format that enhanced the viewing experience while preserving the meditative qualities of the original work." }
+        ]
+      }
+    },
+    {
+      "slug": "artwork",
+      "order": 7,
+      "layoutType": "art",
+      "title": "Visual Arts & Collage",
+      "tagline": "Creative Exploration Through Mixed Media & Digital Art",
+      "meta": [
+        { "label": "Medium", "value": "Digital Art, Collage, Mixed Media" },
+        { "label": "Tools", "value": "Adobe Creative Suite, Procreate" },
+        { "label": "Focus", "value": "Identity, Introspection, Expression" },
+        { "label": "Period", "value": "2020-2024" }
+      ],
+      "heroMedia": [
+        { "type": "image", "src": "/media/art_cover.jpg", "alt": "Art Cover" }
+      ],
+      "sections": [
+        {
+          "kind": "gallery",
+          "title": "Artworks",
+          "items": [
+            { "src": "/media/art_I have no preconceptions.jpg", "alt": "I Have No Preconceptions" },
+            { "src": "/media/art_Now I am a lake.jpg", "alt": "Now I Am a Lake" },
+            { "src": "/media/art_Searching my reaches.jpg", "alt": "Searching My Reaches" },
+            { "src": "/media/art_hand.jpg", "alt": "Hand Study" },
+            { "src": "/media/art_unmisted by love.jpg", "alt": "Unmisted by Love" }
+          ]
+        },
+        {
+          "kind": "gallery",
+          "title": "Collages",
+          "items": [
+            { "src": "/media/collage_1.JPG", "alt": "Collage Work 1" },
+            { "src": "/media/collage_2.JPG", "alt": "Collage Work 2" },
+            { "src": "/media/collage_3.JPG", "alt": "Collage Work 3" },
+            { "src": "/media/collage_WGST120Cover.JPG", "alt": "WGST120 Cover" },
+            { "src": "/media/collage_thstCover.JPG", "alt": "Thesis Cover" }
+          ]
+        },
+        {
+          "kind": "gallery",
+          "title": "Other Work",
+          "items": [
+            { "src": "/media/art_dying of the light cs111.jpg", "alt": "Dying of the Light" }
+          ]
+        },
+        {
+          "kind": "paragraphs",
+          "title": "Creative Vision",
+          "body": [
+            "A curated collection of visual works including digital illustrations, experimental collages, and artistic explorations that blend traditional art techniques with digital innovation.",
+            "This body of work explores themes of identity, introspection, and creative expression through various visual mediums. Each piece represents a different aspect of personal and artistic growth, documenting my journey as both a technical creator and visual artist."
+          ]
+        }
+      ],
+      "sidebar": {
+        "technologies": ["Digital Illustration", "Collage", "Mixed Media", "Woodcut", "Color Pencils", "Creative Coding"],
+        "extra": []
+      }
+    },
+    {
       "slug": "vinetality",
+      "order": 3,
       "title": "Vinetality",
       "tagline": "Tangible Interface for Productivity & Well-being",
       "meta": [
@@ -354,12 +413,14 @@
         { "label": "Year", "value": "2025" }
       ],
       "heroMedia": [
-        { "type": "video", "src": "https://www.youtube.com/embed/Wz0rExoqUfM", "alt": "Vinetality Demo" },
-        { "type": "video", "src": "https://www.youtube.com/embed/-fl5GoMq3fA", "alt": "Vinetality Additional Demo" },
-        { "type": "image", "src": "/media/cs320-plant-closed.png", "alt": "Vinetality concept sketch showing closed plant state" },
-        { "type": "image", "src": "/media/cs320-plant-grown.png", "alt": "Vinetality concept sketch showing grown plant state" }
+        { "type": "video", "src": "https://www.youtube.com/embed/Wz0rExoqUfM", "alt": "Vinetality Demo", "thumbnail": "https://img.youtube.com/vi/Wz0rExoqUfM/sddefault.jpg" }
       ],
       "sections": [
+        {
+          "kind": "video",
+          "title": "Additional Demo",
+          "src": "https://www.youtube.com/embed/-fl5GoMq3fA"
+        },
         {
           "kind": "paragraphs",
           "title": "What Is Vinetality?",
@@ -370,18 +431,23 @@
           ]
         },
         {
-          "kind": "paragraphs",
+          "kind": "gallery",
           "title": "Concept Sketches",
-          "body": [
-            "Initial design concepts illustrating the intended keychain design with an iridescent translucent cube and a vine growing out from the center."
+          "items": [
+            { "src": "/media/cs320-plant-closed.png", "alt": "Vinetality concept sketch showing closed plant state", "caption": "Closed State" },
+            { "src": "/media/cs320-plant-grown.png", "alt": "Vinetality concept sketch showing grown plant state", "caption": "Grown State" }
           ]
         },
         {
-          "kind": "paragraphs",
+          "kind": "documentation-block",
           "title": "Project Documentation",
           "body": [
             "Explore the complete project documentation including process insights, user research, and technical implementation details."
-          ]
+          ],
+          "link": {
+            "text": "Full Project Website ↗",
+            "url": "https://sites.google.com/wellesley.edu/vinetality/home"
+          }
         },
         {
           "kind": "bullets",
@@ -394,10 +460,15 @@
           ]
         },
         {
-          "kind": "paragraphs",
+          "kind": "approach-grid",
           "title": "Technical Approach",
           "body": [
             "The design combines emotional design principles with advanced tangible interaction technologies to create meaningful behavioral feedback:"
+          ],
+          "items": [
+            { "heading": "Physical Computing", "text": "Arduino-based microcontroller with shape-memory alloys and servo motors for transformation." },
+            { "heading": "Motor Mechanics", "text": "Precise motor control systems enable smooth, lifelike plant movements that respond to user activity patterns." },
+            { "heading": "Emotional Design", "text": "Plant metaphor creates emotional investment and intuitive understanding of personal growth." }
           ]
         }
       ],
@@ -410,6 +481,7 @@
     },
     {
       "slug": "wellesleyweb",
+      "order": 5,
       "title": "The Wellesley Web: TechConnect",
       "tagline": "Pre-professional Networking Platform for Tech Students & Alumni",
       "meta": [
@@ -419,7 +491,7 @@
         { "label": "Year", "value": "2024" }
       ],
       "heroMedia": [
-        { "type": "video", "src": "https://www.youtube.com/embed/lxu5UYm1luk", "alt": "The Wellesley Web Demo" }
+        { "type": "video", "src": "https://www.youtube.com/embed/lxu5UYm1luk", "alt": "The Wellesley Web Demo", "thumbnail": "https://img.youtube.com/vi/lxu5UYm1luk/sddefault.jpg" }
       ],
       "sections": [
         {
@@ -431,14 +503,6 @@
           ]
         },
         {
-          "kind": "paragraphs",
-          "title": "Technical Challenge",
-          "body": [
-            "This project presented significant technical challenges as I had to learn HTML and CSS from scratch while simultaneously implementing complex database interactions and full-stack architecture. The learning curve involved mastering both frontend technologies and backend database design within a single semester.",
-            "Despite starting with zero prior knowledge in frontend technologies, the team successfully delivered a fully functional networking platform with user authentication, database integration, and responsive design."
-          ]
-        },
-        {
           "kind": "bullets",
           "title": "Key Features",
           "items": [
@@ -446,8 +510,7 @@
             { "heading": "Networking Platform", "text": "Professional networking capabilities with advanced search and filtering for targeted connections." },
             { "heading": "Database Integration", "text": "Comprehensive database integration for user data, connections, and platform interactions." },
             { "heading": "Responsive Design", "text": "Responsive design implementation working seamlessly across all device sizes and platforms." },
-            { "heading": "Full-Stack Architecture", "text": "Complete full-stack architecture built from the ground up with modern web development practices." },
-            { "heading": "Mentorship Features", "text": "Mentorship matching and communication features to facilitate professional development connections." }
+            { "heading": "Full-Stack Architecture", "text": "Complete full-stack architecture built from the ground up with modern web development practices." }
           ]
         }
       ],
