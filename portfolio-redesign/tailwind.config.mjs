@@ -4,16 +4,15 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-                // Unified Font Strategy: Manrope for everything
-				serif: ['"Manrope"', 'sans-serif'], 
+				serif: ['"Newsreader"', 'serif'], // The standard for "Smart" text
 				sans: ['"Manrope"', 'sans-serif'],
 			},
-			colors: {
-				paper: '#f9f9f7', 
-				ink: '#1a1a1a',
-				accent: '#d4cbb8',
-				muted: '#666666'
-			}
+            colors: {
+                'paper': '#FDFCF8',
+                'ink': '#1C1924',
+                'accent': '#685E80',
+                'accent-light': '#E6E4EA'
+            }
 		},
 	},
 	plugins: [

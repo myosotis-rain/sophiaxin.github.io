@@ -21,42 +21,71 @@ const pageTitle = title ? `${title} | ${your_name}` : portfolio_title;
     <title>{pageTitle}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
         
-        <style is:global>
-            body {
-                background-color: #f9f9f7;
-                color: #1a1a1a;
-                overflow-x: hidden;
-            }
+                <style is:global>
+        
+                    body {
+        
+                        background-color: #FDFCF8; /* Warm Paper */
+        
+                        color: #1C1924;            /* Purple Ink */
+        
+                        overflow-x: hidden;
+        
+                    }
+        
+                    
+        
+                    /* Noise adds texture to the "paper" feel */
+        
+                    .noise-overlay {
+        
+                        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        
+                        pointer-events: none; z-index: 50; opacity: 0.03;
+        
+                        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        
+                    }
+        
             
-            .noise-overlay {
-                position: fixed;
-                top: 0; left: 0; width: 100%; height: 100%;
-                pointer-events: none; z-index: 50; opacity: 0.03;
-                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            }
-    
-            .gradient-orb {
-                position: fixed;
-                top: -10%; left: -10%; width: 60vw; height: 60vw;
-                background: radial-gradient(circle, rgba(230, 200, 180, 0.4) 0%, rgba(255,255,255,0) 70%);
-                filter: blur(80px); z-index: -1;
-                animation: pulse 12s infinite alternate;
-            }
-    
-            @keyframes pulse {
-                0% { transform: scale(1); opacity: 0.6; }
-                100% { transform: scale(1.1); opacity: 0.9; }
-            }
-    
-            ::-webkit-scrollbar { width: 6px; }
-            ::-webkit-scrollbar-track { background: #f9f9f7; }
-            ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
-            
-            ::selection { background: #1a1a1a; color: #fff; }
-        </style>
-    </head>
+        
+                    /* ORB: A mix of Warm Gold and Soft Lavender */
+        
+                    .gradient-orb {
+        
+                        position: fixed; top: -10%; left: -10%; width: 60vw; height: 60vw;
+        
+                        background: radial-gradient(circle, rgba(104, 94, 128, 0.12) 0%, rgba(253, 252, 248, 0) 70%);
+        
+                        filter: blur(90px); z-index: -1;
+        
+                        animation: pulse 12s infinite alternate;
+        
+                    }
+        
+                    
+        
+                    /* SCROLLBAR: Matches the paper theme */
+        
+                    ::-webkit-scrollbar { width: 6px; }
+        
+                    ::-webkit-scrollbar-track { background: #FDFCF8; }
+        
+                    ::-webkit-scrollbar-thumb { background: #D1D1D6; border-radius: 3px; }
+        
+                    
+        
+                    ::selection {
+        
+                        background: #7E7498; /* 'accent-light' */
+        
+                        color: #fff;
+        
+                    }
+        
+                </style>    </head>
     <body class="font-sans antialiased">
         <div class="noise-overlay"></div>
         <div class="gradient-orb"></div>
@@ -64,28 +93,27 @@ const pageTitle = title ? `${title} | ${your_name}` : portfolio_title;
         <div class="max-w-screen-2xl mx-auto px-6 md:px-12 lg:px-20 py-12 lg:py-0">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 min-h-screen">
                 
-                <header class="lg:col-span-3 lg:h-screen lg:sticky lg:top-0 flex flex-col justify-between py-12 lg:py-24 z-10">
-                    <div>
-                        <h1 class="text-4xl lg:text-5xl leading-none mb-6 font-bold tracking-tight text-black">
-                            <a href="/">{your_name.split(' ')[0]}<br>
-                            <span class="text-gray-400">{your_name.split(' ')[1]}.</span></a>
-                        </h1>
-    
-                        <p class="text-gray-500 text-sm max-w-[220px] leading-relaxed font-medium">
+                            <header class="lg:col-span-3 lg:h-screen lg:sticky lg:top-0 flex flex-col py-12 lg:py-24 z-10">
+                                <div class="mb-12">
+                                    <h1 class="font-serif text-5xl lg:text-6xl leading-[0.9] mb-2 text-ink font-normal tracking-tight">
+                                        <a href="/">{your_name.split(' ')[0]}<br>
+                                        <span class="text-gray-400 italic font-light">{your_name.split(' ')[1]}.</span></a>
+                                    </h1>    
+                        <p class="text-gray-600 text-sm max-w-[220px] leading-relaxed font-medium">
                             Wellesley '26.<br>
                             Bridging Media Arts & Sciences with Psychology.
                         </p>
                     </div>
     
-                    <nav class="hidden lg:block mt-12">
-                        <ul class="space-y-4 text-sm tracking-widest uppercase text-gray-400 font-bold">
-                            <li><a href="/" class="hover:text-black transition-all flex items-center gap-2 group"><span class="w-8 h-[1px] bg-gray-300 group-hover:w-12 group-hover:bg-black transition-all"></span> Work</a></li>
-                            <li><a href="/about" class="hover:text-black transition-all flex items-center gap-2 group"><span class="w-8 h-[1px] bg-gray-300 group-hover:w-12 group-hover:bg-black transition-all"></span> About</a></li>
-                            <li><a href="#contact" class="hover:text-black transition-all flex items-center gap-2 group"><span class="w-8 h-[1px] bg-gray-300 group-hover:w-12 group-hover:bg-black transition-all"></span> Contact</a></li>
+                    <nav class="hidden lg:block">
+                        <ul class="space-y-4 text-sm tracking-widest uppercase text-gray-600 font-bold">
+                            <li><a href="/" class={`hover:text-black transition-all flex items-center gap-2 group ${Astro.url.pathname === '/' ? 'text-black' : ''}`}><span class={`h-[1px] bg-black transition-all ${Astro.url.pathname === '/' ? 'w-12' : 'w-0'}`}></span> Work</a></li>
+                            <li><a href="/about" class={`hover:text-black transition-all flex items-center gap-2 group ${Astro.url.pathname.startsWith('/about') ? 'text-black' : ''}`}><span class={`h-[1px] bg-black transition-all ${Astro.url.pathname.startsWith('/about') ? 'w-12' : 'w-0'}`}></span> About</a></li>
+                            <li><a href="#contact" class="hover:text-black transition-all flex items-center gap-2 group"><span class="w-0 h-[1px] bg-black transition-all"></span> Contact</a></li>
                         </ul>
                     </nav>
     
-                    <div class="flex gap-4 text-xs font-bold text-gray-400 mt-8 lg:mt-0 uppercase tracking-wider">
+                    <div class="flex gap-4 text-xs font-bold text-gray-600 mt-12 uppercase tracking-wider">
                         {data.index_page.footer.links.map(link => (
                              <a href={link.href} target="_blank" class="hover:text-black transition">{link.label}</a>
                         ))}
