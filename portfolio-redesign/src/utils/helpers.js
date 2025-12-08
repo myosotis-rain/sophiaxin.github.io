@@ -5,22 +5,22 @@ export const getThumbnail = (mediaArray) => {
     const imgItem = mediaArray.find(m => m.type === 'image');
     if (imgItem) return imgItem.src;
 
-    // 2. Try to find a Video
+    // 2. Try to find an Interactive Slides thumbnail
+    const slidesItem = mediaArray.find(m => m.type === 'interactive-slides');
+    if (slidesItem && slidesItem.thumbnail) {
+        return slidesItem.thumbnail;
+    }
+
+    // 3. Try to find a Video thumbnail (explicit or constructed)
     const vidItem = mediaArray.find(m => m.type === 'video');
     if (vidItem) {
-        // Use explicit thumbnail if available
-        if (vidItem.thumbnail) {
+        if (vidItem.thumbnail) { // Use explicit thumbnail from JSON if available
             return vidItem.thumbnail;
         }
-        // Fallback to constructing YouTube thumbnail if 'thumbnail' field is missing but it's a YouTube video
-        if (vidItem.src.includes('youtube')) {
+        if (vidItem.src.includes('youtube')) { // Fallback to constructing YouTube thumbnail
             const parts = vidItem.src.split('/');
             const videoId = parts[parts.length - 1].split('?')[0];
             return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
-        }
-        // Handle Google Slides (ARTS 205) - Restoring the image you liked
-        if (vidItem.src.includes('docs.google.com')) {
-            return '/media/ARTS205_TitleSlide.png';
         }
     }
     
