@@ -1,0 +1,301 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import data from '../../data/portfolio.json';
+
+export async function getStaticPaths() {
+  const sortedProjects = data.individual_projects.sort((a, b) => (a.order || 99) - (b.order || 99));
+  return sortedProjects.map((project, index) => ({
+    params: { slug: project.slug },
+    props: { 
+        project,
+        prevProject: index > 0 ? sortedProjects[index - 1] : null,
+        nextProject: index < sortedProjects.length - 1 ? sortedProjects[index + 1] : null
+    },
+  }));
+}
+
+const { project, prevProject, nextProject } = Astro.props;
+---
+
+<MainLayout title={project.title}>
+    <article class="max-w-5xl mx-auto">
+        
+        <header class="mb-16 border-b border-gray-300 pb-12">
+            <h1 class="font-serif text-4xl md:text-5xl mb-6">{project.title}</h1>
+            <p class="text-xl text-gray-600 font-serif italic mb-8">{project.tagline}</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
+                {project.meta.map(m => (
+                    <div>
+                        <span class="block text-xs uppercase tracking-widest text-gray-400 font-bold mb-1">{m.label}</span>
+                        <span class="block whitespace-pre-line">{m.value}</span>
+                    </div>
+                ))}
+            </div>
+        </header>
+
+        {project.layoutType !== 'art' && (
+            <div class="space-y-12 mb-20">
+                {project.heroMedia.map(media => {
+                    if (media.type === 'interactive-slides') {
+                        return (
+                            <div class="border border-gray-200 rounded-none overflow-hidden bg-gray-50" id="portfolio-viewer">
+                                <div class="flex flex-col md:flex-row h-[600px]">
+                                    {/* Thumbnails Sidebar */}
+                                    <div class="w-full md:w-64 bg-white border-b md:border-b-0 md:border-r border-gray-200 overflow-y-auto custom-scrollbar">
+                                        {media.slides.map((slide, index) => (
+                                            <button 
+                                                class="w-full text-left px-6 py-4 border-b border-gray-100 hover:bg-gray-50 transition-colors focus:outline-none focus:bg-gray-50 group"
+                                                data-slide-index={index}
+                                                data-slide-number={slide.number}
+                                                onclick={`document.getElementById('slide-frame').src = '${media.baseUrl}&slide=${slide.number}'; document.querySelectorAll('[data-slide-index]').forEach(el => el.classList.remove('bg-gray-100', 'border-l-4', 'border-black')); this.classList.add('bg-gray-100', 'border-l-4', 'border-black');`}
+                                            >
+                                                <span class="block text-xs text-gray-400 mb-1">{String(index + 1).padStart(2, '0')}</span>
+                                                <span class="block text-sm font-medium text-gray-900 group-hover:text-black">{slide.label}</span>
+                                            </button>
+                                        ))}
+                                    </div>
+                                    
+                                    {/* Slide Content */}
+                                    <div class="flex-1 bg-gray-100 relative">
+                                        <iframe 
+                                            id="slide-frame"
+                                            src={`${media.baseUrl}&slide=${media.slides[0].number}`}
+                                            class="absolute inset-0 w-full h-full" 
+                                            frameborder="0" 
+                                            allowfullscreen="true" 
+                                            mozallowfullscreen="true" 
+                                            webkitallowfullscreen="true">
+                                        </iframe>
+                                    </div>
+                                </div>
+                                
+                                {/* Initial State Setup Script */}
+                                <script define:vars={{ initialIndex: 0 }}>
+                                    document.addEventListener('DOMContentLoaded', () => {
+                                        const firstBtn = document.querySelector(`[data-slide-index="${initialIndex}"]`);
+                                        if (firstBtn) {
+                                            firstBtn.classList.add('bg-gray-100', 'border-l-4', 'border-black');
+                                        }
+                                    });
+                                </script>
+                            </div>
+                        );
+                    }
+
+                    return (
+                    <div class="w-full rounded-none overflow-hidden bg-gray-100 shadow-sm relative">
+                        {media.type === 'video' ? (
+                            <div class="aspect-video w-full relative">
+                                <iframe 
+                                    src={media.src} 
+                                    title={media.alt}
+                                    class="absolute inset-0 w-full h-full" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        ) : (
+                            <img src={media.src} alt={media.alt} class="w-full h-auto" />
+                        )}
+                    </div>
+                )})}
+            </div>
+        )}
+
+        <div class="grid md:grid-cols-3 gap-12">
+            <div class={`${project.layoutType === 'art' ? 'md:col-span-3' : 'md:col-span-2'} space-y-12`}>
+                {project.sections.map(section => {
+                    // Special Layout for Art: Creative Vision + Mediums
+                    if (project.layoutType === 'art' && section.title === 'Creative Vision') {
+                        return (
+                            <div class="grid md:grid-cols-3 gap-12 mt-24 border-t border-gray-200 pt-12">
+                                <div class="md:col-span-2">
+                                    <h2 class="font-serif text-2xl mb-4">{section.title}</h2>
+                                    <div class="space-y-4 text-gray-700 leading-relaxed">
+                                        {section.body.map(p => <p set:html={p}></p>)}
+                                    </div>
+                                </div>
+                                <div class="md:col-span-1">
+                                    <div class="sticky top-24 space-y-8 p-6 bg-white border border-gray-100 shadow-sm rounded-none">
+                                        <h4 class="text-xs uppercase tracking-widest font-bold mb-3">Mediums</h4>
+                                        <div class="flex flex-wrap gap-2">
+                                            {project.sidebar.technologies.map(tech => (
+                                                <span class="px-2 py-1 bg-gray-100 text-xs text-gray-600 rounded-none">{tech}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    }
+
+                    // Standard Section Rendering
+                    return (
+                    <div>
+                        {section.title && section.kind !== 'documentation-block' && <h2 class="font-serif text-2xl mb-4">{section.title}</h2>}
+                        
+                        {section.kind === 'paragraphs' && (
+                            <div class="space-y-4 text-gray-700 leading-relaxed">
+                                {section.body.map(p => <p set:html={p}></p>)}
+                            </div>
+                        )}
+
+                        {section.kind === 'bullets' && (
+                            <ul class="space-y-4">
+                                {section.items.map(item => (
+                                    <li class="pl-4 border-l-2 border-accent">
+                                        <span class="block font-bold text-sm mb-1">{item.heading}</span>
+                                        <span class="text-gray-600 text-sm">{item.text}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+
+                        {section.kind === 'gallery' && (
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                                {section.items.map(img => (
+                                    <div class="space-y-2 cursor-pointer group" onclick={`openLightbox('${img.src}', '${img.alt}')`}>
+                                        <img src={img.src} alt={img.alt} class="w-full h-auto rounded-none shadow-sm group-hover:opacity-90 transition duration-300" />
+                                        {img.caption && <p class="text-xs text-gray-500 italic">{img.caption}</p>}
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+
+                        {section.kind === 'video' && (
+                            <div class="aspect-video w-full relative bg-gray-100 rounded-none overflow-hidden shadow-sm">
+                                {section.src.endsWith('.mp4') || section.src.endsWith('.webm') ? (
+                                    <video 
+                                        src={section.src} 
+                                        class="absolute inset-0 w-full h-full object-contain" 
+                                        controls 
+                                        muted 
+                                        loop 
+                                        playsinline>
+                                    </video>
+                                ) : (
+                                    <iframe 
+                                        src={section.src} 
+                                        title={section.title || "Video"}
+                                        class="absolute inset-0 w-full h-full" 
+                                        frameborder="0" 
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                        allowfullscreen>
+                                    </iframe>
+                                )}
+                            </div>
+                        )}
+
+                        {section.kind === 'documentation-block' && (
+                            <div class="bg-accent-light/20 border border-accent/20 rounded-none p-8 my-12 text-center">
+                                <h3 class="font-serif text-2xl mb-4 text-ink">{section.title}</h3>
+                                <div class="text-gray-700 mb-8 max-w-2xl mx-auto leading-relaxed">
+                                    {section.body.map(p => <p>{p}</p>)}
+                                </div>
+                                <a 
+                                    href={section.link.url} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    class="inline-block bg-accent hover:bg-ink text-white font-medium px-8 py-4 rounded-none transition-all hover:shadow-lg hover:-translate-y-0.5"
+                                >
+                                    {section.link.text}
+                                </a>
+                            </div>
+                        )}
+
+                        {section.kind === 'approach-grid' && (
+                            <div class="mt-4">
+                                {section.body && (
+                                    <div class="space-y-4 text-gray-700 leading-relaxed mb-8">
+                                        {section.body.map(p => <p set:html={p}></p>)}
+                                    </div>
+                                )}
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                    {section.items.map(item => (
+                                        <div>
+                                            <h4 class="font-bold text-lg mb-2">{item.heading}</h4>
+                                            <p class="text-gray-600 text-sm">{item.text}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                )})}
+            </div>
+
+            {project.layoutType !== 'art' && (
+                <aside class="md:col-span-1">
+                    <div class="sticky top-24 space-y-8 p-6 bg-white border border-gray-100 shadow-sm rounded-none">
+                        <div>
+                            <h4 class="text-xs uppercase tracking-widest font-bold mb-3">Technologies</h4>
+                            <div class="flex flex-wrap gap-2">
+                                {project.sidebar.technologies.map(tech => (
+                                    <span class="px-2 py-1 bg-gray-100 text-xs text-gray-600 rounded-md">{tech}</span>
+                                ))}
+                            </div>
+                        </div>
+
+                        {project.sidebar.extra.map(ex => (
+                            <div>
+                                <h4 class="text-xs uppercase tracking-widest font-bold mb-2">{ex.title}</h4>
+                                <div class="text-sm text-gray-600 leading-relaxed" set:html={ex.text}></div>
+                            </div>
+                        ))}
+                    </div>
+                </aside>
+            )}
+        </div>
+
+        {/* Project Navigation */}
+        <section class="border-t border-gray-200 mt-24 pt-12 pb-12">
+            <div class="flex justify-between items-center">
+                {prevProject ? (
+                    <a href={`/projects/${prevProject.slug}`} class="group text-left">
+                        <span class="block text-xs text-gray-400 uppercase tracking-widest mb-1 group-hover:text-accent transition">&larr; Previous</span>
+                        <span class="font-serif text-lg group-hover:underline">{prevProject.title}</span>
+                    </a>
+                ) : <div></div>}
+                
+                {nextProject ? (
+                    <a href={`/projects/${nextProject.slug}`} class="group text-right">
+                        <span class="block text-xs text-gray-400 uppercase tracking-widest mb-1 group-hover:text-accent transition">Next &rarr;</span>
+                        <span class="font-serif text-lg group-hover:underline">{nextProject.title}</span>
+                    </a>
+                ) : <div></div>}
+            </div>
+        </section>
+
+        {/* Lightbox Modal */}
+        <div id="lightbox" class="fixed inset-0 z-[100] bg-white/95 hidden items-center justify-center cursor-zoom-out" onclick="closeLightbox()">
+            <img id="lightbox-img" src="" alt="" class="max-w-[90vw] max-h-[90vh] shadow-2xl object-contain" />
+            <button class="absolute top-8 right-8 text-4xl font-light text-black hover:opacity-50">&times;</button>
+        </div>
+
+        <script is:inline>
+            function openLightbox(src, alt) {
+                const lightbox = document.getElementById('lightbox');
+                const img = document.getElementById('lightbox-img');
+                img.src = src;
+                img.alt = alt || '';
+                lightbox.classList.remove('hidden');
+                lightbox.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                const lightbox = document.getElementById('lightbox');
+                lightbox.classList.add('hidden');
+                lightbox.classList.remove('flex');
+                document.body.style.overflow = '';
+            }
+            
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeLightbox();
+            });
+        </script>
+
+    </article>
+</MainLayout>

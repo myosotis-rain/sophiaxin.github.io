@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sophia Xin — Product Design Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page">
+    <header class="site-header" role="banner">
+      <div class="shell nav">
+        <a class="brand" href="/">
+          <span class="brand__dot" aria-hidden="true"></span>
+          <span class="brand__text">Sophia Xin</span>
+        </a>
+        <button class="nav-toggle" aria-label="Toggle navigation">Menu</button>
+        <nav class="nav-links" aria-label="Primary" role="navigation">
+          <a href="#work" class="is-active">Work</a>
+          <a href="about.html">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="btn btn--ghost" href="media/resume.pdf" download>Resume</a>
+          <a class="btn btn--primary" href="mailto:sx103@wellesley.edu">Email</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero shell shell--wide">
+        <div class="hero__layout">
+          <div class="hero__content reveal">
+            <p class="eyebrow">Product Design · Accessibility · Systems</p>
+            <h1 class="hero__title">Sophia Xin</h1>
+            <p class="hero__lede">Product design and management focused on accessible and impactful design.</p>
+            <div class="chip-row">
+              <span class="chip">Design Systems &amp; Research</span>
+              <span class="chip">Creative Tech</span>
+              <span class="chip">Live &amp; Tangible Interfaces</span>
+            </div>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="#work">Explore my work</a>
+              <a class="btn btn--ghost" href="#contact">Get in touch</a>
+            </div>
+            <div class="stat-row">
+              <div class="stat-block">
+                <span class="stat-label">Approach</span>
+                <span class="stat-value">Research-led</span>
+              </div>
+              <div class="stat-block">
+                <span class="stat-label">Focus</span>
+                <span class="stat-value">Inclusive systems</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero__feature reveal" aria-labelledby="featured-title">
+            <div class="feature-card">
+              <div class="feature-card__header">
+                <span class="pill is-quiet">Key project</span>
+                <div class="tag-row">
+                  <span class="tag">Product Design</span>
+                  <span class="tag">Interface</span>
+                  <span class="tag">Live Code</span>
+                </div>
+              </div>
+              <h3 id="featured-title">Dovekie Interface</h3>
+              <p class="muted">Interface design for open-source live-code package at MIT Media Lab, including molds simulation sketch collaboration.</p>
+              <div class="feature-card__media">
+                <iframe
+                  src="https://www.youtube.com/embed/AaxXMroazQs"
+                  title="Dovekie Interface Demo"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+              </div>
+              <div class="feature-card__meta">
+                <div>
+                  <span class="stat-label">Role</span>
+                  <span class="stat-value">Product Design</span>
+                </div>
+                <div>
+                  <span class="stat-label">Timeline</span>
+                  <span class="stat-value">2023</span>
+                </div>
+                <div>
+                  <span class="stat-label">Stack</span>
+                  <span class="stat-value">p5.js, Electron</span>
+                </div>
+              </div>
+              <a class="text-link" href="dovekie.html">View project<span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section shell shell--wide" id="work">
+        <div class="section__top">
+          <div>
+            <p class="eyebrow">Selected Work</p>
+            <h2 class="section__title">Product, research, and creative tech</h2>
+          </div>
+          <div class="pill-filters" role="group" aria-label="Filter projects">
+            <button class="pill is-active" data-filter="all">All</button>
+            <button class="pill" data-filter="product">Product</button>
+            <button class="pill" data-filter="interface">Interface</button>
+            <button class="pill" data-filter="research">Research</button>
+            <button class="pill" data-filter="art">Art</button>
+          </div>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card reveal" data-tags="product interface">
+            <div class="project-card__meta">
+              <span>Product Design</span>
+              <span>Interface</span>
+            </div>
+            <h3 class="project-card__title">Dovekie Interface</h3>
+            <p class="project-card__desc">Interface design for open-source live-code package at MIT Media Lab, including molds simulation sketch collaboration.</p>
+            <div class="project-card__media">
+              <iframe
+                src="https://www.youtube.com/embed/AaxXMroazQs"
+                title="Dovekie Interface Demo"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+            <a class="project-card__link" href="dovekie.html">View project <span>↗</span></a>
+          </article>
+
+          <article class="project-card reveal" data-tags="product interface research">
+            <div class="project-card__meta">
+              <span>AI</span>
+              <span>Product</span>
+            </div>
+            <h3 class="project-card__title">AI Art Analysis</h3>
+            <p class="project-card__desc">Flask AI art critique app with RAG, CLIP ONNX, and API integration, delivering real-time art analysis.</p>
+            <div class="project-card__media">
+              <iframe
+                src="https://www.youtube.com/embed/x-PvLC_VFeU"
+                title="AI Art Analysis Demo"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+            <a class="project-card__link" href="ai-art-analysis.html">View project <span>↗</span></a>
+          </article>
+
+          <article class="project-card reveal" data-tags="product hardware">
+            <div class="project-card__meta">
+              <span>Product</span>
+              <span>Hardware</span>
+            </div>
+            <h3 class="project-card__title">Vinetality</h3>
+            <p class="project-card__desc">Small, portable keychain interface providing tangible feedback to support productivity and well-being.</p>
+            <div class="project-card__media">
+              <iframe
+                src="https://www.youtube.com/embed/Wz0rExoqUfM"
+                title="Vinetality Demo"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+            <a class="project-card__link" href="vinetality.html">View project <span>↗</span></a>
+          </article>
+
+          <article class="project-card reveal" data-tags="research interface art">
+            <div class="project-card__meta">
+              <span>Research</span>
+              <span>Art</span>
+            </div>
+            <h3 class="project-card__title">Electronic Textiles</h3>
+            <p class="project-card__desc">Concept art and 3D visualization for sensor network applications at MIT Media Lab.</p>
+            <div class="project-card__media">
+              <img src="media/etextiles_Portfolio0.jpg"
+                   srcset="media/etextiles_Portfolio0.jpg 1x, media/etextiles_Portfolio0.jpg 2x"
+                   alt="Electronic Textiles Preview" loading="lazy">
+            </div>
+            <a class="project-card__link" href="etextiles.html">View project <span>↗</span></a>
+          </article>
+
+          <article class="project-card reveal" data-tags="product platform">
+            <div class="project-card__meta">
+              <span>Product</span>
+              <span>Platform</span>
+            </div>
+            <h3 class="project-card__title">The Wellesley Web</h3>
+            <p class="project-card__desc">Pre-professional networking platform built from scratch with full-stack development.</p>
+            <div class="project-card__media">
+              <iframe
+                src="https://www.youtube.com/embed/lxu5UYm1luk"
+                title="The Wellesley Web Demo"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+            <a class="project-card__link" href="wellesleyweb.html">View project <span>↗</span></a>
+          </article>
+
+          <article class="project-card reveal" data-tags="art">
+            <div class="project-card__meta">
+              <span>Editorial</span>
+              <span>Motion</span>
+            </div>
+            <h3 class="project-card__title">ARTS205 Portfolio</h3>
+            <p class="project-card__desc">Animated portfolio for Wellesley College ARTS205 with interactive presentations.</p>
+            <div class="project-card__media">
+              <iframe
+                src="https://docs.google.com/presentation/d/1jslD6MsrWgA6xIfu7wktOjOvYFiQ4dAFNwh--_PbIpk/embed?start=true&loop=true&delayms=4000"
+                title="ARTS205 Portfolio"
+                loading="lazy"
+                allowfullscreen></iframe>
+            </div>
+            <a class="project-card__link" href="arts205.html">View project <span>↗</span></a>
+          </article>
+
+          <article class="project-card reveal" data-tags="art">
+            <div class="project-card__meta">
+              <span>Visual Arts</span>
+            </div>
+            <h3 class="project-card__title">Visual Arts &amp; Collage</h3>
+            <p class="project-card__desc">Collection of visual art pieces exploring themes of identity and creative expression.</p>
+            <div class="project-card__media gallery__item" data-lightbox-src="media/art_cover.jpg" role="button" aria-label="Open Visual Arts preview">
+              <img src="media/art_cover.jpg"
+                   srcset="media/art_cover.jpg 1x, media/art_cover.jpg 2x"
+                   alt="Visual Arts Preview" loading="lazy">
+            </div>
+            <a class="project-card__link" href="artwork.html">View gallery <span>↗</span></a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section shell shell--wide">
+        <div class="split-block">
+          <div class="panel reveal">
+            <p class="eyebrow">About</p>
+            <h2 class="section__title">Designing for clarity and care</h2>
+            <p class="muted">From live-coding interfaces to tangible hardware, I build experiences that respect accessibility while inviting creative exploration.</p>
+            <div class="chip-row">
+              <span class="chip">Research-driven</span>
+              <span class="chip">Interdisciplinary</span>
+              <span class="chip">Open source</span>
+            </div>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="about.html">Read my story</a>
+              <a class="btn btn--ghost" href="mailto:sx103@wellesley.edu">Book a chat</a>
+            </div>
+          </div>
+          <div class="panel panel--image reveal">
+            <img src="media/sophia_photowbg.jpeg"
+                 srcset="media/sophia_photowbg.jpeg 1x, media/sophia_photowbg.jpeg 2x"
+                 alt="Portrait of Sophia Xin" loading="lazy">
+          </div>
+        </div>
+      </section>
+
+      <section class="section shell shell--wide">
+        <div class="section__top">
+          <div>
+            <p class="eyebrow">Selected visuals</p>
+            <h2 class="section__title">Recent visuals &amp; experiments</h2>
+            <p class="muted">Click to open the lightbox.</p>
+          </div>
+        </div>
+        <div class="gallery">
+          <div class="gallery__item reveal" data-lightbox-src="media/etextiles_Portfolio0.jpg" role="button" aria-label="Open Electronic Textiles">
+            <img src="media/etextiles_Portfolio0.jpg" alt="Electronic textiles visual" loading="lazy">
+          </div>
+          <div class="gallery__item reveal" data-lightbox-src="media/art_cover.jpg" role="button" aria-label="Open Visual Arts cover">
+            <img src="media/art_cover.jpg" alt="Visual arts cover" loading="lazy">
+          </div>
+          <div class="gallery__item reveal" data-lightbox-src="media/sophia_photowbg.jpeg" role="button" aria-label="Open portrait of Sophia Xin">
+            <img src="media/sophia_photowbg.jpeg" alt="Portrait of Sophia Xin" loading="lazy">
+          </div>
+        </div>
+      </section>
+
+      <section class="section shell shell--wide" id="contact">
+        <div class="cta-banner reveal">
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h2 class="section__title">Let’s collaborate</h2>
+            <p class="muted">Email is best, but I’m also on LinkedIn and GitHub. Happy to share a tailored resume on request.</p>
+          </div>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="mailto:sx103@wellesley.edu">Email</a>
+            <a class="btn btn--ghost" href="media/resume.pdf" download>Download resume</a>
+            <a class="btn btn--ghost" href="https://www.linkedin.com/in/sophia-xin" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <div class="shell footer__grid">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <ul>
+            <li><a href="mailto:sx103@wellesley.edu">Email</a></li>
+            <li><a href="https://www.linkedin.com/in/sophia-xin" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://github.com/sophiaxin" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://twitter.com/sophiaxin" target="_blank" rel="noopener">Twitter</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="eyebrow">Navigation</p>
+          <ul>
+            <li><a href="#work">Work</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="media/resume.pdf" download>Resume</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="eyebrow">Info</p>
+          <p class="muted">Portfolio built with accessibility-first, mobile-friendly components.</p>
+          <small>&copy; <span data-year></span> Sophia Xin. All rights reserved.</small>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div class="lightbox" aria-hidden="true">
+    <div class="lightbox__inner">
+      <button class="lightbox__close" aria-label="Close lightbox">✕</button>
+      <img class="lightbox__img" src="" alt="">
+    </div>
+  </div>
+  <script src="scripts.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

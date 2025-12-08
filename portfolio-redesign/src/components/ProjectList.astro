@@ -1,0 +1,69 @@
+---
+import { getThumbnail, sortProjects } from '../utils/helpers.js';
+
+interface Props {
+  projects: any[];
+}
+
+const { projects } = Astro.props;
+const sortedProjects = sortProjects(projects);
+
+// Helper for description
+const getDescription = (sections: any[]) => {
+    if (!sections || sections.length === 0) return "";
+    const overview = sections.find((s: any) => s.title === "Overview") || sections[0];
+    if (overview && overview.body && overview.body.length > 0) return overview.body[0];
+    return "";
+};
+---
+
+<main class="lg:w-[60%] lg:ml-[40%] min-h-screen relative z-10 bg-bg">
+    <div class="pt-32 lg:pt-40 pb-40 px-8 lg:px-16">
+        
+        <div class="border-b border-gray-300 pb-6 mb-24 flex justify-between items-end mask">
+            <h2 class="reveal font-sans text-sm font-bold uppercase tracking-widest text-black">Selected Work</h2>
+            <span class="reveal font-mono text-[10px] text-gray-400">Chronological</span>
+        </div>
+
+        <div class="flex flex-col gap-32">
+            {sortedProjects.map((project, i) => {
+                const isEven = i % 2 === 0;
+                return (
+                <a href={`/work/${project.slug}`} class="group block relative">
+                    
+                    <div class={`flex flex-col ${isEven ? 'lg:items-start' : 'lg:items-end'}`}>
+                        
+                        <div class="mask w-full lg:w-[90%] aspect-[16/9] bg-gray-100 overflow-hidden rounded-sm relative shadow-sm mb-6">
+                            <img 
+                                src={getThumbnail(project.heroMedia)} 
+                                alt={project.title}
+                                class="reveal-img w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 origin-center"
+                            />
+                        </div>
+
+                        <div class="w-full lg:w-[90%] space-y-3">
+                            <div class="flex justify-between items-baseline border-t border-transparent group-hover:border-gray-200 pt-4 transition-all duration-500">
+                                <h3 class="font-serif text-3xl md:text-4xl font-normal group-hover:text-blue-700 transition-colors">
+                                    {project.title}
+                                </h3>
+                                <span class="font-mono text-xs text-gray-400">0{i + 1}</span>
+                            </div>
+                            
+                            <p class="text-sm text-gray-600 leading-relaxed line-clamp-2 max-w-lg">
+                                {getDescription(project.sections)}
+                            </p>
+
+                            <div class="flex flex-wrap gap-2 pt-1">
+                                {(project.meta || []).slice(0, 3).map((m: any) => (
+                                    <span class="font-mono text-[10px] text-gray-500 uppercase tracking-wider border border-gray-200 px-2 py-1 rounded-full bg-white">
+                                        {m.value}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            )})}
+        </div>
+    </div>
+</main>
