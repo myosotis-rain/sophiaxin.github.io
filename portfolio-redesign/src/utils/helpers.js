@@ -20,7 +20,7 @@ export const getThumbnail = (mediaArray) => {
         }
         // Handle Google Slides (ARTS 205) - Restoring the image you liked
         if (vidItem.src.includes('docs.google.com')) {
-            return 'https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=2592&auto=format&fit=crop';
+            return '/media/ARTS205_TitleSlide.png';
         }
     }
     
