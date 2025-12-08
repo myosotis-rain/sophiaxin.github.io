@@ -4,16 +4,18 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ['Inter', 'sans-serif'],
-				serif: ['Italiana', 'serif'],
-				mono: ['JetBrains Mono', 'monospace'],
+				serif: ['"Playfair Display"', 'serif'],
+				sans: ['"Space Grotesk"', 'sans-serif'],
 			},
 			colors: {
-				bg: '#F5F5F9',
-				text: '#111116',
-				border: '#E2E2EA',
+				paper: '#f9f9f7', 
+				ink: '#1a1a1a',
+				accent: '#d4cbb8',
+				muted: '#666666'
 			}
 		},
 	},
-	plugins: [],
+	plugins: [
+        require('@tailwindcss/typography'),
+    ],
 }

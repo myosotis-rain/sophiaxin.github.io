@@ -1,0 +1,101 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import data from '../../data/portfolio.json';
+
+export async function getStaticPaths() {
+  return data.individual_projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<MainLayout title={project.title}>
+    <article class="max-w-4xl mx-auto">
+        
+        <header class="mb-16 border-b border-gray-300 pb-12">
+            <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl mb-6">{project.title}</h1>
+            <p class="text-xl text-gray-600 font-serif italic mb-8">{project.tagline}</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
+                {project.meta.map(m => (
+                    <div>
+                        <span class="block text-xs uppercase tracking-widest text-gray-400 font-bold mb-1">{m.label}</span>
+                        <span class="block whitespace-pre-line">{m.value}</span>
+                    </div>
+                ))}
+            </div>
+        </header>
+
+        <div class="space-y-12 mb-20">
+            {project.heroMedia.map(media => (
+                <div class="w-full rounded-sm overflow-hidden bg-gray-100 shadow-sm relative">
+                    {media.type === 'video' ? (
+                        <div class="aspect-video w-full relative">
+                            <iframe 
+                                src={media.src} 
+                                title={media.alt}
+                                class="absolute inset-0 w-full h-full" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    ) : (
+                        <img src={media.src} alt={media.alt} class="w-full h-auto" />
+                    )}
+                </div>
+            ))}
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-12">
+            <div class="md:col-span-2 space-y-12">
+                {project.sections.map(section => (
+                    <div>
+                        {section.title && <h2 class="font-serif text-2xl mb-4">{section.title}</h2>}
+                        
+                        {section.kind === 'paragraphs' && (
+                            <div class="space-y-4 text-gray-700 leading-relaxed">
+                                {section.body.map(p => <p>{p}</p>)}
+                            </div>
+                        )}
+
+                        {section.kind === 'bullets' && (
+                            <ul class="space-y-4">
+                                {section.items.map(item => (
+                                    <li class="pl-4 border-l-2 border-accent">
+                                        <span class="block font-bold text-sm mb-1">{item.heading}</span>
+                                        <span class="text-gray-600 text-sm">{item.text}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </div>
+                ))}
+            </div>
+
+            <aside class="md:col-span-1">
+                <div class="sticky top-24 space-y-8 p-6 bg-white border border-gray-100 shadow-sm rounded-sm">
+                    <div>
+                        <h4 class="text-xs uppercase tracking-widest font-bold mb-3">Technologies</h4>
+                        <div class="flex flex-wrap gap-2">
+                            {project.sidebar.technologies.map(tech => (
+                                <span class="px-2 py-1 bg-gray-100 text-xs text-gray-600 rounded-md">{tech}</span>
+                            ))}
+                        </div>
+                    </div>
+
+                    {project.sidebar.extra.map(ex => (
+                        <div>
+                            <h4 class="text-xs uppercase tracking-widest font-bold mb-2">{ex.title}</h4>
+                            <div class="text-sm text-gray-600 leading-relaxed" set:html={ex.text}></div>
+                        </div>
+                    ))}
+                </div>
+            </aside>
+        </div>
+
+    </article>
+</MainLayout>

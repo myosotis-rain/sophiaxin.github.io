@@ -1,36 +1,14 @@
 ---
+import { getThumbnail, sortProjects } from '../utils/helpers.js';
+
 interface Props {
   projects: any[];
 }
 
 const { projects } = Astro.props;
+const sortedProjects = sortProjects(projects);
 
-// Helper: Strict Media Extraction (No Unsplash Fallbacks)
-const getThumbnail = (mediaArray: any[]) => {
-    if (!mediaArray || mediaArray.length === 0) return '';
-    
-    // 1. Priority: Explicit Image
-    const imgItem = mediaArray.find((m: any) => m.type === 'image');
-    if (imgItem) return imgItem.src;
-
-    // 2. Secondary: Video Thumbnail
-    const vidItem = mediaArray.find((m: any) => m.type === 'video');
-    if (vidItem) {
-        if (vidItem.src.includes('youtube')) {
-            const parts = vidItem.src.split('/');
-            const videoId = parts[parts.length - 1].split('?')[0];
-            return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
-        }
-        // Returns raw src if not youtube. 
-        // Note: Google Slides embeds will NOT render in an <img> tag.
-        // You must add an image entry to your JSON for these projects to work.
-        return vidItem.src; 
-    }
-    
-    return ''; // Returns empty if nothing found (No random fallback)
-};
-
-// Helper: Description Extraction
+// Helper for description
 const getDescription = (sections: any[]) => {
     if (!sections || sections.length === 0) return "";
     const overview = sections.find((s: any) => s.title === "Overview") || sections[0];
@@ -40,49 +18,52 @@ const getDescription = (sections: any[]) => {
 ---
 
 <main class="lg:w-[60%] lg:ml-[40%] min-h-screen relative z-10 bg-bg">
-    <div class="pt-32 lg:pt-40 pb-40">
+    <div class="pt-32 lg:pt-40 pb-40 px-8 lg:px-16">
         
-        <div class="px-8 lg:px-16 border-b border-gray-300 pb-6 mb-16 flex justify-between items-end mask">
+        <div class="border-b border-gray-300 pb-6 mb-24 flex justify-between items-end mask">
             <h2 class="reveal font-sans text-sm font-bold uppercase tracking-widest text-black">Selected Work</h2>
-            <span class="reveal font-mono text-[10px] text-gray-400">2023 — 2025</span>
+            <span class="reveal font-mono text-[10px] text-gray-400">Chronological</span>
         </div>
 
         <div class="flex flex-col gap-32">
-            {projects.map((project, index) => (
-                <a href={`/work/${project.slug}`} class="hover-trigger group flex flex-col gap-6 block">
+            {sortedProjects.map((project, i) => {
+                const isEven = i % 2 === 0;
+                return (
+                <a href={`/work/${project.slug}`} class="group block relative">
                     
-                    <div class="mask w-full aspect-[16/9] bg-gray-200 overflow-hidden shadow-sm relative pl-8 lg:pl-16">
-                        <img 
-                            src={getThumbnail(project.heroMedia)} 
-                            alt={project.title}
-                            class="reveal-img w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 origin-left"
-                        />
-                    </div>
-                    
-                    <div class="px-8 lg:px-16 flex justify-between items-start pt-2">
-                        <div class="space-y-2">
-                            <h3 class="font-serif text-4xl font-normal group-hover:text-blue-700 transition-colors">
-                                {project.title}
-                            </h3>
+                    <div class={`flex flex-col ${isEven ? 'lg:items-start' : 'lg:items-end'}`}>
+                        
+                        <div class="mask w-full lg:w-[90%] aspect-[16/9] bg-gray-100 overflow-hidden rounded-sm relative shadow-sm mb-6">
+                            <img 
+                                src={getThumbnail(project.heroMedia)} 
+                                alt={project.title}
+                                class="reveal-img w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 origin-center"
+                            />
+                        </div>
+
+                        <div class="w-full lg:w-[90%] space-y-3">
+                            <div class="flex justify-between items-baseline border-t border-transparent group-hover:border-gray-200 pt-4 transition-all duration-500">
+                                <h3 class="font-serif text-3xl md:text-4xl font-normal group-hover:text-blue-700 transition-colors">
+                                    {project.title}
+                                </h3>
+                                <span class="font-mono text-xs text-gray-400">0{i + 1}</span>
+                            </div>
                             
-                            <p class="text-sm text-gray-600 max-w-md leading-relaxed line-clamp-2">
+                            <p class="text-sm text-gray-600 leading-relaxed line-clamp-2 max-w-lg">
                                 {getDescription(project.sections)}
                             </p>
 
-                            <div class="flex gap-3 pt-2">
-                                {(project.meta || []).slice(0, 2).map((m: any) => (
-                                    <span class="font-mono text-[10px] text-gray-500 uppercase tracking-wider border border-gray-200 px-2 py-0.5 rounded-full bg-white">
+                            <div class="flex flex-wrap gap-2 pt-1">
+                                {(project.meta || []).slice(0, 3).map((m: any) => (
+                                    <span class="font-mono text-[10px] text-gray-500 uppercase tracking-wider border border-gray-200 px-2 py-1 rounded-full bg-white">
                                         {m.value}
                                     </span>
                                 ))}
                             </div>
                         </div>
-                        <span class="font-mono text-xs text-gray-400 pt-2">
-                            0{index + 1}
-                        </span>
                     </div>
                 </a>
-            ))}
+            )})}
         </div>
     </div>
 </main>
