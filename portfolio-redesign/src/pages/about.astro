@@ -13,7 +13,12 @@ const { bio_section, education_section, experience_section, skills_section } = d
                 <img src={bio_section.photo.path} alt={bio_section.photo.description} class="w-full rounded-sm transition duration-500" />
             </div>
             <div class="md:col-span-2 space-y-6">
-                <h1 class="font-serif text-4xl mb-6">{bio_section.title}</h1>
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-6">
+                    <h1 class="font-serif text-4xl">{bio_section.title}</h1>
+                    <a href={data.index_page.footer.links.find(link => link.label === 'Resume')?.href || '#'} target="_blank" rel="noopener noreferrer" class="text-xs uppercase tracking-widest text-gray-600 font-bold hover:text-black transition flex items-center gap-1">
+                        View Full Resume <span>↗</span>
+                    </a>
+                </div>
                 {bio_section.paragraphs.map(p => (
                     <p class="text-gray-600 leading-relaxed">{p}</p>
                 ))}
