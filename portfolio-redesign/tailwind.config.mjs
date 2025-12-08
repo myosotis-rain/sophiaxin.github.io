@@ -4,8 +4,9 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				serif: ['"Playfair Display"', 'serif'],
-				sans: ['"Space Grotesk"', 'sans-serif'],
+                // Unified Font Strategy: Manrope for everything
+				serif: ['"Manrope"', 'sans-serif'], 
+				sans: ['"Manrope"', 'sans-serif'],
 			},
 			colors: {
 				paper: '#f9f9f7', 
