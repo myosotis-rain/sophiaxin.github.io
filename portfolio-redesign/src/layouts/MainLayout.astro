@@ -112,17 +112,177 @@ const pageTitle = title ? `${title} | ${your_name}` : portfolio_title;
                         border-radius: 4px;
                     }
 
-                    /* Mobile hover states using pointer media query */
+                    /* Unified project card interactions */
                     @media (hover: hover) {
                         .project-card:hover img {
-                            transform: scale(1.05);
+                            transform: scale(1.05) rotate(0.5deg);
                         }
+                        
+                        .project-card:hover .project-title {
+                            transform: translateX(4px);
+                            color: #685E80;
+                        }
+                        
+                        .project-card:hover .project-tagline {
+                            transform: translateX(4px);
+                        }
+                        
+                        .project-card:hover .view-project-btn {
+                            transform: translateX(8px);
+                            background: #685E80;
+                            color: white;
+                            border-color: #685E80;
+                        }
+                        
+                        .project-card:hover .view-project-btn svg {
+                            transform: translateX(2px);
+                        }
+                    }
+
+                    /* Staggered animation delays */
+                    .project-card:nth-child(1) { animation-delay: 0.1s; }
+                    .project-card:nth-child(2) { animation-delay: 0.2s; }
+                    .project-card:nth-child(3) { animation-delay: 0.3s; }
+
+                    /* Custom selection with brand colors */
+                    .name-selection::selection {
+                        background: linear-gradient(45deg, #685E80, #E6E4EA);
+                        color: #1C1924;
+                    }
+
+                    /* Creative text emphasis */
+                    .creative-emphasis {
+                        position: relative;
+                    }
+                    
+                    .creative-emphasis::after {
+                        content: '';
+                        position: absolute;
+                        bottom: -2px;
+                        left: 0;
+                        width: 0;
+                        height: 2px;
+                        background: linear-gradient(90deg, #685E80, transparent);
+                        transition: width 0.6s ease;
+                    }
+                    
+                    .creative-emphasis:hover::after {
+                        width: 100%;
                     }
 
                     /* Touch-friendly active states for mobile */
                     .touch-manipulation:active {
                         transform: scale(0.98);
                         transition: transform 0.1s ease;
+                    }
+
+                    /* Organic hover states */
+                    .organic-hover {
+                        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                    }
+                    
+                    .organic-hover:hover {
+                        transform: translateY(-1px) scale(1.02);
+                        filter: drop-shadow(0 8px 20px rgba(104, 94, 128, 0.15));
+                    }
+
+                    /* Custom cursor interactions */
+                    .cursor-pointer {
+                        cursor: none;
+                        position: relative;
+                    }
+                    
+                    .custom-cursor {
+                        position: fixed;
+                        width: 20px;
+                        height: 20px;
+                        background: #685E80;
+                        border-radius: 50%;
+                        pointer-events: none;
+                        z-index: 9999;
+                        transition: all 0.1s ease;
+                        transform: translate(-50%, -50%);
+                    }
+                    
+                    .cursor-grow {
+                        transform: translate(-50%, -50%) scale(2);
+                        background: rgba(104, 94, 128, 0.3);
+                        border: 2px solid #685E80;
+                    }
+
+                    /* Magnetic effect for interactive elements */
+                    .magnetic {
+                        transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                    }
+
+                    /* Creative quote styling */
+                    .quote-container {
+                        position: relative;
+                        overflow: hidden;
+                    }
+                    
+                    .quote-container::before {
+                        content: '"';
+                        position: absolute;
+                        top: -20px;
+                        left: -10px;
+                        font-size: 120px;
+                        color: rgba(104, 94, 128, 0.08);
+                        font-family: "Newsreader", serif;
+                        line-height: 1;
+                        pointer-events: none;
+                    }
+
+                    /* Breathing animation for accent elements */
+                    @keyframes breathe {
+                        0%, 100% { transform: scale(1); opacity: 0.8; }
+                        50% { transform: scale(1.05); opacity: 1; }
+                    }
+                    
+                    .breathing {
+                        animation: breathe 4s ease-in-out infinite;
+                    }
+
+                    /* Text reveal animation */
+                    .text-reveal {
+                        overflow: hidden;
+                        position: relative;
+                    }
+                    
+                    .text-reveal::after {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: -100%;
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(90deg, transparent, #FDFCF8, transparent);
+                        animation: reveal 2s ease-out 0.5s;
+                    }
+                    
+                    @keyframes reveal {
+                        0% { left: -100%; }
+                        100% { left: 100%; }
+                    }
+
+                    /* Floating elements */
+                    .float {
+                        animation: float 6s ease-in-out infinite;
+                    }
+                    
+                    @keyframes float {
+                        0%, 100% { transform: translateY(0px); }
+                        50% { transform: translateY(-10px); }
+                    }
+
+                    /* Progressive blur effect */
+                    .progressive-blur {
+                        backdrop-filter: blur(0px);
+                        transition: backdrop-filter 0.3s ease;
+                    }
+                    
+                    .progressive-blur:hover {
+                        backdrop-filter: blur(2px);
                     }
         
                 </style>    </head>
@@ -137,8 +297,8 @@ const pageTitle = title ? `${title} | ${your_name}` : portfolio_title;
                                 <div class="mb-2 md:mb-4 lg:mb-12 mt-8 lg:mt-24">
                                     <div class="flex items-start justify-between lg:block">
                                         <div class="flex-1">
-                                            <h1 class="font-serif text-5xl sm:text-6xl lg:text-6xl leading-[0.85] mb-2 lg:mb-3 text-ink font-normal tracking-tight">
-                                                <a href="/">{your_name.split(' ')[0]}<br>
+                                            <h1 class="font-serif text-5xl sm:text-6xl lg:text-6xl leading-[0.85] mb-2 lg:mb-3 text-ink font-normal tracking-tight name-selection">
+                                                <a href="/" class="creative-emphasis">{your_name.split(' ')[0]}<br>
                                                 <span class="text-gray-400 italic font-light">{your_name.split(' ')[1]}.</span></a>
                                             </h1>
                                             <p class="lg:hidden text-gray-600 text-sm sm:text-base leading-relaxed font-medium max-w-[200px] sm:max-w-[240px] mt-4">
@@ -146,7 +306,7 @@ const pageTitle = title ? `${title} | ${your_name}` : portfolio_title;
                                                 Bridging Media Arts & Sciences with Psychology.
                                             </p>
                                         </div>
-                                        <div class="lg:hidden shrink-0 w-[160px] h-[160px] sm:w-[180px] sm:h-[180px] md:w-[200px] md:h-[200px] relative rounded-full overflow-hidden ml-4">
+                                        <div class="lg:hidden shrink-0 w-[160px] h-[160px] sm:w-[180px] sm:h-[180px] md:w-[200px] md:h-[200px] relative rounded-full overflow-hidden ml-4 float">
                                             <img 
                                                 src={hero_section.photo.path} 
                                                 alt={hero_section.photo.description} 
@@ -171,7 +331,7 @@ const pageTitle = title ? `${title} | ${your_name}` : portfolio_title;
 
                     <!-- Mobile Navigation -->
                     <nav class="lg:hidden fixed bottom-6 left-1/2 transform -translate-x-1/2 z-40">
-                        <div class="bg-paper/95 backdrop-blur-xl border border-accent/20 rounded-full px-6 py-3 shadow-2xl shadow-accent/10">
+                        <div class="bg-paper/95 backdrop-blur-xl border border-accent/20 rounded-full px-6 py-3 shadow-2xl shadow-accent/10 progressive-blur magnetic">
                             <ul class="flex items-center gap-4">
                                 <li>
                                     <a href="/" class={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 touch-manipulation ${Astro.url.pathname === '/' ? 'bg-accent shadow-lg shadow-accent/30' : 'hover:bg-accent/10'}`}>
