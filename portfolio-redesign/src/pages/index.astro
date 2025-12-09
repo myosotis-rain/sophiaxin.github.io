@@ -35,8 +35,8 @@ const projects = sortProjects(data.individual_projects);
         </div>
     </section>
 
-    <section id="work" class="flex flex-col gap-8">
-        <div class="flex items-end justify-between border-b border-gray-300/60 pb-4">
+    <section id="work" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="flex items-end justify-between border-b border-gray-300/60 pb-4 col-span-full">
             <h2 class="text-xs uppercase tracking-widest text-gray-500 font-bold">Selected Works</h2>
             <span class="text-xs text-gray-500 font-bold">2020 - {new Date().getFullYear()}</span>
         </div>
@@ -47,7 +47,7 @@ const projects = sortProjects(data.individual_projects);
             const isVideo = firstMedia.type === 'video';
             
             return (
-            <article class="project-card group block">
+            <article class="project-card group flex flex-col h-full">
                 
                 {/* MEDIA CONTAINER - Now always a link with Thumbnail */}
                 <a href={`/projects/${project.slug}`} class="block w-full aspect-[16/9] overflow-hidden rounded-lg bg-white/50 mb-4 relative shadow-sm border border-white/50 group-hover:shadow-lg transition-all duration-500 touch-manipulation">
@@ -71,7 +71,7 @@ const projects = sortProjects(data.individual_projects);
                 </a>
 
                 {/* TEXT CONTENT */}
-                <a href={`/projects/${project.slug}`} class="flex flex-col gap-3 border-l-2 border-transparent group-hover:border-accent pl-0 group-hover:pl-4 transition-all duration-300 touch-manipulation">
+                <a href={`/projects/${project.slug}`} class="flex flex-col flex-1 gap-3 border-l-2 border-transparent group-hover:border-accent pl-0 group-hover:pl-4 transition-all duration-300 touch-manipulation">
                     <div>
                         <h3 class="font-serif text-2xl md:text-3xl mb-1 text-ink leading-tight project-title transition-all duration-300">{project.title}</h3>
                         <p class="text-gray-500 text-sm font-sans leading-relaxed project-tagline transition-all duration-300">{project.tagline}</p>

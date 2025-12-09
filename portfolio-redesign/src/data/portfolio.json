@@ -182,7 +182,7 @@
       "slug": "wellesley-degree-tracker",
       "order": 0,
       "title": "Wellesley Degree Tracker",
-      "tagline": "A web-based tool for Wellesley Undergraduates to plan and track their major and distribution requirements.",
+      "tagline": "A web-based tool for Wellesley Undergraduates to plan and track their major and distribution requirements",
       "meta": [
         {
           "label": "Role",
@@ -1329,7 +1329,7 @@
       "slug": "arts205",
       "order": 7,
       "title": "ARTS205 Portfolio",
-      "tagline": "Animated portfolio for Wellesley College ARTS205 - Meditated Drawing course with interactive presentations.",
+      "tagline": "Animated portfolio for Wellesley College ARTS205 - Meditated Drawing course with interactive presentations",
       "meta": [
         {
           "label": "Course",
