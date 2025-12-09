@@ -66,6 +66,36 @@ const usabilityDataKeywords = [
     "rated the tool a 4.69/5",
     "recommend this planner"
 ];
+
+const alongResearchGoalKeywords = [
+    "Large Language Model (LLM) -based conversational interface",
+    "task initiation and time calibration",
+    "college students",
+    "empirical insights",
+    "design implications",
+    "future AI time-management tools"
+];
+
+const alongMotivationKeywords = [
+    "college setting",
+    "self-regulation and time management",
+    "time blindness",
+    "executive dysfunction",
+    "LLM-based conversational tools",
+    "reduce cognitive load"
+];
+
+const alongUserTestingKeywords = [
+    "tested our probe with college students",
+    "gauge helpfulness of LLM",
+    "design implications for similar LLM-powered time/task management tools"
+];
+
+const alongTechProbeKeywords = [
+    "LLM-interfacing technology probe",
+    "micro-step breakdown",
+    "chatbot assistant"
+];
 ---
 
 <MainLayout title={project.title}>
@@ -136,6 +166,7 @@ const usabilityDataKeywords = [
                         );
                     }
 
+
                     return (
                     <div class="w-full rounded-none overflow-hidden bg-gray-100 shadow-sm relative group">
                         {media.link && (
@@ -200,6 +231,74 @@ const usabilityDataKeywords = [
 
                     const sectionId = section.title ? section.title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') : '';
 
+                    if (section.kind === 'pdf-viewer') {
+                        const media = section.media; // Use section.media
+                        const sectionId = section.title ? section.title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') : '';
+                        const totalPages = media.totalPages || 24;
+                        const allPages = Array.from({ length: totalPages }, (_, i) => i + 1);
+
+                        return (
+                            <div class="scroll-mt-24" id={sectionId}>
+                                {section.title && <h2 class="font-serif text-2xl mb-4 text-ink">{section.title}</h2>}
+                                <div class="border border-gray-200 rounded-none overflow-hidden bg-gray-50" id="pdf-viewer">
+                                    <div class="flex flex-col">
+                                        {/* Carousel Wrapper with Custom Navigation Buttons */}
+                                        <div class="relative group">
+                                            {/* Previous Button */}
+                                            <button 
+                                                class="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-white/80 hover:bg-white text-gray-800 shadow-lg backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 hover:scale-110 active:scale-95"
+                                                onclick="document.getElementById('pdf-carousel').scrollBy({ left: -document.getElementById('pdf-carousel').offsetWidth, behavior: 'smooth' })"
+                                                aria-label="Previous Slide"
+                                            >
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                                                </svg>
+                                            </button>
+
+                                            {/* Next Button */}
+                                            <button 
+                                                class="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-white/80 hover:bg-white text-gray-800 shadow-lg backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 hover:scale-110 active:scale-95"
+                                                onclick="document.getElementById('pdf-carousel').scrollBy({ left: document.getElementById('pdf-carousel').offsetWidth, behavior: 'smooth' })"
+                                                aria-label="Next Slide"
+                                            >
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                                </svg>
+                                            </button>
+
+                                            {/* Horizontal Carousel (Swipeable - All Pages) */}
+                                            <div id="pdf-carousel" class="w-full aspect-video flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar" style="scrollbar-width: none; -ms-overflow-style: none;">
+                                                {allPages.map((pageNumber) => (
+                                                    <div id={`slide-page-${pageNumber}`} class="w-full flex-shrink-0 snap-center relative bg-white">
+                                                        <iframe 
+                                                            src={`${media.src}#page=${pageNumber}&toolbar=0&navpanes=0&scrollbar=0&view=Fit`}
+                                                            class="absolute inset-0 w-full h-full pointer-events-none" 
+                                                            frameborder="0"
+                                                            loading="lazy">
+                                                        </iframe>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        {/* Horizontal Thumbnails Strip (Bookmarks Only) */}
+                                        <div class="w-full bg-white border-t border-gray-200 overflow-x-auto custom-scrollbar flex snap-x snap-mandatory">
+                                            {media.slides.map((slide, index) => (
+                                                <button 
+                                                    class={`flex-shrink-0 w-64 text-left px-6 py-4 border-r border-gray-100 hover:bg-gray-50 transition-colors focus:outline-none focus:bg-gray-50 group relative snap-start ${index === 0 ? 'bg-gray-100 border-t-4 border-black' : 'border-t-4 border-transparent'}`}
+                                                    onclick={`document.getElementById('slide-page-${slide.number}').scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' }); document.querySelectorAll('#pdf-viewer button').forEach(el => { el.classList.remove('bg-gray-100', 'border-black'); el.classList.add('border-transparent'); }); this.classList.remove('border-transparent'); this.classList.add('bg-gray-100', 'border-black');`}
+                                                >
+                                                    <span class="block text-xs text-gray-400 mb-1">{String(index + 1).padStart(2, '0')}</span>
+                                                    <span class="block text-sm font-medium text-gray-900 group-hover:text-black truncate">{slide.label}</span>
+                                                </button>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    }
+
                     // Standard Section Rendering
                     return (
                     <div class="scroll-mt-24" id={sectionId}>
@@ -207,21 +306,24 @@ const usabilityDataKeywords = [
                         
                         {section.kind === 'paragraphs' && (
                             <div class="space-y-4 text-gray-700 leading-relaxed">
-                                {section.body.map(p => {
+                                {project.slug === 'along' && section.title === 'Research Goal & Contribution' && section.body.map(p => <p set:html={highlightKeywords(p, alongResearchGoalKeywords)}></p>)}
+                                {project.slug === 'along' && section.title === 'Motivation' && section.body.map(p => <p set:html={highlightKeywords(p, alongMotivationKeywords)}></p>)}
+                                {project.slug === 'along' && section.title !== 'Research Goal & Contribution' && section.title !== 'Motivation' && section.body.map(p => <p set:html={p}></p>)}
+
+                                {project.slug === 'wellesley-degree-tracker' && section.body.map(p => {
                                     let content = p;
-                                    if (project.slug === 'wellesley-degree-tracker') {
-                                        let keywords = [];
-                                        if (section.title === 'Executive Summary') keywords = executiveSummaryKeywords;
-                                        else if (section.title === 'Problem Space Definition') keywords = problemSpaceDefinitionKeywords;
-                                        else if (section.title === 'Usability Testing') keywords = postIterationNotesKeywords;
-                                        else if (section.title === 'Usability Data') keywords = usabilityDataKeywords;
-                                        
-                                        if (keywords.length > 0) {
-                                            content = highlightKeywords(p, keywords);
-                                        }
+                                    let keywords = [];
+                                    if (section.title === 'Executive Summary') keywords = executiveSummaryKeywords;
+                                    else if (section.title === 'Problem Space Definition') keywords = problemSpaceDefinitionKeywords;
+                                    else if (section.title === 'Usability Testing') keywords = postIterationNotesKeywords;
+                                    else if (section.title === 'Usability Data') keywords = usabilityDataKeywords;
+                                    
+                                    if (keywords.length > 0) {
+                                        content = highlightKeywords(p, keywords);
                                     }
                                     return <p set:html={content}></p>;
                                 })}
+                                {(project.slug !== 'wellesley-degree-tracker' && project.slug !== 'along') && section.body.map(p => <p set:html={p}></p>)}
                             </div>
                         )}
 
@@ -235,17 +337,25 @@ const usabilityDataKeywords = [
                                             </li>
                                         );
                                     }
+                                    let itemText = item.text;
+                                    if (project.slug === 'along' && section.title === 'What we did…') {
+                                        if (item.heading === 'User Testing') {
+                                            itemText = highlightKeywords(item.text, alongUserTestingKeywords);
+                                        } else if (item.heading === 'Technology Probe') {
+                                            itemText = highlightKeywords(item.text, alongTechProbeKeywords);
+                                        }
+                                    }
                                     return (
                                     <li>
                                         <span class="block font-bold text-sm mb-1 text-ink">{item.heading}</span>
-                                        {Array.isArray(item.text) ? (
+                                        {Array.isArray(itemText) ? ( // itemText can be an array here from highlights
                                             <ul class="ml-4 list-disc list-outside space-y-1 text-gray-600 text-sm leading-relaxed marker:text-accent">
-                                                {item.text.map(subItem => (
-                                                    <li>{subItem}</li>
+                                                {itemText.map(subItem => (
+                                                    <li set:html={subItem}></li>
                                                 ))}
                                             </ul>
                                         ) : (
-                                            <span class="text-gray-600 text-sm leading-relaxed">{item.text}</span>
+                                            <span class="text-gray-600 text-sm leading-relaxed" set:html={itemText}></span>
                                         )}
                                     </li>
                                 )})}
