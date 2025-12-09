@@ -55,6 +55,12 @@
       "title": "Experience",
       "research": [
         {
+          "title": "Product & UX Researcher -- MIT Climate & Sustainability Consortium", 
+          "period": "September 2025 - Present",
+          "company": "Project “User Interface Design for the Geo-TIDE Tool”",
+          "description": "Analyzed user workflows with the UI/UX consultant to identify usability gaps and define interaction requirements; Implemented front-end updates (JavaScript, HTML, CSS) to improve clarity, accessibility, and task efficiency; Synthesized user insights across design iterations to refine navigation and streamline overall interaction flow"
+        },
+        {
           "title": "Research Assistant - MIT Media Lab", "period": "June 2025 - Present",
           "company": "Project \"AI Art Critique & Interface Building\" | \"Future Sketches\" Group",
           "description": "Developed a Flask AI art critique app with RAG, CLIP ONNX, and API integration, delivering real-time art analysis with full frontend-backend functionality and AI-assisted coding. Implemented the Dovekie (open-source live coding JS package) interface and designed key interactive components; created p5.js sketches to experiment with dynamic, parameter-driven generative workflows."
@@ -116,6 +122,218 @@
     }
   },
   "individual_projects": [
+    {
+      "slug": "wellesley-degree-tracker",
+      "order": 0,
+      "title": "Wellesley Degree Tracker",
+      "tagline": "A web-based tool for Wellesley Undergraduates to plan and track their major and distribution requirements.",
+      "meta": [
+        { "label": "Role", "value": "Product Designer & Developer, UX Researcher" },
+        { "label": "Team", "value": "Sophia Xin, Yitzel Serna\nVivian Bofill, Michelle Sotelo" },
+        { "label": "Course", "value": "(MIT) 6.910B Design Thinking and Innovation Project" },
+        { "label": "Year", "value": "2025" }
+      ],
+      "heroMedia": [
+        {
+          "type": "video", 
+          "src": "https://myosotis-rain.github.io/Wellesley_Degree_Tracker/", 
+          "alt": "Wellesley Degree Tracker Live Demo",
+          "thumbnail": "/media/WellesleyDegreeTracker_Screenshot.png",
+          "link": "https://myosotis-rain.github.io/Wellesley_Degree_Tracker/"
+        }
+      ],
+      "sections": [
+        {
+          "kind": "paragraphs",
+          "title": "Executive Summary",
+          "body": [
+            "It is often the case that both students and advisors do not know all the requirements that are needed to satisfy major requirements from the top of their heads. The multiple websites or PDFs people need to consult for degree requirements are challenging to navigate, which can lead students to make errors in tracking their degree and major.",
+            "This website presents a method for Wellesley Undergraduates to plan and track their major and distribution requirements. Our tool provides Wellesley students with a clear, centralized view of their progress through pie charts and other graphical displays. Additionally, we hope this product will reduce confusion around major and distribution requirements, thereby reducing stress around choosing the right classes to stay on track for graduation.",
+            "While designing this website, we focused on creating an intuitive product that did not require tutorials to use. We prioritized simplicity, memorability, and an intuitive flow that consolidates all of a student’s degree information in one place.",
+            "It was clear from our user tests that our tool fulfilled its intended purpose and is desired by the student body at Wellesley."
+          ]
+        },
+        {
+          "kind": "paragraphs",
+          "title": "Problem Space Definition",
+          "body": [
+            "Wellesley College students currently plan and/or track degree requirements utilizing PDF printouts, Google Sheets, and Workday’s APR Tracker.",
+            "The reason we need to make a change is because the current degree planning and tracking methods are difficult to maneuver, organize, and centralize, which severely complicates the Wellesley College student experience by adding cognitive overload and confusion.",
+            "Therefore, we will create a solution that enables Wellesley College Students to effectively centralize, organize, and track their four-year/three-year degree plan."
+          ]
+        },
+        {
+          "kind": "bullets",
+          "title": "Need and Assumption Analysis",
+          "items": [
+            {
+              "heading": "User Needs",
+              "text": [
+                "Ability to make an academic plan that can track distribution requirements",
+                "Ability to account for special circumstances such as studying abroad or graduating in 3 years",
+                "Ability to integrate cross-registration coursework information",
+                "Ability to track major/minor progress over the course of four years"
+              ]
+            },
+            {
+              "heading": "Assumptions",
+              "text": [
+                "Assuming that individuals are interested in making an academic plan",
+                "Assuming that individuals would regularly use and update the system",
+                "Assuming students would find a unified system to record information easier to navigate"
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "table",
+          "title": "Research and Discovery",
+          "headers": ["Tool", "Effectiveness", "Ease of Use/Convenience", "Flexibility for Change"],
+          "rows": [
+            ["Workday APR Tracker", "<b>High</b> Accurately tracks progress in distribution requirements based off of academic transcript.", "<b>Low</b> Difficult to navigate and tends to be slow, hard to read, and difficult to interpret.", "<b>Low</b> Determined by courses taken or in progress. Any changes have to go through the Registrar and allows no flexibility for planning ahead."],
+            ["Degree Tracker Google Sheet", "<b>High</b> Allows for flexibility, customization, and showcases completion progress.", "<b>Medium</b> It takes a while to learn if you're unfamiliar with Sheets. Once learned though, is easy to navigate.", "<b>High</b> High levels of customization and easy to change if needed."],
+            ["College Official PDF Version of Degree Tracker", "<b>Medium</b> Be careful to get the most updated version of the PDF. Allows for tracking of past classes but can get messy.", "<b>Medium</b> Easy to use, either print or write digitally. Can get lost or misplaced though which may affect ability to use.", "<b>Medium</b> Digitally, can be easy to erase and plan. On paper, planning and erasing would get messy. Doesn’t allow for much customization or advanced tracking."]
+          ]
+        },
+        {
+          "kind": "table",
+          "title": "Stakeholder Analysis",
+          "headers": ["Name", "Type", "Why We Care", "Priority", "How to Satisfy"],
+          "rows": [
+            ["Students of Wellesley College", "Users", "Target audience, will be using the tool directly.", "<b>High</b>", "Solution makes 4-year planning and tracking simple, flexible, and customizable."],
+            ["Registrars", "Suppliers + Blocker", "Can legitimize or dissuade use of the tool. Also play a part in supplying the information needed to build an accurate tracking tool.", "<b>High</b>", "Solution is accurate and easy to integrate into existing systems. Also protects student information and fits a college security system."],
+            ["Faculty", "Suppliers", "Providing course listings and assisting students with major and minor advising.", "<b>Medium</b>", "Solution is simple for faculty to understand, or at least does not interfere with the accuracy of advising for major/minor work."],
+            ["College Administration", "Suppliers + Blockers", "Similar to the registrar, provide data for what it takes to successfully finish a degree.", "<b>High</b>", "Ensure that solution meets data security requirements and stays up to date with College requirements."]
+          ]
+        },
+        {
+          "kind": "table",
+          "title": "Boundary and Hazard Mitigation",
+          "headers": ["Boundary/Hazard", "Likelihood", "Severity", "Impact", "Mitigation Strategy", "Cost-Effectiveness"],
+          "rows": [
+            ["Student Data is hacked/stolen.", "4", "9", "36", "Ensure the tool fits into College data security measures.", "<b>High</b> Saves the pain of having to create security measures later after losing the College’s trust."],
+            ["Tracker is out of date/inaccurate with current degree requirements.", "5", "8", "40", "Stay up to date with degree requirements as posted on the College website.", "<b>High</b> Requires minimal effort and maintains trust in accuracy of solution."],
+            ["Registrar doesn’t legitimize the tool and still recommends APR tracker.", "7", "5", "35", "Not much we can really do outside of continuing to promote our solution.", "<b>Medium</b> Requires additional work promoting product, can’t rely on College backing."],
+            ["Students find the tool too complicated to use.", "6", "7", "42", "Conduct appropriate user testing to ensure the tool is as simple and flexible as possible.", "<b>High</b> Ensures that our solution effectively addresses student needs and that the product will be utilized."]
+          ]
+        },
+        {
+          "kind": "table",
+          "title": "Specify Desired Outcomes",
+          "headers": ["Objective", "Objective Type", "How will you measure success?"],
+          "rows": [
+            ["Students are satisfied with the tool’s ease of use and accuracy.", "<b>Emotional</b>", "90% of students reported being \"Somewhat Satisfied\" or \"Completely Satisfied\" when surveyed about the tool’s ease of use and accuracy."],
+            ["The tool correctly tracks and updates a student’s degree completion.", "<b>Intellectual</b>", "In 95% of the tested cases, the tool accurately reported a student’s degree completion based on the data entered."],
+            ["The tool saves time for students who are using it to plan and track their degree completion status.", "<b>Intellectual</b>", "In tested cases, students who utilized the tool on the first try completed their degree plan 80% faster than those who used the APR, Google Sheet, or PDF method."]
+          ]
+        },
+        {
+          "kind": "bullets",
+          "title": "Concept Generation",
+          "items": [
+            "New Degree Tracking Website",
+            "A chatbot that serves as an advisor for students and is trained with data from the Course Browser and Wellesley Degree Requirement outlines",
+            "Integration with Existing Workday Academic Progress Report (update interface, increase usability)",
+            "Mobile app for students to use that helps them track their progress"
+          ]
+        },
+        {
+          "kind": "table",
+          "title": "Concept Downselection",
+          "headers": ["Criteria", "Weight", "New Website (Score/W)", "ChatBot (Score/W)", "Workday Integration (Score/W)", "Mobile App (Score/W)"],
+          "rows": [
+            ["Feasibility to Build", "4", "4 / 16", "3 / 12", "1 / 4", "2 / 8"],
+            ["Ease of Use", "4", "3 / 12", "3 / 12", "2 / 8", "4 / 16"],
+            ["Efficiency in Tracking Degree Status", "5", "4 / 20", "2 / 10", "2 / 10", "4 / 20"],
+            ["Total", "", "48", "34", "22", "44"]
+          ]
+        },
+        {
+          "kind": "table",
+          "title": "Concept Articulation (K-Script)",
+          "headers": ["Step", "User Action / Dialogue", "System Response / Behavior"],
+          "rows": [
+            ["1", "User logs in to the Wellesley 4-Year Planner.", "System: Loads personalized dashboard with requirement progress (e.g., \"12 / 32 units completed, 38% overall\"). Shows quick-access buttons: 4-Year Plan, Course Browser, Requirements."],
+            ["2", "User taps \"Course Browser.\"", "System: Opens searchable catalog with filters for department, distribution, credits, and typical term offered. Displays live data synced from Registrar."],
+            ["3", "User types: \"Courses that fulfill SBA and are offered next Spring.\"", "System: Filters list dynamically, showing matching courses with color-coded distribution tags (SBA, EPI_REL_HIS, etc.)."],
+            ["4", "User clicks \"PSYC 210 – Social Psychology.\"", "System: Expands course details—description, prerequisites, fulfillment tags (SBA), and typical term offerings."],
+            ["5", "User selects: \"Add to 4-Year Plan.\"", "System: Prompts term placement: \"Choose where to add this course.\" Preselects \"Year 2 • Spring\" based on availability."],
+            ["6", "User confirms.", "System: Adds PSYC 210 to Year 2 Spring on the 4-year timeline. Updates progress bar and highlights fulfilled SBA requirement."],
+            ["7", "User taps: \"AI Suggestion.\"", "System (Explainable AI): \"Taking PSYC 210 next Spring balances your SBA and Lab load. You’ll still need one 300-level course in this area to graduate.\""],
+            ["8", "User clicks: \"View Suggested Alternatives.\"", "System: Shows comparable options (e.g., ANTH 204, SOC 220), explaining pros/cons (\"ANTH 204 fits SBA but is writing-intensive\")."],
+            ["9", "User decides: \"Replace with ANTH 204.\"", "System: Automatically swaps courses on the plan and recalculates progress. Visual confirmation: \"✅ Requirements still balanced.\""],
+            ["10", "User switches back to 4-Year Plan view.", "System: Displays updated grid showing all terms with color-coded requirement tags. Study Abroad toggle and backup course slots remain visible and editable."],
+            ["11", "User clicks: \"Save Progress.\"", "System: Autosaves plan locally to account and syncs across devices. Quick toast: \"Plan saved. View updates anytime.\""]
+          ]
+        },
+        {
+          "kind": "paragraphs",
+          "title": "Usability Testing",
+          "body": [
+            "Both the design and concept of our course planner have changed over the iteration cycle of the design process. The K-script and sketch of the website are slightly different from the final product. We eliminated some features, like the \"AI suggestion\" to enhance and fine tune key features that were truly needed for the planner to work for users. Aside from fine tuning features, we also changed some aspects of the planner after conducting two rounds of usability testing. We gained insight from Wellesley students on how to improve our site and what to remove from it."
+          ]
+        },
+        {
+          "kind": "bullets",
+          "title": null,
+          "items": [
+            {
+              "heading": "Pretest Questionnaire",
+              "text": [
+                "What year do you expect to graduate from Wellesley?",
+                "What do you currently use to plan/track your degree progress?",
+                "On a scale of 1 - 5, how satisfied are you with your current method of tracking degree progress? (1 = very unsatisfied, 5 = very satisfied)",
+                "What features would you ideally want in an academic planning tool?"
+              ]
+            },
+            {
+              "heading": "Exit Questionnaire",
+              "text": [
+                "On a scale of 1-5, with 1 being very easy to use and 5 being very hard to use, how would you rate this tool?",
+                "Would you recommend this tool to other Wellesley students? Why or why not?",
+                "What aspects of the tool worked well for you?",
+                "Was there anything you expected to find but didn’t?",
+                "How does this tool compare to your current degree-tracking method?"
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "paragraphs",
+          "title": "Usability Data",
+          "body": [
+            "As described by the table below in iteration decisions, users in our first usability test were confused about various parts of the planner. They had trouble finding their major, pointed out spelling mistakes, and pointed out errors in course distributions. We took note of these issues and fixed them for our second round of usability tests.",
+            "After fixing key issues there were still some issues that remained during our second round of user testing. Although we integrated a \"Done\" button and added a \"Progress Saved\" when users entered classes, there was still visible hesitance from the users about what to do when they had finished their task.",
+            "We also found new issues. If users made a mistake entering their start year, and went back to change the year after entering classes, the entire program with their progress reset. There was confusion about where to enter classes and if it was mandatory to use the program, however, we think this confusion came from the complexity of the tasks we were conducting rather than the actual program itself.",
+            "Overall, our test’s participants, on average, rated the tool a 4.69/5 on being really easy to use. All eight participants also stated they would recommend this planner to other Wellesley students."
+          ]
+        },
+        {
+          "kind": "table",
+          "title": "Iteration Decisions",
+          "headers": ["#", "Description", "Severity", "Complexity", "Proposed Fix"],
+          "rows": [
+            ["1", "Users looking to save or finish inputting their classes, but are confused if closing would save progress", "4", "1", "Switch \"Close\" button to \"Done\" button"],
+            ["2", "Major selections need to sync across all pages", "5", "2", "Start everything at null, but don’t hide the drop-down for the major selection, just populate it when it’s clicked/filled"],
+            ["3", "Education is not listed as a major", "5", "1", "Add Education as a major"],
+            ["4", "Autofill distributions are incorrect", "3", "3", "Double-check Wellesley requirements and change the autofill selection"],
+            ["5", "Users scrolled down to ensure departments were selected after adding a class", "2", "1", "Move the toggled options to the top of their selected lists (Computer Science rises to the top at CS111 input)"],
+            ["6", "Users were confused as to where the distinction between classes taken and classes were being planned to take was", "3", "2", "Current semester highlight, marked as finished"],
+            ["7", "Changing the start year deleted all progress", "5", "4", "Autosave progress"],
+            ["8", "Once a class is entered, it automatically selects multiple requirements when Wellesley only allows one requirement", "4", "1", "If a class fits multiple, only select one and have the user edit which requirement they need it to fulfill"],
+            ["9", "No confirmation after entering starting year and clicking \"confirm\"", "3", "2", "Add a temporary badge that renders when user clicks confirm so they have visual confirmation of their selection"],
+            ["10", "Didn’t realize the multiple tabs the website had", "4", "3", "Could change the layout of the screen, the colors to make it more clear that it’s there. Give a walkthrough to first time users"]
+          ]
+        }
+      ],
+      "sidebar": {
+        "technologies": ["Web Development", "UX Design", "User Research", "Data Visualization", "Product Design", "Tailwind CSS"],
+        "extra": [
+          { "title": "Live Site", "text": "<a href=\"https://myosotis-rain.github.io/Wellesley_Degree_Tracker/\" class=\"external-link\" target=\"_blank\" rel=\"noopener\">Visit Live Site</a>" },
+          { "title": "GitHub Repository", "text": "<a href=\"https://github.com/myosotis-rain/Wellesley_Degree_Tracker\" class=\"external-link\" target=\"_blank\" rel=\"noopener\">View on GitHub</a>" }
+        ]
+      }
+    },
     {
       "slug": "dovekie",
       "order": 1,
@@ -232,6 +450,84 @@
       }
     },
     {
+      "slug": "vinetality",
+      "order": 3,
+      "title": "Vinetality",
+      "tagline": "Tangible Interface for Productivity & Well-being",
+      "meta": [
+        { "label": "Role", "value": "Interface Designer & Developer" },
+        { "label": "Course", "value": "Tangible User Interfaces" },
+        { "label": "Team", "value": "Erika Saur\nMalinda Lu\nSophia Xin" },
+        { "label": "Year", "value": "2025" }
+      ],
+      "heroMedia": [
+        { "type": "video", "src": "https://www.youtube.com/embed/Wz0rExoqUfM", "alt": "Vinetality Demo", "thumbnail": "https://img.youtube.com/vi/Wz0rExoqUfM/sddefault.jpg" }
+      ],
+      "sections": [
+        {
+          "kind": "video",
+          "title": "Additional Demo",
+          "src": "https://www.youtube.com/embed/-fl5GoMq3fA"
+        },
+        {
+          "kind": "paragraphs",
+          "title": "What Is Vinetality?",
+          "body": [
+            "Vinetality is a small, portable keychain interface that provides tangible feedback to support productivity, well-being, and community building.",
+            "Problem Statement: Students and young professionals working independently in mobile environments often struggle to balance productivity, stress, and a sense of community. Existing apps and tools provide limited emotional engagement and fail to offer meaningful feedback or connection.",
+            "Innovation: A physical, shape-changing representation of measured well-being + creative community building."
+          ]
+        },
+        {
+          "kind": "gallery",
+          "title": "Concept Sketches",
+          "items": [
+            { "src": "/media/cs320-plant-closed.png", "alt": "Vinetality concept sketch showing closed plant state", "caption": "Closed State" },
+            { "src": "/media/cs320-plant-grown.png", "alt": "Vinetality concept sketch showing grown plant state", "caption": "Grown State" }
+          ]
+        },
+        {
+          "kind": "documentation-block",
+          "title": "Project Documentation",
+          "body": [
+            "Explore the complete project documentation including process insights, user research, and technical implementation details."
+          ],
+          "link": {
+            "text": "Full Project Website ↗",
+            "url": "https://sites.google.com/wellesley.edu/vinetality/home"
+          }
+        },
+        {
+          "kind": "bullets",
+          "title": "Key Features",
+          "items": [
+            { "heading": "Shape-Changing Feedback", "text": "Physical plant-like interface that responds to user behavior, growing when engaging in productive activities and wilting with neglect." },
+            { "heading": "Portable Design", "text": "Compact keychain form factor with custom 3D-printed enclosure designed for everyday portability and durability." },
+            { "heading": "Smart Integration", "text": "Bluetooth connectivity with smartphone integration and mobile app for habit tracking and device configuration." },
+            { "heading": "Community Building", "text": "Social features that connect users and create accountability networks for productivity and well-being goals." }
+          ]
+        },
+        {
+          "kind": "approach-grid",
+          "title": "Technical Approach",
+          "body": [
+            "The design combines emotional design principles with advanced tangible interaction technologies to create meaningful behavioral feedback:"
+          ],
+          "items": [
+            { "heading": "Physical Computing", "text": "Arduino-based microcontroller with shape-memory alloys and servo motors for transformation." },
+            { "heading": "Motor Mechanics", "text": "Precise motor control systems enable smooth, lifelike plant movements that respond to user activity patterns." },
+            { "heading": "Emotional Design", "text": "Plant metaphor creates emotional investment and intuitive understanding of personal growth." }
+          ]
+        }
+      ],
+      "sidebar": {
+        "technologies": ["Arduino", "3D Printing", "Interface Design", "IoT", "Tangible UI", "Motors"],
+        "extra": [
+          { "title": "Impact", "text": "Created a novel approach to habit formation that combines emotional design with tangible interaction, demonstrating how physical interfaces can motivate behavioral change and foster community connections." }
+        ]
+      }
+    },
+    {
       "slug": "etextiles",
       "order": 4,
       "title": "Electronic Textiles",
@@ -299,6 +595,49 @@
       }
     },
     {
+      "slug": "wellesleyweb",
+      "order": 5,
+      "title": "The Wellesley Web: TechConnect",
+      "tagline": "Pre-professional Networking Platform for Tech Students & Alumni",
+      "meta": [
+        { "label": "Role", "value": "Full-Stack Developer" },
+        { "label": "Course", "value": "CS304 - Databases with Web Interfaces" },
+        { "label": "Team", "value": "Claire Cao\nDiya Khanna\nChloe Shim\nSophia Xin" },
+        { "label": "Year", "value": "2024" }
+      ],
+      "heroMedia": [
+        { "type": "video", "src": "https://www.youtube.com/embed/lxu5UYm1luk", "alt": "The Wellesley Web Demo", "thumbnail": "https://img.youtube.com/vi/lxu5UYm1luk/sddefault.jpg" }
+      ],
+      "sections": [
+        {
+          "kind": "paragraphs",
+          "title": "Overview",
+          "body": [
+            "Pre-professional networking platform specifically designed for Wellesley College students and alumni in tech and tech-adjacent fields. Built front-end and back-end entirely from scratch as a team project.",
+            "The platform addresses the unique networking challenges faced by students transitioning from academia to the technology industry, providing tailored features for pre-professional connections, mentorship opportunities, and career development within the Wellesley community."
+          ]
+        },
+        {
+          "kind": "bullets",
+          "title": "Key Features",
+          "items": [
+            { "heading": "Authentication System", "text": "User authentication and profile management system with secure login and personalized user experiences." },
+            { "heading": "Networking Platform", "text": "Professional networking capabilities with advanced search and filtering for targeted connections." },
+            { "heading": "Database Integration", "text": "Comprehensive database integration for user data, connections, and platform interactions." },
+            { "heading": "Responsive Design", "text": "Responsive design implementation working seamlessly across all device sizes and platforms." },
+            { "heading": "Full-Stack Architecture", "text": "Complete full-stack architecture built from the ground up with modern web development practices." }
+          ]
+        }
+      ],
+      "sidebar": {
+        "technologies": ["Python", "HTML", "CSS", "JavaScript", "SQL", "Flask"],
+        "extra": [
+          { "title": "Learning Outcomes", "text": "Gained comprehensive experience in full-stack development, database design, frontend development from scratch, team collaboration, version control, and user experience design." },
+          { "title": "Impact", "text": "Successfully delivered a fully functional networking platform, gaining comprehensive full-stack development experience from zero prior knowledge in frontend technologies." }
+        ]
+      }
+    },
+    {
       "slug": "arts205",
       "order": 6,
       "title": "ARTS205 Portfolio",
@@ -310,7 +649,7 @@
         { "label": "Year", "value": "2024" }
       ],
       "heroMedia": [
-        { 
+        {
           "type": "interactive-slides", 
           "baseUrl": "https://docs.google.com/presentation/d/1jslD6MsrWgA6xIfu7wktOjOvYFiQ4dAFNwh--_PbIpk/embed?start=false&loop=false&delayms=3000",
           "thumbnail": "/media/ARTS205_TitleSlide.png",
@@ -399,127 +738,6 @@
       "sidebar": {
         "technologies": ["Digital Illustration", "Collage", "Mixed Media", "Woodcut", "Color Pencils", "Creative Coding"],
         "extra": []
-      }
-    },
-    {
-      "slug": "vinetality",
-      "order": 3,
-      "title": "Vinetality",
-      "tagline": "Tangible Interface for Productivity & Well-being",
-      "meta": [
-        { "label": "Role", "value": "Interface Designer & Developer" },
-        { "label": "Course", "value": "Tangible User Interfaces" },
-        { "label": "Team", "value": "Erika Saur\nMalinda Lu\nSophia Xin" },
-        { "label": "Year", "value": "2025" }
-      ],
-      "heroMedia": [
-        { "type": "video", "src": "https://www.youtube.com/embed/Wz0rExoqUfM", "alt": "Vinetality Demo", "thumbnail": "https://img.youtube.com/vi/Wz0rExoqUfM/sddefault.jpg" }
-      ],
-      "sections": [
-        {
-          "kind": "video",
-          "title": "Additional Demo",
-          "src": "https://www.youtube.com/embed/-fl5GoMq3fA"
-        },
-        {
-          "kind": "paragraphs",
-          "title": "What Is Vinetality?",
-          "body": [
-            "Vinetality is a small, portable keychain interface that provides tangible feedback to support productivity, well-being, and community building.",
-            "Problem Statement: Students and young professionals working independently in mobile environments often struggle to balance productivity, stress, and a sense of community. Existing apps and tools provide limited emotional engagement and fail to offer meaningful feedback or connection.",
-            "Innovation: A physical, shape-changing representation of measured well-being + creative community building."
-          ]
-        },
-        {
-          "kind": "gallery",
-          "title": "Concept Sketches",
-          "items": [
-            { "src": "/media/cs320-plant-closed.png", "alt": "Vinetality concept sketch showing closed plant state", "caption": "Closed State" },
-            { "src": "/media/cs320-plant-grown.png", "alt": "Vinetality concept sketch showing grown plant state", "caption": "Grown State" }
-          ]
-        },
-        {
-          "kind": "documentation-block",
-          "title": "Project Documentation",
-          "body": [
-            "Explore the complete project documentation including process insights, user research, and technical implementation details."
-          ],
-          "link": {
-            "text": "Full Project Website ↗",
-            "url": "https://sites.google.com/wellesley.edu/vinetality/home"
-          }
-        },
-        {
-          "kind": "bullets",
-          "title": "Key Features",
-          "items": [
-            { "heading": "Shape-Changing Feedback", "text": "Physical plant-like interface that responds to user behavior, growing when engaging in productive activities and wilting with neglect." },
-            { "heading": "Portable Design", "text": "Compact keychain form factor with custom 3D-printed enclosure designed for everyday portability and durability." },
-            { "heading": "Smart Integration", "text": "Bluetooth connectivity with smartphone integration and mobile app for habit tracking and device configuration." },
-            { "heading": "Community Building", "text": "Social features that connect users and create accountability networks for productivity and well-being goals." }
-          ]
-        },
-        {
-          "kind": "approach-grid",
-          "title": "Technical Approach",
-          "body": [
-            "The design combines emotional design principles with advanced tangible interaction technologies to create meaningful behavioral feedback:"
-          ],
-          "items": [
-            { "heading": "Physical Computing", "text": "Arduino-based microcontroller with shape-memory alloys and servo motors for transformation." },
-            { "heading": "Motor Mechanics", "text": "Precise motor control systems enable smooth, lifelike plant movements that respond to user activity patterns." },
-            { "heading": "Emotional Design", "text": "Plant metaphor creates emotional investment and intuitive understanding of personal growth." }
-          ]
-        }
-      ],
-      "sidebar": {
-        "technologies": ["Arduino", "3D Printing", "Interface Design", "IoT", "Tangible UI", "Motors"],
-        "extra": [
-          { "title": "Impact", "text": "Created a novel approach to habit formation that combines emotional design with tangible interaction, demonstrating how physical interfaces can motivate behavioral change and foster community connections." }
-        ]
-      }
-    },
-    {
-      "slug": "wellesleyweb",
-      "order": 5,
-      "title": "The Wellesley Web: TechConnect",
-      "tagline": "Pre-professional Networking Platform for Tech Students & Alumni",
-      "meta": [
-        { "label": "Role", "value": "Full-Stack Developer" },
-        { "label": "Course", "value": "CS304 - Databases with Web Interfaces" },
-        { "label": "Team", "value": "Claire Cao\nDiya Khanna\nChloe Shim\nSophia Xin" },
-        { "label": "Year", "value": "2024" }
-      ],
-      "heroMedia": [
-        { "type": "video", "src": "https://www.youtube.com/embed/lxu5UYm1luk", "alt": "The Wellesley Web Demo", "thumbnail": "https://img.youtube.com/vi/lxu5UYm1luk/sddefault.jpg" }
-      ],
-      "sections": [
-        {
-          "kind": "paragraphs",
-          "title": "Overview",
-          "body": [
-            "Pre-professional networking platform specifically designed for Wellesley College students and alumni in tech and tech-adjacent fields. Built front-end and back-end entirely from scratch as a team project.",
-            "The platform addresses the unique networking challenges faced by students transitioning from academia to the technology industry, providing tailored features for pre-professional connections, mentorship opportunities, and career development within the Wellesley community."
-          ]
-        },
-        {
-          "kind": "bullets",
-          "title": "Key Features",
-          "items": [
-            { "heading": "Authentication System", "text": "User authentication and profile management system with secure login and personalized user experiences." },
-            { "heading": "Networking Platform", "text": "Professional networking capabilities with advanced search and filtering for targeted connections." },
-            { "heading": "Database Integration", "text": "Comprehensive database integration for user data, connections, and platform interactions." },
-            { "heading": "Responsive Design", "text": "Responsive design implementation working seamlessly across all device sizes and platforms." },
-            { "heading": "Full-Stack Architecture", "text": "Complete full-stack architecture built from the ground up with modern web development practices." }
-          ]
-        }
-      ],
-      "sidebar": {
-        "technologies": ["Python", "HTML", "CSS", "JavaScript", "SQL", "Flask"],
-        "extra": [
-          { "title": "Learning Outcomes", "text": "Gained comprehensive experience in full-stack development, database design, frontend development from scratch, team collaboration, version control, and user experience design." },
-          { "title": "Impact", "text": "Successfully delivered a fully functional networking platform, gaining comprehensive full-stack development experience from zero prior knowledge in frontend technologies." }
-        ]
       }
     }
   ]

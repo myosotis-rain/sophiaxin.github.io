@@ -56,11 +56,9 @@ const { bio_section, education_section, experience_section, skills_section } = d
                 {experience_section.research.map(job => (
                     <div class="group relative pl-8 border-l border-gray-200 hover:border-black transition duration-300">
                         <span class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-gray-200 rounded-full group-hover:bg-black transition duration-300"></span>
-                        <h4 class="font-serif text-xl mb-1">{job.company}</h4>
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="font-bold text-sm">{job.title}</span>
-                            <span class="text-xs text-gray-400">{job.period}</span>
-                        </div>
+                        <h4 class="font-serif text-xl mb-0.5">{job.company}</h4>
+                        <span class="block font-bold text-sm mb-0.5">{job.title}</span>
+                        <span class="block text-xs text-gray-400 mb-2">{job.period}</span>
                         <p class="text-sm text-gray-600 leading-relaxed">{job.description}</p>
                     </div>
                 ))}
@@ -73,11 +71,9 @@ const { bio_section, education_section, experience_section, skills_section } = d
                 {experience_section.professional.map(job => (
                     <div class="group relative pl-8 border-l border-gray-200 hover:border-black transition duration-300">
                         <span class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-gray-200 rounded-full group-hover:bg-black transition duration-300"></span>
-                        <h4 class="font-serif text-xl mb-1">{job.company}</h4>
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="font-bold text-sm">{job.title}</span>
-                            <span class="text-xs text-gray-400">{job.period}</span>
-                        </div>
+                        <h4 class="font-serif text-xl mb-0.5">{job.company}</h4>
+                        <span class="block font-bold text-sm mb-0.5">{job.title}</span>
+                        <span class="block text-xs text-gray-400 mb-2">{job.period}</span>
                         <p class="text-sm text-gray-600 leading-relaxed">{job.description}</p>
                     </div>
                 ))}
@@ -90,11 +86,9 @@ const { bio_section, education_section, experience_section, skills_section } = d
                 {experience_section.leadership.map(job => (
                     <div class="group relative pl-8 border-l border-gray-200 hover:border-black transition duration-300">
                         <span class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-gray-200 rounded-full group-hover:bg-black transition duration-300"></span>
-                        <h4 class="font-serif text-xl mb-1">{job.company}</h4>
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="font-bold text-sm">{job.title}</span>
-                            <span class="text-xs text-gray-400">{job.period}</span>
-                        </div>
+                        <h4 class="font-serif text-xl mb-0.5">{job.company}</h4>
+                        <span class="block font-bold text-sm mb-0.5">{job.title}</span>
+                        <span class="block text-xs text-gray-400 mb-2">{job.period}</span>
                         <p class="text-sm text-gray-600 leading-relaxed">{job.description}</p>
                     </div>
                 ))}

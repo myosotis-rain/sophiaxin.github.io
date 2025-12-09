@@ -29,13 +29,9 @@ export const getThumbnail = (mediaArray) => {
 
 export const sortProjects = (projects) => {
     return projects.sort((a, b) => {
-        // Helper to extract year numbers from strings like "2024" or "2020-2024"
-        const getYear = (p) => {
-            const yearMeta = p.meta.find(m => m.label === 'Year' || m.label === 'Period');
-            if (!yearMeta) return 0;
-            const matches = yearMeta.value.match(/\d{4}/g);
-            return matches ? Math.max(...matches.map(Number)) : 0;
-        };
-        return getYear(b) - getYear(a); // Descending order
+        // Sort by explicit 'order' property if available
+        const orderA = typeof a.order === 'number' ? a.order : 99;
+        const orderB = typeof b.order === 'number' ? b.order : 99;
+        return orderA - orderB;
     });
 };
