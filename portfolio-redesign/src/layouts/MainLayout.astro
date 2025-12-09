@@ -170,53 +170,59 @@ const pageTitle = title ? `${title} | ${your_name}` : portfolio_title;
                     </nav>
 
                     <!-- Mobile Navigation -->
-                    <nav class="lg:hidden fixed bottom-6 left-6 right-6 z-30">
-                        <div class="bg-white/80 backdrop-blur-md border border-gray-200 rounded-2xl px-6 py-4 shadow-lg">
-                            <ul class="flex justify-around items-center">
-                                <li><a href="/" class={`flex flex-col items-center gap-1 p-3 rounded-xl transition-all touch-manipulation ${Astro.url.pathname === '/' ? 'bg-accent text-white' : 'text-gray-600 hover:bg-gray-100'}`}>
-                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M9.293 2.293a1 1 0 011.414 0l7 7A1 1 0 0117 11h-1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-6H3a1 1 0 01-.707-1.707l7-7z" clip-rule="evenodd" />
-                                    </svg>
-                                    <span class="text-xs font-medium">Work</span>
-                                </a></li>
-                                <li><a href="/about" class={`flex flex-col items-center gap-1 p-3 rounded-xl transition-all touch-manipulation ${Astro.url.pathname.startsWith('/about') ? 'bg-accent text-white' : 'text-gray-600 hover:bg-gray-100'}`}>
-                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
-                                    </svg>
-                                    <span class="text-xs font-medium">About</span>
-                                </a></li>
-                                <li><a href="#contact" class="flex flex-col items-center gap-1 p-3 rounded-xl transition-all touch-manipulation text-gray-600 hover:bg-gray-100">
-                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                                    </svg>
-                                    <span class="text-xs font-medium">Contact</span>
-                                </a></li>
+                    <nav class="lg:hidden fixed bottom-6 left-1/2 transform -translate-x-1/2 z-40">
+                        <div class="bg-paper/95 backdrop-blur-xl border border-accent/20 rounded-full px-6 py-3 shadow-2xl shadow-accent/10">
+                            <ul class="flex items-center gap-4">
+                                <li>
+                                    <a href="/" class={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 touch-manipulation ${Astro.url.pathname === '/' ? 'bg-accent shadow-lg shadow-accent/30' : 'hover:bg-accent/10'}`}>
+                                        <svg class={`w-4 h-4 transition-colors duration-300 ${Astro.url.pathname === '/' ? 'text-white' : 'text-ink'}`} fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M9.293 2.293a1 1 0 011.414 0l7 7A1 1 0 0117 11h-1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-6H3a1 1 0 01-.707-1.707l7-7z" clip-rule="evenodd" />
+                                        </svg>
+                                        <span class={`text-xs font-medium transition-colors duration-300 ${Astro.url.pathname === '/' ? 'text-white' : 'text-ink'}`}>Work</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/about" class={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 touch-manipulation ${Astro.url.pathname.startsWith('/about') ? 'bg-accent shadow-lg shadow-accent/30' : 'hover:bg-accent/10'}`}>
+                                        <svg class={`w-4 h-4 transition-colors duration-300 ${Astro.url.pathname.startsWith('/about') ? 'text-white' : 'text-ink'}`} fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
+                                        </svg>
+                                        <span class={`text-xs font-medium transition-colors duration-300 ${Astro.url.pathname.startsWith('/about') ? 'text-white' : 'text-ink'}`}>About</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#contact" class="flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 touch-manipulation hover:bg-accent/10">
+                                        <svg class="w-4 h-4 transition-colors duration-300 text-ink" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                                        </svg>
+                                        <span class="text-xs font-medium transition-colors duration-300 text-ink">Contact</span>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </nav>
     
                 </header>
     
-                <main class="lg:col-span-9 py-0 pb-24 lg:pb-0 flex flex-col gap-10 md:gap-6 lg:gap-12 z-10">
+                <main class="lg:col-span-9 py-0 pb-24 lg:pb-0 flex flex-col gap-10 md:gap-6 lg:gap-8 z-0">
                     <slot />
     
-                    <section id="contact" class="pt-16 lg:pt-24 border-t border-gray-300">
+                    <section id="contact" class="pt-8 md:pt-12 lg:pt-8 border-t border-gray-300">
                         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
                             <!-- Column 1: Socials -->
                             <div>
-                                <h4 class="text-xs font-medium uppercase tracking-wider text-gray-600 mb-4">Socials</h4>
-                                <ul class="space-y-3">
+                                <h4 class="text-xs font-medium uppercase tracking-wider text-gray-600 mb-2">Socials</h4>
+                                <ul class="space-y-0">
                                     {data.index_page.footer.links.map(link => (
-                                        <li><a href={link.href} target="_blank" class="block text-ink hover:opacity-60 transition text-sm touch-manipulation py-1">{link.label}</a></li>
+                                        <li><a href={link.href} target="_blank" class="block text-ink hover:opacity-60 transition text-sm touch-manipulation py-0.5">{link.label}</a></li>
                                     ))}
                                 </ul>
                             </div>
                             
                             <!-- Column 2: Location -->
                             <div>
-                                <h4 class="text-xs font-medium uppercase tracking-wider text-gray-600 mb-4">Location</h4>
-                                <p class="block text-ink text-sm mb-2">Wellesley, MA</p>
+                                <h4 class="text-xs font-medium uppercase tracking-wider text-gray-600 mb-2">Location</h4>
+                                <p class="block text-ink text-sm mb-1">Wellesley, MA</p>
                                 <p class="block text-ink text-sm flex items-center">
                                     <span class="inline-block w-2 h-2 rounded-full bg-green-700 mr-2"></span>
                                     Available Remote
@@ -225,7 +231,7 @@ const pageTitle = title ? `${title} | ${your_name}` : portfolio_title;
 
                             <!-- Column 3: Copyright -->
                             <div class="sm:col-span-2 md:col-span-1">
-                                <h4 class="text-xs font-medium uppercase tracking-wider text-gray-600 mb-4">Copyright</h4>
+                                <h4 class="text-xs font-medium uppercase tracking-wider text-gray-600 mb-2">Copyright</h4>
                                 <p class="text-sm text-ink">&copy; 2026 {your_name}.</p>
                             </div>
                         </div>

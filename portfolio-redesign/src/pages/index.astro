@@ -50,7 +50,7 @@ const projects = sortProjects(data.individual_projects);
             <article class="project-card group block">
                 
                 {/* MEDIA CONTAINER - Now always a link with Thumbnail */}
-                <a href={`/projects/${project.slug}`} class="block w-full h-[300px] sm:h-[400px] md:h-[550px] overflow-hidden rounded-lg bg-white/50 mb-4 relative shadow-sm border border-white/50 group-hover:shadow-lg transition-all duration-500 touch-manipulation">
+                <a href={`/projects/${project.slug}`} class="block w-full aspect-[16/9] overflow-hidden rounded-lg bg-white/50 mb-4 relative shadow-sm border border-white/50 group-hover:shadow-lg transition-all duration-500 touch-manipulation">
                     <img 
                         src={thumbnailSrc} 
                         alt={project.title} 
