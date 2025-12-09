@@ -697,6 +697,11 @@
       ],
       "sections": [
         {
+          "kind": "status-links",
+          "statusText": "Demo Video Coming Soon",
+          "liveSiteLink": "https://along-two.vercel.app/"
+        },
+        {
           "kind": "paragraphs",
           "title": "Research Goal & Contribution",
           "body": [
