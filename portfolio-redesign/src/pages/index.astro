@@ -8,25 +8,27 @@ const projects = sortProjects(data.individual_projects);
 ---
 
 <MainLayout>
-    <section class="max-w-6xl pt-0 mb-0">
+    <section class="max-w-6xl pt-0 lg:pt-0 mb-6 md:mb-0 lg:mb-0">
         
-        <div class="flex flex-col-reverse md:flex-row gap-12 md:gap-8 items-start">
+        <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
             
-            <div class="flex-1 mt-24">
-                <span class="text-xs uppercase tracking-widest text-gray-600 font-bold block mb-4 font-sans">
+            <div class="flex-1 mt-0 lg:mt-24">
+                <span class="text-xs uppercase tracking-widest text-gray-600 font-bold block mb-2 sm:mb-6 font-sans">
                     {hero_section.eyebrow}
                 </span>
                 
-                <h2 class="font-serif text-4xl leading-[1.15] text-ink font-normal text-balance" set:html={hero_section.lede}>
+                <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl leading-[1.2] sm:leading-[1.15] text-ink font-normal text-balance" set:html={hero_section.lede}>
                 </h2>
                 
             </div>
 
-            <div class="shrink-0 w-[170px] h-[170px] md:w-[230px] md:h-[230px] relative rounded-full overflow-hidden mt-24">
+            <div class="hidden lg:block shrink-0 w-[230px] h-[230px] relative rounded-full overflow-hidden mt-24 shadow-md">
                 <img 
                     src={hero_section.photo.path} 
                     alt={hero_section.photo.description} 
-                    class="w-full h-full object-cover shadow-sm grayscale-0" 
+                    class="w-full h-full object-cover grayscale-0" 
+                    loading="eager"
+                    decoding="async"
                 />
             </div>
 
@@ -48,17 +50,19 @@ const projects = sortProjects(data.individual_projects);
             <article class="project-card group block">
                 
                 {/* MEDIA CONTAINER - Now always a link with Thumbnail */}
-                <a href={`/projects/${project.slug}`} class="block w-full h-[400px] md:h-[550px] overflow-hidden rounded-md bg-white/50 mb-6 relative shadow-sm border border-white/50 group-hover:shadow-md transition-all duration-500">
+                <a href={`/projects/${project.slug}`} class="block w-full h-[300px] sm:h-[400px] md:h-[550px] overflow-hidden rounded-lg bg-white/50 mb-4 relative shadow-sm border border-white/50 group-hover:shadow-lg transition-all duration-500 touch-manipulation">
                     <img 
                         src={thumbnailSrc} 
                         alt={project.title} 
                         class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                        loading="lazy"
+                        decoding="async"
                     />
                     
                     {isVideo && (
                         <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                            <div class="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm group-hover:scale-110 transition-transform duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-ink ml-1">
+                            <div class="w-14 h-14 md:w-16 md:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm group-hover:scale-110 transition-transform duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 md:w-8 md:h-8 text-ink ml-1">
                                     <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
                                 </svg>
                             </div>
@@ -67,13 +71,13 @@ const projects = sortProjects(data.individual_projects);
                 </a>
 
                 {/* TEXT CONTENT */}
-                <a href={`/projects/${project.slug}`} class="flex flex-col gap-4 border-l-2 border-transparent group-hover:border-accent pl-0 group-hover:pl-4 transition-all duration-300">
+                <a href={`/projects/${project.slug}`} class="flex flex-col gap-3 border-l-2 border-transparent group-hover:border-accent pl-0 group-hover:pl-4 transition-all duration-300 touch-manipulation">
                     <div>
-                        <h3 class="font-serif text-3xl mb-1 text-ink">{project.title}</h3>
-                        <p class="text-gray-500 text-sm font-sans">{project.tagline}</p>
+                        <h3 class="font-serif text-2xl md:text-3xl mb-1 text-ink leading-tight">{project.title}</h3>
+                        <p class="text-gray-500 text-sm font-sans leading-relaxed">{project.tagline}</p>
                     </div>
-                    <div class="hidden md:block pt-2 mt-2">
-                        <span class="font-sans border border-gray-300 rounded-full px-4 py-2 text-xs uppercase tracking-wider group-hover:bg-accent group-hover:text-white transition">View Project &nearr;</span>
+                    <div class="pt-2">
+                        <span class="inline-block font-sans border border-gray-300 rounded-full px-4 py-2 text-xs uppercase tracking-wider group-hover:bg-accent group-hover:text-white transition-all touch-manipulation">View Project &nearr;</span>
                     </div>
                 </a>
 
