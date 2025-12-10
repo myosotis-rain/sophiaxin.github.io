@@ -386,6 +386,28 @@ const pageTitle = title ? `${title} | ${your_name}` : portfolio_title;
                         background: rgba(104, 94, 128, 0.5);
                         border-radius: 3px;
                     }
+
+                    /* Responsive scaling for very small screens */
+                    @media (max-width: 480px) {
+                        .scale-content {
+                            transform: scale(0.9);
+                            transform-origin: top left;
+                        }
+                    }
+
+                    @media (max-width: 360px) {
+                        .scale-content {
+                            transform: scale(0.85);
+                            transform-origin: top left;
+                        }
+                    }
+
+                    @media (max-width: 320px) {
+                        .scale-content {
+                            transform: scale(0.8);
+                            transform-origin: top left;
+                        }
+                    }
         
                 </style>    </head>
     <body class="font-sans antialiased">
@@ -571,7 +593,7 @@ const pageTitle = title ? `${title} | ${your_name}` : portfolio_title;
     
                 </header>
     
-                <main class="lg:col-span-9 py-0 pb-24 lg:pb-0 flex flex-col gap-10 md:gap-6 lg:gap-8 relative" style="z-index: 5;">
+                <main class="lg:col-span-9 py-0 pb-24 lg:pb-0 flex flex-col gap-10 md:gap-6 lg:gap-8 relative scale-content" style="z-index: 5;">
                     <slot />
     
                     <section id="contact" class="pt-8 md:pt-12 lg:pt-8 border-t border-gray-300">

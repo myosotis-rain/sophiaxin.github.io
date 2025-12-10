@@ -563,14 +563,28 @@ const alongTechProbeKeywords = [
                                 <div class="text-gray-700 mb-8 max-w-2xl mx-auto leading-relaxed">
                                     {section.body.map(p => <p>{p}</p>)}
                                 </div>
-                                <a 
-                                    href={section.link.url} 
-                                    target="_blank" 
-                                    rel="noopener noreferrer" 
-                                    class="inline-block bg-accent hover:bg-ink text-white font-medium px-8 py-4 rounded-none transition-all hover:shadow-lg hover:-translate-y-0.5"
-                                >
-                                    {section.link.text}
-                                </a>
+                                {project.slug === 'vinetality' ? (
+                                    <a 
+                                        href={section.link.url} 
+                                        target="_blank" 
+                                        rel="noopener noreferrer" 
+                                        class="inline-flex items-center gap-2 bg-accent hover:bg-ink text-white font-medium px-8 py-4 rounded-none transition-all hover:shadow-lg hover:-translate-y-0.5 group"
+                                    >
+                                        {section.link.text}
+                                        <svg class="w-3 h-3 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7h-10M17 7v10" />
+                                        </svg>
+                                    </a>
+                                ) : (
+                                    <a 
+                                        href={section.link.url} 
+                                        target="_blank" 
+                                        rel="noopener noreferrer" 
+                                        class="inline-block bg-accent hover:bg-ink text-white font-medium px-8 py-4 rounded-none transition-all hover:shadow-lg hover:-translate-y-0.5"
+                                    >
+                                        {section.link.text}
+                                    </a>
+                                )}
                             </div>
                         )}
 
