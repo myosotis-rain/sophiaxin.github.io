@@ -408,6 +408,32 @@ const pageTitle = title ? `${title} | ${your_name}` : portfolio_title;
                             transform-origin: top left;
                         }
                     }
+
+                    /* Mobile Navigation - explicit control for actual mobile devices */
+                    .mobile-navigation {
+                        display: block;
+                    }
+
+                    @media (min-width: 1024px) {
+                        .mobile-navigation {
+                            display: none !important;
+                        }
+                    }
+
+                    /* Enhanced mobile support for iOS Safari */
+                    @supports (-webkit-touch-callout: none) {
+                        .mobile-navigation {
+                            display: block !important;
+                            bottom: max(24px, env(safe-area-inset-bottom, 24px));
+                        }
+                    }
+
+                    /* Android support */
+                    @media screen and (max-width: 1023px) {
+                        .mobile-navigation {
+                            display: block !important;
+                        }
+                    }
         
                 </style>    </head>
     <body class="font-sans antialiased">
@@ -559,7 +585,7 @@ const pageTitle = title ? `${title} | ${your_name}` : portfolio_title;
                                 </div>
 
                     <!-- Mobile Navigation -->
-                    <nav class="lg:hidden fixed bottom-6 left-1/2 transform -translate-x-1/2 z-40">
+                    <nav class="mobile-navigation fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
                         <div class="bg-paper/95 backdrop-blur-xl border border-accent/20 rounded-full px-6 py-3 shadow-2xl shadow-accent/10 progressive-blur magnetic">
                             <ul class="flex items-center gap-4">
                                 <li>
