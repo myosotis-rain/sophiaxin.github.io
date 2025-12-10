@@ -409,29 +409,10 @@ const pageTitle = title ? `${title} | ${your_name}` : portfolio_title;
                         }
                     }
 
-                    /* Mobile Navigation - explicit control for actual mobile devices */
-                    .mobile-navigation {
-                        display: block;
-                    }
-
-                    @media (min-width: 1024px) {
-                        .mobile-navigation {
-                            display: none !important;
-                        }
-                    }
-
-                    /* Enhanced mobile support for iOS Safari */
-                    @supports (-webkit-touch-callout: none) {
-                        .mobile-navigation {
-                            display: block !important;
-                            bottom: max(24px, env(safe-area-inset-bottom, 24px));
-                        }
-                    }
-
-                    /* Android support */
-                    @media screen and (max-width: 1023px) {
-                        .mobile-navigation {
-                            display: block !important;
+                    /* Enhanced safe area support for mobile devices */
+                    @supports (padding: max(0px)) {
+                        .mobile-nav-container {
+                            padding-bottom: max(24px, env(safe-area-inset-bottom, 24px));
                         }
                     }
         
@@ -584,41 +565,46 @@ const pageTitle = title ? `${title} | ${your_name}` : portfolio_title;
                                     ))}
                                 </div>
 
-                    <!-- Mobile Navigation -->
-                    <nav class="mobile-navigation fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
-                        <div class="bg-paper/95 backdrop-blur-xl border border-accent/20 rounded-full px-6 py-3 shadow-2xl shadow-accent/10 progressive-blur magnetic">
-                            <ul class="flex items-center gap-4">
-                                <li>
-                                    <a href="/" class={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 touch-manipulation ${Astro.url.pathname === '/' ? 'bg-accent shadow-lg shadow-accent/30' : 'hover:bg-accent/10'}`}>
-                                        <svg class={`w-4 h-4 transition-colors duration-300 ${Astro.url.pathname === '/' ? 'text-white' : 'text-ink'}`} fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M9.293 2.293a1 1 0 011.414 0l7 7A1 1 0 0117 11h-1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-6H3a1 1 0 01-.707-1.707l7-7z" clip-rule="evenodd" />
-                                        </svg>
-                                        <span class={`text-xs font-medium transition-colors duration-300 ${Astro.url.pathname === '/' ? 'text-white' : 'text-ink'}`}>Work</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/about" class={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 touch-manipulation ${Astro.url.pathname.startsWith('/about') ? 'bg-accent shadow-lg shadow-accent/30' : 'hover:bg-accent/10'}`}>
-                                        <svg class={`w-4 h-4 transition-colors duration-300 ${Astro.url.pathname.startsWith('/about') ? 'text-white' : 'text-ink'}`} fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
-                                        </svg>
-                                        <span class={`text-xs font-medium transition-colors duration-300 ${Astro.url.pathname.startsWith('/about') ? 'text-white' : 'text-ink'}`}>About</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#contact" class="flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 touch-manipulation hover:bg-accent/10">
-                                        <svg class="w-4 h-4 transition-colors duration-300 text-ink" fill="currentColor" viewBox="0 0 20 20">
-                                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                                        </svg>
-                                        <span class="text-xs font-medium transition-colors duration-300 text-ink">Contact</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
     
                 </header>
     
+                <!-- Mobile Navigation - moved outside header to avoid overflow issues -->
+                <div class="lg:hidden fixed inset-x-0 bottom-0 z-50 pointer-events-none">
+                    <div class="mobile-nav-container flex justify-center pb-6">
+                        <nav class="pointer-events-auto">
+                            <div class="bg-paper/95 backdrop-blur-xl border border-accent/20 rounded-full px-6 py-3 shadow-2xl shadow-accent/10">
+                                <ul class="flex items-center gap-4">
+                                    <li>
+                                        <a href="/" class={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 touch-manipulation ${Astro.url.pathname === '/' ? 'bg-accent shadow-lg shadow-accent/30' : 'hover:bg-accent/10'}`}>
+                                            <svg class={`w-4 h-4 transition-colors duration-300 ${Astro.url.pathname === '/' ? 'text-white' : 'text-ink'}`} fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M9.293 2.293a1 1 0 011.414 0l7 7A1 1 0 0117 11h-1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-6H3a1 1 0 01-.707-1.707l7-7z" clip-rule="evenodd" />
+                                            </svg>
+                                            <span class={`text-xs font-medium transition-colors duration-300 ${Astro.url.pathname === '/' ? 'text-white' : 'text-ink'}`}>Work</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/about" class={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 touch-manipulation ${Astro.url.pathname.startsWith('/about') ? 'bg-accent shadow-lg shadow-accent/30' : 'hover:bg-accent/10'}`}>
+                                            <svg class={`w-4 h-4 transition-colors duration-300 ${Astro.url.pathname.startsWith('/about') ? 'text-white' : 'text-ink'}`} fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
+                                            </svg>
+                                            <span class={`text-xs font-medium transition-colors duration-300 ${Astro.url.pathname.startsWith('/about') ? 'text-white' : 'text-ink'}`}>About</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#contact" class="flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 touch-manipulation hover:bg-accent/10">
+                                            <svg class="w-4 h-4 transition-colors duration-300 text-ink" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                                            </svg>
+                                            <span class="text-xs font-medium transition-colors duration-300 text-ink">Contact</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+
                 <main class="lg:col-span-9 py-0 pb-24 lg:pb-0 flex flex-col gap-10 md:gap-6 lg:gap-8 relative scale-content" style="z-index: 5;">
                     <slot />
     
