@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Responsiveness Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .test-frame {
+            border: 1px solid #ccc;
+            margin: 20px 0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .device-label {
+            background: #f5f5f5;
+            padding: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .test-urls {
+            background: #fff;
+            padding: 20px;
+        }
+        .url-link {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background: #e9f7ff;
+            text-decoration: none;
+            color: #0066cc;
+            border-radius: 5px;
+        }
+        .checklist {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+        .check-item {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mobile Responsiveness Test - Wellesley Degree Tracker Page</h1>
+    
+    <div class="checklist">
+        <h3>Fixed Mobile Issues:</h3>
+        <div class="check-item">✅ <strong>Container Overflow:</strong> Removed article padding, added selective section padding</div>
+        <div class="check-item">✅ <strong>Table Horizontal Scroll:</strong> Enhanced mobile scrolling with touch support</div>
+        <div class="check-item">✅ <strong>Table Layout:</strong> Better mobile table with edge-to-edge scroll and scroll hints</div>
+        <div class="check-item">✅ <strong>Text Sizing:</strong> Improved responsive font sizes (9px -> 10px -> 12px)</div>
+        <div class="check-item">✅ <strong>Grid Layouts:</strong> Better breakpoint management (1 -> 2 -> 3 cols)</div>
+        <div class="check-item">✅ <strong>Touch Targets:</strong> Added touch-manipulation class throughout</div>
+        <div class="check-item">✅ <strong>Padding Strategy:</strong> Selective padding on sections that need it</div>
+        <div class="check-item">✅ <strong>Table Scrolling:</strong> Added -webkit-overflow-scrolling: touch and visual scroll indicators</div>
+        <div class="check-item">✅ <strong>Navigation:</strong> Improved project navigation layout on mobile</div>
+        
+        <h4 style="margin-top: 20px;">Test These Areas:</h4>
+        <div class="check-item">📱 Header layout adapts to mobile (title, meta grid)</div>
+        <div class="check-item">📱 Tables scroll horizontally without breaking layout</div>
+        <div class="check-item">📱 Gallery grid stacks to single column</div>
+        <div class="check-item">📱 All text is readable without horizontal scrolling</div>
+        <div class="check-item">📱 Touch targets are at least 44px</div>
+    </div>
+
+    <div class="test-frame">
+        <div class="device-label">Test Links</div>
+        <div class="test-urls">
+            <a href="http://localhost:4322/projects/wellesley-degree-tracker" class="url-link" target="_blank">
+                📱 Wellesley Degree Tracker Project Page
+            </a>
+            <a href="http://localhost:4322/" class="url-link" target="_blank">
+                🏠 Homepage (for comparison)
+            </a>
+        </div>
+    </div>
+
+    <div class="checklist">
+        <h3>How to Test:</h3>
+        <p>1. <strong>Desktop:</strong> Open the links above and resize your browser window to mobile width (320px, 375px, 414px)</p>
+        <p>2. <strong>Browser Dev Tools:</strong> Use Chrome/Firefox dev tools to simulate different mobile devices</p>
+        <p>3. <strong>Real Device:</strong> Test on actual mobile devices for best results</p>
+        
+        <h4>Key Mobile Breakpoints:</h4>
+        <ul>
+            <li><strong>320px</strong> - iPhone SE, small phones</li>
+            <li><strong>375px</strong> - iPhone 12/13/14 standard</li>
+            <li><strong>414px</strong> - iPhone Plus/Pro Max</li>
+            <li><strong>768px</strong> - iPad portrait (tablet breakpoint)</li>
+        </ul>
+    </div>
+
+    <div class="checklist">
+        <h3>Quick Mobile Debug:</h3>
+        <p><strong>Current Viewport:</strong> <span id="viewport-size"></span></p>
+        <p><strong>Device Pixel Ratio:</strong> <span id="device-pixel-ratio"></span></p>
+        <p><strong>Touch Support:</strong> <span id="touch-support"></span></p>
+    </div>
+
+    <script>
+        function updateDebugInfo() {
+            document.getElementById('viewport-size').textContent = 
+                `${window.innerWidth}px × ${window.innerHeight}px`;
+            document.getElementById('device-pixel-ratio').textContent = 
+                window.devicePixelRatio || 1;
+            document.getElementById('touch-support').textContent = 
+                'ontouchstart' in window ? 'Yes' : 'No';
+        }
+        
+        updateDebugInfo();
+        window.addEventListener('resize', updateDebugInfo);
+        
+        console.log('Mobile responsiveness test page loaded');
+        console.log('Development server should be running on http://localhost:4322/');
+        console.log('Current viewport:', window.innerWidth, 'x', window.innerHeight);
+    </script>
+</body>
+</html>

@@ -99,24 +99,24 @@ const alongTechProbeKeywords = [
 ---
 
 <MainLayout title={project.title}>
-    <article class="max-w-5xl mx-auto">
+    <article class="w-full max-w-5xl mx-auto px-0 md:px-6 lg:px-0 relative" style="min-width: 0; z-index: 1;">
         
-        <header class="mb-16 border-b border-gray-300 pb-12">
-            <h1 class="font-serif text-4xl md:text-5xl mb-6">{project.title}</h1>
-            <p class="text-xl text-gray-600 font-serif italic mb-8">{project.tagline}</p>
+        <header class="mb-6 md:mb-8 border-b border-gray-300 pb-4 md:pb-6 px-4 md:px-0 pt-8 lg:pt-14">
+            <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl mb-4 md:mb-6 leading-tight">{project.title}</h1>
+            <p class="text-lg sm:text-xl text-gray-600 font-serif italic mb-6 md:mb-8">{project.tagline}</p>
             
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-sm">
                 {project.meta.map(m => (
-                    <div>
+                    <div class="min-w-0">
                         <span class="block text-xs uppercase tracking-widest text-gray-400 font-bold mb-1">{m.label}</span>
-                        <span class="block whitespace-pre-line">{m.value}</span>
+                        <span class="block whitespace-pre-line break-words">{m.value}</span>
                     </div>
                 ))}
             </div>
         </header>
 
         {project.layoutType !== 'art' && (
-            <div class="space-y-12 mb-20">
+            <div class="space-y-12 mb-20 px-4 md:px-0 w-full" style="overflow-x: hidden; min-width: 0;">
                 {project.heroMedia.map(media => {
                     if (media.type === 'interactive-slides') {
                         return (
@@ -168,7 +168,7 @@ const alongTechProbeKeywords = [
 
 
                     return (
-                    <div class="w-full rounded-none overflow-hidden bg-gray-100 shadow-sm relative group">
+                    <div class="w-full max-w-full rounded-none overflow-hidden bg-gray-100 shadow-sm relative group">
                         {media.link && (
                             <a 
                                 href={media.link} 
@@ -184,26 +184,26 @@ const alongTechProbeKeywords = [
                         )}
                         
                         {media.type === 'video' ? (
-                            <div class="aspect-video w-full relative">
+                            <div class="aspect-video w-full max-w-full relative">
                                 <iframe 
                                     src={media.src} 
                                     title={media.alt}
-                                    class="absolute inset-0 w-full h-full" 
+                                    class="absolute inset-0 w-full h-full max-w-full" 
                                     frameborder="0" 
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                     allowfullscreen>
                                 </iframe>
                             </div>
                         ) : (
-                            <img src={media.src} alt={media.alt} class="w-full h-auto" />
+                            <img src={media.src} alt={media.alt} class="w-full h-auto max-w-full" />
                         )}
                     </div>
                 )})}
             </div>
         )}
 
-        <div class="grid md:grid-cols-3 gap-12">
-            <div class={`${project.layoutType === 'art' ? 'md:col-span-3' : 'md:col-span-2'} space-y-12`}>
+        <div class="grid md:grid-cols-3 gap-6 md:gap-12 px-4 md:px-0" style="min-width: 0;">
+            <div class={`${project.layoutType === 'art' ? 'md:col-span-3' : 'md:col-span-2'} space-y-8 md:space-y-12`} style="min-width: 0;">
                 {project.sections.map(section => {
                     // Special Layout for Art: Creative Vision + Mediums
                     if (project.layoutType === 'art' && section.title === 'Creative Vision') {
@@ -261,7 +261,7 @@ const alongTechProbeKeywords = [
 
                                                                 <button 
 
-                                                                    class="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-white/80 hover:bg-white text-gray-800 shadow-lg backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 hover:scale-110 active:scale-95"
+                                                                    class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 p-2 md:p-3 rounded-full bg-white/80 hover:bg-white text-gray-800 shadow-lg backdrop-blur-sm transition-all opacity-50 md:opacity-0 group-hover:opacity-100 focus:opacity-100 hover:scale-110 active:scale-95 touch-manipulation"
 
                                                                     onclick="document.getElementById('pdf-carousel').scrollBy({ left: -document.getElementById('pdf-carousel').offsetWidth, behavior: 'smooth' })"
 
@@ -269,7 +269,7 @@ const alongTechProbeKeywords = [
 
                                                                 >
 
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 
                                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
 
@@ -283,7 +283,7 @@ const alongTechProbeKeywords = [
 
                                                                 <button 
 
-                                                                    class="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-white/80 hover:bg-white text-gray-800 shadow-lg backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 hover:scale-110 active:scale-95"
+                                                                    class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 p-2 md:p-3 rounded-full bg-white/80 hover:bg-white text-gray-800 shadow-lg backdrop-blur-sm transition-all opacity-50 md:opacity-0 group-hover:opacity-100 focus:opacity-100 hover:scale-110 active:scale-95 touch-manipulation"
 
                                                                     onclick="document.getElementById('pdf-carousel').scrollBy({ left: document.getElementById('pdf-carousel').offsetWidth, behavior: 'smooth' })"
 
@@ -291,7 +291,7 @@ const alongTechProbeKeywords = [
 
                                                                 >
 
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 
                                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
 
@@ -339,15 +339,15 @@ const alongTechProbeKeywords = [
 
                                                                     <button 
 
-                                                                        class={`flex-shrink-0 w-64 text-left px-6 py-4 border-r border-gray-100 hover:bg-gray-50 transition-colors focus:outline-none focus:bg-gray-50 group relative snap-start ${index === 0 ? 'bg-gray-100 border-t-4 border-black' : 'border-t-4 border-transparent'}`}
+                                                                        class={`flex-shrink-0 w-28 sm:w-48 md:w-64 text-left px-3 sm:px-6 py-3 sm:py-4 border-r border-gray-100 hover:bg-gray-50 transition-colors focus:outline-none focus:bg-gray-50 group relative snap-start touch-manipulation ${index === 0 ? 'bg-gray-100 border-t-4 border-black' : 'border-t-4 border-transparent'}`}
 
                                                                         onclick={`document.getElementById('slide-page-${slide.number}').scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' }); document.querySelectorAll('#pdf-viewer button').forEach(el => { el.classList.remove('bg-gray-100', 'border-black'); el.classList.add('border-transparent'); }); this.classList.remove('border-transparent'); this.classList.add('bg-gray-100', 'border-black');`}
 
                                                                     >
 
-                                                                        <span class="block text-xs text-gray-400 mb-1">{String(index + 1).padStart(2, '0')}</span>
+                                                                        <span class="block text-[10px] sm:text-xs text-gray-400 mb-1">{String(index + 1).padStart(2, '0')}</span>
 
-                                                                        <span class="block text-sm font-medium text-gray-900 group-hover:text-black truncate">{slide.label}</span>
+                                                                        <span class="block text-xs sm:text-sm font-medium text-gray-900 group-hover:text-black truncate">{slide.label}</span>
 
                                                                     </button>
 
@@ -461,7 +461,7 @@ const alongTechProbeKeywords = [
 
                                         // Standard Section Rendering
                     return (
-                    <div class="scroll-mt-24" id={sectionId}>
+                    <div class="scroll-mt-24" id={sectionId} style="min-width: 0;">
                         {section.title && section.kind !== 'documentation-block' && <h2 class="font-serif text-2xl mb-4 text-ink">{section.title}</h2>}
                         
                         {section.kind === 'paragraphs' && (
@@ -523,10 +523,10 @@ const alongTechProbeKeywords = [
                         )}
 
                         {section.kind === 'gallery' && (
-                            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 w-full">
                                 {section.items.map(img => (
-                                    <div class="space-y-2 cursor-pointer group" onclick={`openLightbox('${img.src}', '${img.alt}')`}>
-                                        <img src={img.src} alt={img.alt} class="w-full h-auto rounded-none shadow-sm group-hover:opacity-90 transition duration-300" />
+                                    <div class="space-y-2 cursor-pointer group touch-manipulation min-w-0" onclick={`openLightbox('${img.src}', '${img.alt}')`}>
+                                        <img src={img.src} alt={img.alt} class="w-full h-auto max-w-full rounded-none shadow-sm group-hover:opacity-90 transition duration-300" style="object-fit: cover;" />
                                         {img.caption && <p class="text-xs text-gray-500 italic">{img.caption}</p>}
                                     </div>
                                 ))}
@@ -534,11 +534,11 @@ const alongTechProbeKeywords = [
                         )}
 
                         {section.kind === 'video' && (
-                            <div class="aspect-video w-full relative bg-gray-100 rounded-none overflow-hidden shadow-sm">
+                            <div class="aspect-video w-full max-w-full relative bg-gray-100 rounded-none overflow-hidden shadow-sm">
                                 {section.src.endsWith('.mp4') || section.src.endsWith('.webm') ? (
                                     <video 
                                         src={section.src} 
-                                        class="absolute inset-0 w-full h-full object-contain" 
+                                        class="absolute inset-0 w-full h-full object-contain max-w-full" 
                                         controls 
                                         muted 
                                         loop 
@@ -548,7 +548,7 @@ const alongTechProbeKeywords = [
                                     <iframe 
                                         src={section.src} 
                                         title={section.title || "Video"}
-                                        class="absolute inset-0 w-full h-full" 
+                                        class="absolute inset-0 w-full h-full max-w-full" 
                                         frameborder="0" 
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                         allowfullscreen>
@@ -577,14 +577,14 @@ const alongTechProbeKeywords = [
                         {section.kind === 'approach-grid' && (
                             <div class="mt-4">
                                 {section.body && (
-                                    <div class="space-y-4 text-gray-700 leading-relaxed mb-8">
+                                    <div class="space-y-4 text-gray-700 leading-relaxed mb-6 md:mb-8">
                                         {section.body.map(p => <p set:html={p}></p>)}
                                     </div>
                                 )}
-                                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
                                     {section.items.map(item => (
                                         <div>
-                                            <h4 class="font-bold text-lg mb-2 text-ink">{item.heading}</h4>
+                                            <h4 class="font-bold text-base md:text-lg mb-2 text-ink">{item.heading}</h4>
                                             <p class="text-gray-600 text-sm leading-relaxed">{item.text}</p>
                                         </div>
                                     ))}
@@ -593,13 +593,12 @@ const alongTechProbeKeywords = [
                         )}
 
                         {section.kind === 'table' && (
-                            <div class="mt-4 mb-8">
-                                <div class="overflow-x-auto shadow-sm rounded-lg border border-gray-200">
-                                    <table class="w-full text-xs text-left text-gray-600">
+                            <div class="mt-4 mb-8 w-full overflow-x-auto" style="-webkit-overflow-scrolling: touch;">
+                                <table class="w-full min-w-full text-xs text-left text-gray-600 border border-gray-200" style="width: 800px;">
                                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 border-b border-gray-200">
                                             <tr>
                                                 {section.headers.map(header => (
-                                                    <th scope="col" class="px-4 py-3 font-bold tracking-wider whitespace-nowrap bg-gray-100/50">
+                                                    <th scope="col" class="px-2 sm:px-3 md:px-4 py-3 font-bold tracking-wider whitespace-nowrap bg-gray-100/50 text-[9px] sm:text-[10px] md:text-xs">
                                                         {header}
                                                     </th>
                                                 ))}
@@ -610,19 +609,19 @@ const alongTechProbeKeywords = [
                                                 <tr class={`border-b border-gray-100 hover:bg-gray-50/50 transition-colors ${rowIndex % 2 === 0 ? 'bg-white' : 'bg-gray-50/30'}`}>
                                                     {row.map((cell, cellIndex) => {
                                                         let cellContent = cell;
-                                                        let cellClass = `px-4 py-3 leading-relaxed ${cellIndex === 0 ? 'font-medium text-gray-900' : ''}`;
+                                                        let cellClass = `px-2 sm:px-3 md:px-4 py-2 md:py-3 leading-relaxed text-[9px] sm:text-[10px] md:text-xs ${cellIndex === 0 ? 'font-medium text-gray-900' : ''}`;
                                                         
                                                         // Color coding logic - ensuring clean replacement
                                                         if (cell.includes('<b>High</b>')) {
-                                                            cellContent = cell.replace('<b>High</b>', '<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-green-100 text-green-800 border border-green-200 mr-1 uppercase tracking-wide">High</span>');
+                                                            cellContent = cell.replace('<b>High</b>', '<span class="inline-flex items-center px-1 md:px-2 py-0.5 rounded-full text-[8px] md:text-[10px] font-medium bg-green-100 text-green-800 border border-green-200 mr-1 uppercase tracking-wide">High</span>');
                                                         } else if (cell.includes('<b>Medium</b>')) {
-                                                            cellContent = cell.replace('<b>Medium</b>', '<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-yellow-100 text-yellow-800 border border-yellow-200 mr-1 uppercase tracking-wide">Medium</span>');
+                                                            cellContent = cell.replace('<b>Medium</b>', '<span class="inline-flex items-center px-1 md:px-2 py-0.5 rounded-full text-[8px] md:text-[10px] font-medium bg-yellow-100 text-yellow-800 border border-yellow-200 mr-1 uppercase tracking-wide">Med</span>');
                                                         } else if (cell.includes('<b>Low</b>')) {
-                                                            cellContent = cell.replace('<b>Low</b>', '<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-red-100 text-red-800 border border-red-200 mr-1 uppercase tracking-wide">Low</span>');
+                                                            cellContent = cell.replace('<b>Low</b>', '<span class="inline-flex items-center px-1 md:px-2 py-0.5 rounded-full text-[8px] md:text-[10px] font-medium bg-red-100 text-red-800 border border-red-200 mr-1 uppercase tracking-wide">Low</span>');
                                                         } else if (cell.includes('<b>Emotional</b>')) {
-                                                            cellContent = cell.replace('<b>Emotional</b>', '<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-purple-100 text-purple-800 border border-purple-200 mr-1 uppercase tracking-wide">Emotional</span>');
+                                                            cellContent = cell.replace('<b>Emotional</b>', '<span class="inline-flex items-center px-1 md:px-2 py-0.5 rounded-full text-[8px] md:text-[10px] font-medium bg-purple-100 text-purple-800 border border-purple-200 mr-1 uppercase tracking-wide">Emot</span>');
                                                         } else if (cell.includes('<b>Intellectual</b>')) {
-                                                            cellContent = cell.replace('<b>Intellectual</b>', '<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-blue-100 text-blue-800 border border-blue-200 mr-1 uppercase tracking-wide">Intellectual</span>');
+                                                            cellContent = cell.replace('<b>Intellectual</b>', '<span class="inline-flex items-center px-1 md:px-2 py-0.5 rounded-full text-[8px] md:text-[10px] font-medium bg-blue-100 text-blue-800 border border-blue-200 mr-1 uppercase tracking-wide">Intl</span>');
                                                         }
                                                         
                                                         // New logic for '48'
@@ -637,8 +636,7 @@ const alongTechProbeKeywords = [
                                                 </tr>
                                             ))}
                                         </tbody>
-                                    </table>
-                                </div>
+                                </table>
                             </div>
                         )}
                     </div>
@@ -647,28 +645,28 @@ const alongTechProbeKeywords = [
 
             {project.layoutType !== 'art' && (
                 <aside class="md:col-span-1">
-                    <div class="sticky top-24 flex flex-col gap-4">
+                    <div class="md:sticky md:top-20 flex flex-col gap-4 z-10">
                         
                         {/* Index / TOC - Collapsible Card */}
                         {project.sections.some(s => s.title && s.title !== "Overview") && (
                             <div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
                                 <details open class="group">
-                                    <summary class="flex items-center justify-between p-4 cursor-pointer select-none bg-gray-50/50 hover:bg-gray-50 transition-colors">
+                                    <summary class="flex items-center justify-between p-3 md:p-4 pr-2 md:pr-3 cursor-pointer select-none bg-gray-50/50 hover:bg-gray-50 transition-colors touch-manipulation">
                                         <span class="text-[10px] uppercase tracking-widest font-bold text-gray-500">On this page</span>
-                                        <span class="text-gray-400 group-open:rotate-180 transition-transform duration-200">
+                                        <span class="text-gray-400 group-open:rotate-180 transition-transform duration-200 mr-1">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                                             </svg>
                                         </span>
                                     </summary>
-                                    <div class="px-4 pb-4 pt-2 border-t border-gray-100 bg-white">
+                                    <div class="px-3 md:px-4 pb-3 md:pb-4 pt-2 border-t border-gray-100 bg-white">
                                         <ul class="space-y-1">
                                             {project.sections.map(section => {
                                                 if (!section.title || section.kind === 'documentation-block') return null;
                                                 const sectionId = section.title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
                                                 return (
                                                     <li>
-                                                        <a href={`#${sectionId}`} class="text-xs text-gray-600 hover:text-indigo-600 transition-colors block py-1.5 pl-2 border-l-2 border-transparent hover:border-indigo-300">
+                                                        <a href={`#${sectionId}`} class="text-xs text-gray-600 hover:text-indigo-600 transition-colors block py-1.5 pl-2 border-l-2 border-transparent hover:border-indigo-300 touch-manipulation">
                                                             {section.title}
                                                         </a>
                                                     </li>
@@ -684,11 +682,11 @@ const alongTechProbeKeywords = [
                         <div class="bg-white border border-gray-200 rounded-lg shadow-sm">
                             
                             {/* Technologies Section */}
-                            <div class="p-5">
+                            <div class="p-4 md:p-5">
                                 <h4 class="text-[10px] uppercase tracking-widest font-bold mb-3 text-gray-400">Technologies</h4>
                                 <div class="flex flex-wrap gap-1.5">
                                     {project.sidebar.technologies.map(tech => (
-                                        <span class="px-2.5 py-1 bg-gray-50 text-[10px] font-medium text-gray-600 rounded-full border border-gray-100 hover:border-gray-200 hover:bg-gray-100 transition-colors cursor-default">
+                                        <span class="px-2 md:px-2.5 py-1 bg-gray-50 text-[9px] md:text-[10px] font-medium text-gray-600 rounded-full border border-gray-100 hover:border-gray-200 hover:bg-gray-100 transition-colors cursor-default">
                                             {tech}
                                         </span>
                                     ))}
@@ -697,7 +695,7 @@ const alongTechProbeKeywords = [
 
                             {/* External Links / Impact Section */}
                             {project.sidebar.extra.length > 0 && (
-                                <div class="border-t border-gray-100 p-5 pt-4">
+                                <div class="border-t border-gray-100 p-4 md:p-5 pt-4">
                                     {project.sidebar.extra.map((ex, index) => (
                                         <div class={index !== 0 ? "mt-4 pt-4 border-t border-gray-100" : ""}>
                                             <h4 class="text-[10px] uppercase tracking-widest font-bold mb-2 text-gray-400 flex items-center gap-1">
@@ -716,21 +714,21 @@ const alongTechProbeKeywords = [
         </div>
 
         {/* Project Navigation */}
-        <section class="border-t border-gray-200 mt-24 pt-12 pb-12">
-            <div class="flex justify-between items-center">
+        <section class="border-t border-gray-200 mt-16 md:mt-24 pt-8 md:pt-12 pb-12 px-4 md:px-0">
+            <div class="flex justify-between items-start md:items-center gap-4">
                 {prevProject ? (
-                    <a href={`/projects/${prevProject.slug}`} class="group text-left">
+                    <a href={`/projects/${prevProject.slug}`} class="group text-left flex-1 touch-manipulation">
                         <span class="block text-xs text-gray-400 uppercase tracking-widest mb-1 group-hover:text-accent transition">&larr; Previous</span>
-                        <span class="font-serif text-lg group-hover:underline">{prevProject.title}</span>
+                        <span class="font-serif text-base md:text-lg group-hover:underline block leading-tight">{prevProject.title}</span>
                     </a>
-                ) : <div></div>}
+                ) : <div class="flex-1"></div>}
                 
                 {nextProject ? (
-                    <a href={`/projects/${nextProject.slug}`} class="group text-right">
+                    <a href={`/projects/${nextProject.slug}`} class="group text-right flex-1 touch-manipulation">
                         <span class="block text-xs text-gray-400 uppercase tracking-widest mb-1 group-hover:text-accent transition">Next &rarr;</span>
-                        <span class="font-serif text-lg group-hover:underline">{nextProject.title}</span>
+                        <span class="font-serif text-base md:text-lg group-hover:underline block leading-tight">{nextProject.title}</span>
                     </a>
-                ) : <div></div>}
+                ) : <div class="flex-1"></div>}
             </div>
         </section>
 

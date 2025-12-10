@@ -672,12 +672,12 @@
       "tagline": "Productivity Companion",
       "meta": [
         {
-          "label": "Team",
-          "value": "Sophia Xin, Wenhan Xue, Maha Yawar Khan"
-        },
-        {
           "label": "Role",
           "value": "Product Designer & Developer, UX Researcher"
+        },
+        {
+          "label": "Team",
+          "value": "Sophia Xin, Wenhan Xue, Maha Yawar Khan"
         },
         {
           "label": "Focus",
